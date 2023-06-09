@@ -1,6 +1,5 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import PostPreview from '../components/PostPreview'
 import { PostMetadata } from '../components/types'
 
 const getPostMetadata = (): PostMetadata[] => {
@@ -25,9 +24,6 @@ const getPostMetadata = (): PostMetadata[] => {
 
 const HomePage = () => {
   const postMetadata = getPostMetadata()
-  const postPreviews = postMetadata.map((post) => (
-    <PostPreview key={post.slug} {...post} />
-  ))
 
   return <div>Hello world!</div>
 }
