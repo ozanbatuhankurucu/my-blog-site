@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Header = () => {
   return (
     <header
@@ -11,24 +13,24 @@ const Header = () => {
         <nav>
           <ul className='flex flex-col space-y-4 md:flex-row md:gap-9 md:space-y-0 md:space-x-4'>
             <li>
-              <a className='subheading-2 text-black' href='#'>
+              <Link className='subheading-2 text-black' href='/'>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className='subheading-2 text-black' href='#'>
+              <Link className='subheading-2 text-black' href='#'>
                 Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a className='subheading-2 text-black' href='#'>
+              <Link className='subheading-2 text-black' href='#'>
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a className='subheading-2 text-black' href='#'>
+              <Link className='subheading-2 text-black' href='/aboutMe'>
                 About Me
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
