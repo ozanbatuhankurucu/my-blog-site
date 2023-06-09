@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face {
+  font-family: GreycliffCF;
+  src: url('/public/fonts/GreycliffCF-Regular.otf');
+}
+
+@font-face {
+  font-family: HaskoyRegular;
+  src: url('/public/fonts/Haskoy-Regular.otf');
+}
+
+:root {
+  --spacing: 0.2rem;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: GreycliffCF;
+  /* background: var(--clr-white); */
+  color: var(--clr-grey-1);
+  line-height: 1.5;
+  font-size: 0.875rem;
+  margin-top: 5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: var(--spacing);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-family: HaskoyRegular;
+}
