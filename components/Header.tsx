@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { RiFileDownloadLine } from 'react-icons/ri'
 
@@ -5,7 +6,7 @@ const Header = () => {
   return (
     <header
       style={{ boxShadow: '4px 6px 13px rgba(215, 215, 215, 0.25)' }}
-      className='bg-light-grey-1  px-[95px]'>
+      className='bg-light-grey-1  px-[95px] sticky top-0 z-50'>
       <div className='text-white py-4 max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center'>
         <div className='flex items-baseline justify-center mb-4 md:mb-0'>
           <span className='text-[#001858] font-semibold text-4xl'>Ozan</span>

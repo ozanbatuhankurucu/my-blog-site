@@ -25,7 +25,7 @@ const getPostMetadata = (): PostMetadata[] => {
 const HomePage = () => {
   const postMetadata = getPostMetadata()
 
-  return <div>Hello world!</div>
+  return <div className='min-h-[1814px]'>Hello world!</div>
 }
 
 export default HomePage
