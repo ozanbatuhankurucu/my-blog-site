@@ -1,5 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
+import { Hero } from '../components/Hero'
 import { PostMetadata } from '../components/types'
 
 const getPostMetadata = (): PostMetadata[] => {
@@ -25,7 +26,13 @@ const getPostMetadata = (): PostMetadata[] => {
 const HomePage = () => {
   const postMetadata = getPostMetadata()
 
-  return <div className='min-h-[1814px]'>Hello world!</div>
+  return (
+    <>
+      <div className='bg-[#EFF0F3] w-full'>
+        <Hero />
+      </div>
+    </>
+  )
 }
 
 export default HomePage

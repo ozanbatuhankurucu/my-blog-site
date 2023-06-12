@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        25: 'repeat(24, minmax(0, 1fr))'
+      }
+    },
     colors: {
       white: '#FFFFFE',
       'light-grey-1': '#EFF0F3',
