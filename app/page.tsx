@@ -28,9 +28,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='bg-[#EFF0F3] w-full'>
-        <Hero />
-      </div>
+      <Hero />
     </>
   )
 }
