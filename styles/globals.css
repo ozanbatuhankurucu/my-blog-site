@@ -4,16 +4,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
 
-@font-face {
-  font-family: GreycliffCF;
-  src: url('/public/fonts/GreycliffCF-Regular.otf');
-}
-
-@font-face {
-  font-family: HaskoyRegular;
-  src: url('/public/fonts/Haskoy-Regular.otf');
-}
-
 :root {
   --white: #FFFFFE;
   --light-grey-1: #EFF0F3;

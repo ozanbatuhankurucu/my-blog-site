@@ -47,7 +47,6 @@ function HeroContent() {
 }
 
 export const Hero = () => {
-  const test = () => {}
   return (
     <>
       <div className='bg-[#EFF0F3] w-full'>
