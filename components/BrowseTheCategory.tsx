@@ -40,16 +40,13 @@ const BrowseTheCategory = () => {
             <div className='subheading-1 text-black '>Browse The Category</div>
             <div className='w-[35px] h-[2px] ml-[10px] bg-black -mb-1'></div>
           </div>
-          <div className='flex gap-3 items-center'>
-            <span className='subheading-2 text-black'>See All Category</span>
-            <MdKeyboardArrowRight className='text-black -mb-1' size={18} />
-          </div>
         </div>
         <div className='flex flex-col items-center gap-9 mt-[50px] hide-scrollbar md:flex-row md:overflow-x-auto'>
           <CategoryCard src='/images/css.svg' text='CSS' />
           <CategoryCard src='/images/JS.svg' text='JavaScript' />
+          <CategoryCard src='/images/tsLogo.svg' text='TypeScript' />
           <CategoryCard src='/images/tailwind.svg' text='Tailwind' />
-          <CategoryCard src='/images/vuejs.svg' text='VueJS' />
+          <CategoryCard src='/images/nextjsLogo.svg' text='NextJS' />
           <CategoryCard src='/images/react.svg' text='ReactJS' />
         </div>
       </div>
