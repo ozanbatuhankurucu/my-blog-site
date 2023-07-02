@@ -4,16 +4,23 @@ import { ArticleCard } from './ArticleCard'
 import DUMMY_ARTICLE_DATA from './dummyData'
 import { SectionTitle } from './SectionTitle'
 import _ from 'lodash'
+import { PostMetadata } from './types'
 
 interface ArticleSectionProps {
   category: string
   sectionTitle: string
+  articles: PostMetadata[]
 }
 export const ArticleSection: FC<ArticleSectionProps> = ({
   category,
-  sectionTitle
+  sectionTitle,
+  articles
 }) => {
-  const filteredArticles = _.chain(DUMMY_ARTICLE_DATA)
+  console.log('%c -----articles----- ', 'background: #FF0000')
+  console.log(articles)
+  console.log('%c -----articles----- ', 'background: #FF0000')
+
+  const filteredArticles = _.chain(articles)
     .filter((item) => item.category === category)
     .orderBy(['date'], ['desc'])
     .value()
@@ -22,13 +29,13 @@ export const ArticleSection: FC<ArticleSectionProps> = ({
     <div className='mt-20'>
       <SectionTitle title={sectionTitle} />
       <div className='flex flex-col items-center gap-4 mt-[30px] py-1 hide-scrollbar md:flex-row md:overflow-x-auto'>
-        {filteredArticles.map(({ category, date, img, title }) => (
+        {filteredArticles.map(({ date, img, title, slug }) => (
           <ArticleCard
             key={title}
-            category={category}
             date={date}
             img={img}
             title={title}
+            slug={slug}
           />
         ))}
       </div>
