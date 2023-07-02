@@ -2,7 +2,7 @@
 import cx from 'classnames'
 import Image from 'next/image'
 import { useState } from 'react'
-import { MdKeyboardArrowRight } from 'react-icons/md'
+import { SectionTitle } from './SectionTitle'
 
 function CategoryCard({ src, text }: { src: string; text: string }) {
   const [isHovered, setIsHovered] = useState(false)
@@ -35,12 +35,7 @@ const BrowseTheCategory = () => {
   return (
     <div className='min-h-[500px]'>
       <div className='max-w-[1250px] mx-auto py-[68px] px-4'>
-        <div className='flex flex-col md:flex-row md:justify-between'>
-          <div className='flex items-center'>
-            <div className='subheading-1 text-black '>Browse The Category</div>
-            <div className='w-[35px] h-[2px] ml-[10px] bg-black -mb-1'></div>
-          </div>
-        </div>
+        <SectionTitle title='Browse The Category' />
         <div className='flex flex-col items-center gap-9 mt-[50px] hide-scrollbar md:flex-row md:overflow-x-auto'>
           <CategoryCard src='/images/css.svg' text='CSS' />
           <CategoryCard src='/images/JS.svg' text='JavaScript' />

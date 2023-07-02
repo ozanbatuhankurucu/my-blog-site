@@ -1,5 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
+import { ArticleSection } from '../components/ArticleSection'
 import { Hero } from '../components/Hero'
 import { PostMetadata } from '../components/types'
 
@@ -29,6 +30,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
+      <ArticleSection category='featured' sectionTitle='Featured Article' />
+      <ArticleSection category='tutorials' sectionTitle='Tutorials' />
     </>
   )
 }

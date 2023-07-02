@@ -48,25 +48,22 @@ function HeroContent() {
 
 export const Hero = () => {
   return (
-    <>
-      <div className='bg-[#EFF0F3] w-full'>
-        <div className='relative min-h-[814px] w-full'>
-          <HeroBgDesign />
-          <HeroContent />
-          <BsChevronDown
-            className='text-black absolute bottom-0 left-1/2 right-1/2 cursor-pointer'
-            size={24}
-            onClick={() => {
-              window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: 'smooth'
-              })
-            }}
-          />
-        </div>
-        <BrowseTheCategory />
+    <div className='bg-[#EFF0F3] w-full'>
+      <div className='relative min-h-[814px] w-full'>
+        <HeroBgDesign />
+        <HeroContent />
+        <BsChevronDown
+          className='text-black absolute bottom-0 left-1/2 right-1/2 cursor-pointer'
+          size={24}
+          onClick={() => {
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: 'smooth'
+            })
+          }}
+        />
       </div>
-      <div className='h-[200px]'></div>
-    </>
+      <BrowseTheCategory />
+    </div>
   )
 }
