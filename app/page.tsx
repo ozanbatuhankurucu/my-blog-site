@@ -30,8 +30,10 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <ArticleSection category='featured' sectionTitle='Featured Article' />
-      <ArticleSection category='tutorials' sectionTitle='Tutorials' />
+      <div className='max-w-[1250px] mx-auto px-4'>
+        <ArticleSection category='featured' sectionTitle='Featured Article' />
+        <ArticleSection category='tutorials' sectionTitle='Tutorials' />
+      </div>
     </>
   )
 }

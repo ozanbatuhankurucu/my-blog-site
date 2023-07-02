@@ -19,7 +19,7 @@ export const ArticleSection: FC<ArticleSectionProps> = ({
     .value()
 
   return (
-    <div className='max-w-[1250px] mx-auto px-4 py-20'>
+    <div className='mt-20'>
       <SectionTitle title={sectionTitle} />
       <div className='flex flex-col items-center gap-4 mt-[30px] py-1 hide-scrollbar md:flex-row md:overflow-x-auto'>
         {filteredArticles.map(({ category, date, img, title }) => (
