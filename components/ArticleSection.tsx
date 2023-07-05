@@ -16,10 +16,6 @@ export const ArticleSection: FC<ArticleSectionProps> = ({
   sectionTitle,
   articles
 }) => {
-  console.log('%c -----articles----- ', 'background: #FF0000')
-  console.log(articles)
-  console.log('%c -----articles----- ', 'background: #FF0000')
-
   const filteredArticles = _.chain(articles)
     .filter((item) => item.category === category)
     .orderBy(['date'], ['desc'])
