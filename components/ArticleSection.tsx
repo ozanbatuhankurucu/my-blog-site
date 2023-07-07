@@ -1,7 +1,6 @@
 'use client'
 import React, { FC } from 'react'
 import { ArticleCard } from './ArticleCard'
-import DUMMY_ARTICLE_DATA from './dummyData'
 import { SectionTitle } from './SectionTitle'
 import _ from 'lodash'
 import { PostMetadata } from './types'
