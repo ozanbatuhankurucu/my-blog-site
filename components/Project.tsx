@@ -27,7 +27,14 @@ const Project: FC<ProjectProps> = ({
   const { projectStatu, statuColor } = getProjectStatuProps(status)
 
   return (
-    <div key={title} className='bg-white rounded-lg shadow-md overflow-hidden'>
+    <div
+      key={title}
+      className='bg-white rounded-lg shadow-md overflow-hidden relative'>
+      <span
+        style={{ backgroundColor: statuColor }}
+        className='text-white px-2 py-1 right-2 top-2 rounded-full absolute font-bold'>
+        {projectStatu}
+      </span>
       <img src={image} alt={title} className='w-full h-48 object-cover' />
       <div className='p-4'>
         <h2 className='text-lg font-bold mb-2'>{title}</h2>
