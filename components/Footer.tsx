@@ -77,7 +77,7 @@ export const Footer = () => {
               ]}
             />
             <FooterList
-              title='Follow Us'
+              title='Follow Me'
               list={[
                 {
                   label: 'Twitter',
