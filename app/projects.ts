@@ -14,69 +14,91 @@ interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Project 1',
-    description: 'This is the first project',
-    githubUrl: 'https://github.com/project1',
-    img: '/images/zafertaki1.png',
-    stack: ['HTML', 'CSS', 'JavaScript'],
+    title: 'Karia Endustri',
+    description:
+      'On the home page of this website, information is given about Karia Endustri Company. In the section of products, the materials that are actively sold are promoted. The reason why Gatsby library was chosen especially for technology stack selection is that it is a static website and does not require frequent data updates.',
+    githubUrl: 'https://github.com/ozanbatuhankurucu/karia',
+    img: '/images/kariaendustri.jpg',
+    stack: ['Gatsby', 'CSS', 'JavaScript', 'AWS Amplify', 'Strapi'],
+    createdAt: '2021-02-03',
+    status: 'completed',
+    updatedAt: '2021-02-03',
+    url: 'https://www.kariaendustri.com/'
+  },
+  {
+    title: 'Expense Tracker',
+    description:
+      'In this project I use hooks (useState, useContext, useReducer) and the context API.',
+    githubUrl:
+      'https://github.com/ozanbatuhankurucu/Expense-Tracker-Using-useContext-and-useReducer-hooks',
+    img: '/images/expensetracker.png',
+    stack: ['React', 'Context API', 'State Management'],
     createdAt: '2022-01-01',
     status: 'completed',
-    updatedAt: '2022-01-01',
-    url: 'https://project1.com',
-    features: ['Feature 1', 'Feature 2'],
-    featuresTitle: 'Key Features'
-  },
-  {
-    title: 'Project 2',
-    description: 'This is the second project',
-    githubUrl: 'https://github.com/project2',
-    img: '/images/zafertaki2.png',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    createdAt: '2022-02-01',
-    status: 'progress',
     updatedAt: '2022-02-01',
-    url: 'https://project2.com',
-    features: ['Feature 1', 'Feature 2', 'Feature 3'],
-    featuresTitle: 'Highlighted Features'
+    url: 'https://master.d5s6ddtgqv0y2.amplifyapp.com/'
   },
   {
-    title: 'Project 3',
-    description: 'This is the third project',
-    githubUrl: 'https://github.com/project3',
-    img: '/images/zafertaki3.png',
-    stack: ['Python', 'Django', 'PostgreSQL'],
-    createdAt: '2022-03-01',
+    title: 'Magic Quadrant',
+    description:
+      'Magic Quadrant is a scatter chart develop by Gartner to visualize major players in a specific market',
+    githubUrl: 'https://github.com/ozanbatuhankurucu/magic-quadrant',
+    img: '/images/magicquadrant.png',
+    stack: ['React', 'TypeScript', 'Styled Components', 'JavaScript'],
+    createdAt: '2022-19-02',
     status: 'completed',
-    updatedAt: '2022-03-01',
-    url: 'https://project3.com',
-    features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'],
-    featuresTitle: 'Main Features'
+    updatedAt: '2022-19-02',
+    url: 'https://master.dsj8aspqo6u80.amplifyapp.com/',
+    features: [
+      'X-axis (Completeness of Vision): represents relative innovation level.',
+      'Y-axis (Ability to Execute): represents relative financial maturity.'
+    ],
+    featuresTitle: 'Features'
   },
   {
-    title: 'Project 4',
-    description: 'This is the fourth project',
-    githubUrl: 'https://github.com/project4',
-    img: '/images/zafertaki4.png',
-    stack: ['Vue.js', 'Firebase'],
-    createdAt: '2022-04-01',
-    status: 'completed',
-    updatedAt: '2022-04-01',
-    url: 'https://project4.com',
-    features: ['Feature 1', 'Feature 2'],
-    featuresTitle: 'Key Features'
-  },
-  {
-    title: 'Project 5',
-    description: 'This is the fifth project',
-    githubUrl: 'https://github.com/project5',
-    img: '/images/zafertaki5.png',
-    stack: ['Angular', 'Express.js', 'MySQL'],
-    createdAt: '2022-05-01',
+    title: 'Small HTML & CSS & JavaScript Projects in React',
+    description:
+      'Small HTML, CSS and JavaScript projects developed by using React, TailwindCSS, StyledComponents, Airbnb config.',
+    githubUrl:
+      'https://github.com/ozanbatuhankurucu/Small-HTML-CSS-JS-Projects',
+    img: '/images/smallhtmlcss.png',
+    stack: [
+      'HTML',
+      'CSS',
+      'JavaScript',
+      'React',
+      'TailwindCSS',
+      'Styled Components',
+      'Airbnb config'
+    ],
+    createdAt: '2022-29-05',
     status: 'progress',
-    updatedAt: '2022-05-01',
-    url: 'https://project5.com',
-    features: ['Feature 1', 'Feature 2', 'Feature 3'],
-    featuresTitle: 'Notable Features'
+    updatedAt: '2022-29-05',
+    url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
+    features: [
+      'Hidden Search Widget',
+      'Blurry Loading',
+      'Scroll Animation',
+      'Split Landing Page',
+      'Form Wave Animation',
+      'Sound Board',
+      'Search Dropdown',
+      'Dad Jokes'
+    ],
+    featuresTitle: 'Projects'
+  },
+  {
+    title: 'React Portfolio with TailwindCSS',
+    description:
+      "This project is a great way to learn all about Tailwind's utility classes, taking a mobile first approach dark/light mode, and more.",
+    githubUrl:
+      'https://github.com/ozanbatuhankurucu/Nextjs-Portfolio-with-TailwindCss',
+    img: '/images/reactportfolio.png',
+    stack: ['TailwindCSS', 'NextJS', 'ReactJS'],
+    createdAt: '2022-02-10',
+    status: 'progress',
+    updatedAt: '2022-02-10',
+    url: 'https://main.d3faia6pj647yk.amplifyapp.com'
   }
 ]
 

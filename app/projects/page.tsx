@@ -4,15 +4,12 @@ import Project from '../../components/Project'
 import { getProjectStatuProps, PROJECTS } from '../projects'
 
 export default function Projects() {
-  const sortedList = _.sortBy(PROJECTS, 'createdAt')
-  console.log('%c -----sortedList----- ', 'background: #FF0000')
-  console.log(sortedList)
-  console.log('%c -----sortedList----- ', 'background: #FF0000')
+  const sortedList = _.orderBy(PROJECTS, ['createdAt'], ['desc'])
 
   return (
-    <section className='max-w-[1250px] mx-auto py-8'>
+    <section className='max-w-[1250px] mx-auto py-16 px-4 md:px-0'>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-        {PROJECTS.map((project) => {
+        {sortedList.map((project) => {
           const { projectStatu, statuColor } = getProjectStatuProps(
             project.status
           )
@@ -28,6 +25,10 @@ export default function Projects() {
               <div className='p-4'>
                 <h2 className='text-lg font-bold mb-2'>{project.title}</h2>
                 <p className='text-gray-600 mb-4'>{project.description}</p>
+                <div className='mb-2'>
+                  <span className='font-semibold'>Created At:</span>{' '}
+                  {project.createdAt}
+                </div>
                 <div className='mb-2'>
                   <span className='font-semibold'>Stack:</span>{' '}
                   {project.stack.join(', ')}
@@ -59,7 +60,7 @@ export default function Projects() {
                     href={project.githubUrl}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-gray-600 hover:text-gray-800'>
+                    className='text-gray-600 hover:underline'>
                     View on GitHub
                   </a>
                 </div>
