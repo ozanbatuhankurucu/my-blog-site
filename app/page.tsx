@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <div className='max-w-[1250px] mx-auto px-4'>
+      <div className='max-w-[1250px] mx-auto px-4 pb-56'>
         {_.map(groupedArticlesByCategory, (articles, key) => (
           <ArticleSection
             category={key}

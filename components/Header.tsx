@@ -3,6 +3,7 @@ import cx from 'classnames'
 import Link from 'next/link'
 import { useState } from 'react'
 import { RiCloseLine, RiFileDownloadLine, RiMenuLine } from 'react-icons/ri'
+import { Logo } from './Logo'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -16,10 +17,7 @@ const Header = () => {
       style={{ boxShadow: '4px 6px 13px rgba(215, 215, 215, 0.25)' }}
       className='bg-light-grey-1 sticky top-0 z-50'>
       <div className='text-white py-4 max-w-[1250px] mx-auto flex flex-col px-4 justify-between items-center md:flex-row xl:px-0'>
-        <div className='items-baseline justify-center mb-4 hidden md:flex md:mb-0 '>
-          <span className='text-[#001858] font-semibold text-4xl'>Ozan</span>
-          <span className='text-blue text-lg font-bold'>.Blog</span>
-        </div>
+        <Logo />
         <div className='ml-auto md:hidden'>
           <button className='text-blue' onClick={toggleMenu}>
             {isMenuOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
@@ -36,11 +34,6 @@ const Header = () => {
             <li>
               <Link className='subheading-2 text-black' href='#'>
                 Projects
-              </Link>
-            </li>
-            <li>
-              <Link className='subheading-2 text-black' href='#'>
-                Blog
               </Link>
             </li>
             <li>
