@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   title: string
   description: string
   githubUrl: string
@@ -20,9 +20,9 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/ozanbatuhankurucu/karia',
     img: '/images/kariaendustri.jpg',
     stack: ['Gatsby', 'CSS', 'JavaScript', 'AWS Amplify', 'Strapi'],
-    createdAt: '2021-02-03',
+    createdAt: '2021-03-02',
     status: 'completed',
-    updatedAt: '2021-02-03',
+    updatedAt: '2021-03-02',
     url: 'https://www.kariaendustri.com/'
   },
   {
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     stack: ['React', 'Context API', 'State Management'],
     createdAt: '2022-01-01',
     status: 'completed',
-    updatedAt: '2022-02-01',
+    updatedAt: '2022-01-01',
     url: 'https://master.d5s6ddtgqv0y2.amplifyapp.com/'
   },
   {
@@ -45,9 +45,9 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/ozanbatuhankurucu/magic-quadrant',
     img: '/images/magicquadrant.png',
     stack: ['React', 'TypeScript', 'Styled Components', 'JavaScript'],
-    createdAt: '2022-19-02',
+    createdAt: '2022-02-19',
     status: 'completed',
-    updatedAt: '2022-19-02',
+    updatedAt: '2022-02-19',
     url: 'https://master.dsj8aspqo6u80.amplifyapp.com/',
     features: [
       'X-axis (Completeness of Vision): represents relative innovation level.',
@@ -71,9 +71,9 @@ export const PROJECTS: Project[] = [
       'Styled Components',
       'Airbnb config'
     ],
-    createdAt: '2022-29-05',
+    createdAt: '2022-05-29',
     status: 'progress',
-    updatedAt: '2022-29-05',
+    updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
       'Hidden Search Widget',
@@ -95,9 +95,9 @@ export const PROJECTS: Project[] = [
       'https://github.com/ozanbatuhankurucu/Nextjs-Portfolio-with-TailwindCss',
     img: '/images/reactportfolio.png',
     stack: ['TailwindCSS', 'NextJS', 'ReactJS'],
-    createdAt: '2022-02-10',
-    status: 'progress',
-    updatedAt: '2022-02-10',
+    createdAt: '2022-10-02',
+    status: 'completed',
+    updatedAt: '2022-10-02',
     url: 'https://main.d3faia6pj647yk.amplifyapp.com'
   }
 ]
