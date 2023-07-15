@@ -67,10 +67,12 @@ export const Footer = () => {
               title='Get In Touch'
               list={[
                 {
-                  label: '+90-536-561-21-46'
+                  label: '+90-536-561-21-46',
+                  target: '_blank'
                 },
                 {
-                  label: 'ozanbatuhankurucu@gmail.com'
+                  label: 'ozanbatuhankurucu@gmail.com',
+                  target: '_blank'
                 }
               ]}
             />
@@ -79,15 +81,18 @@ export const Footer = () => {
               list={[
                 {
                   label: 'Twitter',
-                  link: 'https://twitter.com/ozankurucu_'
+                  link: 'https://twitter.com/ozankurucu_',
+                  target: '_blank'
                 },
                 {
                   label: 'Instagram',
-                  link: 'https://www.instagram.com/ozanbkurucu_/'
+                  link: 'https://www.instagram.com/ozanbkurucu_/',
+                  target: '_blank'
                 },
                 {
                   label: 'LinkedIn',
-                  link: 'https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/'
+                  link: 'https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/',
+                  target: '_blank'
                 }
               ]}
             />
