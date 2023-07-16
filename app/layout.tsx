@@ -1,7 +1,7 @@
+import { Metadata } from 'next'
 import { Footer } from '../components/Footer'
 import Header from '../components/Header'
 import '../styles/globals.css'
-import Head from './head'
 
 export default function RootLayout({
   children
@@ -10,7 +10,6 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <Head />
       <body>
         <div>
           <Header />
