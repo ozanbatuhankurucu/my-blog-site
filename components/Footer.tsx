@@ -67,10 +67,6 @@ export const Footer = () => {
               title='Get In Touch'
               list={[
                 {
-                  label: '+90-536-561-21-46',
-                  target: '_blank'
-                },
-                {
                   label: 'ozanbatuhankurucu@gmail.com',
                   target: '_blank'
                 }
