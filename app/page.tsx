@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { ArticleSection } from '../components/ArticleSection'
 import { Hero } from '../components/Hero'
 import { getPostMetadata } from '../components/utils'
+import Head from './head'
 
 export const metadata: Metadata = {
   title: 'Ozan Batuhan Kurucu - Blog',
@@ -28,6 +29,7 @@ const HomePage = () => {
 
   return (
     <>
+      <Head />
       <Hero />
       <div className='max-w-[1250px] mx-auto px-4 pb-56'>
         {_.map(groupedArticlesByCategory, (articles, key) => (
