@@ -3,6 +3,7 @@ import Markdown from 'markdown-to-jsx'
 import matter from 'gray-matter'
 import { getPostMetadata } from '../../../components/utils'
 import moment from 'moment'
+import { Metadata } from 'next'
 
 const getPostContent = (slug: string) => {
   const folder = 'posts/'
@@ -19,9 +20,38 @@ export const generateStaticParams = async () => {
   }))
 }
 
-const PostPage = (props: any) => {
-  const slug = props.params.slug
+type Props = {
+  params: { slug: string }
+}
+
+export const generateMetadata = ({ params }: Props): Metadata => {
+  const slug = params.slug
   const post = getPostContent(slug)
+  const { title, date, img, category, description } = post.data
+
+  return {
+    title,
+    openGraph: {
+      title,
+      // description: 'Welcome to the blog of Ozan Batuhan Kurucu',
+      url: `https://www.ozanbatuhankurucu.com/posts/${slug}`,
+      type: 'article',
+      siteName: 'Ozan Batuhan Kurucu Blog',
+      images: {
+        url: `https://www.ozanbatuhankurucu.com${img}`,
+        width: 1200, // Specify the width of the image in pixels
+        height: 630, // Specify the height of the image in pixels
+        alt: `${title} Image` // Optional alt text for the image
+      }
+    }
+    // description
+  }
+}
+
+const PostPage = ({ params }: Props) => {
+  const slug = params.slug
+  const post = getPostContent(slug)
+
   return (
     <section className='blog-template'>
       <div className='w-[90vw] max-w-[1250px] my-0 mx-auto'>
