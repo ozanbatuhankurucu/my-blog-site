@@ -3,6 +3,7 @@ title: 'How do I improve myself on my learning English journey?'
 date: '2022-01-16'
 img: '/images/howdoimprove.jpeg'
 category: 'Self-improvement'
+description: 'Discover effective strategies to improve your English language skills in this insightful article. Explore practical tips for enhancing your speaking, listening, writing, and reading abilities. From private lessons and vocabulary expansion to watching tutorials and utilizing language learning apps, find a wealth of suggestions to boost your English proficiency. Learn about the benefits of note-taking, blog writing, and using educational resources like the Cambridge Grammar books. Additionally, explore helpful resources such as online articles and the daily.dev Chrome extension to further enhance your English learning journey.'
 ---
 
 In this article, I tell about my journey of learning the English language. We will consider four main topics here, these are;

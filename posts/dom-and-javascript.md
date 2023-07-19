@@ -3,6 +3,7 @@ title: 'DOM and JavaScript'
 date: '2023-01-23'
 img: '/images/htmldom.webp'
 category: 'HTML'
+description: 'Learn how JavaScript leverages the Document Object Model (DOM) to manipulate HTML and XML documents, making web pages dynamic and interactive. Explore the hierarchical structure of the DOM, its methods and properties, and discover how JavaScript can create, modify, and remove elements, as well as handle user interactions. Find out how the DOM bridges the static structure of web documents with the dynamic capabilities of JavaScript, enabling the development of engaging web experiences.'
 ---
 
 ### DOM and JavaScript

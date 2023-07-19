@@ -27,13 +27,14 @@ type Props = {
 export const generateMetadata = ({ params }: Props): Metadata => {
   const slug = params.slug
   const post = getPostContent(slug)
-  const { title, date, img, category, description } = post.data
+  const { title, img, description } = post.data
 
   return {
     title,
+    description,
     openGraph: {
       title,
-      // description: 'Welcome to the blog of Ozan Batuhan Kurucu',
+      description: description,
       url: `https://www.ozanbatuhankurucu.com/posts/${slug}`,
       type: 'article',
       siteName: 'Ozan Batuhan Kurucu Blog',
@@ -44,7 +45,6 @@ export const generateMetadata = ({ params }: Props): Metadata => {
         alt: `${title} Image` // Optional alt text for the image
       }
     }
-    // description
   }
 }
 
