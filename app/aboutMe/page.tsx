@@ -15,7 +15,7 @@ export default function AboutMe() {
         </div>
         <div className=''>
           <h1 className='text-[2.625rem] text-black font-bold'>
-            I m Ozan Kurucu
+            I'm Ozan Kurucu
           </h1>
           <p className='paragraph-2 text-black mt-6'>
             Ozan is a committed Software Engineer with a specialized interest in

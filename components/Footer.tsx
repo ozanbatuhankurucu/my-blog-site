@@ -34,6 +34,10 @@ export const Footer = () => {
               title='Category'
               list={[
                 {
+                  label: 'HTML'
+                },
+                { label: 'Self-improvement' },
+                {
                   label: 'CSS'
                 },
                 {
