@@ -1,17 +1,17 @@
 ---
-title: 'What is Webpack used for and what are the benefits of bundling?'
-date: '2021-12-20'
-img: '/images/webpackusedfor.png'
-category: 'JavaScript'
-description: 'Explore the purpose of Webpack and the benefits of bundling in this informative article. Webpack, a module bundler, consolidates various files (such as JS, CSS, JSX, LESS, PNG) into a single file. Bundling offers two key advantages: modularity and network performance.
+title: "What is Webpack used for and what are the benefits of bundling?"
+date: "2021-12-20"
+img: "/images/webpackusedfor.png"
+category: "JavaScript"
+description: "Explore the purpose of Webpack and the benefits of bundling in this informative article. Webpack, a module bundler, consolidates various files (such as JS, CSS, JSX, LESS, PNG) into a single file. Bundling offers two key advantages: modularity and network performance.
 
 Modularity enables breaking down source code into modules, enhancing collaboration among team members. Bundling all files into one bundle optimizes network performance by reducing the number of HTTP requests and minimizing latency penalties associated with each request.
 
 Beyond bundling, Webpack provides additional features such as code splitting, minification, hot module replacement, speed optimization, modularity support, composition of reusable components, feature flagging, and compatibility with the latest JavaScript features through Babel ESNext syntax.
 
-Access valuable resources, including books like "Learning React, 2nd Edition," the official Webpack website, and an introductory article, to further enhance your understanding of Webpack and leverage its capabilities.
+Access valuable resources, including books like \"Learning React, 2nd Edition,\" the official Webpack website, and an introductory article, to further enhance your understanding of Webpack and leverage its capabilities.
 
-Discover the power of Webpack for efficient module bundling and enjoy the benefits of improved performance, modularity, and code organization in your JavaScript projects.'
+Discover the power of Webpack for efficient module bundling and enjoy the benefits of improved performance, modularity, and code organization in your JavaScript projects."
 ---
 
 Webpack is a module bundler. Its task is to take all our different files (JS, CSS, JSX, LESS, PNG and more) and turn them into a single file. Packaging has two important benefits. These are modularity and network performance.

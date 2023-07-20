@@ -1,9 +1,9 @@
 ---
-title: 'What means pass-by-value in JavaScript?'
-date: '2022-01-10'
-img: '/images/carbon1.png'
-category: 'JavaScript'
-description: 'Discover the concept of pass-by-value in JavaScript through this insightful article. Learn how primitive variables are passed with values, while objects behave differently due to shared references. Gain clarity on the implications of this behavior when modifying objects and understand the importance of considering it in programming. Explore code examples that illustrate pass-by-value for primitives and shared references for objects. Additionally, find helpful resources for further exploration of JavaScript's pass-by-value behavior. Deepen your understanding of pass-by-value in JavaScript and its impact on variable assignments and object modifications.'
+title: "What means pass-by-value in JavaScript?"
+date: "2022-01-10"
+img: "/images/carbon1.png"
+category: "JavaScript"
+description: "Discover the concept of pass-by-value in JavaScript through this insightful article. Learn how primitive variables are passed with values, while objects behave differently due to shared references. Gain clarity on the implications of this behavior when modifying objects and understand the importance of considering it in programming. Explore code examples that illustrate pass-by-value for primitives and shared references for objects. Additionally, find helpful resources for further exploration of JavaScript's pass-by-value behavior. Deepen your understanding of pass-by-value in JavaScript and its impact on variable assignments and object modifications."
 ---
 
 JavaScript is always pass-by-value. It is obvious to see that primitive variables are passed with values.

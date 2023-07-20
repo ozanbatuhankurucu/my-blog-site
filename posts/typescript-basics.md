@@ -1,9 +1,9 @@
 ---
-title: 'TypeScript Basics'
-date: '2022-01-29'
-img: '/images/typescriptLogo.png'
-category: 'TypeScript'
-description: 'Learn the basics of TypeScript in this comprehensive article. TypeScript, a superset of JavaScript, introduces additional syntax and type support. Discover the TypeScript compilation process, where TypeScript code is compiled into plain JavaScript for deployment in any JavaScript environment. Explore basic types such as number, string, boolean, and any, along with arrays, tuples, unions, and enums. Dive into interfaces and classes, understanding data modifiers and inheritance. Gain insights into generics, function interfaces, and TypeScript integration with React. Access helpful resources, including GitHub source code, video tutorials, and informative articles, to further expand your knowledge of TypeScript.'
+title: "TypeScript Basics"
+date: "2022-01-29"
+img: "/images/typescriptLogo.png"
+category: "TypeScript"
+description: "Learn the basics of TypeScript in this comprehensive article. TypeScript, a superset of JavaScript, introduces additional syntax and type support. Discover the TypeScript compilation process, where TypeScript code is compiled into plain JavaScript for deployment in any JavaScript environment. Explore basic types such as number, string, boolean, and any, along with arrays, tuples, unions, and enums. Dive into interfaces and classes, understanding data modifiers and inheritance. Gain insights into generics, function interfaces, and TypeScript integration with React. Access helpful resources, including GitHub source code, video tutorials, and informative articles, to further expand your knowledge of TypeScript."
 ---
 
 ### Brief Introduction
