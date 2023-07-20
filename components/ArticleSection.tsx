@@ -8,7 +8,7 @@ import { PostMetadata } from './types'
 interface ArticleSectionProps {
   category: string
   sectionTitle: string
-  articles: PostMetadata[]
+  articles: PostMetadata[] | undefined
 }
 export const ArticleSection: FC<ArticleSectionProps> = ({
   category,
