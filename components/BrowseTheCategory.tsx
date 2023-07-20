@@ -37,13 +37,13 @@ const BrowseTheCategory = () => {
       <div className='max-w-[1250px] mx-auto py-[68px] px-4'>
         <SectionTitle title='Browse The Category' />
         <div className='flex flex-col items-center gap-9 mt-[50px] hide-scrollbar md:flex-row md:overflow-x-auto'>
-          <CategoryCard src='css.svg' text='CSS' />
+          <CategoryCard src='nextjsLogo.svg' text='NextJS' />
+          <CategoryCard src='tsLogo.svg' text='TypeScript' />
           <CategoryCard src='puzzle.svg' text='Self-improvement' />
+          <CategoryCard src='tailwind.svg' text='Tailwind' />
+          <CategoryCard src='css.svg' text='CSS' />
           <CategoryCard src='html.svg' text='HTML' />
           <CategoryCard src='JS.svg' text='JavaScript' />
-          <CategoryCard src='tsLogo.svg' text='TypeScript' />
-          <CategoryCard src='tailwind.svg' text='Tailwind' />
-          <CategoryCard src='nextjsLogo.svg' text='NextJS' />
           <CategoryCard src='react.svg' text='ReactJS' />
         </div>
       </div>
