@@ -36,7 +36,7 @@ function changeText() {
 
 ```
 
-In this example, the JavaScript function changeText() is called when the button is clicked. The function uses the DOM method getElementById() to find the element with the ID "myHeading" (which is the <h1> element), and then changes the innerHTML property of that element to "Hello DOM". As a result, when the button is clicked, the text of the heading changes from "Hello World" to "Hello DOM".
+In this example, the JavaScript function changeText() is called when the button is clicked. The function uses the DOM method getElementById() to find the element with the ID "myHeading" (which is the `<h1>` element), and then changes the innerHTML property of that element to "Hello DOM". As a result, when the button is clicked, the text of the heading changes from "Hello World" to "Hello DOM".
 
 This is just a simple example, the DOM provides many more methods and properties to interact with the elements, such as:
 
