@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { LuTwitter } from 'react-icons/lu'
 import { IoLogoInstagram } from 'react-icons/io'
@@ -7,6 +8,17 @@ import { FooterList } from './FooterList'
 import Link from 'next/link'
 
 export const Footer = () => {
+  const handleCategoryOnClick = (elementId: string) => {
+    const categoryTitleElement = document.getElementById(elementId)
+    if (categoryTitleElement) {
+      const scrollOffset = categoryTitleElement.offsetTop - 90
+      window.scrollTo({
+        top: scrollOffset,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <div className='mt-4 bg-light-grey-1'>
       <div className='max-w-[1250px] mx-auto px-4 pt-[70px] pb-[26px]'>
@@ -34,23 +46,30 @@ export const Footer = () => {
               title='Category'
               list={[
                 {
-                  label: 'HTML'
+                  label: 'HTML',
+                  onClick: () => handleCategoryOnClick('HTML')
                 },
-                { label: 'Self-improvement' },
+                {
+                  label: 'Self-improvement',
+                  onClick: () => handleCategoryOnClick('Self-improvement')
+                },
                 {
                   label: 'CSS'
                 },
                 {
-                  label: 'JavaScript'
+                  label: 'JavaScript',
+                  onClick: () => handleCategoryOnClick('JavaScript')
                 },
                 {
                   label: 'TailwindCSS'
                 },
                 {
-                  label: 'TypeScript'
+                  label: 'TypeScript',
+                  onClick: () => handleCategoryOnClick('TypeScript')
                 },
                 {
-                  label: 'NextJS'
+                  label: 'NextJS',
+                  onClick: () => handleCategoryOnClick('NextJS')
                 },
                 { label: 'ReactJS' }
               ]}

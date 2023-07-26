@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import React, { FC, HTMLAttributeAnchorTarget } from 'react'
 import cx from 'classnames'
@@ -5,7 +6,12 @@ import cx from 'classnames'
 interface FooterListProps {
   containerClassName?: string
   title: string
-  list: { label: string; link?: string; target?: HTMLAttributeAnchorTarget }[]
+  list: {
+    label: string
+    link?: string
+    target?: HTMLAttributeAnchorTarget
+    onClick?: React.MouseEventHandler<HTMLDivElement>
+  }[]
 }
 
 export const FooterList: FC<FooterListProps> = ({
@@ -17,7 +23,7 @@ export const FooterList: FC<FooterListProps> = ({
     <div className={cx('flex flex-col', containerClassName)}>
       <div className='text-xl text-black font-bold uppercase'>{title}</div>
       <div className='flex flex-col gap-5 mt-6'>
-        {list.map(({ label, link, target }) => {
+        {list.map(({ label, link, target, onClick }) => {
           if (link) {
             return (
               <Link className='paragraph-2' href={link} target={target}>
@@ -25,7 +31,15 @@ export const FooterList: FC<FooterListProps> = ({
               </Link>
             )
           }
-          return <div className='paragraph-2'>{label}</div>
+          return (
+            <div
+              className={cx('paragraph-2', {
+                'cursor-pointer': onClick
+              })}
+              onClick={onClick}>
+              {label}
+            </div>
+          )
         })}
       </div>
     </div>
