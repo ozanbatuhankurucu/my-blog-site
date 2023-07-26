@@ -65,7 +65,7 @@ Getting Started with Next.js
 To start using Next.js, you can create a new project by running the following command:
 
 ```
-npx create-next-app my-next-app
+npx create-next-app@latest
 ```
 
 This command sets up a new Next.js project with a basic folder structure and configuration.
