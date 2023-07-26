@@ -92,9 +92,14 @@ Blog Template
   min-height: calc(100vh - 5rem - 9rem);
 }
 
-.blog-template h1,
-.blog-template h2 {
+.blog-template h1 {
   text-align: center;
+}
+
+.blog-template h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.6rem;
 }
 
 .blog-template h3 {
@@ -109,9 +114,13 @@ Blog Template
 }
 
 .blog-template ul li {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: 0.5rem 0;
   margin-left: 1rem;
+}
+
+.blog-template ul li a {
+  text-decoration: underline;
 }
 
 .blog-template blockquote {
@@ -143,7 +152,7 @@ Blog Template
 }
 
 .blog-template p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin-top: 1.6rem;
   margin-bottom: 0;
 }
@@ -168,7 +177,7 @@ Blog Template
 
 @media screen and (min-width: 576px) {
   .blog-template img {
-    width: 60% !important;
-    height: 30vh !important;
+    width: 600px !important;
+    height: auto !important;
   }
 }
