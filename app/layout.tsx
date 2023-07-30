@@ -2,6 +2,7 @@ import { Footer } from '../components/Footer'
 import Header from '../components/Header'
 import '../styles/globals.css'
 import GoogleAnalytics from '../components/GoogleAnalytics'
+import Script from 'next/script'
 
 export default function RootLayout({
   children
@@ -14,6 +15,12 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
+        <Script
+          id='adsbygoogle-init'
+          strategy='afterInteractive'
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
+          async
+        />
         <div>
           <Header />
           {children}
