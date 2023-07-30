@@ -71,7 +71,10 @@ export const Footer = () => {
                   label: 'NextJS',
                   onClick: () => handleCategoryOnClick('NextJS')
                 },
-                { label: 'ReactJS' }
+                {
+                  label: 'ReactJS',
+                  onClick: () => handleCategoryOnClick('ReactJS')
+                }
               ]}
             />
             <FooterList
