@@ -3,7 +3,6 @@ import Header from '../components/Header'
 import '../styles/globals.css'
 import GoogleAnalytics from '../components/GoogleAnalytics'
 import Script from 'next/script'
-import Head from 'next/head'
 
 export default function RootLayout({
   children
@@ -12,6 +11,9 @@ export default function RootLayout({
 }) {
   return (
     <html>
+      <head>
+        <link rel='icon' href='/favicon.ico' />
+      </head>
       <body>
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
