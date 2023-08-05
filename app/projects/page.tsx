@@ -1,12 +1,12 @@
 import _ from 'lodash'
+import { Metadata } from 'next'
 import React from 'react'
 import Project from '../../components/Project'
-import {
-  getProjectStatuProps,
-  Project as ProjectType,
-  PROJECTS,
-  PROJECT_STATUS
-} from '../projects'
+import { Project as ProjectType, PROJECTS, PROJECT_STATUS } from '../projects'
+
+export const metadata: Metadata = {
+  title: 'Ozan Batuhan Kurucu - Projects'
+}
 
 export default function Projects() {
   const sortedList = _.orderBy(PROJECTS, ['createdAt'], ['desc'])

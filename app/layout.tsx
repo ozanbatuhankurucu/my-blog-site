@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import '../styles/globals.css'
 import GoogleAnalytics from '../components/GoogleAnalytics'
 import Script from 'next/script'
+import Head from 'next/head'
 
 export default function RootLayout({
   children
