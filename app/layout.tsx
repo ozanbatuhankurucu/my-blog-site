@@ -4,6 +4,8 @@ import '../styles/globals.css'
 import GoogleAnalytics from '../components/GoogleAnalytics'
 import Script from 'next/script'
 
+const GOOGLE_ADS_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID
+
 export default function RootLayout({
   children
 }: {
@@ -21,9 +23,21 @@ export default function RootLayout({
         <Script
           id='adsbygoogle-init'
           strategy='afterInteractive'
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}`}
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}
           async
         />
+        <Script strategy='afterInteractive'>
+          {`
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        `}
+        </Script>
+        <ins
+          className='adsbygoogle'
+          style={{ display: 'block' }}
+          data-ad-client={GOOGLE_ADS_CLIENT_ID}
+          data-ad-slot='9883750649'
+          data-ad-format='auto'
+          data-full-width-responsive='true'></ins>
         <div>
           <Header />
           {children}
