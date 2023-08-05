@@ -26,18 +26,14 @@ export default function RootLayout({
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}
           async
         />
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}></Script>
         <Script strategy='afterInteractive'>
           {`
           (adsbygoogle = window.adsbygoogle || []).push({});
         `}
         </Script>
-        <ins
-          className='adsbygoogle'
-          style={{ display: 'block' }}
-          data-ad-client={GOOGLE_ADS_CLIENT_ID}
-          data-ad-slot='9883750649'
-          data-ad-format='auto'
-          data-full-width-responsive='true'></ins>
         <div>
           <Header />
           {children}
