@@ -4,6 +4,12 @@ import matter from 'gray-matter'
 import { getPostMetadata } from '../../../components/utils'
 import moment from 'moment'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+
+// Use dynamic import to render the component on the client side
+const DynamicPreBlock = dynamic(() => import('../../../components/PreBlock'), {
+  ssr: false // Set ssr to false to render on the client side only
+})
 
 const getPostContent = (slug: string) => {
   const folder = 'posts/'
@@ -64,7 +70,14 @@ const PostPage = ({ params }: Props) => {
           </h2>
         </div>
         <article>
-          <Markdown>{post.content}</Markdown>
+          <Markdown
+            options={{
+              overrides: {
+                pre: DynamicPreBlock
+              }
+            }}>
+            {post.content}
+          </Markdown>
         </article>
       </div>
     </section>
