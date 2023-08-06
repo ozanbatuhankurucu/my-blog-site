@@ -2,7 +2,7 @@
 title: "Why is Babel important for JSX?"
 date: "2022-12-12"
 img: "/images/carbon.png"
-category: "Featured Article"
+category: "ReactJS"
 description: "Discover the importance of Babel in handling JSX syntax in this insightful article. JSX, a JavaScript extension used in React, allows developers to define React elements using tag-based syntax within JavaScript code. However, JSX cannot be directly interpreted by browsers. This is where Babel, a JavaScript compiler, comes into play.
 
 Babel serves the purpose of converting JSX syntax into compatible JavaScript code, making it interpretable by browsers. As JavaScript is an interpreted language and browsers have varying support for the latest JavaScript features and JSX syntax, Babel bridges the gap by transforming the source code to ensure compatibility across different environments. The compilation process carried out by Babel enables developers to leverage JSX syntax and utilize the latest JavaScript features.

@@ -1,9 +1,9 @@
 ---
-title: 'Building a Reusable Sticky Table Component in React with TailwindCSS'
-date: '2023-07-30'
-img: '/images/stickyTable.png'
-category: 'ReactJS'
-description: 'Build a versatile and user-friendly Sticky Table component in React effortlessly. The Sticky Table component empowers you to present large datasets with ease, allowing you to make not only the header row but also the columns you define sticky while scrolling. This flexible and customizable solution enhances user experience by providing constant visibility to essential data points. Tailor the component to your specific project needs, making it ideal for financial records, user information, and product inventories. Elevate your React applications with the powerful and adaptable Sticky Table component today!'
+title: "Building a Reusable Sticky Table Component in React with TailwindCSS"
+date: "2023-07-30"
+img: "/images/stickyTable.png"
+category: "Featured Article"
+description: "Build a versatile and user-friendly Sticky Table component in React effortlessly. The Sticky Table component empowers you to present large datasets with ease, allowing you to make not only the header row but also the columns you define sticky while scrolling. This flexible and customizable solution enhances user experience by providing constant visibility to essential data points. Tailor the component to your specific project needs, making it ideal for financial records, user information, and product inventories. Elevate your React applications with the powerful and adaptable Sticky Table component today!"
 ---
 
 ![stickyTable.png](https://www.ozanbatuhankurucu.com/images/stickyTable.png)
