@@ -6,6 +6,7 @@ import { FiLinkedin } from 'react-icons/fi'
 import { Logo } from './Logo'
 import { FooterList } from './FooterList'
 import Link from 'next/link'
+import GoogleAdsenseContainer from './GoogleAdsenseContainer'
 
 export const Footer = () => {
   const handleCategoryOnClick = (elementId: string) => {
@@ -22,13 +23,7 @@ export const Footer = () => {
   return (
     <>
       <div className='mt-4 bg-light-grey-1'>
-        <ins
-          className='adsbygoogle'
-          style={{ display: 'block' }}
-          data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
-          data-ad-slot='9883750649'
-          data-ad-format='auto'
-          data-full-width-responsive='true'></ins>
+        <GoogleAdsenseContainer />
         <div className='max-w-[1250px] mx-auto px-4 pt-[70px] pb-[26px]'>
           <div className='flex flex-col lg:flex-row lg:gap-[160px]'>
             <div className='flex flex-col gap-5'>
