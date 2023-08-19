@@ -23,7 +23,7 @@ export const Footer = () => {
   return (
     <>
       <div className='mt-4 bg-light-grey-1'>
-        <GoogleAdsenseContainer />
+        {/* <GoogleAdsenseContainer /> */}
         <div className='max-w-[1250px] mx-auto px-4 pt-[70px] pb-[26px]'>
           <div className='flex flex-col lg:flex-row lg:gap-[160px]'>
             <div className='flex flex-col gap-5'>
