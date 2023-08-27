@@ -76,14 +76,18 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
-      'Hidden Search Widget',
-      'Blurry Loading',
-      'Scroll Animation',
-      'Split Landing Page',
-      'Form Wave Animation',
-      'Sound Board',
+      'Random Choice Picker',
+      'FAQ Collapse',
+      'Event KeyCodes',
+      'Dad Jokes',
+      'Diamond Autograder',
       'Search Dropdown',
-      'Dad Jokes'
+      'Sound Board',
+      'Form Wave Animation',
+      'Split Landing Page',
+      'Scroll Animation',
+      'Blurry Loading',
+      'Hidden Search Widget'
     ],
     featuresTitle: 'Projects'
   },
