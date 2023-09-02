@@ -115,77 +115,69 @@ The Higher Order Component Pattern offers a way to encapsulate and share complex
 
 ## 3. Container and Presentational Components Pattern
 
-The Container and Presentational Components Pattern is a design approach in React that emphasizes the separation of concerns. It involves creating two types of components: container components and presentational components. Container components handle data logic, state management, and interactions with external services, while presentational components focus solely on rendering UI elements.
-
-### Explanation:
-
-By segregating data logic from UI rendering, the Container and Presentational Components Pattern promotes cleaner code organization, easier testing, and better reusability. Container components handle the complexities of data fetching, state management, and interactions, while presentational components maintain a clear focus on displaying the UI.
+The Container and Presentational Components Pattern emphasizes the separation of concerns in React applications. It divides components into two categories: container components and presentational components. Container components handle data logic, state management, and interactions with external services, while presentational components focus solely on rendering UI elements.
 
 ### Implementation:
 
-Let's consider an example where we fetch user data from an API and display it using container and presentational components.
+Let's create a simple example where a container component fetches user data from an API and passes it to a presentational component for rendering.
 
 ```
-// useUserData.js (Custom Hook)
-import { useState, useEffect } from 'react';
+// UserContainer.js
+import React, { Component } from 'react';
+import UserData from './UserData'; // Presentational component
 
-const useUserData = () => {
-  const [user, setUser] = useState(null);
+class UserContainer extends Component {
+  state = {
+    user: null,
+  };
 
-  useEffect(() => {
+  componentDidMount() {
     // Simulate API call
     fetch('/api/user')
       .then((response) => response.json())
-      .then((data) => setUser(data));
-  }, []);
+      .then((data) => this.setState({ user: data }));
+  }
 
-  return user;
-};
+  render() {
+    return <UserData user={this.state.user} />;
+  }
+}
 
-export default useUserData;
+export default UserContainer;
 
-// UserProfile.js (Presentational component)
+// UserData.js (Presentational component)
 import React from 'react';
-import useUserData from './useUserData'; // Custom Hook
 
-const UserProfile = () => {
-  const user = useUserData();
+const UserData = ({ user }) => (
+  <div>
+    <h2>User Profile</h2>
+    {user ? (
+      <div>
+        <p>Name: {user.name}</p>
+        <p>Email: {user.email}</p>
+      </div>
+    ) : (
+      <p>Loading user data...</p>
+    )}
+  </div>
+);
 
-  return (
-    <div>
-      <h2>User Profile</h2>
-      {user ? (
-        <div>
-          <p>Name: {user.name}</p>
-          <p>Email: {user.email}</p>
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
-    </div>
-  );
-};
-
-export default UserProfile;
+export default UserData;
 
 // Usage
 import React from 'react';
-import UserProfile from './UserProfile';
+import UserContainer from './UserContainer';
 
 const App = () => (
   <div>
-    <UserProfile />
+    <UserContainer />
   </div>
 );
 
 export default App;
 ```
 
-In this implementation, the useUserData custom hook encapsulates the data fetching logic. The UserProfile presentational component uses this custom hook to fetch user data and display it. This approach keeps the concerns neatly separated while promoting reusability.
-
-Using custom hooks enhances code reusability even further, as you can easily use the useUserData hook in other components throughout your application that require the same data fetching logic.
-
-By combining the Container and Presentational Components Pattern with custom hooks, you're creating a clean and efficient way to handle data logic and UI rendering separately, resulting in a more organized and maintainable codebase.
+In this example, the `UserContainer` component manages the data fetching and state, while the `UserData` component focuses solely on rendering the user profile data. This separation makes it easier to maintain, test, and reuse the components independently.
 
 ### Conclusion
 
