@@ -42,9 +42,6 @@ const Project: FC<ProjectProps> = ({
         <div className='mb-2'>
           <span className='font-semibold'>Stack:</span> {stack.join(', ')}
         </div>
-        <div className='mb-4'>
-          <span className='font-semibold'>Status:</span> {projectStatu}
-        </div>
         {features && (
           <div>
             <h3 className='text-sm font-semibold mb-2'>{featuresTitle}</h3>
