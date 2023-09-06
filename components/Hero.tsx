@@ -36,7 +36,7 @@ function HeroContent() {
       </div>
       <div className='w-2/3 md:w-1/3'>
         <Image
-          src='/images/group.svg'
+          src='/images/programming.svg'
           alt='Responsive Image'
           width={434}
           height={363}
