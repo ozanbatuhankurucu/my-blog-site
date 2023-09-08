@@ -76,6 +76,7 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
+      'Animated Navigation',
       'Random Choice Picker',
       'FAQ Collapse',
       'Event KeyCodes',
