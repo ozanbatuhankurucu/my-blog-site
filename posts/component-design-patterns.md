@@ -1,8 +1,8 @@
 ---
-title: 'Designing React Components: Patterns for Clean, Efficient Code'
-date: '2023-09-02'
-img: '/images/hoc.png'
-category: 'ReactJS'
+title: "Designing React Components: Patterns for Clean, Efficient Code"
+date: "2023-09-02"
+img: "/images/hoc.png"
+category: "ReactJS"
 description: "Discover the key React component design patterns that empower developers to create more efficient, modular, and maintainable applications. From the versatile Render Props Pattern to the powerful Higher Order Component (HOC) Pattern, and the organized Container and Presentational Components Pattern, learn how to structure your React code for optimal performance and reusability. Dive into practical examples that showcase the benefits of each pattern, and elevate your React skills to craft applications that stand out in today's competitive development landscape."
 ---
 
