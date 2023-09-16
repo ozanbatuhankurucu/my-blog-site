@@ -2,7 +2,7 @@
 title: "A Comprehensive Guide to React Built-in Hooks"
 date: "2023-09-16"
 img: "/images/react-hooks.webp"
-category: "ReactJS"
+category: "Featured Article"
 description: "Explore React's Advanced Built-In Hooks - From useRef for DOM manipulation to useImperativeHandle for controlled APIs, delve into specialized React hooks like useLayoutEffect and useDebugValue, expanding your toolkit for creating efficient and powerful components."
 ---
 

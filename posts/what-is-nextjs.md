@@ -2,7 +2,7 @@
 title: "What is Next.js? And Why Would You Use It?"
 date: "2023-07-26"
 img: "/images/nextjsLogo.jpeg"
-category: "Featured Article"
+category: "NextJS"
 description: "Explore the powerful features and benefits of Next.js, a popular React framework. Learn what Next.js is, its key features, and why developers choose it for building modern web applications. Discover how Next.js simplifies server-side rendering, optimizes performance, and provides an excellent developer experience. Whether you're starting a new project or considering a migration, find out why Next.js is a top choice for web development."
 ---
 
