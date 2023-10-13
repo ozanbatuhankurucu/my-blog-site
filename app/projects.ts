@@ -105,19 +105,19 @@ export const PROJECTS: Project[] = [
     status: 'completed',
     updatedAt: '2022-10-02',
     url: 'https://main.d3faia6pj647yk.amplifyapp.com'
-  },
-  {
-    title: 'Full-stack Jobify App',
-    description:
-      "Jobify is the ultimate full-stack app that revolutionizes the way you search, apply, and connect with your ideal job. With intelligent job matching, seamless applications, and real-time notifications, Jobify makes your job search efficient and rewarding. Whether you're a skilled professional or just starting, Jobify's personalized profiles and interactive dashboard empower you every step of the way. Join Jobify now and take the next step towards a brighter career future. Your dream job awaits!",
-    githubUrl: 'https://github.com/ozanbatuhankurucu/Jobify-App',
-    img: '/images/reactimg.png',
-    stack: ['ReactJS', 'ExpressJs', 'NodeJS'],
-    createdAt: '2023-09-03',
-    status: 'progress',
-    updatedAt: '2023-09-03',
-    url: 'https://master.d2h3skhpl745gp.amplifyapp.com'
   }
+  // {
+  //   title: 'Full-stack Jobify App',
+  //   description:
+  //     "Jobify is the ultimate full-stack app that revolutionizes the way you search, apply, and connect with your ideal job. With intelligent job matching, seamless applications, and real-time notifications, Jobify makes your job search efficient and rewarding. Whether you're a skilled professional or just starting, Jobify's personalized profiles and interactive dashboard empower you every step of the way. Join Jobify now and take the next step towards a brighter career future. Your dream job awaits!",
+  //   githubUrl: 'https://github.com/ozanbatuhankurucu/Jobify-App',
+  //   img: '/images/reactimg.png',
+  //   stack: ['ReactJS', 'ExpressJs', 'NodeJS'],
+  //   createdAt: '2023-09-03',
+  //   status: 'progress',
+  //   updatedAt: '2023-09-03',
+  //   url: 'https://master.d2h3skhpl745gp.amplifyapp.com'
+  // }
 ]
 
 export type ProjectStatus = 'completed' | 'progress' | 'todo'
