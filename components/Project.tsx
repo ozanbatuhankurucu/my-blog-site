@@ -11,6 +11,7 @@ interface ProjectProps {
   url?: string
   features?: any[]
   featuresTitle?: string
+  useColumnCount?: boolean
 }
 
 const Project: FC<ProjectProps> = ({
@@ -22,7 +23,8 @@ const Project: FC<ProjectProps> = ({
   image,
   status,
   features = [],
-  featuresTitle
+  featuresTitle,
+  useColumnCount
 }) => {
   const { projectStatu, statuColor } = getProjectStatuProps(status)
 
@@ -45,7 +47,11 @@ const Project: FC<ProjectProps> = ({
         {features && (
           <div>
             <h3 className='text-sm font-semibold mb-2'>{featuresTitle}</h3>
-            <ul className='list-disc ml-6'>
+            <ul
+              style={{
+                columnCount: useColumnCount ? 2 : undefined
+              }}
+              className='list-disc ml-6'>
               {features.map((feature) => (
                 <li key={feature}>{feature}</li>
               ))}

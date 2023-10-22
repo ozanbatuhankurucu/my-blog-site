@@ -28,7 +28,8 @@ export default function Projects() {
         title,
         features,
         featuresTitle,
-        url
+        url,
+        useColumnCount
       }) => {
         return (
           <Project
@@ -41,6 +42,7 @@ export default function Projects() {
             features={features}
             featuresTitle={featuresTitle}
             url={url}
+            useColumnCount={useColumnCount}
           />
         )
       }

@@ -10,6 +10,7 @@ export interface Project {
   url?: string
   features?: string[]
   featuresTitle?: string
+  useColumnCount?: boolean
 }
 
 export const PROJECTS: Project[] = [
@@ -76,6 +77,7 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
+      'Drink Water',
       'Incrementing Counter',
       'Animated Navigation',
       'Random Choice Picker',
@@ -91,7 +93,8 @@ export const PROJECTS: Project[] = [
       'Blurry Loading',
       'Hidden Search Widget'
     ],
-    featuresTitle: 'Projects'
+    featuresTitle: 'Projects',
+    useColumnCount: true
   },
   {
     title: 'React Portfolio with TailwindCSS',
