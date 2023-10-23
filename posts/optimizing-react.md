@@ -2,7 +2,7 @@
 title: "Optimizing React Applications: Minimizing Re-renders"
 date: "2023-10-10"
 img: "/images/re-renders.png"
-category: "ReactJS"
+category: "Featured Article"
 description: "Delve into various strategies and techniques to minimize unnecessary re-renders in React applications, ensuring a buttery smooth user experience even in large-scale applications. From simple memoization techniques to more advanced strategies like adopting immutable data structures, this article covers it all."
 ---
 
