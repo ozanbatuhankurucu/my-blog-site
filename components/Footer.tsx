@@ -88,7 +88,8 @@ export const Footer = () => {
                     link: '/aboutMe'
                   },
                   {
-                    label: 'Projects'
+                    label: 'Projects',
+                    link: '/projects'
                   }
                 ]}
               />

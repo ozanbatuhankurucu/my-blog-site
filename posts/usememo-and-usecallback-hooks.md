@@ -2,7 +2,7 @@
 title: "Memoization Magic: Level Up Your React Components with useMemo and useCallback!"
 date: "2023-08-06"
 img: "/images/usememo.png"
-category: "Featured Article"
+category: "ReactJS"
 description: "Discover the power of useMemo and useCallback hooks in React to optimize your component performance and boost overall efficiency. This comprehensive guide explains how to leverage memoization techniques, cache computations, and memoize callback functions for lightning-fast React applications. Learn the best practices and practical examples to enhance your React development and create a seamless user experience. Don't miss out on this essential resource for React developers seeking to level up their skills and deliver high-performing applications!"
 ---
 
