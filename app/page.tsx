@@ -13,6 +13,7 @@ const CATEGORY_ORDER: CategoryType[] = [
   'TypeScript',
   'JavaScript',
   'HTML',
+  'CSS',
   'ReactJS'
 ]
 

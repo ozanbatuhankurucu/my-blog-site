@@ -1,11 +1,12 @@
 export type CategoryType =
-  | "Featured Article"
-  | "HTML"
-  | "JavaScript"
-  | "Self-improvement"
-  | "TypeScript"
-  | "NextJS"
-  | "ReactJS"
+  | 'Featured Article'
+  | 'HTML'
+  | 'JavaScript'
+  | 'Self-improvement'
+  | 'TypeScript'
+  | 'NextJS'
+  | 'ReactJS'
+  | 'CSS'
 export interface PostMetadata {
   title: string
   date: string

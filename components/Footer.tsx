@@ -1,12 +1,12 @@
-'use client'
-import React from 'react'
-import { LuTwitter } from 'react-icons/lu'
-import { IoLogoInstagram } from 'react-icons/io'
-import { FiLinkedin } from 'react-icons/fi'
-import { Logo } from './Logo'
-import { FooterList } from './FooterList'
-import Link from 'next/link'
-import GoogleAdsenseContainer from './GoogleAdsenseContainer'
+"use client"
+import React from "react"
+import { LuTwitter } from "react-icons/lu"
+import { IoLogoInstagram } from "react-icons/io"
+import { FiLinkedin } from "react-icons/fi"
+import { Logo } from "./Logo"
+import { FooterList } from "./FooterList"
+import Link from "next/link"
+import GoogleAdsenseContainer from "./GoogleAdsenseContainer"
 
 export const Footer = () => {
   const handleCategoryOnClick = (elementId: string) => {
@@ -15,7 +15,7 @@ export const Footer = () => {
       const scrollOffset = categoryTitleElement.offsetTop - 90
       window.scrollTo({
         top: scrollOffset,
-        behavior: 'smooth'
+        behavior: "smooth"
       })
     }
   }
@@ -49,34 +49,35 @@ export const Footer = () => {
                 title='Category'
                 list={[
                   {
-                    label: 'HTML',
-                    onClick: () => handleCategoryOnClick('HTML')
+                    label: "HTML",
+                    onClick: () => handleCategoryOnClick("HTML")
                   },
                   {
-                    label: 'Self-improvement',
-                    onClick: () => handleCategoryOnClick('Self-improvement')
+                    label: "Self-improvement",
+                    onClick: () => handleCategoryOnClick("Self-improvement")
                   },
                   {
-                    label: 'CSS'
+                    label: "CSS",
+                    onClick: () => handleCategoryOnClick("CSS")
                   },
                   {
-                    label: 'JavaScript',
-                    onClick: () => handleCategoryOnClick('JavaScript')
+                    label: "JavaScript",
+                    onClick: () => handleCategoryOnClick("JavaScript")
                   },
                   {
-                    label: 'TailwindCSS'
+                    label: "TailwindCSS"
                   },
                   {
-                    label: 'TypeScript',
-                    onClick: () => handleCategoryOnClick('TypeScript')
+                    label: "TypeScript",
+                    onClick: () => handleCategoryOnClick("TypeScript")
                   },
                   {
-                    label: 'NextJS',
-                    onClick: () => handleCategoryOnClick('NextJS')
+                    label: "NextJS",
+                    onClick: () => handleCategoryOnClick("NextJS")
                   },
                   {
-                    label: 'ReactJS',
-                    onClick: () => handleCategoryOnClick('ReactJS')
+                    label: "ReactJS",
+                    onClick: () => handleCategoryOnClick("ReactJS")
                   }
                 ]}
               />
@@ -84,12 +85,12 @@ export const Footer = () => {
                 title='About Me'
                 list={[
                   {
-                    label: 'About Me',
-                    link: '/aboutMe'
+                    label: "About Me",
+                    link: "/aboutMe"
                   },
                   {
-                    label: 'Projects',
-                    link: '/projects'
+                    label: "Projects",
+                    link: "/projects"
                   }
                 ]}
               />
@@ -97,8 +98,8 @@ export const Footer = () => {
                 title='Get In Touch'
                 list={[
                   {
-                    label: 'ozanbatuhankurucu@gmail.com',
-                    target: '_blank'
+                    label: "ozanbatuhankurucu@gmail.com",
+                    target: "_blank"
                   }
                 ]}
               />
@@ -106,19 +107,19 @@ export const Footer = () => {
                 title='Follow Me'
                 list={[
                   {
-                    label: 'Twitter',
-                    link: 'https://twitter.com/ozankurucu_',
-                    target: '_blank'
+                    label: "Twitter",
+                    link: "https://twitter.com/ozankurucu_",
+                    target: "_blank"
                   },
                   {
-                    label: 'Instagram',
-                    link: 'https://www.instagram.com/ozanbkurucu_/',
-                    target: '_blank'
+                    label: "Instagram",
+                    link: "https://www.instagram.com/ozanbkurucu_/",
+                    target: "_blank"
                   },
                   {
-                    label: 'LinkedIn',
-                    link: 'https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/',
-                    target: '_blank'
+                    label: "LinkedIn",
+                    link: "https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/",
+                    target: "_blank"
                   }
                 ]}
               />
@@ -127,7 +128,7 @@ export const Footer = () => {
           <hr className='h-[1px] w-full bg-grey mt-[50px]' />
           <div className='mt-[26px] text-sm font-normal text-black'>© 2023</div>
         </div>
-      </div>{' '}
+      </div>{" "}
     </>
   )
 }
