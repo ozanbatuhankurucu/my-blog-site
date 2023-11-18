@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { getProjectStatuProps, ProjectStatus } from '../app/projects'
+import Link from 'next/link'
 
 interface ProjectProps {
   description: string
@@ -9,7 +10,7 @@ interface ProjectProps {
   image: string
   status: ProjectStatus
   url?: string
-  features?: any[]
+  features?: { text: string; link?: string }[]
   featuresTitle?: string
   useColumnCount?: boolean
 }
@@ -52,8 +53,15 @@ const Project: FC<ProjectProps> = ({
                 columnCount: useColumnCount ? 2 : undefined
               }}
               className='list-disc ml-6'>
-              {features.map((feature) => (
-                <li key={feature}>{feature}</li>
+              {features.map(({ text, link }) => (
+                <>
+                  {link && (
+                    <Link href={link} target='_blank'>
+                      <li key={text}>{text}</li>
+                    </Link>
+                  )}
+                  {!link && <li key={text}>{text}</li>}
+                </>
               ))}
             </ul>
           </div>

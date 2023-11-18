@@ -8,10 +8,13 @@ export interface Project {
   status: ProjectStatus
   updatedAt: string
   url?: string
-  features?: string[]
+  features?: { text: string; link?: string }[]
   featuresTitle?: string
   useColumnCount?: boolean
 }
+
+const PROJECTS_BASE_LINK =
+  'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects/'
 
 export const PROJECTS: Project[] = [
   {
@@ -51,8 +54,12 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-02-19',
     url: 'https://master.dsj8aspqo6u80.amplifyapp.com/',
     features: [
-      'X-axis (Completeness of Vision): represents relative innovation level.',
-      'Y-axis (Ability to Execute): represents relative financial maturity.'
+      {
+        text: 'X-axis (Completeness of Vision): represents relative innovation level.'
+      },
+      {
+        text: 'Y-axis (Ability to Execute): represents relative financial maturity.'
+      }
     ],
     featuresTitle: 'Features'
   },
@@ -77,23 +84,51 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
-      'Background Slider',
-      'Movie App',
-      'Drink Water',
-      'Incrementing Counter',
-      'Animated Navigation',
-      'Random Choice Picker',
-      'FAQ Collapse',
-      'Event KeyCodes',
-      'Dad Jokes',
-      'Diamond Autograder',
-      'Search Dropdown',
-      'Sound Board',
-      'Form Wave Animation',
-      'Split Landing Page',
-      'Scroll Animation',
-      'Blurry Loading',
-      'Hidden Search Widget'
+      { text: 'Theme Clock', link: `${PROJECTS_BASE_LINK}theme-clock` },
+      {
+        text: 'Background Slider',
+        link: `${PROJECTS_BASE_LINK}background-slider`
+      },
+      { text: 'Movie App', link: `${PROJECTS_BASE_LINK}movie-app` },
+      { text: 'Drink Water', link: `${PROJECTS_BASE_LINK}drink-water` },
+      {
+        text: 'Incrementing Counter',
+        link: `${PROJECTS_BASE_LINK}incrementing-counter`
+      },
+      {
+        text: 'Animated Navigation',
+        link: `${PROJECTS_BASE_LINK}animated-navigation`
+      },
+      {
+        text: 'Random Choice Picker',
+        link: `${PROJECTS_BASE_LINK}random-choice-picker`
+      },
+      { text: 'FAQ Collapse', link: `${PROJECTS_BASE_LINK}faq-collapse` },
+      { text: 'Event KeyCodes', link: `${PROJECTS_BASE_LINK}event-keycodes` },
+      { text: 'Dad Jokes', link: `${PROJECTS_BASE_LINK}dad-jokes` },
+      {
+        text: 'Diamond Autograder',
+        link: `${PROJECTS_BASE_LINK}diamond-autograder`
+      },
+      { text: 'Search Dropdown', link: `${PROJECTS_BASE_LINK}search-dropdown` },
+      { text: 'Sound Board', link: `${PROJECTS_BASE_LINK}sound-board` },
+      {
+        text: 'Form Wave Animation',
+        link: `${PROJECTS_BASE_LINK}form-wave-animation`
+      },
+      {
+        text: 'Split Landing Page',
+        link: `${PROJECTS_BASE_LINK}split-landing-page`
+      },
+      {
+        text: 'Scroll Animation',
+        link: `${PROJECTS_BASE_LINK}scroll-animation`
+      },
+      { text: 'Blurry Loading', link: `${PROJECTS_BASE_LINK}blurry-loading` },
+      {
+        text: 'Hidden Search Widget',
+        link: `${PROJECTS_BASE_LINK}hidden-search-widget`
+      }
     ],
     featuresTitle: 'Projects',
     useColumnCount: true
