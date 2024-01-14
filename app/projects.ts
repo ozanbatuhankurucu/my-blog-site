@@ -85,6 +85,10 @@ export const PROJECTS: Project[] = [
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
       {
+        text: 'Drag N Drop',
+        link: `${PROJECTS_BASE_LINK}drag-n-drop`
+      },
+      {
         text: 'Button Ripple Effect',
         link: `${PROJECTS_BASE_LINK}button-ripple-effect`
       },
