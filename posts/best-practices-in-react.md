@@ -51,29 +51,34 @@ const Counter = () => {
 };
 ```
 
-### 3. Prop Types and DefaultProps: Ensuring Component Integrity
+### 3. Prop Types and DefaultProps: Ensuring Component Integrity with TypeScript
 
-Using PropTypes helps in checking the types passed to the components, which is crucial for debugging and maintaining large applications. DefaultProps ensure that components have sensible defaults.
+In a TypeScript-powered React application, ensuring component integrity involves leveraging TypeScript's type-checking capabilities. Unlike JavaScript, which uses PropTypes, TypeScript uses interfaces or types to enforce the structure of props. This approach provides compile-time type checking, enhancing the robustness and maintainability of your code.
 
 **Example:**
 
-```
-// Button.jsx
-import PropTypes from 'prop-types';
+Here's how you can define and use TypeScript types for a Button component:
 
-const Button = ({ text, onClick }) => (
+```
+// Button.tsx
+import React from 'react';
+
+interface ButtonProps {
+  text: string;
+  onClick?: () => void; // Optional prop
+}
+
+const Button: React.FC<ButtonProps> = ({ text, onClick = () => {} }) => (
   <button onClick={onClick}>{text}</button>
 );
 
-Button.propTypes = {
-  text: PropTypes.string.isRequired,
-  onClick: PropTypes.func
-};
+export default Button;
 
-Button.defaultProps = {
-  onClick: () => {}
-};
 ```
+
+In this example, the **ButtonProps** interface defines the shape of the props that **Button** component expects. The **onClick** function is marked as optional with **?**, and a default function is provided in the component's destructuring assignment. This ensures that even if the **onClick** prop isn't provided, the component will still have a function to execute, thus preventing potential runtime errors.
+
+TypeScript's approach to props and defaultProps offers a more robust and scalable way to manage component props, especially in large-scale applications. It provides better predictability and autocompletion during development, leading to fewer bugs and a smoother development experience.
 
 ### 4. State Management: Lifting State Up Wisely
 
