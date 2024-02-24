@@ -45,3 +45,7 @@ Charles Duhigg, in his book "The Power of Habit," introduces the concept of the 
 ### In Conclusion
 
 The art of habit building and breaking is a cornerstone of personal development. While the process can be challenging, understanding the psychological underpinnings and adopting a strategic approach can significantly enhance the likelihood of success. By embracing small changes, setting clear goals, and practicing consistency and self-compassion, individuals can transform their lives, one habit at a time. Remember, the journey of a thousand miles begins with a single step—or in the case of habits, a single, repeated action.
+
+### Helpful resources
+
+- [Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones](https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299)
