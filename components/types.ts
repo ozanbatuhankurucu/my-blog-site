@@ -7,6 +7,7 @@ export type CategoryType =
   | 'NextJS'
   | 'ReactJS'
   | 'CSS'
+	| 'TailwindCSS'
 export interface PostMetadata {
   title: string
   date: string

@@ -14,6 +14,7 @@ const CATEGORY_ORDER: CategoryType[] = [
   'JavaScript',
   'HTML',
   'CSS',
+	'TailwindCSS',
   'ReactJS'
 ]
 

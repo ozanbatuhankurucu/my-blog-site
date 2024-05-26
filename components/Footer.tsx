@@ -65,7 +65,8 @@ export const Footer = () => {
                     onClick: () => handleCategoryOnClick("JavaScript")
                   },
                   {
-                    label: "TailwindCSS"
+                    label: "TailwindCSS",
+										onClick: () => handleCategoryOnClick("TailwindCSS")
                   },
                   {
                     label: "TypeScript",
