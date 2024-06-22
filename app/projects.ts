@@ -85,6 +85,10 @@ export const PROJECTS: Project[] = [
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
       {
+        text: 'Content Placeholder',
+        link: `${PROJECTS_BASE_LINK}content-placeholder`
+      },
+      {
         text: 'Kinetic CSS Loader',
         link: `${PROJECTS_BASE_LINK}kinetic-css-loader`
       },
