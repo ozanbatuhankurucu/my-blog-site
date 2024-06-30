@@ -2,7 +2,7 @@
 title: "Skeleton Indicator: Bridging the Gap Between Expectation and Reality"
 date: "2023-10-23"
 img: "/images/skeleton-loading.png"
-category: "Featured Article"
+category: "ReactJS"
 description: "Discover the art of Skeleton Indicators, a modern UI design pattern that significantly enhances user experience during page or application loading. Dive into its mechanism, impact on user engagement, diverse implementations across frameworks with a special emphasis on React, and its shining role in full-page loads. Explore code examples to grasp the practical implementation of Skeleton Indicators in React, offering a hands-on approach to improving perceived performance and user satisfaction in digital interfaces."
 ---
 

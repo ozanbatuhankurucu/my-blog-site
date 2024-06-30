@@ -2,7 +2,7 @@
 title: "Top 7 Ways to Write CSS in Your React or Next.js App"
 date: "2023-11-07"
 img: "/images/resp-design-best-practices.webp"
-category: "Featured Article"
+category: "CSS"
 description: "Explore the top 7 methods to integrate CSS into your React or Next.js applications with our expert guide. Learn about traditional stylesheets, CSS modules, styled-components, and more to create responsive, visually appealing websites. Perfect for developers looking to streamline their styling process and enhance their web development skills. Dive into the nuances of each approach, understand best practices, and pick up tips to optimize your front-end workflow."
 ---
 
