@@ -33,7 +33,7 @@ export const Footer = () => {
                   <LuTwitter className='text-black' size={22} />
                 </Link>
                 <Link
-                  href='https://www.instagram.com/ozanbkurucu_/'
+                  href='https://www.instagram.com/ozankurucu_/'
                   target='_blank'>
                   <IoLogoInstagram className='text-black' size={22} />
                 </Link>
@@ -66,7 +66,7 @@ export const Footer = () => {
                   },
                   {
                     label: "TailwindCSS",
-										onClick: () => handleCategoryOnClick("TailwindCSS")
+                    onClick: () => handleCategoryOnClick("TailwindCSS")
                   },
                   {
                     label: "TypeScript",
@@ -114,7 +114,7 @@ export const Footer = () => {
                   },
                   {
                     label: "Instagram",
-                    link: "https://www.instagram.com/ozanbkurucu_/",
+                    link: "https://www.instagram.com/ozankurucu_/",
                     target: "_blank"
                   },
                   {

@@ -2,7 +2,7 @@
 title: "Understanding Symbol in JavaScript: A Comprehensive Guide"
 date: "2023-12-02"
 img: "/images/symbol-in-js.png"
-category: "Featured Article"
+category: "JavaScript"
 description: "Dive deep into JavaScript's Symbol data type with our comprehensive guide. Learn how Symbols provide unique identifiers for object properties, enhance code maintainability, and support advanced meta-programming in JavaScript. Ideal for developers seeking to master ES6 features and write collision-free, modular code."
 ---
 

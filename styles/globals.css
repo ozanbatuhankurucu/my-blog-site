@@ -188,6 +188,11 @@ Blog Template
   background-color: transparent;
 }
 
+ol+ul {
+  margin-left: 20px;
+
+}
+
 @media screen and (min-width: 576px) {
   .blog-template img {
     width: 600px !important;
