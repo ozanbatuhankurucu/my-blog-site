@@ -231,8 +231,8 @@ class Student extends Person1 {
 
 const person2 = new Person1('Furkan', 'Demirtaş', 25)
 const person3 = new Person1('Ahmet', 'Uslu', 35)
-const student1 = new Student('Devrim', 'Özkan', 21, false)
-const student2 = new Student('Ozan Batuhan', 'Kurucu', 25, true)
+const student1 = new Student('Burcu', 'Sahin', 27, false)
+const student2 = new Student('Ozan Batuhan', 'Kurucu', 28, true)
 
 student2.name = 'aa' // Error: Property 'name' is protected and only accessible within class 'Person1' and its subclasses.
 student2.age = 5 // Error : Property 'age' is private and only accessible within class 'Person1'.
