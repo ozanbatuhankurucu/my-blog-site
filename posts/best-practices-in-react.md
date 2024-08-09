@@ -2,7 +2,7 @@
 title: "Writing Clean and Maintainable React Code: Best Practices with Examples"
 date: "2024-01-21"
 img: "/images/best-practices-in-react-2024.png"
-category: "Featured Article"
+category: "ReactJS"
 description: "Master Clean and Maintainable React Code: Discover the essential best practices for writing clean, efficient, and scalable React applications in our comprehensive blog. Dive into practical examples showcasing component structuring, functional components with hooks, PropTypes, state management, and performance optimization. Learn how to effectively use React.memo, useCallback, ESLint, and Prettier to enhance your code's readability and maintainability. Whether you're a beginner or an experienced developer, this guide offers valuable insights into developing robust React applications. Stay ahead in the world of React development with our expert tips and examples. Perfect for developers seeking to refine their React skills and build more maintainable, efficient applications."
 ---
 
