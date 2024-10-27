@@ -2,7 +2,7 @@
 title: "Habit Building and Breaking: A Comprehensive Guide to Transforming Your Life"
 date: "2024-02-19"
 img: "/images/building-habits.webp"
-category: "Featured Article"
+category: "Self-improvement"
 description: "Unlock the secrets to forming positive habits and breaking negative ones with our comprehensive guide. Discover practical strategies, backed by psychology, to create lasting change and achieve personal growth. Start your journey towards a more fulfilling life today!"
 ---
 
