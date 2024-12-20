@@ -2,7 +2,7 @@
 title: "Building Reusable Components with TailwindCSS and TypeScript in React"
 date: "2024-05-26"
 img: "/images/reusablecompswithtailwindcss.webp"
-category: "Featured Article"
+category: "TailwindCSS"
 description: "Learn how to create reusable components in React using TailwindCSS and TypeScript. This guide covers essential components like buttons, cards, modals, form inputs, and alerts. Perfect for developers looking to improve efficiency and maintainability in their web projects. Enhance your web development skills with practical examples and best practices."
 ---
 

@@ -2,16 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap");
 
 :root {
-  --white: #FFFFFE;
-  --light-grey-1: #EFF0F3;
-  --light-grey-2: #E4E5E9;
-  --grey: #C0C0C0;
-  --dark-grey: #9A9494;
-  --black: #2B2C34;
-  --blue: #6246EA;
+  --white: #fffffe;
+  --light-grey-1: #eff0f3;
+  --light-grey-2: #e4e5e9;
+  --grey: #c0c0c0;
+  --dark-grey: #9a9494;
+  --black: #2b2c34;
+  --blue: #6246ea;
   --radius: 0.25rem;
 }
 
@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans';
+  font-family: "Plus Jakarta Sans";
   color: var(--black);
   line-height: 1.5;
   font-size: 0.875rem;
@@ -37,7 +37,7 @@ ul {
 ol {
   list-style-type: decimal;
   margin-left: 16px;
-  margin-top: 1.6rem;
+  margin-top: 1rem;
 }
 
 ol li {
@@ -188,9 +188,8 @@ Blog Template
   background-color: transparent;
 }
 
-ol+ul {
+ol + ul {
   margin-left: 20px;
-
 }
 
 @media screen and (min-width: 576px) {
