@@ -23,8 +23,7 @@ const Header = () => {
             {isMenuOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
           </button>
         </div>
-        <nav
-          className={cx('md:flex', { flex: isMenuOpen, hidden: !isMenuOpen })}>
+        <nav className={cx('md:flex', { flex: isMenuOpen, hidden: !isMenuOpen })}>
           <ul className='flex flex-col space-y-4 md:flex-row items-center md:gap-9 md:space-y-0 md:space-x-4'>
             <li>
               <Link className='subheading-2 text-black' href='/'>
@@ -40,17 +39,6 @@ const Header = () => {
               <Link className='subheading-2 text-black' href='/aboutMe'>
                 About Me
               </Link>
-            </li>
-            <li>
-              <a
-                className='bg-blue w-[213px] flex gap-[10px] items-center justify-center py-[10px] rounded-[4px]'
-                href='https://my-portfolio-ozan.s3.eu-central-1.amazonaws.com/pdfFiles/OZAN+BATUHAN+KURUCU.pdf'
-                target='_blank'>
-                <RiFileDownloadLine size={24} />
-                <span className='text-white text-lg font-bold'>
-                  Download CV
-                </span>
-              </a>
             </li>
           </ul>
         </nav>
