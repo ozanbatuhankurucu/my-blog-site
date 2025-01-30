@@ -6,7 +6,6 @@ import { FiLinkedin } from "react-icons/fi"
 import { Logo } from "./Logo"
 import { FooterList } from "./FooterList"
 import Link from "next/link"
-import GoogleAdsenseContainer from "./GoogleAdsenseContainer"
 
 export const Footer = () => {
   const handleCategoryOnClick = (elementId: string) => {
@@ -23,7 +22,6 @@ export const Footer = () => {
   return (
     <>
       <div className='mt-4 bg-light-grey-1'>
-        {/* <GoogleAdsenseContainer /> */}
         <div className='max-w-[1250px] mx-auto px-4 pt-[70px] pb-[26px]'>
           <div className='flex flex-col lg:flex-row lg:gap-[160px]'>
             <div className='flex flex-col gap-5'>
@@ -32,14 +30,10 @@ export const Footer = () => {
                 <Link href='https://twitter.com/ozankurucu_' target='_blank'>
                   <LuTwitter className='text-black' size={22} />
                 </Link>
-                <Link
-                  href='https://www.instagram.com/ozankurucu_/'
-                  target='_blank'>
+                <Link href='https://www.instagram.com/ozankurucu_/' target='_blank'>
                   <IoLogoInstagram className='text-black' size={22} />
                 </Link>
-                <Link
-                  href='https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/'
-                  target='_blank'>
+                <Link href='https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/' target='_blank'>
                   <FiLinkedin className='text-black' size={22} />
                 </Link>
               </div>
@@ -48,6 +42,14 @@ export const Footer = () => {
               <FooterList
                 title='Category'
                 list={[
+                  {
+                    label: "Featured Article",
+                    onClick: () => handleCategoryOnClick("Featured Article")
+                  },
+                  {
+                    label: "Artificial Intelligence",
+                    onClick: () => handleCategoryOnClick("Artificial Intelligence")
+                  },
                   {
                     label: "HTML",
                     onClick: () => handleCategoryOnClick("HTML")
