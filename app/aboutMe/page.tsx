@@ -10,7 +10,7 @@ export default function AboutMe() {
     <>
       <div className='max-w-[1250px] mx-auto py-24 px-4 md:px-0'>
         <div className='float-left mb-2 sm:mr-8'>
-          <Image className='rounded-3xl' src='/images/zafertaki1.png' alt="Ozan's picture" width={427} height={427} />
+          <Image className='rounded-3xl' src='/images/wat_arun.png' alt="Ozan's picture" width={427} height={427} />
         </div>
         <div className=''>
           <h1 className='text-[2.625rem] text-black font-bold'>I'm Ozan Batuhan Kurucu</h1>
@@ -54,7 +54,31 @@ export default function AboutMe() {
           <p className='paragraph-2 text-black mt-5'>
             With an outgoing personality, I find it easy to connect with people and engage in meaningful conversations.
             Due to time zone differences between Turkey and New York, I haven't been as involved in tech communities and
-            meetups as I’d like, but I always look for ways to contribute and stay connected with the industry.
+            meetups as I'd like, but I always look for ways to contribute and stay connected with the industry.
+          </p>
+        </div>
+        <div className='mt-10 flex flex-col items-center'>
+          <div className='flex flex-wrap justify-center'>
+            <Image
+              src='/images/bangkok_team_2024.jpg'
+              alt='Team in Bangkok'
+              className='rounded-lg m-2'
+              width={400}
+              height={200}
+              layout='fixed'
+            />
+            <Image
+              src='/images/bangkok_team_2_2024.jpeg'
+              alt='Another Image'
+              className='rounded-lg m-2'
+              width={400}
+              height={200}
+              layout='fixed'
+            />
+          </div>
+          <p className='paragraph-2 text-black mt-4 text-center'>
+            Memorable moments with my teammates from New York during our trip to Bangkok in 2024, showcasing our
+            collaboration and experiences together.
           </p>
         </div>
       </div>
