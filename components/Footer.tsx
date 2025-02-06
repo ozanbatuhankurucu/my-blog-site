@@ -8,6 +8,8 @@ import { FooterList } from "./FooterList"
 import Link from "next/link"
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
   const handleCategoryOnClick = (elementId: string) => {
     const categoryTitleElement = document.getElementById(elementId)
     if (categoryTitleElement) {
@@ -129,7 +131,7 @@ export const Footer = () => {
             </div>
           </div>
           <hr className='h-[1px] w-full bg-grey mt-[50px]' />
-          <div className='mt-[26px] text-sm font-normal text-black'>© 2023</div>
+          <div className='mt-[26px] text-sm font-normal text-black'>© 2021 - {currentYear}</div>
         </div>
       </div>{" "}
     </>
