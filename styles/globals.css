@@ -192,13 +192,6 @@ ol+ul {
   margin-left: 20px;
 }
 
-@media screen and (min-width: 576px) {
-  .blog-template img {
-    width: 600px !important;
-    height: auto !important;
-  }
-}
-
 
 table {
   width: 100%;
@@ -218,8 +211,13 @@ th {
   font-weight: 700;
 }
 
-
-
 tr:hover {
   background-color: var(--grey);
+}
+
+@media screen and (min-width: 576px) {
+  .blog-template img {
+    width: 600px !important;
+    height: auto !important;
+  }
 }
