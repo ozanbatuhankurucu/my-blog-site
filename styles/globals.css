@@ -188,7 +188,7 @@ Blog Template
   background-color: transparent;
 }
 
-ol + ul {
+ol+ul {
   margin-left: 20px;
 }
 
@@ -197,4 +197,29 @@ ol + ul {
     width: 600px !important;
     height: auto !important;
   }
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid var(--light-grey-2);
+}
+
+th {
+  background-color: var(--light-grey-1);
+  font-weight: 700;
+}
+
+
+
+tr:hover {
+  background-color: var(--grey);
 }
