@@ -1,9 +1,9 @@
-'use client'
-import cx from 'classnames'
-import Link from 'next/link'
-import { useState } from 'react'
-import { RiCloseLine, RiFileDownloadLine, RiMenuLine } from 'react-icons/ri'
-import { Logo } from './Logo'
+"use client"
+import cx from "classnames"
+import Link from "next/link"
+import { useState } from "react"
+import { RiCloseLine, RiFileDownloadLine, RiMenuLine } from "react-icons/ri"
+import { Logo } from "./Logo"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <header
-      style={{ boxShadow: '4px 6px 13px rgba(215, 215, 215, 0.25)' }}
+      style={{ boxShadow: "4px 6px 13px rgba(215, 215, 215, 0.25)" }}
       className='bg-light-grey-1 sticky top-0 z-50'>
       <div className='text-white py-4 max-w-[1250px] mx-auto flex flex-col px-4 justify-between items-center md:flex-row xl:px-0'>
         <Logo />
@@ -23,7 +23,7 @@ const Header = () => {
             {isMenuOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}
           </button>
         </div>
-        <nav className={cx('md:flex', { flex: isMenuOpen, hidden: !isMenuOpen })}>
+        <nav className={cx("md:flex", { flex: isMenuOpen, hidden: !isMenuOpen })}>
           <ul className='flex flex-col space-y-4 md:flex-row items-center md:gap-9 md:space-y-0 md:space-x-4'>
             <li>
               <Link className='subheading-2 text-black' href='/'>
@@ -39,6 +39,15 @@ const Header = () => {
               <Link className='subheading-2 text-black' href='/aboutMe'>
                 About Me
               </Link>
+            </li>
+            <li>
+              <a
+                className='bg-blue w-[213px] flex gap-[10px] items-center justify-center py-[10px] rounded-[4px]'
+                href='https://my-portfolio-ozan.s3.eu-central-1.amazonaws.com/pdfFiles/OZAN+BATUHAN+KURUCU+(2).pdf'
+                target='_blank'>
+                <RiFileDownloadLine size={24} />
+                <span className='text-white text-lg font-bold'>Download CV</span>
+              </a>
             </li>
           </ul>
         </nav>
