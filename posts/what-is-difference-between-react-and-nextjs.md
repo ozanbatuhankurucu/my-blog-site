@@ -2,7 +2,7 @@
 title: "What's the Difference between React and Next.js?"
 date: "2024-07-01"
 img: "/images/reactvsnextjs.webp"
-category: "Featured Article"
+category: "NextJS"
 description: "Discover the key differences between React and Next.js in this comprehensive guide. Learn about their unique features, use cases, and how to choose the right tool for your web development project."
 ---
 
