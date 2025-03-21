@@ -26,11 +26,11 @@ In these performance-sensitive contexts, understanding basic data structures can
 
 Rather than diving deeply into intricate theories, frontend developers should strive for a balanced, practical understanding of essential computer science concepts. A targeted learning approach might include:
 
-![bigo_notation.png](https://www.ozanbatuhankurucu.com/images/bigo_notation.png)
+![datastructures.png](http://localhost:3000/images/datastructures.png)
 
-- Big O Notation: Enables developers to quickly compare and understand algorithm efficiency and make informed decisions regarding performance trade-offs.
-- Basic Data Structures: Knowledge of arrays, maps, sets, queues, stacks, linked lists, and their respective use-cases allows developers to choose the right structure for a specific scenario.
-- Fundamental Algorithms: Mastering binary search, quicksort, merge sort, recursion, and basic dynamic programming techniques provides solid foundational skills.
+- **Big O Notation:** Enables developers to quickly compare and understand algorithm efficiency and make informed decisions regarding performance trade-offs.
+- **Basic Data Structures:** Knowledge of arrays, maps, sets, queues, stacks, linked lists, and their respective use-cases allows developers to choose the right structure for a specific scenario.
+- **Fundamental Algorithms:** Mastering binary search, quicksort, merge sort, recursion, and basic dynamic programming techniques provides solid foundational skills.
 
 Beyond these basics, gaining knowledge about graph theory, tree traversal, and more complex algorithmic patterns can greatly benefit developers working on applications requiring detailed state management, complex DOM interactions, or extensive data manipulation.
 
@@ -50,8 +50,8 @@ Several excellent resources are available to frontend developers seeking foundat
 
 For developers who prefer interactive or video-based learning, several platforms offer comprehensive and accessible courses:
 
-- Frontend Masters: Features an extensive [free course](https://frontendmasters.com/courses/algorithms/) by ThePrimeagen, along with additional advanced content available for paid subscribers, providing structured, detailed instruction.
-- freeCodeCamp: Offers a beginner-friendly [five-hour course](https://www.youtube.com/watch?v=8hly31xKli0) freely accessible on YouTube, providing a practical and approachable introduction.
+- **Frontend Masters:** Features an extensive [free course](https://frontendmasters.com/courses/algorithms/) by ThePrimeagen, along with additional advanced content available for paid subscribers, providing structured, detailed instruction.
+- **freeCodeCamp:** Offers a beginner-friendly [five-hour course](https://www.youtube.com/watch?v=8hly31xKli0) freely accessible on YouTube, providing a practical and approachable introduction.
 - [Leetcode](https://leetcode.com/): An interactive coding platform that includes realistic algorithmic challenges, enabling developers to practically apply theoretical knowledge and improve problem-solving skills through hands-on practice.
 
 ## Incorporating Algorithmic Thinking into Daily Development
