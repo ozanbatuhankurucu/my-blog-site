@@ -1,9 +1,9 @@
 ---
-title: "How Much Computer Science Do Frontend Developers Really Need?"
-date: "2025-03-20"
-img: "/images/computerscience.jpg"
-category: "Featured Article"
-description: "Discover how much computer science frontend developers really need. Explore practical insights into data structures, algorithms, performance optimization, and recommended learning resources for enhancing your frontend development skills."
+title: 'How Much Computer Science Do Frontend Developers Really Need?'
+date: '2025-03-20'
+img: '/images/computerscience.jpg'
+category: 'Featured Article'
+description: 'Discover how much computer science frontend developers really need. Explore practical insights into data structures, algorithms, performance optimization, and recommended learning resources for enhancing your frontend development skills.'
 ---
 
 In recent years, a prominent debate has arisen among frontend developers: Is it essential to learn foundational computer science topics like data structures and algorithms? This discussion is fueled by differing perspectives. On one side, some developers feel this knowledge isn't necessary for their daily tasks, while on the other, many argue it's crucial for career growth, professional advancement, and optimizing complex modern web applications.
@@ -26,7 +26,7 @@ In these performance-sensitive contexts, understanding basic data structures can
 
 Rather than diving deeply into intricate theories, frontend developers should strive for a balanced, practical understanding of essential computer science concepts. A targeted learning approach might include:
 
-![datastructures.png](http://localhost:3000/images/datastructures.png)
+![datastructures.png](https://www.ozanbatuhankurucu.com/images/datastructures.png)
 
 - **Big O Notation:** Enables developers to quickly compare and understand algorithm efficiency and make informed decisions regarding performance trade-offs.
 - **Basic Data Structures:** Knowledge of arrays, maps, sets, queues, stacks, linked lists, and their respective use-cases allows developers to choose the right structure for a specific scenario.
