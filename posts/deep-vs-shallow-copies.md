@@ -2,7 +2,7 @@
 title: "Understanding Shallow Copy vs Deep Copy in JavaScript: Key Differences and Examples"
 date: "2024-08-10"
 img: "/images/shallow-copy-vs-deep-copy.webp"
-category: "Featured Article"
+category: "JavaScript"
 description: "Learn the key differences between shallow copy and deep copy in JavaScript. This article provides clear explanations and examples to help you understand when to use each method and how to avoid common pitfalls when copying objects in JavaScript."
 ---
 
