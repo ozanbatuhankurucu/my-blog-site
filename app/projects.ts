@@ -71,6 +71,10 @@ export const PROJECTS: Project[] = [
     updatedAt: '2022-05-29',
     url: 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/projects',
     features: [
+			{
+				text: 'Double Vertical Slider',
+				link: `${PROJECTS_BASE_LINK}double-vertical-slider`
+			},
       {
         text: 'Sticky Navbar',
         link: `${PROJECTS_BASE_LINK}sticky-navbar`
