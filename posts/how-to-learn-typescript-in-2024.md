@@ -2,7 +2,7 @@
 title: "How To Learn TypeScript In 2024"
 date: "2024-10-27"
 img: "/images/how-to-learn-ts-in-2024.webp"
-category: "Featured Article"
+category: "TypeScript"
 description: "Learn how to master TypeScript in 2024 with this comprehensive step-by-step guide. Discover the essential concepts, practical examples, and best practices to write efficient, type-safe JavaScript. Whether you're a beginner or an experienced developer, this guide will help you build your TypeScript skills and boost your career."
 ---
 
