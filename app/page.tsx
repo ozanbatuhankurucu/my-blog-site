@@ -68,7 +68,6 @@ const HomePage = () => {
               <ArticleCard
                 key={article.slug}
                 date={article.date}
-                img={article.img}
                 title={article.title}
                 slug={article.slug}
                 category={article.category}
