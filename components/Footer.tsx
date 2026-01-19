@@ -1,139 +1,99 @@
-"use client"
-import React from "react"
-import { LuTwitter } from "react-icons/lu"
-import { IoLogoInstagram } from "react-icons/io"
-import { FiLinkedin } from "react-icons/fi"
-import { Logo } from "./Logo"
-import { FooterList } from "./FooterList"
-import Link from "next/link"
+'use client'
+
+import Link from 'next/link'
+import { LuTwitter, LuGithub, LuLinkedin, LuMail } from 'react-icons/lu'
+import { IconType } from 'react-icons'
+import { NAV_LINKS, SOCIAL_LINKS, SITE_CONFIG, SocialPlatform } from '../lib/constants'
+
+// Map platform names to icons
+const platformIcons: Record<SocialPlatform, IconType> = {
+  twitter: LuTwitter,
+  github: LuGithub,
+  linkedin: LuLinkedin,
+  email: LuMail,
+}
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const handleCategoryOnClick = (elementId: string) => {
-    const categoryTitleElement = document.getElementById(elementId)
-    if (categoryTitleElement) {
-      const scrollOffset = categoryTitleElement.offsetTop - 90
-      window.scrollTo({
-        top: scrollOffset,
-        behavior: "smooth"
-      })
-    }
-  }
-
   return (
-    <>
-      <div className='mt-4 bg-light-grey-1'>
-        <div className='max-w-[1250px] mx-auto px-4 pt-[70px] pb-[26px]'>
-          <div className='flex flex-col lg:flex-row lg:gap-[160px]'>
-            <div className='flex flex-col gap-5'>
-              <Logo containerClassName='!block' />
-              <div className='flex gap-[30px]'>
-                <Link href='https://twitter.com/ozankurucu_' target='_blank'>
-                  <LuTwitter className='text-black' size={22} />
-                </Link>
-                <Link href='https://www.instagram.com/ozankurucu_/' target='_blank'>
-                  <IoLogoInstagram className='text-black' size={22} />
-                </Link>
-                <Link href='https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/' target='_blank'>
-                  <FiLinkedin className='text-black' size={22} />
-                </Link>
+    <footer className="border-t border-border-subtle bg-bg-elevated pt-12 pb-12 mt-8">
+      <div className="container">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          {/* Left side - Logo and tagline */}
+          <div className="space-y-3">
+            <Link
+              href="/"
+              className="font-mono text-lg font-medium text-text-primary hover:text-accent transition-colors duration-fast"
+            >
+              {SITE_CONFIG.logo}
+            </Link>
+            <p className="text-text-muted text-sm max-w-xs">
+              {SITE_CONFIG.description}
+            </p>
+          </div>
+
+          {/* Right side - Navigation and social */}
+          <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+            {/* Navigation */}
+            <nav className="space-y-3">
+              <h4 className="font-mono text-xs font-medium text-text-muted uppercase tracking-wider">
+                Navigation
+              </h4>
+              <ul className="space-y-2">
+                {NAV_LINKS.map(({ href, label }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className="text-text-secondary hover:text-text-primary transition-colors duration-fast text-sm"
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Social */}
+            <div className="space-y-3">
+              <h4 className="font-mono text-xs font-medium text-text-muted uppercase tracking-wider">
+                Connect
+              </h4>
+              <div className="flex gap-3">
+                {SOCIAL_LINKS.map(({ href, label, platform }) => {
+                  const Icon = platformIcons[platform]
+                  return (
+                    <a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        p-2 rounded-md text-text-muted
+                        hover:text-text-primary hover:bg-bg-hover
+                        transition-colors duration-fast
+                      "
+                      aria-label={label}
+                    >
+                      <Icon size={20} />
+                    </a>
+                  )
+                })}
               </div>
             </div>
-            <div className='flex flex-wrap gap-20 gap-y-10 mt-12 lg:mt-0'>
-              <FooterList
-                title='Category'
-                list={[
-                  {
-                    label: "Featured Article",
-                    onClick: () => handleCategoryOnClick("Featured Article")
-                  },
-                  {
-                    label: "Artificial Intelligence",
-                    onClick: () => handleCategoryOnClick("Artificial Intelligence")
-                  },
-                  {
-                    label: "HTML",
-                    onClick: () => handleCategoryOnClick("HTML")
-                  },
-                  {
-                    label: "Self-improvement",
-                    onClick: () => handleCategoryOnClick("Self-improvement")
-                  },
-                  {
-                    label: "CSS",
-                    onClick: () => handleCategoryOnClick("CSS")
-                  },
-                  {
-                    label: "JavaScript",
-                    onClick: () => handleCategoryOnClick("JavaScript")
-                  },
-                  {
-                    label: "TailwindCSS",
-                    onClick: () => handleCategoryOnClick("TailwindCSS")
-                  },
-                  {
-                    label: "TypeScript",
-                    onClick: () => handleCategoryOnClick("TypeScript")
-                  },
-                  {
-                    label: "NextJS",
-                    onClick: () => handleCategoryOnClick("NextJS")
-                  },
-                  {
-                    label: "ReactJS",
-                    onClick: () => handleCategoryOnClick("ReactJS")
-                  }
-                ]}
-              />
-              <FooterList
-                title='About Me'
-                list={[
-                  {
-                    label: "About Me",
-                    link: "/aboutMe"
-                  },
-                  {
-                    label: "Projects",
-                    link: "/projects"
-                  }
-                ]}
-              />
-              <FooterList
-                title='Get In Touch'
-                list={[
-                  {
-                    label: "ozanbatuhankurucu@gmail.com",
-                    target: "_blank"
-                  }
-                ]}
-              />
-              <FooterList
-                title='Follow Me'
-                list={[
-                  {
-                    label: "Twitter",
-                    link: "https://twitter.com/ozankurucu_",
-                    target: "_blank"
-                  },
-                  {
-                    label: "Instagram",
-                    link: "https://www.instagram.com/ozankurucu_/",
-                    target: "_blank"
-                  },
-                  {
-                    label: "LinkedIn",
-                    link: "https://www.linkedin.com/in/ozan-batuhan-kurucu-66b120182/",
-                    target: "_blank"
-                  }
-                ]}
-              />
-            </div>
           </div>
-          <hr className='h-[1px] w-full bg-grey mt-[50px]' />
-          <div className='mt-[26px] text-sm font-normal text-black'>© 2021 - {currentYear}</div>
         </div>
-      </div>{" "}
-    </>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p className="text-text-muted text-xs">
+            © 2021–{currentYear} {SITE_CONFIG.name}
+          </p>
+          <p className="text-text-muted text-xs">
+            Built with Next.js & Tailwind CSS
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }

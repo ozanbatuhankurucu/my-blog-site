@@ -1,9 +1,9 @@
 ---
-title: 'How Much Computer Science Do Frontend Developers Really Need?'
-date: '2025-03-20'
-img: '/images/computerscience.jpg'
-category: 'Featured Article'
-description: 'Discover how much computer science frontend developers really need. Explore practical insights into data structures, algorithms, performance optimization, and recommended learning resources for enhancing your frontend development skills.'
+title: "How Much Computer Science Do Frontend Developers Really Need?"
+date: "2025-03-20"
+img: "/images/computerscience.jpg"
+category: "Self-improvement"
+description: "Discover how much computer science frontend developers really need. Explore practical insights into data structures, algorithms, performance optimization, and recommended learning resources for enhancing your frontend development skills."
 ---
 
 In recent years, a prominent debate has arisen among frontend developers: Is it essential to learn foundational computer science topics like data structures and algorithms? This discussion is fueled by differing perspectives. On one side, some developers feel this knowledge isn't necessary for their daily tasks, while on the other, many argue it's crucial for career growth, professional advancement, and optimizing complex modern web applications.

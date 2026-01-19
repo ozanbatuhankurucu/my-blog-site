@@ -2,7 +2,7 @@
 title: "React 19.2 Update: New Features and Performance Improvements"
 date: "2025-11-04"
 img: "/images/react-19-2.png"
-category: "Featured Article"
+category: "ReactJS"
 description: "Discover the new features, performance optimizations, and SSR improvements coming with React 19.2. Learn about Activity component, useEffectEvent hook, cacheSignal, and Partial Pre-rendering (PPR). Upgrade your React applications with our comprehensive guide."
 ---
 

@@ -5,16 +5,18 @@ import { getPostMetadata } from "../../../components/utils"
 import moment from "moment"
 import { Metadata } from "next"
 import dynamic from "next/dynamic"
+import Link from "next/link"
+import { Tag } from "../../../components/Tag"
 
 // Use dynamic import to render the component on the client side
 const DynamicPreBlock = dynamic(() => import("../../../components/PreBlock"), {
-  ssr: false // Set ssr to false to render on the client side only
+  ssr: false
 })
 
 const calculateReadingTime = (text: string) => {
-  const wordsPerMinute = 200 // Average reading speed
+  const wordsPerMinute = 200
   const words = text.split(/\s+/).length
-  const readingTime = Math.ceil(words / wordsPerMinute) // Reading time in minutes
+  const readingTime = Math.ceil(words / wordsPerMinute)
   return readingTime
 }
 
@@ -53,9 +55,9 @@ export const generateMetadata = ({ params }: Props): Metadata => {
       siteName: "Ozan Batuhan Kurucu Blog",
       images: {
         url: `https://www.ozanbatuhankurucu.com${img}`,
-        width: 1200, // Specify the width of the image in pixels
-        height: 630, // Specify the height of the image in pixels
-        alt: `${title} Image` // Optional alt text for the image
+        width: 1200,
+        height: 630,
+        alt: `${title} Image`
       }
     }
   }
@@ -67,27 +69,66 @@ const PostPage = ({ params }: Props) => {
   const readingTime = calculateReadingTime(post.content)
 
   return (
-    <section className='blog-template'>
-      <div className='w-[90vw] max-w-[1250px] my-0 mx-auto'>
-        <div className='mb-12 text-center'>
-          <h1 className='text-[2.875rem] font-bold text-slate-600 '>
+    <section className="blog-template">
+      <div className="container max-w-[800px]">
+        {/* Back link */}
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-text-muted hover:text-text-primary transition-colors duration-fast mb-8 group"
+        >
+          <span className="transition-transform duration-fast group-hover:-translate-x-1">←</span>
+          Back to posts
+        </Link>
+
+        {/* Article header */}
+        <header className="mb-12">
+          {/* Category */}
+          {post.data.category && (
+            <div className="mb-4">
+              <Tag variant="default" size="sm">
+                {post.data.category}
+              </Tag>
+            </div>
+          )}
+
+          {/* Title */}
+          <h1 className="font-mono text-3xl md:text-4xl font-medium text-text-primary mb-4">
             {post.data.title}
           </h1>
-          <h2 className='subheading-2 text-slate-400 mt-2'>
-            {moment(post.data.date).format("MMMM D, YYYY")}
-          </h2>
-          <p className='text-slate-500 !mt-0'>({readingTime} min read)</p>
-        </div>
-        <article>
+
+          {/* Meta */}
+          <div className="flex items-center gap-3 text-text-muted text-sm">
+            <time dateTime={post.data.date}>
+              {moment(post.data.date).format("MMMM D, YYYY")}
+            </time>
+            <span className="text-border-default">•</span>
+            <span>{readingTime} min read</span>
+          </div>
+        </header>
+
+        {/* Article content */}
+        <article className="prose-custom">
           <Markdown
             options={{
               overrides: {
                 pre: DynamicPreBlock
               }
-            }}>
+            }}
+          >
             {post.content}
           </Markdown>
         </article>
+
+        {/* Footer */}
+        <footer className="mt-16 pt-8 border-t border-border-subtle">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-accent hover:text-accent-hover transition-colors duration-fast group"
+          >
+            <span className="transition-transform duration-fast group-hover:-translate-x-1">←</span>
+            Back to all posts
+          </Link>
+        </footer>
       </div>
     </section>
   )
