@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     url: "https://www.ozanbatuhankurucu.com",
     type: "website",
     siteName: "Ozan Batuhan Kurucu Blog",
-  /*   images: {
+    images: {
       url: "https://www.ozanbatuhankurucu.com/images/mainpage.png",
       width: 1200,
       height: 630,
       alt: "Ozan Batuhan Kurucu Blog"
-    } */
+    }
   }
 }
 
