@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Ozan Batuhan Kurucu Blog",
     images: {
-      url: "https://www.ozanbatuhankurucu.com/images/mainpage.png",
+      url: "https://www.ozanbatuhankurucu.com/images/mainpage1.png",
       width: 1200,
       height: 630,
       alt: "Ozan Batuhan Kurucu Blog"
