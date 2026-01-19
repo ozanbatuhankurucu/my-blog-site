@@ -12,33 +12,42 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html>
+    <html lang="en">
       <head>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
+        {/* JetBrains Mono for headings and code */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        {/* Geist font from Vercel */}
+        <link
+          href="https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-sans/style.min.css"
+          rel="stylesheet"
+        />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
           <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
-        <Script
-          id='adsbygoogle-init'
-          strategy='afterInteractive'
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}
-          async
-        />
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}></Script>
-        <Script strategy='afterInteractive'>
-          {`
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        `}
-        </Script>
-        <div>
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        {GOOGLE_ADS_CLIENT_ID && (
+          <>
+            <Script
+              id="adsbygoogle-init"
+              strategy="afterInteractive"
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT_ID}`}
+              async
+            />
+            <Script strategy="afterInteractive">
+              {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+            </Script>
+          </>
+        )}
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   )

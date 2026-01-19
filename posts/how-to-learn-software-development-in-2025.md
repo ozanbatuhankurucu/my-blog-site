@@ -2,7 +2,7 @@
 title: "How to Learn Software Development in 2025 and Beyond"
 date: "2025-12-26"
 img: "/images/learn-software-development-in-2025.png"
-category: "Featured Article"
+category: "Self-improvement"
 description: "Discover a modern and practical approach to learning software development in 2025. This guide explains how to combine fundamentals, real-world projects, and AI-assisted tools to build sustainable learning habits and stay competitive in a rapidly evolving ecosystem."
 ---
 

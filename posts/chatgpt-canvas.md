@@ -2,7 +2,7 @@
 title: "Unlocking Productivity with the ChatGPT Canvas: A Comprehensive Guide"
 date: "2024-12-21"
 img: "/images/chatgpt-canvas.webp"
-category: "Featured Article"
+category: "Artificial Intelligence"
 description: "Discover how the ChatGPT canvas feature boosts productivity through seamless content creation, collaborative editing, and powerful AI-driven enhancements."
 ---
 
