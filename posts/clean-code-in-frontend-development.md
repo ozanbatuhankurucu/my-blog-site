@@ -1,20 +1,20 @@
 ---
-title: "Clean Code in Frontend Development: Principles, Patterns, and Practical React Examples"
-date: "2026-03-12"
-img: "/images/clean-code-frontend.webp"
-category: "ReactJS"
-description: "A deep dive into Clean Code principles applied to frontend development. Learn how to write readable, maintainable, and scalable React applications through practical examples covering component design, custom hooks, type safety, error handling, and architectural patterns that teams actually use in production."
+title: 'Clean Code in Frontend Development: Principles, Patterns, and Practical React Examples'
+date: '2026-03-13'
+img: '/images/clean-code-frontend.webp'
+category: 'ReactJS'
+description: 'A deep dive into Clean Code principles applied to frontend development. Learn how to write readable, maintainable, and scalable React applications through practical examples covering component design, custom hooks, type safety, error handling, and architectural patterns that teams actually use in production.'
 ---
 
 Every frontend codebase starts clean. The first component is elegant, the folder structure is tidy, and the abstractions feel just right. Then the product grows. New engineers join. Deadlines compress. Six months later, you're staring at a 400-line component that fetches data, manages three pieces of local state, handles form validation, and renders a modal — all in one file.
 
 This is not a failure of skill. It is a failure of discipline, and Clean Code is the discipline that prevents it.
 
-This article is not a rehash of Robert C. Martin's *Clean Code* mapped onto JSX. Instead, it is a practical guide to the patterns, boundaries, and trade-offs that keep large frontend codebases healthy — written specifically for engineers building with React and TypeScript.
+This article is not a rehash of Robert C. Martin's _Clean Code_ mapped onto JSX. Instead, it is a practical guide to the patterns, boundaries, and trade-offs that keep large frontend codebases healthy — written specifically for engineers building with React and TypeScript.
 
 ## Why Clean Code Matters More in the Frontend
 
-Backend services have a natural forcing function for modularity: APIs have contracts, databases have schemas, and services have boundaries. The frontend has none of that by default. A React component can do *anything* — fetch data, manage state, handle routing side effects, render UI, and orchestrate animations — all in one function. This flexibility is React's greatest strength and greatest liability.
+Backend services have a natural forcing function for modularity: APIs have contracts, databases have schemas, and services have boundaries. The frontend has none of that by default. A React component can do _anything_ — fetch data, manage state, handle routing side effects, render UI, and orchestrate animations — all in one function. This flexibility is React's greatest strength and greatest liability.
 
 Clean Code in the frontend is ultimately about **managing complexity at the UI layer**, where:
 
@@ -32,33 +32,30 @@ The Single Responsibility Principle is the most cited and most violated principl
 
 ```tsx
 const UserDashboard = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"posts" | "settings">("posts");
+  const [user, setUser] = useState<User | null>(null)
+  const [posts, setPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState<'posts' | 'settings'>('posts')
 
   useEffect(() => {
     const load = async () => {
       try {
-        const [userData, postData] = await Promise.all([
-          fetchUser(),
-          fetchPosts(),
-        ]);
-        setUser(userData);
-        setPosts(postData);
+        const [userData, postData] = await Promise.all([fetchUser(), fetchPosts()])
+        setUser(userData)
+        setPosts(postData)
       } catch (e) {
-        setError("Failed to load dashboard");
+        setError('Failed to load dashboard')
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
-    load();
-  }, []);
+    }
+    load()
+  }, [])
 
-  if (isLoading) return <Spinner />;
-  if (error) return <ErrorBanner message={error} />;
-  if (!user) return null;
+  if (isLoading) return <Spinner />
+  if (error) return <ErrorBanner message={error} />
+  if (!user) return null
 
   return (
     <div>
@@ -67,10 +64,10 @@ const UserDashboard = () => {
         <p>{user.email}</p>
       </header>
       <nav>
-        <button onClick={() => setActiveTab("posts")}>Posts</button>
-        <button onClick={() => setActiveTab("settings")}>Settings</button>
+        <button onClick={() => setActiveTab('posts')}>Posts</button>
+        <button onClick={() => setActiveTab('settings')}>Settings</button>
       </nav>
-      {activeTab === "posts" ? (
+      {activeTab === 'posts' ? (
         <ul>
           {posts.map((post) => (
             <li key={post.id}>
@@ -84,8 +81,8 @@ const UserDashboard = () => {
         <SettingsForm user={user} />
       )}
     </div>
-  );
-};
+  )
+}
 ```
 
 This is readable for a single developer on day one. But consider what happens when you need to add pagination to posts, or swap the data layer from REST to GraphQL, or add a third tab. Every change touches this one file.
@@ -94,25 +91,21 @@ This is readable for a single developer on day one. But consider what happens wh
 
 ```tsx
 const UserDashboard = () => {
-  const { user, posts, isLoading, error } = useDashboardData();
-  const [activeTab, setActiveTab] = useState<"posts" | "settings">("posts");
+  const { user, posts, isLoading, error } = useDashboardData()
+  const [activeTab, setActiveTab] = useState<'posts' | 'settings'>('posts')
 
-  if (isLoading) return <Spinner />;
-  if (error) return <ErrorBanner message={error} />;
-  if (!user) return null;
+  if (isLoading) return <Spinner />
+  if (error) return <ErrorBanner message={error} />
+  if (!user) return null
 
   return (
     <div>
       <UserHeader user={user} />
       <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
-      {activeTab === "posts" ? (
-        <PostList posts={posts} />
-      ) : (
-        <SettingsForm user={user} />
-      )}
+      {activeTab === 'posts' ? <PostList posts={posts} /> : <SettingsForm user={user} />}
     </div>
-  );
-};
+  )
+}
 ```
 
 The `UserDashboard` now reads like a table of contents. Data fetching lives in `useDashboardData`. Presentation lives in `UserHeader`, `PostList`, and `SettingsForm`. Navigation logic is isolated in `TabNavigation`. Each piece can be tested, modified, and reused independently.
@@ -124,19 +117,27 @@ Naming is the most underrated aspect of clean frontend code. A well-named compon
 **Weak names that force you to read the implementation:**
 
 ```tsx
-const data = useQuery("stuff");
-const handleClick = () => { /* ... */ };
-const flag = user.role === "admin";
-const Comp = ({ items }: Props) => { /* ... */ };
+const data = useQuery('stuff')
+const handleClick = () => {
+  /* ... */
+}
+const flag = user.role === 'admin'
+const Comp = ({ items }: Props) => {
+  /* ... */
+}
 ```
 
 **Strong names that convey intent:**
 
 ```tsx
-const { data: analyticsReport } = useAnalyticsReport(dateRange);
-const handleInvoiceDownload = () => { /* ... */ };
-const canAccessAdminPanel = user.role === "admin";
-const TransactionHistoryTable = ({ transactions }: Props) => { /* ... */ };
+const { data: analyticsReport } = useAnalyticsReport(dateRange)
+const handleInvoiceDownload = () => {
+  /* ... */
+}
+const canAccessAdminPanel = user.role === 'admin'
+const TransactionHistoryTable = ({ transactions }: Props) => {
+  /* ... */
+}
 ```
 
 A few naming heuristics that hold up well in practice:
@@ -154,38 +155,38 @@ In React, custom hooks are the cleanest way to extract and share stateful logic.
 
 ```tsx
 function useDashboardData() {
-  const [user, setUser] = useState<User | null>(null);
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null)
+  const [posts, setPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const controller = new AbortController();
+    const controller = new AbortController()
 
     const load = async () => {
       try {
         const [userData, postData] = await Promise.all([
           fetchUser({ signal: controller.signal }),
-          fetchPosts({ signal: controller.signal }),
-        ]);
-        setUser(userData);
-        setPosts(postData);
+          fetchPosts({ signal: controller.signal })
+        ])
+        setUser(userData)
+        setPosts(postData)
       } catch (e) {
         if (!controller.signal.aborted) {
-          setError("Failed to load dashboard");
+          setError('Failed to load dashboard')
         }
       } finally {
         if (!controller.signal.aborted) {
-          setIsLoading(false);
+          setIsLoading(false)
         }
       }
-    };
+    }
 
-    load();
-    return () => controller.abort();
-  }, []);
+    load()
+    return () => controller.abort()
+  }, [])
 
-  return { user, posts, isLoading, error };
+  return { user, posts, isLoading, error }
 }
 ```
 
@@ -198,21 +199,21 @@ In practice, if your application uses a server-state library like **React Query*
 ```tsx
 function useLocalStorage<T>(key: string, initialValue: T) {
   const [value, setValue] = useState<T>(() => {
-    const stored = localStorage.getItem(key);
-    return stored ? JSON.parse(stored) : initialValue;
-  });
+    const stored = localStorage.getItem(key)
+    return stored ? JSON.parse(stored) : initialValue
+  })
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
+    localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value])
 
-  return [value, setValue] as const;
+  return [value, setValue] as const
 }
 ```
 
 ```tsx
-const [theme, setTheme] = useLocalStorage("theme", "dark");
-const [sidebarOpen, setSidebarOpen] = useLocalStorage("sidebar", true);
+const [theme, setTheme] = useLocalStorage('theme', 'dark')
+const [sidebarOpen, setSidebarOpen] = useLocalStorage('sidebar', true)
 ```
 
 ### Behavior Hooks vs. Feature Hooks
@@ -233,43 +234,46 @@ TypeScript is most valuable at the boundaries of your system — component props
 
 ```tsx
 const UserCard = ({ user }: UserCardProps) => {
-  const fullName: string = `${user.firstName} ${user.lastName}`;
+  const fullName: string = `${user.firstName} ${user.lastName}`
   const initials: string = fullName
-    .split(" ")
+    .split(' ')
     .map((n: string) => n[0])
-    .join("");
-  const isActive: boolean = user.status === "active";
+    .join('')
+  const isActive: boolean = user.status === 'active'
 
   return (
     <div>
       <Avatar initials={initials} />
       <span>{fullName}</span>
-      {isActive && <Badge label="Active" />}
+      {isActive && <Badge label='Active' />}
     </div>
-  );
-};
+  )
+}
 ```
 
 **Right-typed — boundaries are strict, internals are inferred:**
 
 ```tsx
 interface UserCardProps {
-  user: User;
+  user: User
 }
 
 const UserCard = ({ user }: UserCardProps) => {
-  const fullName = `${user.firstName} ${user.lastName}`;
-  const initials = fullName.split(" ").map((n) => n[0]).join("");
-  const isActive = user.status === "active";
+  const fullName = `${user.firstName} ${user.lastName}`
+  const initials = fullName
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+  const isActive = user.status === 'active'
 
   return (
     <div>
       <Avatar initials={initials} />
       <span>{fullName}</span>
-      {isActive && <Badge label="Active" />}
+      {isActive && <Badge label='Active' />}
     </div>
-  );
-};
+  )
+}
 ```
 
 TypeScript's inference handles local variables perfectly. Your energy is better spent on prop interfaces, API response types, and the contracts between modules — the places where a type mismatch causes real bugs.
@@ -278,27 +282,24 @@ TypeScript's inference handles local variables perfectly. Your energy is better 
 
 ```tsx
 interface PaginatedResponse<T> {
-  data: T[];
-  total: number;
-  page: number;
-  pageSize: number;
+  data: T[]
+  total: number
+  page: number
+  pageSize: number
 }
 
 interface Product {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  inStock: boolean;
+  id: string
+  name: string
+  price: number
+  category: string
+  inStock: boolean
 }
 
-async function fetchProducts(
-  page: number,
-  pageSize: number
-): Promise<PaginatedResponse<Product>> {
-  const res = await fetch(`/api/products?page=${page}&pageSize=${pageSize}`);
-  if (!res.ok) throw new Error("Failed to fetch products");
-  return res.json();
+async function fetchProducts(page: number, pageSize: number): Promise<PaginatedResponse<Product>> {
+  const res = await fetch(`/api/products?page=${page}&pageSize=${pageSize}`)
+  if (!res.ok) throw new Error('Failed to fetch products')
+  return res.json()
 }
 ```
 
@@ -323,17 +324,17 @@ return (
       <DataTable rows={data} />
     )}
   </div>
-);
+)
 ```
 
 **Clear — early returns:**
 
 ```tsx
-if (isLoading) return <Spinner />;
-if (error) return <ErrorBanner message={error} />;
-if (data.length === 0) return <EmptyState />;
+if (isLoading) return <Spinner />
+if (error) return <ErrorBanner message={error} />
+if (data.length === 0) return <EmptyState />
 
-return <DataTable rows={data} />;
+return <DataTable rows={data} />
 ```
 
 Early returns make the component's behavior scannable from top to bottom. Each state is handled explicitly, and you never have to mentally parse nested branches.
@@ -384,31 +385,31 @@ Error handling in frontend code is often an afterthought — a single `catch` bl
 **Component-level error boundaries:**
 
 ```tsx
-import { Component, type ReactNode, type ErrorInfo } from "react";
+import { Component, type ReactNode, type ErrorInfo } from 'react'
 
 interface Props {
-  children: ReactNode;
-  fallback: ReactNode;
+  children: ReactNode
+  fallback: ReactNode
 }
 
 interface State {
-  hasError: boolean;
+  hasError: boolean
 }
 
 class ErrorBoundary extends Component<Props, State> {
-  state: State = { hasError: false };
+  state: State = { hasError: false }
 
   static getDerivedStateFromError(): State {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    reportErrorToService(error, info);
+    reportErrorToService(error, info)
   }
 
   render() {
-    if (this.state.hasError) return this.props.fallback;
-    return this.props.children;
+    if (this.state.hasError) return this.props.fallback
+    return this.props.children
   }
 }
 ```
@@ -424,18 +425,16 @@ Wrap error boundaries around **sections** of your UI, not the entire app. If the
 **Typed error handling in data layers:**
 
 ```tsx
-type Result<T> =
-  | { status: "success"; data: T }
-  | { status: "error"; error: string };
+type Result<T> = { status: 'success'; data: T } | { status: 'error'; error: string }
 
 async function fetchUser(id: string): Promise<Result<User>> {
   try {
-    const res = await fetch(`/api/users/${id}`);
-    if (!res.ok) return { status: "error", error: `HTTP ${res.status}` };
-    const data = await res.json();
-    return { status: "success", data };
+    const res = await fetch(`/api/users/${id}`)
+    if (!res.ok) return { status: 'error', error: `HTTP ${res.status}` }
+    const data = await res.json()
+    return { status: 'success', data }
   } catch {
-    return { status: "error", error: "Network request failed" };
+    return { status: 'error', error: 'Network request failed' }
   }
 }
 ```
@@ -453,14 +452,14 @@ Side effects — API calls, analytics events, localStorage reads, DOM mutations 
 ```tsx
 const ProductCard = ({ product }: Props) => {
   useEffect(() => {
-    trackImpression(product.id); // analytics buried in a leaf node
-  }, [product.id]);
+    trackImpression(product.id) // analytics buried in a leaf node
+  }, [product.id])
 
   const handleAddToCart = () => {
-    addToCart(product);
-    trackEvent("add_to_cart", { productId: product.id });
-    toast.success("Added to cart");
-  };
+    addToCart(product)
+    trackEvent('add_to_cart', { productId: product.id })
+    toast.success('Added to cart')
+  }
 
   return (
     <div>
@@ -468,8 +467,8 @@ const ProductCard = ({ product }: Props) => {
       <p>{formatCurrency(product.price)}</p>
       <button onClick={handleAddToCart}>Add to cart</button>
     </div>
-  );
-};
+  )
+}
 ```
 
 **Elevated side effects (easier to reason about):**
@@ -481,16 +480,16 @@ const ProductCard = ({ product, onAddToCart }: Props) => (
     <p>{formatCurrency(product.price)}</p>
     <button onClick={() => onAddToCart(product)}>Add to cart</button>
   </div>
-);
+)
 ```
 
 ```tsx
 const ProductGrid = ({ products }: Props) => {
   const handleAddToCart = (product: Product) => {
-    addToCart(product);
-    trackEvent("add_to_cart", { productId: product.id });
-    toast.success("Added to cart");
-  };
+    addToCart(product)
+    trackEvent('add_to_cart', { productId: product.id })
+    toast.success('Added to cart')
+  }
 
   return (
     <div>
@@ -498,8 +497,8 @@ const ProductGrid = ({ products }: Props) => {
         <ProductCard key={p.id} product={p} onAddToCart={handleAddToCart} />
       ))}
     </div>
-  );
-};
+  )
+}
 ```
 
 The `ProductCard` is now a pure presentation component. It is trivially testable, reusable in different contexts (e.g., a "recently viewed" section where adding to cart is not available), and does not produce unexpected side effects.
@@ -528,29 +527,25 @@ Start at the left. Move right only when the current scope is genuinely insuffici
 
 ```tsx
 interface InvoiceFilterState {
-  status: "all" | "paid" | "pending" | "overdue";
-  dateRange: [Date, Date] | null;
-  searchQuery: string;
+  status: 'all' | 'paid' | 'pending' | 'overdue'
+  dateRange: [Date, Date] | null
+  searchQuery: string
 }
 
 const InvoiceFilterContext = createContext<{
-  filters: InvoiceFilterState;
-  setFilters: Dispatch<SetStateAction<InvoiceFilterState>>;
-} | null>(null);
+  filters: InvoiceFilterState
+  setFilters: Dispatch<SetStateAction<InvoiceFilterState>>
+} | null>(null)
 
 const InvoiceFilterProvider = ({ children }: { children: ReactNode }) => {
   const [filters, setFilters] = useState<InvoiceFilterState>({
-    status: "all",
+    status: 'all',
     dateRange: null,
-    searchQuery: "",
-  });
+    searchQuery: ''
+  })
 
-  return (
-    <InvoiceFilterContext.Provider value={{ filters, setFilters }}>
-      {children}
-    </InvoiceFilterContext.Provider>
-  );
-};
+  return <InvoiceFilterContext.Provider value={{ filters, setFilters }}>{children}</InvoiceFilterContext.Provider>
+}
 ```
 
 This context wraps only the invoices feature. The rest of the application has no access to it and no reason to re-render when it changes. That boundary is the point.
@@ -576,33 +571,28 @@ const ProductGrid = ({ products }: Props) => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 ```
 
 If `ProductCard` is wrapped in `React.memo`, these inline references defeat the memoization entirely. The fix is straightforward:
 
 ```tsx
-const cardStyle = { marginBottom: 16 };
+const cardStyle = { marginBottom: 16 }
 
 const ProductGrid = ({ products }: Props) => {
   const handleAddToCart = useCallback((productId: string) => {
-    addToCart(productId);
-  }, []);
+    addToCart(productId)
+  }, [])
 
   return (
     <div>
       {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          onAddToCart={handleAddToCart}
-          style={cardStyle}
-        />
+        <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} style={cardStyle} />
       ))}
     </div>
-  );
-};
+  )
+}
 ```
 
 **But do not memoize blindly.** `React.memo`, `useMemo`, and `useCallback` are not free — they consume memory, add cognitive overhead, and can mask deeper structural issues. Apply them when:
@@ -616,19 +606,19 @@ If a component is cheap to render, wrapping it in `React.memo` adds complexity w
 **Lazy loading for route-level code splitting** is one optimization that should be applied by default, not reactively:
 
 ```tsx
-import { lazy, Suspense } from "react";
+import { lazy, Suspense } from 'react'
 
-const InvoiceDashboard = lazy(() => import("./features/invoices/InvoiceDashboard"));
-const SettingsPage = lazy(() => import("./features/settings/SettingsPage"));
+const InvoiceDashboard = lazy(() => import('./features/invoices/InvoiceDashboard'))
+const SettingsPage = lazy(() => import('./features/settings/SettingsPage'))
 
 const App = () => (
   <Suspense fallback={<PageSkeleton />}>
     <Routes>
-      <Route path="/invoices" element={<InvoiceDashboard />} />
-      <Route path="/settings" element={<SettingsPage />} />
+      <Route path='/invoices' element={<InvoiceDashboard />} />
+      <Route path='/settings' element={<SettingsPage />} />
     </Routes>
   </Suspense>
-);
+)
 ```
 
 This ensures that users only download the code they need for the page they are visiting. Unlike memoization, lazy loading has virtually no downside and should be a standard practice for any application with multiple routes.
@@ -643,17 +633,17 @@ This risk is amplified in UI code specifically. Product requirements change freq
 
 ```tsx
 interface CardProps {
-  variant: "user" | "product" | "order";
-  title: string;
-  subtitle?: string;
-  image?: string;
-  badge?: string;
-  actions?: ReactNode;
-  onClick?: () => void;
-  isCompact?: boolean;
-  showBorder?: boolean;
-  headerSlot?: ReactNode;
-  footerSlot?: ReactNode;
+  variant: 'user' | 'product' | 'order'
+  title: string
+  subtitle?: string
+  image?: string
+  badge?: string
+  actions?: ReactNode
+  onClick?: () => void
+  isCompact?: boolean
+  showBorder?: boolean
+  headerSlot?: ReactNode
+  footerSlot?: ReactNode
 }
 ```
 
@@ -663,10 +653,8 @@ This component tries to serve three different domains through a single interface
 
 ```tsx
 const Card = ({ children, className }: { children: ReactNode; className?: string }) => (
-  <div className={cn("rounded-lg border bg-white p-4 shadow-sm", className)}>
-    {children}
-  </div>
-);
+  <div className={cn('rounded-lg border bg-white p-4 shadow-sm', className)}>{children}</div>
+)
 
 const UserCard = ({ user }: { user: User }) => (
   <Card>
@@ -674,7 +662,7 @@ const UserCard = ({ user }: { user: User }) => (
     <h3>{user.name}</h3>
     <p>{user.role}</p>
   </Card>
-);
+)
 
 const ProductCard = ({ product }: { product: Product }) => (
   <Card>
@@ -682,7 +670,7 @@ const ProductCard = ({ product }: { product: Product }) => (
     <h3>{product.name}</h3>
     <span>{formatCurrency(product.price)}</span>
   </Card>
-);
+)
 ```
 
 The `Card` provides shared styling. `UserCard` and `ProductCard` own their domain-specific rendering. If `ProductCard` needs a "sale" badge tomorrow, you add it without affecting `UserCard`. The abstraction boundary is in the right place.
@@ -696,28 +684,28 @@ Clean tests are as important as clean production code. Tests that assert impleme
 **Implementation-coupled test (fragile):**
 
 ```tsx
-it("calls setCount when button is clicked", () => {
-  const setState = jest.fn();
-  jest.spyOn(React, "useState").mockReturnValue([0, setState]);
-  render(<Counter />);
-  fireEvent.click(screen.getByText("Increment"));
-  expect(setState).toHaveBeenCalledWith(1);
-});
+it('calls setCount when button is clicked', () => {
+  const setState = jest.fn()
+  jest.spyOn(React, 'useState').mockReturnValue([0, setState])
+  render(<Counter />)
+  fireEvent.click(screen.getByText('Increment'))
+  expect(setState).toHaveBeenCalledWith(1)
+})
 ```
 
 **Behavior-driven test (resilient):**
 
 ```tsx
-import userEvent from "@testing-library/user-event";
+import userEvent from '@testing-library/user-event'
 
-it("increments the displayed count when the user clicks the button", async () => {
-  const user = userEvent.setup();
-  render(<Counter />);
-  expect(screen.getByText("Count: 0")).toBeInTheDocument();
+it('increments the displayed count when the user clicks the button', async () => {
+  const user = userEvent.setup()
+  render(<Counter />)
+  expect(screen.getByText('Count: 0')).toBeInTheDocument()
 
-  await user.click(screen.getByRole("button", { name: "Increment" }));
-  expect(screen.getByText("Count: 1")).toBeInTheDocument();
-});
+  await user.click(screen.getByRole('button', { name: 'Increment' }))
+  expect(screen.getByText('Count: 1')).toBeInTheDocument()
+})
 ```
 
 The second test uses `userEvent` rather than `fireEvent`. This is a deliberate choice: `userEvent` simulates real browser interactions (including focus, pointer, and keyboard events in the correct order), while `fireEvent` dispatches synthetic events directly. The result is tests that more accurately reflect how users interact with your application. Beyond the API choice, the test describes what the user sees and does. It survives a refactor from `useState` to `useReducer`, from a local counter to a context-provided counter, or from a button to a keyboard shortcut. It tests the contract, not the wiring.
@@ -736,16 +724,16 @@ Code smells are not bugs — they are structural patterns that signal deeper pro
 
 ```tsx
 // Smell: effect-based state sync
-const [items, setItems] = useState<Item[]>([]);
-const [total, setTotal] = useState(0);
+const [items, setItems] = useState<Item[]>([])
+const [total, setTotal] = useState(0)
 
 useEffect(() => {
-  setTotal(items.reduce((sum, item) => sum + item.price, 0));
-}, [items]);
+  setTotal(items.reduce((sum, item) => sum + item.price, 0))
+}, [items])
 
 // Clean: derived value
-const [items, setItems] = useState<Item[]>([]);
-const total = items.reduce((sum, item) => sum + item.price, 0);
+const [items, setItems] = useState<Item[]>([])
+const total = items.reduce((sum, item) => sum + item.price, 0)
 ```
 
 **Catch-all utility files.** A `utils.ts` that grows past 200 lines and contains unrelated functions — `formatDate`, `debounce`, `parseQueryString`, `calculateTax` — is a dumping ground. Break it into focused modules: `date.utils.ts`, `url.utils.ts`, `pricing.utils.ts`.
