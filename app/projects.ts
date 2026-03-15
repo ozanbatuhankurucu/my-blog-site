@@ -7,29 +7,6 @@ const PROJECTS_BASE_LINK = 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/project
 
 export const PROJECTS: Project[] = [
   {
-    title: 'Karia Endustri',
-    description:
-      'On the home page of this website, information is given about Karia Endustri Company. In the section of products, the materials that are actively sold are promoted. The reason why Gatsby library was chosen especially for technology stack selection is that it is a static website and does not require frequent data updates.',
-    githubUrl: 'https://github.com/ozanbatuhankurucu/karia',
-    img: '/images/kariaendustri.jpg',
-    stack: ['Gatsby', 'CSS', 'JavaScript', 'AWS Amplify', 'Strapi'],
-    createdAt: '2021-03-02',
-    status: 'completed',
-    updatedAt: '2021-03-02',
-    url: 'https://www.kariaendustri.com/'
-  },
-  {
-    title: 'Expense Tracker',
-    description: 'In this project I use hooks (useState, useContext, useReducer) and the context API.',
-    githubUrl: 'https://github.com/ozanbatuhankurucu/Expense-Tracker-Using-useContext-and-useReducer-hooks',
-    img: '/images/expensetracker.png',
-    stack: ['React', 'Context API', 'State Management'],
-    createdAt: '2022-01-01',
-    status: 'completed',
-    updatedAt: '2022-01-01',
-    url: 'https://master.d5s6ddtgqv0y2.amplifyapp.com/'
-  },
-  {
     title: 'Magic Quadrant',
     description: 'Magic Quadrant is a scatter chart develop by Gartner to visualize major players in a specific market',
     githubUrl: 'https://github.com/ozanbatuhankurucu/magic-quadrant',
@@ -90,18 +67,6 @@ export const PROJECTS: Project[] = [
     featuresTitle: 'Projects',
     useColumnCount: true
   },
-  {
-    title: 'React Portfolio with TailwindCSS',
-    description:
-      "This project is a great way to learn all about Tailwind's utility classes, taking a mobile first approach dark/light mode, and more.",
-    githubUrl: 'https://github.com/ozanbatuhankurucu/Nextjs-Portfolio-with-TailwindCss',
-    img: '/images/reactportfolio.png',
-    stack: ['TailwindCSS', 'NextJS', 'ReactJS'],
-    createdAt: '2022-10-02',
-    status: 'completed',
-    updatedAt: '2022-10-02',
-    url: 'https://main.d3faia6pj647yk.amplifyapp.com'
-  }
 ]
 
 // Project status constants for filtering
