@@ -8,14 +8,14 @@ const PROJECTS_BASE_LINK = 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/project
 export const PROJECTS: Project[] = [
   {
     title: 'Magic Quadrant',
-    description: 'Magic Quadrant is a scatter chart develop by Gartner to visualize major players in a specific market',
+    description: 'Magic Quadrant is a scatter chart developed by Gartner to visualize major players in a specific market',
     githubUrl: 'https://github.com/ozanbatuhankurucu/magic-quadrant',
     img: '/images/magicquadrant.png',
     stack: ['React', 'TypeScript', 'Styled Components', 'JavaScript'],
     createdAt: '2022-02-19',
     status: 'completed',
-    updatedAt: '2022-02-19',
-    url: 'https://master.dsj8aspqo6u80.amplifyapp.com/',
+    updatedAt: '2026-03-16',
+    url: 'https://master.d1zdbcjpkfl493.amplifyapp.com/',
     features: [
       {
         text: 'X-axis (Completeness of Vision): represents relative innovation level.'
