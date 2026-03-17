@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Project } from '../app/projects'
 import { ProjectCard } from './ProjectCard'
 import { Drawer } from './Drawer'
@@ -71,7 +72,7 @@ export default function ProjectsContent({ inProgressProjects, completedProjects 
             {/* Project Image */}
             {selectedProject.img && (
               <div className='rounded-lg overflow-hidden border border-border-subtle'>
-                <img src={selectedProject.img} alt={selectedProject.title} className='w-full h-48 object-cover' />
+                <Image src={selectedProject.img} alt={selectedProject.title} width={480} height={192} className='w-full h-48 object-cover' />
               </div>
             )}
 

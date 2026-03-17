@@ -7,6 +7,7 @@ import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Tag } from "../../../components/Tag"
+import { SITE_CONFIG, SITE_URL } from "../../../lib/constants"
 
 // Use dynamic import to render the component on the client side
 const DynamicPreBlock = dynamic(() => import("../../../components/PreBlock"), {
@@ -42,24 +43,36 @@ type Props = {
 export const generateMetadata = ({ params }: Props): Metadata => {
   const slug = params.slug
   const post = getPostContent(slug)
-  const { title, img, description } = post.data
+  const { title, img, description, date } = post.data
+  const postUrl = `${SITE_URL}/posts/${slug}`
 
   return {
     title,
     description,
     openGraph: {
       title,
-      description: description,
-      url: `https://www.ozanbatuhankurucu.com/posts/${slug}`,
+      description,
+      url: postUrl,
       type: "article",
-      siteName: "Ozan Batuhan Kurucu Blog",
+      siteName: `${SITE_CONFIG.name} Blog`,
+      publishedTime: date,
+      authors: [SITE_CONFIG.name],
       images: {
-        url: `https://www.ozanbatuhankurucu.com${img}`,
+        url: img,
         width: 1200,
         height: 630,
-        alt: `${title} Image`
-      }
-    }
+        alt: title,
+      },
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [img],
+    },
+    alternates: {
+      canonical: postUrl,
+    },
   }
 }
 
@@ -68,8 +81,33 @@ const PostPage = ({ params }: Props) => {
   const post = getPostContent(slug)
   const readingTime = calculateReadingTime(post.content)
 
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.description,
+    image: `${SITE_URL}${post.data.img}`,
+    datePublished: post.data.date,
+    author: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: SITE_CONFIG.name,
+      url: SITE_URL,
+    },
+    url: `${SITE_URL}/posts/${slug}`,
+    mainEntityOfPage: `${SITE_URL}/posts/${slug}`,
+  }
+
   return (
     <section className="blog-template">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <div className="container max-w-[800px]">
         {/* Back link */}
         <Link

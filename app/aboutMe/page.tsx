@@ -4,11 +4,28 @@ import { LuTwitter, LuGithub, LuLinkedin, LuMail } from 'react-icons/lu'
 import { IconType } from 'react-icons'
 import { Tag } from '../../components/Tag'
 import { TimelineItem } from '../../components/types'
-import { SOCIAL_LINKS, TECH_STACK, AI_TOOLS, SITE_CONFIG, SocialPlatform } from '../../lib/constants'
+import { SOCIAL_LINKS, TECH_STACK, AI_TOOLS, SITE_CONFIG, SITE_URL, SocialPlatform } from '../../lib/constants'
+
+const aboutDescription = `Frontend engineer at ${SITE_CONFIG.company}, building modern web applications with React, TypeScript, and Next.js`
 
 export const metadata: Metadata = {
 	title: `${SITE_CONFIG.name} - About`,
-	description: `Frontend engineer at ${SITE_CONFIG.company}, building modern web applications with React, TypeScript, and Next.js`
+	description: aboutDescription,
+	openGraph: {
+		title: `${SITE_CONFIG.name} - About`,
+		description: aboutDescription,
+		url: `${SITE_URL}/aboutMe`,
+		type: 'profile',
+		siteName: `${SITE_CONFIG.name} Blog`,
+	},
+	twitter: {
+		card: 'summary',
+		title: `${SITE_CONFIG.name} - About`,
+		description: aboutDescription,
+	},
+	alternates: {
+		canonical: `${SITE_URL}/aboutMe`,
+	},
 }
 
 // Map platform names to icons
@@ -67,9 +84,28 @@ function SectionHeader({ children }: { children: React.ReactNode }) {
 	)
 }
 
+const personJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: SITE_CONFIG.name,
+	url: SITE_URL,
+	jobTitle: SITE_CONFIG.title,
+	worksFor: {
+		'@type': 'Organization',
+		name: SITE_CONFIG.company,
+	},
+	sameAs: SOCIAL_LINKS
+		.filter(({ platform }) => platform !== 'email')
+		.map(({ href }) => href),
+}
+
 export default function AboutMe() {
 	return (
 		<div className="container py-16 md:py-24">
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+			/>
 			{/* Hero section with photo */}
 			<header className="mb-20">
 				<div className="flex flex-col md:flex-row md:items-start gap-8">

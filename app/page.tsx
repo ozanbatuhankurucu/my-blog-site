@@ -5,6 +5,7 @@ import { Hero } from '../components/Hero'
 import { CategoryType, PostMetadata } from '../components/types'
 import { getPostMetadata } from '../components/utils'
 import HomeContent from '../components/HomeContent'
+import { SITE_CONFIG, SITE_URL } from '../lib/constants'
 
 const CATEGORIES: CategoryType[] = [
   "Artificial Intelligence",
@@ -19,21 +20,30 @@ const CATEGORIES: CategoryType[] = [
 ]
 
 export const metadata: Metadata = {
-  title: "Ozan Batuhan Kurucu - Blog",
-  description: "Frontend engineer writing about React, TypeScript, and building for the web.",
+  title: { absolute: `${SITE_CONFIG.name} - Blog` },
+  description: SITE_CONFIG.description,
   openGraph: {
-    title: "Ozan Batuhan Kurucu - Blog",
-    description: "Frontend engineer writing about React, TypeScript, and building for the web.",
-    url: "https://www.ozanbatuhankurucu.com",
+    title: `${SITE_CONFIG.name} - Blog`,
+    description: SITE_CONFIG.description,
+    url: SITE_URL,
     type: "website",
-    siteName: "Ozan Batuhan Kurucu Blog",
+    siteName: `${SITE_CONFIG.name} Blog`,
     images: {
-      url: "https://www.ozanbatuhankurucu.com/images/mainpage1.png",
+      url: `/images/mainpage1.png`,
       width: 1200,
       height: 630,
-      alt: "Ozan Batuhan Kurucu Blog"
-    }
-  }
+      alt: `${SITE_CONFIG.name} Blog`,
+    },
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_CONFIG.name} - Blog`,
+    description: SITE_CONFIG.description,
+    images: [`/images/mainpage1.png`],
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
 }
 
 // Section header component

@@ -38,6 +38,8 @@ export const SOCIAL_LINKS = [
 export const RESUME_URL = 'https://my-portfolio-ozan.s3.eu-central-1.amazonaws.com/pdfFiles/OZAN+BATUHAN+KURUCU+(2).pdf'
 
 // Site metadata
+export const SITE_URL = 'https://www.ozanbatuhankurucu.com'
+
 export const SITE_CONFIG = {
   name: 'Ozan Batuhan Kurucu',
   title: 'Frontend Engineer',
