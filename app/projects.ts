@@ -7,6 +7,17 @@ const PROJECTS_BASE_LINK = 'https://master.d3c1rfe7yqyxzj.amplifyapp.com/project
 
 export const PROJECTS: Project[] = [
 	{
+		title: 'Markdown Preview',
+		description: 'Markdown Preview is a web application that allows you to preview markdown files.',
+		githubUrl: 'https://github.com/ozanbatuhankurucu/markdown-preview',
+		img: '/images/markdown-preview.png',
+		stack: ['Nextjs', 'TypeScript', 'TailwindCSS'],
+		createdAt: '2026-03-17',
+		status: 'progress',
+		updatedAt: '2026-03-17',
+		url: 'https://main.djrdauoqxjm9k.amplifyapp.com/',
+	},
+	{
 		title: 'Magic Quadrant',
 		description: 'Magic Quadrant is a scatter chart developed by Gartner to visualize major players in a specific market',
 		githubUrl: 'https://github.com/ozanbatuhankurucu/magic-quadrant',
