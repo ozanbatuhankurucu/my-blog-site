@@ -103,8 +103,8 @@ export default function ProjectsContent({ inProgressProjects, completedProjects 
                 </h3>
                 <ul className='space-y-2'>
                   {selectedProject.features.map(({ text, link }) => (
-                    <li key={text} className='flex items-start gap-2'>
-                      <span className='text-accent mt-1.5'>•</span>
+                    <li key={text} className='flex items-center gap-2'>
+                      <span className='text-accent'>•</span>
                       {link ? (
                         <a
                           href={link}
