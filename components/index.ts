@@ -25,6 +25,7 @@ export { default as PreBlock } from './PreBlock'
 // Utility Components
 export { default as GoogleAnalytics } from './GoogleAnalytics'
 export { default as StickyTable } from './StickyTable'
+export { default as ReadingProgressBar } from './ReadingProgressBar'
 
 // Types
 export * from './types'

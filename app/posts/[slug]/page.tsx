@@ -7,6 +7,7 @@ import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Tag } from "../../../components/Tag"
+import ReadingProgressBar from "../../../components/ReadingProgressBar"
 import { SITE_CONFIG, SITE_URL } from "../../../lib/constants"
 
 // Use dynamic import to render the component on the client side
@@ -104,6 +105,7 @@ const PostPage = ({ params }: Props) => {
 
   return (
     <section className="blog-template">
+      <ReadingProgressBar targetId="article-content" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
@@ -145,7 +147,7 @@ const PostPage = ({ params }: Props) => {
         </header>
 
         {/* Article content */}
-        <article className="prose-custom">
+        <article id="article-content" className="prose-custom">
           <Markdown
             options={{
               overrides: {
