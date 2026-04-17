@@ -24,6 +24,15 @@ export interface PostMetadata {
   description?: string
 }
 
+// Lightweight per-post record used for client-side search
+export interface PostSearchRecord {
+  slug: string
+  title: string
+  description: string
+  category: CategoryType
+  content: string
+}
+
 // Project status types
 export type ProjectStatus = 'completed' | 'progress' | 'todo'
 
