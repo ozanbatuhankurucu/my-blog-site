@@ -175,75 +175,77 @@ a {
   min-height: calc(100vh - 5rem);
 }
 
-.blog-template h1 {
+.prose-custom h1 {
   font-size: var(--text-4xl);
   color: var(--text-primary);
   margin-bottom: var(--space-4);
 }
 
-.blog-template h2 {
+.prose-custom h2 {
   font-size: var(--text-2xl);
   color: var(--text-primary);
   margin-top: var(--space-8);
   margin-bottom: var(--space-4);
+  scroll-margin-top: 5rem;
 }
 
-.blog-template h3 {
+.prose-custom h3 {
   font-size: var(--text-xl);
   color: var(--text-primary);
   margin-top: var(--space-6);
   margin-bottom: var(--space-3);
+  scroll-margin-top: 5rem;
 }
 
-.blog-template p {
+.prose-custom p {
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin-top: var(--space-4);
   line-height: 1.8;
 }
 
-.blog-template p:first-of-type {
+.prose-custom p:first-of-type {
   margin-top: var(--space-8);
 }
 
-.blog-template ul {
+.prose-custom ul {
   list-style-type: disc;
   margin-left: var(--space-6);
   margin-top: var(--space-4);
 }
 
-.blog-template ul li {
+.prose-custom ul li {
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin: var(--space-2) 0;
   line-height: 1.7;
 }
 
-.blog-template ol {
+.prose-custom ol {
   list-style-type: decimal;
   margin-left: var(--space-6);
   margin-top: var(--space-4);
 }
 
-.blog-template ol li {
+.prose-custom ol li {
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin: var(--space-2) 0;
   line-height: 1.7;
 }
 
-.blog-template a {
+.prose-custom a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
-.blog-template a:hover {
+.prose-custom a:hover {
   color: var(--accent-hover);
 }
 
-.blog-template blockquote {
+.prose-custom blockquote {
   background: var(--bg-elevated);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-base);
@@ -251,13 +253,13 @@ a {
   margin: var(--space-6) 0;
 }
 
-.blog-template blockquote p {
+.prose-custom blockquote p {
   margin-top: 0;
   color: var(--text-secondary);
   font-style: italic;
 }
 
-.blog-template pre {
+.prose-custom pre {
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -268,7 +270,7 @@ a {
   font-size: var(--text-sm);
 }
 
-.blog-template code {
+.prose-custom code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9em;
   background: var(--bg-surface);
@@ -276,12 +278,12 @@ a {
   border-radius: var(--radius-sm);
 }
 
-.blog-template pre code {
+.prose-custom pre code {
   background: transparent;
   padding: 0;
 }
 
-.blog-template img {
+.prose-custom img {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius-md);
@@ -289,30 +291,30 @@ a {
   display: block;
 }
 
-.blog-template table {
+.prose-custom table {
   width: 100%;
   border-collapse: collapse;
   margin: var(--space-6) 0;
 }
 
-.blog-template th,
-.blog-template td {
+.prose-custom th,
+.prose-custom td {
   padding: var(--space-3) var(--space-4);
   text-align: left;
   border: 1px solid var(--border-subtle);
 }
 
-.blog-template th {
+.prose-custom th {
   background-color: var(--bg-elevated);
   font-weight: 600;
   color: var(--text-primary);
 }
 
-.blog-template td {
+.prose-custom td {
   color: var(--text-secondary);
 }
 
-.blog-template tr:hover td {
+.prose-custom tr:hover td {
   background-color: var(--bg-surface);
 }
 

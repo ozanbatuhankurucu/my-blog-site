@@ -1,13 +1,13 @@
 import fs from "fs"
 import Markdown from "markdown-to-jsx"
 import matter from "gray-matter"
-import { getPostMetadata } from "../../../components/utils"
+import { extractTocHeadings, getPostMetadata } from "../../../components/utils"
 import moment from "moment"
 import { Metadata } from "next"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Tag } from "../../../components/Tag"
-import ReadingProgressBar from "../../../components/ReadingProgressBar"
+import TableOfContents from "../../../components/TableOfContents"
 import { SITE_CONFIG, SITE_URL } from "../../../lib/constants"
 
 // Use dynamic import to render the component on the client side
@@ -81,6 +81,7 @@ const PostPage = ({ params }: Props) => {
   const slug = params.slug
   const post = getPostContent(slug)
   const readingTime = calculateReadingTime(post.content)
+  const tocHeadings = extractTocHeadings(post.content)
 
   const blogPostingJsonLd = {
     '@context': 'https://schema.org',
@@ -105,12 +106,11 @@ const PostPage = ({ params }: Props) => {
 
   return (
     <section className="blog-template">
-      <ReadingProgressBar targetId="article-content" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
-      <div className="container max-w-[800px]">
+      <div className="w-full max-w-[800px] mx-auto px-4 md:px-6">
         {/* Back link */}
         <Link
           href="/"
@@ -145,6 +145,9 @@ const PostPage = ({ params }: Props) => {
             <span>{readingTime} min read</span>
           </div>
         </header>
+
+        {/* Table of contents (inline on mobile, sticky sidebar on xl+) */}
+        <TableOfContents headings={tocHeadings} />
 
         {/* Article content */}
         <article id="article-content" className="prose-custom">

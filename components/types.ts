@@ -78,3 +78,10 @@ export type TagSize = 'sm' | 'md'
 // Button component variants
 export type ButtonVariant = 'primary' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
+
+// Table of contents entry extracted from a post's markdown
+export interface TocHeading {
+  id: string
+  text: string
+  level: 2 | 3
+}

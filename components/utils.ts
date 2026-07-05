@@ -1,6 +1,6 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { PostMetadata, PostSearchRecord } from './types'
+import { PostMetadata, PostSearchRecord, TocHeading } from './types'
 
 export const getPostMetadata = (): PostMetadata[] => {
   const folder = 'posts/'
@@ -52,6 +52,60 @@ const markdownToPlainText = (markdown: string): string =>
     .replace(/\s+/g, ' ')
     .trim()
     .toLowerCase()
+
+// Mirrors markdown-to-jsx's built-in slugify so the ids we generate for the
+// TOC exactly match the ids the renderer sets on <h2>/<h3> elements.
+const slugifyHeading = (source: string): string =>
+  source
+    .replace(/[ÀÁÂÃÄÅàáâãäåæÆ]/g, 'a')
+    .replace(/[çÇ]/g, 'c')
+    .replace(/[ðÐ]/g, 'd')
+    .replace(/[ÈÉÊËéèêë]/g, 'e')
+    .replace(/[ÏïÎîÍíÌì]/g, 'i')
+    .replace(/[Ññ]/g, 'n')
+    .replace(/[øØœŒÕõÔôÓóÒò]/g, 'o')
+    .replace(/[ÜüÛûÚúÙù]/g, 'u')
+    .replace(/[ŸÿÝý]/g, 'y')
+    .replace(/[^a-z0-9- ]/gi, '')
+    .replace(/ /gi, '-')
+    .toLowerCase()
+
+const stripInlineMarkdown = (text: string): string =>
+  text
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/__([^_]+)__/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1')
+    .replace(/~~([^~]+)~~/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .trim()
+
+// Extract H2 and H3 headings from a markdown string for the article TOC.
+// The generated id matches markdown-to-jsx's own slugify so hash links resolve.
+export const extractTocHeadings = (markdown: string): TocHeading[] => {
+  const withoutFencedCode = markdown.replace(/```[\s\S]*?```/g, '')
+  const lines = withoutFencedCode.split('\n')
+  const headings: TocHeading[] = []
+
+  for (const line of lines) {
+    const match = /^(#{2,3})\s+(.+?)\s*#*\s*$/.exec(line)
+    if (!match) continue
+
+    const level = match[1].length as 2 | 3
+    const rawText = match[2]
+    const text = stripInlineMarkdown(rawText)
+    if (!text) continue
+
+    headings.push({
+      id: slugifyHeading(rawText),
+      text,
+      level
+    })
+  }
+
+  return headings
+}
 
 export const getPostSearchIndex = (): PostSearchRecord[] => {
   const folder = 'posts/'
