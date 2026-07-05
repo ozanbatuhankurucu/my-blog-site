@@ -8,6 +8,7 @@ import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Tag } from "../../../components/Tag"
 import TableOfContents from "../../../components/TableOfContents"
+import DownloadArticleButton from "../../../components/DownloadArticleButton"
 import { SITE_CONFIG, SITE_URL } from "../../../lib/constants"
 
 // Use dynamic import to render the component on the client side
@@ -25,9 +26,9 @@ const calculateReadingTime = (text: string) => {
 const getPostContent = (slug: string) => {
   const folder = "posts/"
   const file = `${folder}${slug}.md`
-  const content = fs.readFileSync(file, "utf8")
-  const matterResult = matter(content)
-  return matterResult
+  const rawContent = fs.readFileSync(file, "utf8")
+  const matterResult = matter(rawContent)
+  return { ...matterResult, rawContent }
 }
 
 export const generateStaticParams = async () => {
@@ -137,12 +138,18 @@ const PostPage = ({ params }: Props) => {
           </h1>
 
           {/* Meta */}
-          <div className="flex items-center gap-3 text-text-muted text-sm">
-            <time dateTime={post.data.date}>
-              {moment(post.data.date).format("MMMM D, YYYY")}
-            </time>
-            <span className="text-border-default">•</span>
-            <span>{readingTime} min read</span>
+          <div className="flex items-center justify-between gap-3 text-text-muted text-sm">
+            <div className="flex items-center gap-3">
+              <time dateTime={post.data.date}>
+                {moment(post.data.date).format("MMMM D, YYYY")}
+              </time>
+              <span className="text-border-default">•</span>
+              <span>{readingTime} min read</span>
+            </div>
+            <DownloadArticleButton
+              content={post.rawContent}
+              filename={`${slug}.md`}
+            />
           </div>
         </header>
 
