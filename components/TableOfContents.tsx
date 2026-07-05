@@ -14,6 +14,7 @@ const HEADER_OFFSET = 80
 const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
   const [activeId, setActiveId] = useState<string>('')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isFooterVisible, setIsFooterVisible] = useState(false)
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -52,6 +53,21 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
       window.removeEventListener('scroll', onScrollOrResize)
       window.removeEventListener('resize', onScrollOrResize)
     }
+  }, [headings])
+
+  // Hide the desktop sidebar when the footer enters the viewport so the fixed
+  // TOC doesn't visually overlap the footer content near the bottom of the page.
+  useEffect(() => {
+    if (headings.length === 0) return
+    const footer = document.querySelector('footer')
+    if (!footer) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsFooterVisible(entry.isIntersecting),
+      { rootMargin: '0px' }
+    )
+    observer.observe(footer)
+    return () => observer.disconnect()
   }, [headings])
 
   if (headings.length === 0) return null
@@ -117,7 +133,14 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
       {/* Desktop TOC - sticky sidebar on the left, open by default */}
       <aside
         aria-label="Table of contents"
-        className="hidden xl:block fixed top-24 left-4 2xl:left-8 w-56 2xl:w-64 z-30"
+        aria-hidden={isFooterVisible ? 'true' : undefined}
+        className={cx(
+          'hidden xl:block fixed top-24 left-4 2xl:left-8 w-56 2xl:w-64 z-30',
+          'transition-opacity duration-base ease-out-custom',
+          isFooterVisible
+            ? 'opacity-0 pointer-events-none'
+            : 'opacity-100 pointer-events-auto'
+        )}
       >
         <div className="max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 -mr-2">
           <div className="pl-4 mb-4">
