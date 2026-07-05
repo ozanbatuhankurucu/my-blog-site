@@ -73,7 +73,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
-          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
         ) : null}
         {GOOGLE_ADS_CLIENT_ID && (
           <>
