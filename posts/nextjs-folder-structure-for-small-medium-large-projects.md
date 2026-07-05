@@ -1,5 +1,5 @@
 ---
-title: 'Front-End Architecture: Next.js Folder Structure for Small, Medium, and Large Projects (Part 1)'
+title: 'Next.js Folder Structure (Part 1): Layouts for Small, Medium, and Large Projects'
 date: '2026-07-02'
 img: '/images/nextjs-folder-structure.png'
 category: 'NextJS'
@@ -52,16 +52,16 @@ Start simple. Promote folders only when the pain of _not_ having them shows up. 
 
 Before talking about scale, you need to know the vocabulary the `app/` directory speaks. Next.js assigns special meaning to a small set of file names, and every one of them is scoped to the folder (route segment) it sits in. Understanding these is what lets you keep `app/` thin and predictable.
 
-| File            | Purpose                                                                 |
-| --------------- | ----------------------------------------------------------------------- |
-| `page.tsx`      | The unique UI of a route. A segment is only publicly routable if it has one. |
-| `layout.tsx`    | Shared UI that wraps a segment and all its children; preserves state across navigation. |
-| `template.tsx`  | Like a layout, but re-mounts on every navigation (useful for enter animations). |
-| `loading.tsx`   | Instant loading UI shown via a Suspense boundary while the segment streams. |
-| `error.tsx`     | A Client Component error boundary for the segment and its children.     |
-| `not-found.tsx` | UI rendered when `notFound()` is called or an unmatched URL is hit.     |
-| `route.ts`      | A server-side API endpoint (Route Handler). Cannot coexist with `page.tsx` in the same segment. |
-| `default.tsx`   | Fallback UI for an unmatched parallel route slot.                       |
+| File            | Purpose                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| `page.tsx`      | The unique UI of a route. A segment is only publicly routable if it has one.                           |
+| `layout.tsx`    | Shared UI that wraps a segment and all its children; preserves state across navigation.                |
+| `template.tsx`  | Like a layout, but re-mounts on every navigation (useful for enter animations).                        |
+| `loading.tsx`   | Instant loading UI shown via a Suspense boundary while the segment streams.                            |
+| `error.tsx`     | A Client Component error boundary for the segment and its children.                                    |
+| `not-found.tsx` | UI rendered when `notFound()` is called or an unmatched URL is hit.                                    |
+| `route.ts`      | A server-side API endpoint (Route Handler). Cannot coexist with `page.tsx` in the same segment.        |
+| `default.tsx`   | Fallback UI for an unmatched parallel route slot.                                                      |
 | `middleware.ts` | Runs at the edge before a request completes. Lives at the project root (or `src/`), not inside `app/`. |
 
 The key mental model: **routing concerns belong in `app/`, and almost nothing else does.** A well-structured project uses `app/` to compose layouts, define `loading`/`error` boundaries, and wire pages to feature code — while the actual UI and logic live outside it. We'll lean on these files throughout the rest of the article.

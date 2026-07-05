@@ -1,5 +1,5 @@
 ---
-title: 'Front-End Architecture: Next.js Folder Structure (Part 2) — Enforcing Boundaries, State, and Scaling'
+title: 'Next.js Folder Structure (Part 2): Enforcing Boundaries, State, and Scaling'
 date: '2026-07-03'
 img: '/images/nextjs-folder-structure-part-2.png'
 category: 'NextJS'
@@ -10,7 +10,7 @@ This is the **second part** of a two-part series on front-end architecture and N
 
 Defining that structure is only half the job. A large folder tree that nobody enforces quietly rots: features start importing each other's internals, "global" state ends up scattered, and naming drifts until nothing is predictable anymore. This article picks up exactly where Part 1 left off and focuses on the practices that keep a large Next.js codebase healthy over time.
 
-> If you haven't read it yet, start with [Part 1: Next.js Folder Structure for Small, Medium, and Large Projects](/posts/nextjs-folder-structure-for-small-medium-large-projects). The examples below assume the feature-based structure introduced there.
+> If you haven't read it yet, start with [Next.js Folder Structure (Part 1): Layouts for Small, Medium, and Large Projects](/posts/nextjs-folder-structure-for-small-medium-large-projects). The examples below assume the feature-based structure introduced there.
 
 ## Give Each Feature a Public API
 
