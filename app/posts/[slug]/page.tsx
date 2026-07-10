@@ -9,6 +9,7 @@ import Link from "next/link"
 import { Tag } from "../../../components/Tag"
 import TableOfContents from "../../../components/TableOfContents"
 import DownloadArticleButton from "../../../components/DownloadArticleButton"
+import AiToolkitLauncher from "../../../components/AiToolkit/AiToolkitLauncher"
 import { SITE_CONFIG, SITE_URL } from "../../../lib/constants"
 
 // Use dynamic import to render the component on the client side
@@ -146,10 +147,16 @@ const PostPage = ({ params }: Props) => {
               <span className="text-border-default">•</span>
               <span>{readingTime} min read</span>
             </div>
-            <DownloadArticleButton
-              content={post.rawContent}
-              filename={`${slug}.md`}
-            />
+            <div className="flex items-center gap-1">
+              <AiToolkitLauncher
+                title={post.data.title}
+                article={post.rawContent}
+              />
+              <DownloadArticleButton
+                content={post.rawContent}
+                filename={`${slug}.md`}
+              />
+            </div>
           </div>
         </header>
 

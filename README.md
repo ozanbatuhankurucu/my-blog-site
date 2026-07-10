@@ -16,6 +16,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Environment Variables
+
+Create a `.env.local` at the repo root with the following keys:
+
+| Variable | Purpose | Required |
+| --- | --- | --- |
+| `NEXT_PUBLIC_GOOGLE_ANALYTICS` | Google Analytics measurement id. | No |
+| `NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID` | Google AdSense client id. | No |
+| `GOOGLE_GEMINI_API_KEY` | Server-only API key used by the Article AI Toolkit (`/api/ai`). The toolkit calls the `gemini-flash-latest` alias, which currently resolves to Google's newest free-tier Flash model. Get a free key at [Google AI Studio](https://aistudio.google.com/app/apikey). | Yes for the AI toolkit |
+
 [http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
