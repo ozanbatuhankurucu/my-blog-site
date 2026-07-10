@@ -225,7 +225,7 @@ const AskTab: FC<AskTabProps> = ({
             }
             onKeyDown={handleKeyDown}
             rows={1}
-            placeholder="Server Components neden daha hızlı?"
+            placeholder="Why are Server Components faster?"
             aria-label="Ask a question about the article"
             className={cx(
               'flex-1 resize-none bg-transparent px-3 py-2 text-sm',
