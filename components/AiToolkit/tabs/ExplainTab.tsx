@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { LuBaby } from 'react-icons/lu'
 import MarkdownStream from '../MarkdownStream'
 import ResultToolbar from '../ResultToolbar'
@@ -25,13 +25,15 @@ const ExplainTab: FC<ExplainTabProps> = ({
 
   const currentText = status === 'idle' ? cachedText : text
 
-  useEffect(() => {
-    onText(text)
-  }, [text, onText])
-
   const handleRegenerate = () => {
     onText('')
-    run({ feature: 'explain', title, article })
+    run({
+      feature: 'explain',
+      title,
+      article,
+      onToken: (_chunk, fullText) => onText(fullText),
+      onDone: (fullText) => onText(fullText),
+    })
   }
 
   const isStreaming = status === 'streaming'

@@ -79,7 +79,7 @@ const AiToolkit: FC<AiToolkitProps> = ({ title, article, isOpen, onClose }) => {
           role="tabpanel"
           id={`ai-toolkit-panel-${activeTab}`}
           aria-labelledby={`ai-toolkit-tab-${activeTab}`}
-          className="flex-1 min-h-0 overflow-y-auto py-4"
+          className="flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden py-4"
         >
           {activeTab === 'summary' && (
             <SummaryTab

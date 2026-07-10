@@ -124,10 +124,10 @@ const AskTab: FC<AskTabProps> = ({
   const showStreamingBubble = isStreaming || (status === 'error' && text.length > 0)
 
   return (
-    <div className="flex flex-col h-full min-h-0">
+    <div className="flex flex-col h-full min-h-0 min-w-0">
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto pr-1 -mr-1 space-y-4"
+        className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden space-y-4"
       >
         {messages.length === 0 && !isStreaming && (
           <div className="py-6">
@@ -168,11 +168,14 @@ const AskTab: FC<AskTabProps> = ({
           return (
             <div
               key={msg.id}
-              className={cx('flex', isUser ? 'justify-end' : 'justify-start')}
+              className={cx(
+                'flex min-w-0',
+                isUser ? 'justify-end' : 'justify-start'
+              )}
             >
               <div
                 className={cx(
-                  'max-w-[92%] rounded-md px-3 py-2 text-sm',
+                  'max-w-[92%] min-w-0 rounded-md px-3 py-2 text-sm break-words',
                   isUser
                     ? 'bg-bg-surface text-text-primary border border-border-subtle'
                     : 'bg-transparent text-text-primary w-full'
@@ -191,8 +194,8 @@ const AskTab: FC<AskTabProps> = ({
         })}
 
         {showStreamingBubble && (
-          <div className="flex justify-start">
-            <div className="max-w-[92%] w-full rounded-md px-3 py-2 text-sm bg-transparent text-text-primary">
+          <div className="flex justify-start min-w-0">
+            <div className="max-w-[92%] w-full min-w-0 rounded-md px-3 py-2 text-sm bg-transparent text-text-primary break-words">
               <MarkdownStream text={text} isStreaming={isStreaming} />
             </div>
           </div>

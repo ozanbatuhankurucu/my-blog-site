@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { LuListChecks } from 'react-icons/lu'
 import MarkdownStream from '../MarkdownStream'
 import ResultToolbar from '../ResultToolbar'
@@ -25,13 +25,15 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
 
   const currentText = status === 'idle' ? cachedText : text
 
-  useEffect(() => {
-    onText(text)
-  }, [text, onText])
-
   const handleRegenerate = () => {
     onText('')
-    run({ feature: 'keyPoints', title, article })
+    run({
+      feature: 'keyPoints',
+      title,
+      article,
+      onToken: (_chunk, fullText) => onText(fullText),
+      onDone: (fullText) => onText(fullText),
+    })
   }
 
   const isStreaming = status === 'streaming'
@@ -59,7 +61,7 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
       {!hasContent && !isStreaming && status !== 'error' && (
         <EmptyState
           title="No key points yet"
-          description="Get the 5–8 most important takeaways from this article."
+          description="Extract the important takeaways from this article."
           action={
             <Button
               size="sm"

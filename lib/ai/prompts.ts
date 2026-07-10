@@ -46,10 +46,11 @@ const summaryInstruction = `Task: Write a 4–6 sentence summary that a busy rea
 - Do not use bullet points or headings, just plain paragraphs.
 - Do not restate the title.`
 
-const keyPointsInstruction = `Task: Extract 5–8 key takeaways from the article.
+const keyPointsInstruction = `Task: Extract the key takeaways from the article.
 - Output as a markdown bullet list ("- ...").
-- Each bullet should be at most 20 words.
+- Cover every important idea the article makes; do not artificially cap the number of bullets or the length of each bullet.
 - Start each bullet with a short **bold label** followed by a colon, then the takeaway.
+- If a point benefits from a brief sub-bullet or clarifying sentence, include it.
 - Order the bullets by importance (most important first).`
 
 const explainInstruction = `Task: Rewrite the article for a junior developer who is new to the topic.
