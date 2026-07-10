@@ -26,6 +26,19 @@ Create a `.env.local` at the repo root with the following keys:
 | `NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID` | Google AdSense client id. | No |
 | `GOOGLE_GEMINI_API_KEY` | Server-only API key used by the Article AI Toolkit (`/api/ai`). The toolkit calls the `gemini-flash-latest` alias, which currently resolves to Google's newest free-tier Flash model. Get a free key at [Google AI Studio](https://aistudio.google.com/app/apikey). | Yes for the AI toolkit |
 
+### Deploying to AWS Amplify
+
+Amplify only exposes environment variables at build time by default, so Next.js Route Handlers and Server Components cannot read `process.env.GOOGLE_GEMINI_API_KEY` at runtime unless it is written to `.env.production` during the build. The included [`amplify.yml`](amplify.yml) handles this automatically:
+
+```yaml
+build:
+  commands:
+    - env | grep -e GOOGLE_GEMINI_API_KEY >> .env.production
+    - npm run build
+```
+
+Add the variable in **App settings → Environment variables** for the production branch and redeploy after saving. Do **not** prefix the key with `NEXT_PUBLIC_` — it must stay server-only.
+
 [http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.

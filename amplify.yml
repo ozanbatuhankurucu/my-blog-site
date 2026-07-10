@@ -1,0 +1,21 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        # Amplify only exposes environment variables at build time by default.
+        # Writing them into `.env.production` lets the Next.js SSR runtime
+        # (Route Handlers, Server Components) read them via `process.env`.
+        - env | grep -e GOOGLE_GEMINI_API_KEY >> .env.production
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
