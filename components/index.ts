@@ -22,6 +22,7 @@ export { default as HomeContent } from './HomeContent'
 export { default as ProjectsContent } from './ProjectsContent'
 export { default as PreBlock } from './PreBlock'
 export { default as DownloadArticleButton } from './DownloadArticleButton'
+export { default as AiToolkitLauncher } from './AiToolkit/AiToolkitLauncher'
 
 // Utility Components
 export { default as GoogleAnalytics } from './GoogleAnalytics'
