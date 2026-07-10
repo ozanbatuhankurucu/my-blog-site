@@ -13,7 +13,6 @@ interface ExplainTabProps {
   article: string
   cachedText: string
   onText: (text: string) => void
-  isActive: boolean
 }
 
 const ExplainTab: FC<ExplainTabProps> = ({
@@ -21,7 +20,6 @@ const ExplainTab: FC<ExplainTabProps> = ({
   article,
   cachedText,
   onText,
-  isActive,
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
 
@@ -30,12 +28,6 @@ const ExplainTab: FC<ExplainTabProps> = ({
   useEffect(() => {
     onText(text)
   }, [text, onText])
-
-  useEffect(() => {
-    if (isActive && !cachedText && status === 'idle') {
-      run({ feature: 'explain', title, article })
-    }
-  }, [isActive, cachedText, status, run, title, article])
 
   const handleRegenerate = () => {
     onText('')

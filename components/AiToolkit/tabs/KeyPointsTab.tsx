@@ -13,7 +13,6 @@ interface KeyPointsTabProps {
   article: string
   cachedText: string
   onText: (text: string) => void
-  isActive: boolean
 }
 
 const KeyPointsTab: FC<KeyPointsTabProps> = ({
@@ -21,7 +20,6 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
   article,
   cachedText,
   onText,
-  isActive,
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
 
@@ -30,12 +28,6 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
   useEffect(() => {
     onText(text)
   }, [text, onText])
-
-  useEffect(() => {
-    if (isActive && !cachedText && status === 'idle') {
-      run({ feature: 'keyPoints', title, article })
-    }
-  }, [isActive, cachedText, status, run, title, article])
 
   const handleRegenerate = () => {
     onText('')

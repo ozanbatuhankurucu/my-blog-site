@@ -13,7 +13,6 @@ interface SummaryTabProps {
   article: string
   cachedText: string
   onText: (text: string) => void
-  isActive: boolean
 }
 
 const SummaryTab: FC<SummaryTabProps> = ({
@@ -21,7 +20,6 @@ const SummaryTab: FC<SummaryTabProps> = ({
   article,
   cachedText,
   onText,
-  isActive,
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
 
@@ -30,12 +28,6 @@ const SummaryTab: FC<SummaryTabProps> = ({
   useEffect(() => {
     onText(text)
   }, [text, onText])
-
-  useEffect(() => {
-    if (isActive && !cachedText && status === 'idle') {
-      run({ feature: 'summary', title, article })
-    }
-  }, [isActive, cachedText, status, run, title, article])
 
   const handleRegenerate = () => {
     onText('')
