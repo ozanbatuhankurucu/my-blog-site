@@ -5,10 +5,14 @@ import {
   type AiFeature,
   type ChatTurn,
 } from '../../../lib/ai/prompts'
-import { streamGenerate } from '../../../lib/ai/gemini'
+import { generate } from '../../../lib/ai/gemini'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+// Hint for hosts that respect Next.js maxDuration (Vercel today, and
+// increasingly Amplify). Gemini Flash usually replies in 3–15s but larger
+// articles can push toward 30s.
+export const maxDuration = 60
 
 interface RequestBody {
   feature: AiFeature
@@ -88,14 +92,6 @@ const parseBody = (raw: unknown): RequestBody | null => {
   }
 }
 
-const encodeSseEvent = (event: string, data: unknown): Uint8Array => {
-  const payload =
-    typeof data === 'string' ? data : JSON.stringify(data ?? null)
-  return new TextEncoder().encode(
-    `event: ${event}\ndata: ${payload.replace(/\n/g, '\\n')}\n\n`
-  )
-}
-
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req)
   if (!checkRateLimit(ip)) {
@@ -132,17 +128,24 @@ export async function POST(req: NextRequest) {
   const abortController = new AbortController()
   req.signal.addEventListener('abort', () => abortController.abort())
 
-  let modelStream: ReadableStream<string>
   try {
-    modelStream = await streamGenerate(prompt, abortController.signal)
+    const text = await generate(prompt, abortController.signal)
+    return new Response(JSON.stringify({ text }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    })
   } catch (err) {
+    if (err instanceof DOMException && err.name === 'AbortError') {
+      return jsonError('Request aborted.', 499)
+    }
+
     const raw = err instanceof Error ? err.message : ''
     const statusMatch = raw.match(/\[(\d{3})\s/)
     const upstreamStatus = statusMatch ? Number(statusMatch[1]) : 0
 
     if (upstreamStatus === 429 || upstreamStatus === 503) {
       return jsonError(
-        'The AI service is temporarily overloaded. Please try again in a few seconds.',
+        'The AI service is temporarily overloaded or the free quota is exhausted. Please try again in a few minutes.',
         503
       )
     }
@@ -157,36 +160,4 @@ export async function POST(req: NextRequest) {
       upstreamStatus >= 400 && upstreamStatus < 600 ? upstreamStatus : 500
     )
   }
-
-  const sseStream = new ReadableStream<Uint8Array>({
-    async start(controller) {
-      const reader = modelStream.getReader()
-      try {
-        while (true) {
-          const { value, done } = await reader.read()
-          if (done) break
-          if (value) controller.enqueue(encodeSseEvent('token', value))
-        }
-        controller.enqueue(encodeSseEvent('done', ''))
-        controller.close()
-      } catch (err) {
-        const message =
-          err instanceof Error ? err.message : 'Streaming failed.'
-        controller.enqueue(encodeSseEvent('error', message))
-        controller.close()
-      }
-    },
-    cancel() {
-      abortController.abort()
-    },
-  })
-
-  return new Response(sseStream, {
-    headers: {
-      'Content-Type': 'text/event-stream; charset=utf-8',
-      'Cache-Control': 'no-cache, no-transform',
-      Connection: 'keep-alive',
-      'X-Accel-Buffering': 'no',
-    },
-  })
 }
