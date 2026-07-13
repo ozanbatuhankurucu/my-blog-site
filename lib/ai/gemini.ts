@@ -22,7 +22,7 @@ const getClient = (): GoogleGenerativeAI => {
   const apiKey = process.env.GOOGLE_GEMINI_API_KEY
   if (!apiKey) {
     throw new Error(
-      'GOOGLE_GEMINI_API_KEY is not set. Add it to .env.local to enable the AI toolkit.'
+      'GOOGLE_GEMINI_API_KEY is not set. Add it to the deployment environment to enable the AI toolkit.'
     )
   }
   if (!cachedClient) {
@@ -76,13 +76,20 @@ const sleep = (ms: number, signal?: AbortSignal): Promise<void> =>
     }
   })
 
-const openStream = async (
+/**
+ * Generate a single-shot text response from Gemini. Automatically retries on
+ * transient upstream errors (429, 500, 502, 503) and falls back to a lighter
+ * Flash-Lite model if the primary alias stays unavailable.
+ *
+ * We intentionally avoid SSE / streaming here because AWS Amplify's SSR
+ * runtime (Lambda + CloudFront) buffers responses, which causes streamed
+ * responses to sit in memory until the Lambda times out and returns 504.
+ * A single JSON response works reliably on every host.
+ */
+export const generate = async (
   prompt: string,
   signal?: AbortSignal
-): Promise<{
-  model: string
-  stream: AsyncGenerator<{ text: () => string }, void, unknown>
-}> => {
+): Promise<string> => {
   let lastError: unknown
 
   for (const modelName of MODEL_CHAIN) {
@@ -91,15 +98,8 @@ const openStream = async (
         throw new DOMException('Aborted', 'AbortError')
       }
       try {
-        const result = await getModel(modelName).generateContentStream(prompt)
-        return {
-          model: modelName,
-          stream: result.stream as AsyncGenerator<
-            { text: () => string },
-            void,
-            unknown
-          >,
-        }
+        const result = await getModel(modelName).generateContent(prompt)
+        return result.response.text()
       } catch (err) {
         lastError = err
         if (!isTransient(err)) throw err
@@ -114,42 +114,6 @@ const openStream = async (
   throw new Error(
     'The AI service is temporarily overloaded. Please try again in a moment.'
   )
-}
-
-/**
- * Stream Gemini output for a single-turn prompt as a `ReadableStream<string>`
- * of text chunks. Automatically retries on transient upstream errors (429,
- * 500, 502, 503) and falls back to a lighter Flash-Lite model if the primary
- * one stays unavailable. Once tokens start flowing the stream is committed,
- * so retries only apply to the initial request phase.
- */
-export const streamGenerate = async (
-  prompt: string,
-  signal?: AbortSignal
-): Promise<ReadableStream<string>> => {
-  const { stream } = await openStream(prompt, signal)
-
-  return new ReadableStream<string>({
-    async start(controller) {
-      const abortHandler = () => {
-        controller.error(new DOMException('Aborted', 'AbortError'))
-      }
-      signal?.addEventListener('abort', abortHandler)
-
-      try {
-        for await (const chunk of stream) {
-          if (signal?.aborted) break
-          const text = chunk.text()
-          if (text) controller.enqueue(text)
-        }
-        controller.close()
-      } catch (err) {
-        controller.error(err)
-      } finally {
-        signal?.removeEventListener('abort', abortHandler)
-      }
-    },
-  })
 }
 
 export const GEMINI_MODEL = PRIMARY_MODEL
