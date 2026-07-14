@@ -1,8 +1,8 @@
 ---
-title: "How To Learn TypeScript In 2024"
-date: "2024-10-27"
-img: "/images/how-to-learn-ts-in-2024.webp"
-category: "TypeScript"
+title: 'How To Learn TypeScript In 2024'
+date: '2024-10-27'
+img: '/images/how-to-learn-ts-in-2024.webp'
+category: 'TypeScript'
 description: "Learn how to master TypeScript in 2024 with this comprehensive step-by-step guide. Discover the essential concepts, practical examples, and best practices to write efficient, type-safe JavaScript. Whether you're a beginner or an experienced developer, this guide will help you build your TypeScript skills and boost your career."
 ---
 
@@ -16,7 +16,7 @@ By the end, you’ll have the confidence to write TypeScript productively and ge
 
 ### Who Are You?
 
-I have been working at ArenaAI as a front-end engineer for about 3 years.
+I have been working at Arena Physica as a front-end engineer for about 5 years.
 
 ## The Guide
 

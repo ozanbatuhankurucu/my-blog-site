@@ -43,7 +43,7 @@ export const SITE_URL = 'https://www.ozanbatuhankurucu.com'
 export const SITE_CONFIG = {
   name: 'Ozan Batuhan Kurucu',
   title: 'Frontend Engineer',
-  company: 'ArenaAI',
+  company: 'Arena Physica',
   domain: 'ozanbatuhankurucu.com',
   logo: 'ozan.dev',
   description: 'Frontend engineer writing about React, TypeScript, and building for the web.',
