@@ -55,7 +55,6 @@ export interface Project {
   url?: string
   features?: ProjectFeature[]
   featuresTitle?: string
-  useColumnCount?: boolean
 }
 
 // Timeline item for About page
