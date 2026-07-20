@@ -153,7 +153,7 @@ const PostPage = ({ params }: Props) => {
                 article={post.rawContent}
               />
               <DownloadArticleButton
-                content={post.rawContent}
+                content={post.content}
                 filename={`${slug}.md`}
               />
             </div>
