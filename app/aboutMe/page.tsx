@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { LuTwitter, LuGithub, LuLinkedin, LuMail } from 'react-icons/lu'
 import { IconType } from 'react-icons'
 import { Tag } from '../../components/Tag'
+import { ImageGallery } from '../../components/ImageGallery'
 import { TimelineItem } from '../../components/types'
 import { SOCIAL_LINKS, TECH_STACK, AI_TOOLS, SITE_CONFIG, SITE_URL, SocialPlatform } from '../../lib/constants'
 
@@ -35,6 +36,21 @@ const platformIcons: Record<SocialPlatform, IconType> = {
   linkedin: LuLinkedin,
   email: LuMail
 }
+
+const momentPhotos = [
+  {
+    src: '/images/bangkok_team_2024.jpg',
+    alt: 'Team in Bangkok 2024',
+    width: 400,
+    height: 300
+  },
+  {
+    src: '/images/bangkok_team_2_2024.jpeg',
+    alt: 'Bangkok Trip 2024',
+    width: 400,
+    height: 300
+  }
+]
 
 const timeline: TimelineItem[] = [
   {
@@ -214,26 +230,7 @@ export default function AboutMe() {
           {/* Photos section */}
           <section>
             <SectionHeader>Moments</SectionHeader>
-            <div className='grid grid-cols-2 gap-4'>
-              <div className='rounded-lg overflow-hidden border border-border-subtle'>
-                <Image
-                  src='/images/bangkok_team_2024.jpg'
-                  alt='Team in Bangkok 2024'
-                  width={400}
-                  height={300}
-                  className='w-full h-48 object-cover'
-                />
-              </div>
-              <div className='rounded-lg overflow-hidden border border-border-subtle'>
-                <Image
-                  src='/images/bangkok_team_2_2024.jpeg'
-                  alt='Bangkok Trip 2024'
-                  width={400}
-                  height={300}
-                  className='w-full h-48 object-cover'
-                />
-              </div>
-            </div>
+            <ImageGallery images={momentPhotos} />
             <p className='text-text-muted text-sm mt-4'>
               Bangkok 2024 — Collaborating with teammates from the New York office.
             </p>

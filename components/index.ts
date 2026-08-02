@@ -7,6 +7,7 @@
 export { Button } from './Button'
 export { Tag } from './Tag'
 export { Drawer } from './Drawer'
+export { ImageGallery } from './ImageGallery'
 
 // Layout Components
 export { default as Header } from './Header'
