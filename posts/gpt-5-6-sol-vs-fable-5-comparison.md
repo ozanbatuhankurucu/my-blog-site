@@ -1,6 +1,6 @@
 ---
 title: 'GPT 5.6 Sol vs Fable 5: A Hands-On Comparison of Two Frontier AI Models'
-date: '2026-07-18'
+date: '2026-08-02'
 img: '/images/gpt-5-6-sol-vs-fable-5.png'
 category: 'Artificial Intelligence'
 description: "A deep, hands-on comparison of OpenAI's GPT 5.6 Sol (Sol, Terra, Luna) against Anthropic's Fable 5. Real agentic builds inside Codex and Claude Code, API head-to-head tests, cost and token efficiency breakdowns, latency numbers, and a practical verdict on which model to reach for and when."
