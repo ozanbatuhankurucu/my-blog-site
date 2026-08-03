@@ -2,7 +2,9 @@ import { NextRequest } from 'next/server'
 import {
   buildPrompt,
   isAiFeature,
+  isAiLocale,
   type AiFeature,
+  type AiLocale,
   type ChatTurn,
 } from '../../../lib/ai/prompts'
 import { generate } from '../../../lib/ai/gemini'
@@ -18,6 +20,7 @@ interface RequestBody {
   feature: AiFeature
   title: string
   article: string
+  locale: AiLocale
   question?: string
   history?: ChatTurn[]
 }
@@ -87,6 +90,7 @@ const parseBody = (raw: unknown): RequestBody | null => {
     feature: body.feature,
     title: body.title,
     article: body.article,
+    locale: isAiLocale(body.locale) ? body.locale : 'en',
     question,
     history,
   }
@@ -115,6 +119,7 @@ export async function POST(req: NextRequest) {
     prompt = buildPrompt(body.feature, {
       title: body.title,
       article: body.article,
+      locale: body.locale,
       question: body.question,
       history: body.history,
     })

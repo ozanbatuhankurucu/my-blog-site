@@ -11,6 +11,7 @@ interface DrawerProps {
   title?: string
   children: ReactNode
   width?: string
+  closeAriaLabel?: string
 }
 
 const Drawer: FC<DrawerProps> = ({
@@ -19,6 +20,7 @@ const Drawer: FC<DrawerProps> = ({
   title,
   children,
   width = '400px',
+  closeAriaLabel = 'Close drawer',
 }) => {
   const drawerRef = useRef<HTMLDivElement>(null)
   const previousActiveElement = useRef<HTMLElement | null>(null)
@@ -113,7 +115,7 @@ const Drawer: FC<DrawerProps> = ({
               'transition-colors duration-fast',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent'
             )}
-            aria-label="Close drawer"
+            aria-label={closeAriaLabel}
           >
             <RiCloseLine size={24} />
           </button>

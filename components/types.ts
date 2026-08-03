@@ -2,6 +2,8 @@
  * Shared TypeScript types for the blog application
  */
 
+export type PostLocale = 'en' | 'tr'
+
 // Blog post categories
 export type CategoryType =
   | 'Artificial Intelligence'
@@ -22,6 +24,14 @@ export interface PostMetadata {
   img: string
   slug: string
   description?: string
+  locale: PostLocale
+  availableLocales: PostLocale[]
+}
+
+export interface PostContent {
+  data: PostMetadata
+  content: string
+  rawContent: string
 }
 
 // Lightweight per-post record used for client-side search

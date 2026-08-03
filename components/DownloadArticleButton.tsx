@@ -2,17 +2,22 @@
 
 import { FC, useState } from 'react'
 import { LuCheck, LuDownload } from 'react-icons/lu'
+import { getArticleMessages } from '../lib/article-localization'
+import type { PostLocale } from './types'
 
 interface DownloadArticleButtonProps {
   content: string
   filename: string
+  locale?: PostLocale
 }
 
 const DownloadArticleButton: FC<DownloadArticleButtonProps> = ({
   content,
-  filename
+  filename,
+  locale = 'en'
 }) => {
   const [downloaded, setDownloaded] = useState(false)
+  const messages = getArticleMessages(locale).download
 
   const handleDownload = () => {
     try {
@@ -30,7 +35,7 @@ const DownloadArticleButton: FC<DownloadArticleButtonProps> = ({
       setDownloaded(true)
       window.setTimeout(() => setDownloaded(false), 2000)
     } catch (err) {
-      console.error('Failed to download markdown:', err)
+      console.error(messages.error, err)
     }
   }
 
@@ -46,17 +51,17 @@ const DownloadArticleButton: FC<DownloadArticleButtonProps> = ({
         transition-all duration-fast
         focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg-base
       "
-      aria-label={downloaded ? 'Downloaded!' : 'Download markdown'}
+      aria-label={downloaded ? messages.downloaded : messages.action}
     >
       {downloaded ? (
         <>
           <LuCheck size={14} className="text-success" />
-          <span className="text-success">Downloaded!</span>
+          <span className="text-success">{messages.downloaded}</span>
         </>
       ) : (
         <>
           <LuDownload size={14} />
-          <span>Download .md</span>
+          <span>{messages.action}</span>
         </>
       )}
     </button>

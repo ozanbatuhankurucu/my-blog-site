@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { AiFeature, ChatTurn } from '../../lib/ai/prompts'
+import type { AiFeature, AiLocale, ChatTurn } from '../../lib/ai/prompts'
 
 export type AiStreamStatus = 'idle' | 'streaming' | 'done' | 'error'
 
@@ -9,6 +9,7 @@ export interface RunOptions {
   feature: AiFeature
   title: string
   article: string
+  locale?: AiLocale
   question?: string
   history?: ChatTurn[]
   onToken?: (chunk: string, fullText: string) => void
@@ -75,6 +76,7 @@ export const useAiStream = (): UseAiStreamReturn => {
           feature: options.feature,
           title: options.title,
           article: options.article,
+          locale: options.locale ?? 'en',
           question: options.question,
           history: options.history ?? [],
         }),

@@ -1,12 +1,21 @@
 import { MetadataRoute } from 'next'
 import { getPostMetadata } from '../components/utils'
+import { getPostPath } from '../lib/article-localization'
 import { SITE_URL } from '../lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = getPostMetadata()
+  const englishPosts = getPostMetadata('en')
+  const turkishPosts = getPostMetadata('tr')
 
-  const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${SITE_URL}/posts/${post.slug}`,
+  const englishPostEntries: MetadataRoute.Sitemap = englishPosts.map((post) => ({
+    url: `${SITE_URL}${getPostPath(post.slug, 'en')}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  const turkishPostEntries: MetadataRoute.Sitemap = turkishPosts.map((post) => ({
+    url: `${SITE_URL}${getPostPath(post.slug, 'tr')}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.7,
@@ -33,5 +42,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return [...staticRoutes, ...postEntries]
+  return [...staticRoutes, ...englishPostEntries, ...turkishPostEntries]
 }

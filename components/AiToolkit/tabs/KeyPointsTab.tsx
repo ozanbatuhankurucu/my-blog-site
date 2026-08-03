@@ -7,12 +7,15 @@ import ResultToolbar from '../ResultToolbar'
 import { LoadingHint, ErrorBox, EmptyState } from '../StatusMessages'
 import { useAiStream } from '../useAiStream'
 import { Button } from '../../Button'
+import { getArticleMessages } from '../../../lib/article-localization'
+import type { PostLocale } from '../../types'
 
 interface KeyPointsTabProps {
   title: string
   article: string
   cachedText: string
   onText: (text: string) => void
+  locale: PostLocale
 }
 
 const KeyPointsTab: FC<KeyPointsTabProps> = ({
@@ -20,8 +23,10 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
   article,
   cachedText,
   onText,
+  locale
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
+  const messages = getArticleMessages(locale).ai.keyPoints
 
   const currentText = status === 'idle' ? cachedText : text
 
@@ -31,6 +36,7 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
       feature: 'keyPoints',
       title,
       article,
+      locale,
       onToken: (_chunk, fullText) => onText(fullText),
       onDone: (fullText) => onText(fullText),
     })
@@ -48,20 +54,21 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
         canCopy={hasContent && !isStreaming}
         canRegenerate={!isStreaming}
         textToCopy={currentText}
+        locale={locale}
       />
 
       {status === 'error' && error ? (
-        <ErrorBox message={error} onRetry={handleRegenerate} />
+        <ErrorBox message={error} onRetry={handleRegenerate} locale={locale} />
       ) : null}
 
       {!hasContent && isStreaming && (
-        <LoadingHint label="Extracting key points..." />
+        <LoadingHint label={messages.loading} />
       )}
 
       {!hasContent && !isStreaming && status !== 'error' && (
         <EmptyState
-          title="No key points yet"
-          description="Extract the important takeaways from this article."
+          title={messages.emptyTitle}
+          description={messages.emptyDescription}
           action={
             <Button
               size="sm"
@@ -70,7 +77,7 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
               className="mx-auto"
             >
               <LuListChecks size={14} className="mr-1.5" />
-              Extract key points
+              {messages.action}
             </Button>
           }
         />

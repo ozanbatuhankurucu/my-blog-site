@@ -3,6 +3,8 @@
 import { FC, useState } from 'react'
 import cx from 'classnames'
 import { LuCheck, LuCopy, LuRefreshCw, LuSquare } from 'react-icons/lu'
+import { getArticleMessages } from '../../lib/article-localization'
+import type { PostLocale } from '../types'
 
 interface ResultToolbarProps {
   onRegenerate: () => void
@@ -12,6 +14,7 @@ interface ResultToolbarProps {
   canCopy: boolean
   canRegenerate: boolean
   textToCopy: string
+  locale?: PostLocale
 }
 
 const buttonBase =
@@ -30,8 +33,10 @@ const ResultToolbar: FC<ResultToolbarProps> = ({
   canCopy,
   canRegenerate,
   textToCopy,
+  locale = 'en'
 }) => {
   const [copied, setCopied] = useState(false)
+  const messages = getArticleMessages(locale).ai.toolbar
 
   const handleCopy = async () => {
     try {
@@ -40,7 +45,7 @@ const ResultToolbar: FC<ResultToolbarProps> = ({
       window.setTimeout(() => setCopied(false), 2000)
       onCopy?.()
     } catch (err) {
-      console.error('Failed to copy AI response:', err)
+      console.error(messages.copyError, err)
     }
   }
 
@@ -49,7 +54,7 @@ const ResultToolbar: FC<ResultToolbarProps> = ({
       {isStreaming && onStop && (
         <button type="button" onClick={onStop} className={cx(buttonBase)}>
           <LuSquare size={14} />
-          <span>Stop</span>
+          <span>{messages.stop}</span>
         </button>
       )}
       <button
@@ -57,27 +62,27 @@ const ResultToolbar: FC<ResultToolbarProps> = ({
         onClick={onRegenerate}
         disabled={isStreaming || !canRegenerate}
         className={cx(buttonBase)}
-        aria-label="Regenerate response"
+        aria-label={messages.regenerateAria}
       >
         <LuRefreshCw size={14} />
-        <span>Regenerate</span>
+        <span>{messages.regenerate}</span>
       </button>
       <button
         type="button"
         onClick={handleCopy}
         disabled={!canCopy}
         className={cx(buttonBase)}
-        aria-label={copied ? 'Copied!' : 'Copy response'}
+        aria-label={copied ? messages.copied : messages.copyAria}
       >
         {copied ? (
           <>
             <LuCheck size={14} className="text-success" />
-            <span className="text-success">Copied!</span>
+            <span className="text-success">{messages.copied}</span>
           </>
         ) : (
           <>
             <LuCopy size={14} />
-            <span>Copy</span>
+            <span>{messages.copy}</span>
           </>
         )}
       </button>

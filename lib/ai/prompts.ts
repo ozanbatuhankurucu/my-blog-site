@@ -8,6 +8,7 @@
  */
 
 export type AiFeature = 'summary' | 'keyPoints' | 'ask' | 'explain'
+export type AiLocale = 'en' | 'tr'
 
 export interface ChatTurn {
   role: 'user' | 'assistant'
@@ -17,6 +18,7 @@ export interface ChatTurn {
 export interface PromptInput {
   title: string
   article: string
+  locale?: AiLocale
   question?: string
   history?: ChatTurn[]
 }
@@ -28,9 +30,14 @@ const truncateArticle = (article: string): string => {
   return `${article.slice(0, MAX_ARTICLE_CHARS)}\n\n[Article truncated for length]`
 }
 
-const BASE_RULES = `You are the reading assistant embedded inside a technical blog post.
+const baseRules = (locale: AiLocale): string => `You are the reading assistant embedded inside a technical blog post.
 Ground every answer strictly in the ARTICLE below. If the article does not contain the answer, say so plainly instead of inventing details.
-Reply in the same language the article is written in (do not translate).
+Reply in ${locale === 'tr' ? 'Turkish' : 'English'}.
+${
+  locale === 'tr'
+    ? 'Keep established English technical terms, product names, framework names, APIs, code identifiers, and industry vocabulary in English when translating them would sound unnatural or reduce precision.'
+    : 'Preserve established technical terms, product names, framework names, APIs, and code identifiers.'
+}
 Format the response as GitHub-flavored markdown. Do not wrap the whole reply in a single code block.`
 
 const articleBlock = (title: string, article: string): string =>
@@ -76,23 +83,24 @@ const formatHistory = (history: ChatTurn[]): string => {
 
 export const buildPrompt = (
   feature: AiFeature,
-  { title, article, question, history = [] }: PromptInput
+  { title, article, locale = 'en', question, history = [] }: PromptInput
 ): string => {
   const article_ = articleBlock(title, article)
+  const rules = baseRules(locale)
 
   switch (feature) {
     case 'summary':
-      return `${BASE_RULES}\n\n${article_}\n\n${summaryInstruction}`
+      return `${rules}\n\n${article_}\n\n${summaryInstruction}`
     case 'keyPoints':
-      return `${BASE_RULES}\n\n${article_}\n\n${keyPointsInstruction}`
+      return `${rules}\n\n${article_}\n\n${keyPointsInstruction}`
     case 'explain':
-      return `${BASE_RULES}\n\n${article_}\n\n${explainInstruction}`
+      return `${rules}\n\n${article_}\n\n${explainInstruction}`
     case 'ask': {
       const q = (question ?? '').trim()
       if (!q) {
         throw new Error('A question is required for the "ask" feature.')
       }
-      return `${BASE_RULES}\n\n${article_}\n\n${askInstructionHeader}${formatHistory(
+      return `${rules}\n\n${article_}\n\n${askInstructionHeader}${formatHistory(
         history
       )}\n\n# CURRENT QUESTION\n${q}`
     }
@@ -108,3 +116,6 @@ export const isAiFeature = (value: unknown): value is AiFeature =>
   value === 'keyPoints' ||
   value === 'ask' ||
   value === 'explain'
+
+export const isAiLocale = (value: unknown): value is AiLocale =>
+  value === 'en' || value === 'tr'

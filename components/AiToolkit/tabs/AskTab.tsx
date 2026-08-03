@@ -14,12 +14,15 @@ import MarkdownStream from '../MarkdownStream'
 import { ErrorBox } from '../StatusMessages'
 import { useAiStream } from '../useAiStream'
 import type { AskMessage } from '../types'
+import { getArticleMessages } from '../../../lib/article-localization'
+import type { PostLocale } from '../../types'
 
 interface AskTabProps {
   title: string
   article: string
   messages: AskMessage[]
   onMessagesChange: (messages: AskMessage[]) => void
+  locale: PostLocale
 }
 
 const MAX_QUESTION_CHARS = 500
@@ -35,12 +38,14 @@ const AskTab: FC<AskTabProps> = ({
   article,
   messages,
   onMessagesChange,
+  locale
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
   const [input, setInput] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const isStreaming = status === 'streaming'
+  const copy = getArticleMessages(locale).ai.ask
 
   useEffect(() => {
     const el = scrollRef.current
@@ -77,6 +82,7 @@ const AskTab: FC<AskTabProps> = ({
       feature: 'ask',
       title,
       article,
+      locale,
       question,
       history,
       onToken: (_chunk, fullText) => {
@@ -132,17 +138,13 @@ const AskTab: FC<AskTabProps> = ({
         {messages.length === 0 && !isStreaming && (
           <div className="py-6">
             <p className="font-mono text-sm text-text-primary mb-1">
-              Ask anything about this article
+              {copy.title}
             </p>
             <p className="text-sm text-text-muted mb-4">
-              Answers are grounded strictly in the article content.
+              {copy.description}
             </p>
             <div className="flex flex-col gap-2">
-              {[
-                'Give me the TL;DR in one sentence.',
-                'What problem does this article solve?',
-                'Which part should I read first?',
-              ].map((suggestion) => (
+              {copy.suggestions.map((suggestion) => (
                 <button
                   key={suggestion}
                   type="button"
@@ -202,7 +204,7 @@ const AskTab: FC<AskTabProps> = ({
         )}
 
         {status === 'error' && error && (
-          <ErrorBox message={error} onRetry={handleRetry} />
+          <ErrorBox message={error} onRetry={handleRetry} locale={locale} />
         )}
       </div>
 
@@ -225,8 +227,8 @@ const AskTab: FC<AskTabProps> = ({
             }
             onKeyDown={handleKeyDown}
             rows={1}
-            placeholder="Why are Server Components faster?"
-            aria-label="Ask a question about the article"
+            placeholder={copy.placeholder}
+            aria-label={copy.inputAria}
             className={cx(
               'flex-1 resize-none bg-transparent px-3 py-2 text-sm',
               'text-text-primary placeholder:text-text-muted',
@@ -245,7 +247,7 @@ const AskTab: FC<AskTabProps> = ({
                 'hover:bg-bg-elevated transition-colors duration-fast',
                 'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent'
               )}
-              aria-label="Stop generating"
+              aria-label={copy.stopAria}
             >
               <LuSquare size={14} />
             </button>
@@ -260,14 +262,14 @@ const AskTab: FC<AskTabProps> = ({
                 'disabled:opacity-40 disabled:cursor-not-allowed',
                 'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated'
               )}
-              aria-label="Send question"
+              aria-label={copy.sendAria}
             >
               <LuArrowUp size={16} />
             </button>
           )}
         </div>
         <div className="mt-1.5 flex items-center justify-between text-[11px] text-text-muted">
-          <span>Enter to send · Shift+Enter for newline</span>
+          <span>{copy.keyboardHint}</span>
           <span>
             {input.length}/{MAX_QUESTION_CHARS}
           </span>
