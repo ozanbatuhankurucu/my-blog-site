@@ -3,18 +3,24 @@
 import cx from 'classnames'
 import { FC, MouseEvent, useEffect, useState } from 'react'
 import { RiListUnordered } from 'react-icons/ri'
-import { TocHeading } from './types'
+import { getArticleMessages } from '../lib/article-localization'
+import { PostLocale, TocHeading } from './types'
 
 interface TableOfContentsProps {
   headings: TocHeading[]
+  locale?: PostLocale
 }
 
 const HEADER_OFFSET = 80
 
-const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
+const TableOfContents: FC<TableOfContentsProps> = ({
+  headings,
+  locale = 'en'
+}) => {
   const [activeId, setActiveId] = useState<string>('')
   const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [isFooterVisible, setIsFooterVisible] = useState(false)
+  const messages = getArticleMessages(locale).toc
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -132,7 +138,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
     <>
       {/* Desktop TOC - sticky sidebar on the left, open by default */}
       <aside
-        aria-label="Table of contents"
+        aria-label={messages.ariaLabel}
         aria-hidden={isFooterVisible ? 'true' : undefined}
         className={cx(
           'hidden xl:block fixed top-24 left-4 2xl:left-8 w-56 2xl:w-64 z-30',
@@ -145,7 +151,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
         <div className="max-h-[calc(100vh-8rem)] overflow-y-auto pr-2 -mr-2">
           <div className="pl-4 mb-4">
             <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-secondary">
-              On this page
+              {messages.label}
             </span>
             <div
               className="mt-3 h-px bg-border-subtle relative overflow-hidden"
@@ -153,7 +159,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
               aria-valuemin={0}
               aria-valuemax={100}
               aria-valuenow={Math.round(progress)}
-              aria-label="Reading progress through sections"
+              aria-label={messages.progressLabel}
             >
               <span
                 className="absolute inset-y-0 left-0 bg-accent transition-[width] duration-slow ease-out-custom"
@@ -190,7 +196,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
               </span>
               <span className="flex flex-col min-w-0">
                 <span className="font-mono text-[11px] uppercase tracking-[0.15em] text-text-muted">
-                  On this page
+                  {messages.label}
                 </span>
                 <span
                   className={cx(
@@ -198,7 +204,9 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
                     activeHeading ? 'text-text-primary' : 'text-text-secondary'
                   )}
                 >
-                  {activeHeading ? activeHeading.text : `${total} sections`}
+                  {activeHeading
+                    ? activeHeading.text
+                    : `${total} ${messages.sections}`}
                 </span>
               </span>
             </span>
@@ -219,7 +227,7 @@ const TableOfContents: FC<TableOfContentsProps> = ({ headings }) => {
               aria-valuemin={0}
               aria-valuemax={100}
               aria-valuenow={Math.round(progress)}
-              aria-label="Reading progress through sections"
+              aria-label={messages.progressLabel}
             >
               <span
                 className="absolute inset-y-0 left-0 bg-accent transition-[width] duration-slow ease-out-custom"

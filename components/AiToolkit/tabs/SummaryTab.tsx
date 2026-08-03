@@ -7,12 +7,15 @@ import ResultToolbar from '../ResultToolbar'
 import { LoadingHint, ErrorBox, EmptyState } from '../StatusMessages'
 import { useAiStream } from '../useAiStream'
 import { Button } from '../../Button'
+import { getArticleMessages } from '../../../lib/article-localization'
+import type { PostLocale } from '../../types'
 
 interface SummaryTabProps {
   title: string
   article: string
   cachedText: string
   onText: (text: string) => void
+  locale: PostLocale
 }
 
 const SummaryTab: FC<SummaryTabProps> = ({
@@ -20,8 +23,10 @@ const SummaryTab: FC<SummaryTabProps> = ({
   article,
   cachedText,
   onText,
+  locale
 }) => {
   const { text, status, error, run, cancel } = useAiStream()
+  const messages = getArticleMessages(locale).ai.summary
 
   const currentText = status === 'idle' ? cachedText : text
 
@@ -31,6 +36,7 @@ const SummaryTab: FC<SummaryTabProps> = ({
       feature: 'summary',
       title,
       article,
+      locale,
       onToken: (_chunk, fullText) => onText(fullText),
       onDone: (fullText) => onText(fullText),
     })
@@ -48,18 +54,19 @@ const SummaryTab: FC<SummaryTabProps> = ({
         canCopy={hasContent && !isStreaming}
         canRegenerate={!isStreaming}
         textToCopy={currentText}
+        locale={locale}
       />
 
       {status === 'error' && error ? (
-        <ErrorBox message={error} onRetry={handleRegenerate} />
+        <ErrorBox message={error} onRetry={handleRegenerate} locale={locale} />
       ) : null}
 
-      {!hasContent && isStreaming && <LoadingHint label="Summarizing article..." />}
+      {!hasContent && isStreaming && <LoadingHint label={messages.loading} />}
 
       {!hasContent && !isStreaming && status !== 'error' && (
         <EmptyState
-          title="No summary yet"
-          description="Generate a quick 4–6 sentence recap of this article."
+          title={messages.emptyTitle}
+          description={messages.emptyDescription}
           action={
             <Button
               size="sm"
@@ -68,7 +75,7 @@ const SummaryTab: FC<SummaryTabProps> = ({
               className="mx-auto"
             >
               <LuSparkles size={14} className="mr-1.5" />
-              Summarize
+              {messages.action}
             </Button>
           }
         />

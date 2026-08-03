@@ -1,27 +1,139 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { PostMetadata, PostSearchRecord, TocHeading } from './types'
+import path from 'path'
+import {
+  CategoryType,
+  PostContent,
+  PostLocale,
+  PostMetadata,
+  PostSearchRecord,
+  TocHeading
+} from './types'
 
-export const getPostMetadata = (): PostMetadata[] => {
-  const folder = 'posts/'
-  const files = fs.readdirSync(folder)
-  const markdownArticles = files.filter((file) => file.endsWith('.md'))
+const POSTS_DIRECTORY = path.join(process.cwd(), 'posts')
+const POST_SLUG_PATTERN = /^[a-z0-9-]+$/
 
-  // Get gray-matter data from each file.
-  const articles = markdownArticles.map((fileName) => {
-    const fileContents = fs.readFileSync(`posts/${fileName}`, 'utf8')
-    const matterResult = matter(fileContents)
+const getLocaleDirectory = (locale: PostLocale): string =>
+  locale === 'en' ? POSTS_DIRECTORY : path.join(POSTS_DIRECTORY, locale)
+
+const getPostFilePath = (slug: string, locale: PostLocale): string =>
+  path.join(getLocaleDirectory(locale), `${slug}.md`)
+
+const getMarkdownFiles = (locale: PostLocale): string[] => {
+  const directory = getLocaleDirectory(locale)
+  if (!fs.existsSync(directory)) return []
+
+  return fs
+    .readdirSync(directory, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.md'))
+    .map((entry) => entry.name)
+}
+
+const getAvailableLocales = (slug: string): PostLocale[] => {
+  const locales: PostLocale[] = ['en']
+  if (fs.existsSync(getPostFilePath(slug, 'tr'))) locales.push('tr')
+  return locales
+}
+
+const getRequiredString = (
+  data: Record<string, unknown>,
+  field: string,
+  filePath: string
+): string => {
+  const value = data[field]
+  if (typeof value !== 'string' || !value.trim()) {
+    throw new Error(`Missing required "${field}" frontmatter in ${filePath}`)
+  }
+  return value
+}
+
+export const getPostContent = (
+  slug: string,
+  locale: PostLocale = 'en'
+): PostContent | null => {
+  if (!POST_SLUG_PATTERN.test(slug)) return null
+
+  const englishPath = getPostFilePath(slug, 'en')
+  const localizedPath = getPostFilePath(slug, locale)
+  if (!fs.existsSync(englishPath) || !fs.existsSync(localizedPath)) return null
+
+  const englishSource = fs.readFileSync(englishPath, 'utf8')
+  const englishPost = matter(englishSource)
+  const englishData = englishPost.data as Record<string, unknown>
+  const englishTitle = getRequiredString(englishData, 'title', englishPath)
+  const englishDate = getRequiredString(englishData, 'date', englishPath)
+  const englishImage = getRequiredString(englishData, 'img', englishPath)
+  const englishCategory = getRequiredString(
+    englishData,
+    'category',
+    englishPath
+  ) as CategoryType
+
+  if (locale === 'en') {
     return {
-      title: matterResult.data.title,
-      date: matterResult.data.date,
-      img: matterResult.data.img,
-      category: matterResult.data.category,
-      description: matterResult.data.description || '',
-      slug: fileName.replace('.md', '')
+      data: {
+        title: englishTitle,
+        date: englishDate,
+        img: englishImage,
+        category: englishCategory,
+        description: getRequiredString(
+          englishData,
+          'description',
+          englishPath
+        ),
+        slug,
+        locale,
+        availableLocales: getAvailableLocales(slug)
+      },
+      content: englishPost.content,
+      rawContent: englishSource
     }
+  }
+
+  const localizedSource = fs.readFileSync(localizedPath, 'utf8')
+  const localizedPost = matter(localizedSource)
+  const localizedData = localizedPost.data as Record<string, unknown>
+
+  return {
+    data: {
+      title: getRequiredString(localizedData, 'title', localizedPath),
+      date: englishDate,
+      img: englishImage,
+      category: englishCategory,
+      description: getRequiredString(
+        localizedData,
+        'description',
+        localizedPath
+      ),
+      slug,
+      locale,
+      availableLocales: getAvailableLocales(slug)
+    },
+    content: localizedPost.content,
+    rawContent: localizedSource
+  }
+}
+
+export const getPostMetadata = (
+  locale: PostLocale = 'en'
+): PostMetadata[] =>
+  getMarkdownFiles(locale).map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '')
+    const post = getPostContent(slug, locale)
+    if (!post) {
+      throw new Error(
+        `Localized post "${fileName}" does not have a matching English source`
+      )
+    }
+    return post.data
   })
 
-  return articles
+export const hasPostTranslation = (
+  slug: string,
+  locale: PostLocale
+): boolean => {
+  if (!POST_SLUG_PATTERN.test(slug)) return false
+  return fs.existsSync(getPostFilePath(slug, locale))
 }
 
 // Convert markdown body to plain, lowercased, searchable text.
@@ -55,17 +167,19 @@ const markdownToPlainText = (markdown: string): string =>
 
 // Mirrors markdown-to-jsx's built-in slugify so the ids we generate for the
 // TOC exactly match the ids the renderer sets on <h2>/<h3> elements.
-const slugifyHeading = (source: string): string =>
+export const slugifyHeading = (source: string): string =>
   source
     .replace(/[ÀÁÂÃÄÅàáâãäåæÆ]/g, 'a')
     .replace(/[çÇ]/g, 'c')
     .replace(/[ðÐ]/g, 'd')
     .replace(/[ÈÉÊËéèêë]/g, 'e')
-    .replace(/[ÏïÎîÍíÌì]/g, 'i')
+    .replace(/[ÏïÎîÍíÌìİı]/g, 'i')
     .replace(/[Ññ]/g, 'n')
-    .replace(/[øØœŒÕõÔôÓóÒò]/g, 'o')
+    .replace(/[øØœŒÕõÔôÓóÒòÖö]/g, 'o')
     .replace(/[ÜüÛûÚúÙù]/g, 'u')
     .replace(/[ŸÿÝý]/g, 'y')
+    .replace(/[Ğğ]/g, 'g')
+    .replace(/[Şş]/g, 's')
     .replace(/[^a-z0-9- ]/gi, '')
     .replace(/ /gi, '-')
     .toLowerCase()
@@ -108,12 +222,13 @@ export const extractTocHeadings = (markdown: string): TocHeading[] => {
 }
 
 export const getPostSearchIndex = (): PostSearchRecord[] => {
-  const folder = 'posts/'
-  const files = fs.readdirSync(folder)
-  const markdownArticles = files.filter((file) => file.endsWith('.md'))
+  const markdownArticles = getMarkdownFiles('en')
 
   return markdownArticles.map((fileName) => {
-    const fileContents = fs.readFileSync(`posts/${fileName}`, 'utf8')
+    const fileContents = fs.readFileSync(
+      path.join(POSTS_DIRECTORY, fileName),
+      'utf8'
+    )
     const { data, content } = matter(fileContents)
     const plain = markdownToPlainText(content).slice(0, SEARCH_CONTENT_MAX_CHARS)
 

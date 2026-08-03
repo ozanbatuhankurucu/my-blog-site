@@ -1,4 +1,5 @@
 import type { AiFeature, ChatTurn } from '../../lib/ai/prompts'
+import type { PostLocale } from '../types'
 
 export type { AiFeature, ChatTurn }
 
@@ -14,6 +15,7 @@ export interface TabDefinition {
 export interface AiToolkitProps {
   title: string
   article: string
+  locale: PostLocale
   isOpen: boolean
   onClose: () => void
 }

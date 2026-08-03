@@ -2,6 +2,8 @@
 
 import { FC } from 'react'
 import { LuAlertTriangle, LuLoader } from 'react-icons/lu'
+import { getArticleMessages } from '../../lib/article-localization'
+import type { PostLocale } from '../types'
 
 interface LoadingHintProps {
   label?: string
@@ -19,29 +21,38 @@ export const LoadingHint: FC<LoadingHintProps> = ({
 interface ErrorBoxProps {
   message: string
   onRetry?: () => void
+  locale?: PostLocale
 }
 
-export const ErrorBox: FC<ErrorBoxProps> = ({ message, onRetry }) => (
-  <div
-    role="alert"
-    className="flex items-start gap-3 p-3 rounded-md border border-error/40 bg-error/10 text-sm"
-  >
-    <LuAlertTriangle size={16} className="text-error mt-0.5 shrink-0" />
-    <div className="flex-1 min-w-0">
-      <p className="text-text-primary font-medium mb-1">Something went wrong</p>
-      <p className="text-text-secondary break-words">{message}</p>
-      {onRetry && (
-        <button
-          type="button"
-          onClick={onRetry}
-          className="mt-2 text-accent hover:text-accent-hover text-xs font-medium transition-colors duration-fast focus:outline-none focus-visible:underline"
-        >
-          Try again
-        </button>
-      )}
+export const ErrorBox: FC<ErrorBoxProps> = ({
+  message,
+  onRetry,
+  locale = 'en'
+}) => {
+  const messages = getArticleMessages(locale).ai.error
+
+  return (
+    <div
+      role="alert"
+      className="flex items-start gap-3 p-3 rounded-md border border-error/40 bg-error/10 text-sm"
+    >
+      <LuAlertTriangle size={16} className="text-error mt-0.5 shrink-0" />
+      <div className="flex-1 min-w-0">
+        <p className="text-text-primary font-medium mb-1">{messages.title}</p>
+        <p className="text-text-secondary break-words">{message}</p>
+        {onRetry && (
+          <button
+            type="button"
+            onClick={onRetry}
+            className="mt-2 text-accent hover:text-accent-hover text-xs font-medium transition-colors duration-fast focus:outline-none focus-visible:underline"
+          >
+            {messages.retry}
+          </button>
+        )}
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 interface EmptyStateProps {
   title: string
