@@ -11,16 +11,16 @@ import { getArticleMessages } from '../../../lib/article-localization'
 import type { PostLocale } from '../../types'
 
 interface KeyPointsTabProps {
-  title: string
-  article: string
+  slug: string
+  articleRevision: string
   cachedText: string
   onText: (text: string) => void
   locale: PostLocale
 }
 
 const KeyPointsTab: FC<KeyPointsTabProps> = ({
-  title,
-  article,
+  slug,
+  articleRevision,
   cachedText,
   onText,
   locale
@@ -34,8 +34,8 @@ const KeyPointsTab: FC<KeyPointsTabProps> = ({
     onText('')
     run({
       feature: 'keyPoints',
-      title,
-      article,
+      slug,
+      articleRevision,
       locale,
       onToken: (_chunk, fullText) => onText(fullText),
       onDone: (fullText) => onText(fullText),

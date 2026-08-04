@@ -2,13 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { AiFeature, AiLocale, ChatTurn } from '../../lib/ai/prompts'
+import {
+  getCachedAiResponse,
+  setCachedAiResponse
+} from './responseCache'
 
 export type AiStreamStatus = 'idle' | 'streaming' | 'done' | 'error'
 
 export interface RunOptions {
   feature: AiFeature
-  title: string
-  article: string
+  slug: string
+  articleRevision: string
   locale?: AiLocale
   question?: string
   history?: ChatTurn[]
@@ -60,6 +64,25 @@ export const useAiStream = (): UseAiStreamReturn => {
 
   const run = useCallback(async (options: RunOptions) => {
     controllerRef.current?.abort()
+    const cacheInput = {
+      feature: options.feature,
+      slug: options.slug,
+      articleRevision: options.articleRevision,
+      locale: options.locale ?? 'en',
+      question: options.question,
+      history: options.history ?? []
+    }
+    const cachedText = getCachedAiResponse(cacheInput)
+    if (cachedText) {
+      controllerRef.current = null
+      setText(cachedText)
+      setError(null)
+      setStatus('done')
+      options.onToken?.(cachedText, cachedText)
+      options.onDone?.(cachedText)
+      return
+    }
+
     const controller = new AbortController()
     controllerRef.current = controller
 
@@ -74,8 +97,7 @@ export const useAiStream = (): UseAiStreamReturn => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           feature: options.feature,
-          title: options.title,
-          article: options.article,
+          slug: options.slug,
           locale: options.locale ?? 'en',
           question: options.question,
           history: options.history ?? [],
@@ -96,6 +118,7 @@ export const useAiStream = (): UseAiStreamReturn => {
       }
 
       const fullText = typeof payload.text === 'string' ? payload.text : ''
+      setCachedAiResponse(cacheInput, fullText)
       setText(fullText)
       setStatus('done')
       options.onToken?.(fullText, fullText)

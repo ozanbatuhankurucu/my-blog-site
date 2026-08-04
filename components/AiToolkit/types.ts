@@ -13,8 +13,8 @@ export interface TabDefinition {
 }
 
 export interface AiToolkitProps {
-  title: string
-  article: string
+  slug: string
+  articleRevision: string
   locale: PostLocale
   isOpen: boolean
   onClose: () => void

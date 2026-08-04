@@ -18,8 +18,8 @@ import { getArticleMessages } from '../../../lib/article-localization'
 import type { PostLocale } from '../../types'
 
 interface AskTabProps {
-  title: string
-  article: string
+  slug: string
+  articleRevision: string
   messages: AskMessage[]
   onMessagesChange: (messages: AskMessage[]) => void
   locale: PostLocale
@@ -34,8 +34,8 @@ const generateId = () =>
     : `msg-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
 
 const AskTab: FC<AskTabProps> = ({
-  title,
-  article,
+  slug,
+  articleRevision,
   messages,
   onMessagesChange,
   locale
@@ -80,8 +80,8 @@ const AskTab: FC<AskTabProps> = ({
     let finalText = ''
     await run({
       feature: 'ask',
-      title,
-      article,
+      slug,
+      articleRevision,
       locale,
       question,
       history,

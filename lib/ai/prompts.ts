@@ -7,6 +7,8 @@
  * without extra client-side wiring.
  */
 
+import { selectRelevantArticleContext } from './article-analysis'
+
 export type AiFeature = 'summary' | 'keyPoints' | 'ask' | 'explain'
 export type AiLocale = 'en' | 'tr'
 
@@ -23,7 +25,7 @@ export interface PromptInput {
   history?: ChatTurn[]
 }
 
-const MAX_ARTICLE_CHARS = 200_000
+const MAX_ARTICLE_CHARS = 50_000
 
 const truncateArticle = (article: string): string => {
   if (article.length <= MAX_ARTICLE_CHARS) return article
@@ -100,7 +102,11 @@ export const buildPrompt = (
       if (!q) {
         throw new Error('A question is required for the "ask" feature.')
       }
-      return `${rules}\n\n${article_}\n\n${askInstructionHeader}${formatHistory(
+      const relevantArticle = articleBlock(
+        title,
+        selectRelevantArticleContext(article, q, locale)
+      )
+      return `${rules}\n\n${relevantArticle}\n\n${askInstructionHeader}${formatHistory(
         history
       )}\n\n# CURRENT QUESTION\n${q}`
     }

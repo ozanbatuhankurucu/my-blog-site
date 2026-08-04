@@ -3,18 +3,11 @@ import {
   type GenerativeModel,
 } from '@google/generative-ai'
 
-// Aliases maintained by Google that always point to the current stable
-// free-tier Flash models. Concrete names (e.g. `gemini-2.5-flash`) were
-// locked out for new API keys in 2026, so we deliberately use the aliases
-// to stay evergreen. If the primary alias is overloaded (503) we fall
-// back to the lighter Lite alias, which shares a separate capacity pool
-// and is far less likely to be busy.
-const PRIMARY_MODEL = 'gemini-flash-latest'
-const FALLBACK_MODEL = 'gemini-flash-lite-latest'
-const MODEL_CHAIN = [PRIMARY_MODEL, FALLBACK_MODEL]
-
-const MAX_ATTEMPTS_PER_MODEL = 2
-const BASE_RETRY_DELAY_MS = 400
+// Flash-Lite consumes less free-tier capacity than Flash. A request is never
+// retried automatically: retrying quota errors only burns more of the same
+// project-level allowance.
+const MODEL = 'gemini-flash-lite-latest'
+const DEFAULT_MAX_OUTPUT_TOKENS = 1024
 
 let cachedClient: GoogleGenerativeAI | null = null
 
@@ -31,55 +24,19 @@ const getClient = (): GoogleGenerativeAI => {
   return cachedClient
 }
 
-const getModel = (name: string): GenerativeModel =>
+const getModel = (maxOutputTokens: number): GenerativeModel =>
   getClient().getGenerativeModel({
-    model: name,
+    model: MODEL,
     generationConfig: {
       temperature: 0.4,
       topP: 0.95,
-      maxOutputTokens: 2048,
+      maxOutputTokens,
     },
   })
 
-const extractStatus = (err: unknown): number | null => {
-  if (!err || typeof err !== 'object') return null
-  const anyErr = err as Record<string, unknown>
-  if (typeof anyErr.status === 'number') return anyErr.status
-  const message = typeof anyErr.message === 'string' ? anyErr.message : ''
-  const match = message.match(/\[(\d{3})\s/)
-  return match ? Number(match[1]) : null
-}
-
-const isTransient = (err: unknown): boolean => {
-  const status = extractStatus(err)
-  if (status === null) return false
-  return status === 429 || status === 500 || status === 502 || status === 503
-}
-
-const sleep = (ms: number, signal?: AbortSignal): Promise<void> =>
-  new Promise((resolve, reject) => {
-    const timer = setTimeout(() => {
-      signal?.removeEventListener('abort', onAbort)
-      resolve()
-    }, ms)
-    const onAbort = () => {
-      clearTimeout(timer)
-      reject(new DOMException('Aborted', 'AbortError'))
-    }
-    if (signal) {
-      if (signal.aborted) {
-        clearTimeout(timer)
-        reject(new DOMException('Aborted', 'AbortError'))
-        return
-      }
-      signal.addEventListener('abort', onAbort, { once: true })
-    }
-  })
-
 /**
- * Generate a single-shot text response from Gemini. Automatically retries on
- * transient upstream errors (429, 500, 502, 503) and falls back to a lighter
- * Flash-Lite model if the primary alias stays unavailable.
+ * Generate one text response from Gemini. Quota and transient errors are
+ * intentionally returned to the caller without another provider request.
  *
  * We intentionally avoid SSE / streaming here because AWS Amplify's SSR
  * runtime (Lambda + CloudFront) buffers responses, which causes streamed
@@ -88,32 +45,22 @@ const sleep = (ms: number, signal?: AbortSignal): Promise<void> =>
  */
 export const generate = async (
   prompt: string,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  maxOutputTokens = DEFAULT_MAX_OUTPUT_TOKENS
 ): Promise<string> => {
-  let lastError: unknown
-
-  for (const modelName of MODEL_CHAIN) {
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS_PER_MODEL; attempt += 1) {
-      if (signal?.aborted) {
-        throw new DOMException('Aborted', 'AbortError')
-      }
-      try {
-        const result = await getModel(modelName).generateContent(prompt)
-        return result.response.text()
-      } catch (err) {
-        lastError = err
-        if (!isTransient(err)) throw err
-        if (attempt < MAX_ATTEMPTS_PER_MODEL) {
-          await sleep(BASE_RETRY_DELAY_MS * attempt, signal)
-        }
-      }
-    }
+  if (signal?.aborted) {
+    throw new DOMException('Aborted', 'AbortError')
   }
 
-  if (lastError instanceof Error) throw lastError
-  throw new Error(
-    'The AI service is temporarily overloaded. Please try again in a moment.'
-  )
+  const result = await getModel(maxOutputTokens).generateContent(prompt)
+  if (signal?.aborted) {
+    throw new DOMException('Aborted', 'AbortError')
+  }
+
+  return result.response.text()
 }
 
-export const GEMINI_MODEL = PRIMARY_MODEL
+export const isGeminiConfigured = (): boolean =>
+  Boolean(process.env.GOOGLE_GEMINI_API_KEY)
+
+export const GEMINI_MODEL = MODEL

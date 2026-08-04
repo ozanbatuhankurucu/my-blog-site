@@ -9,24 +9,30 @@ import type { PostLocale } from '../types'
 const AiToolkit = dynamic(() => import('./AiToolkit'), { ssr: false })
 
 interface AiToolkitLauncherProps {
-  title: string
-  article: string
+  slug: string
+  articleRevision: string
   locale?: PostLocale
 }
 
 const AiToolkitLauncher: FC<AiToolkitLauncherProps> = ({
-  title,
-  article,
+  slug,
+  articleRevision,
   locale = 'en'
 }) => {
   const [isOpen, setIsOpen] = useState(false)
+  const [hasOpened, setHasOpened] = useState(false)
   const messages = getArticleMessages(locale).ai
+
+  const openToolkit = () => {
+    setHasOpened(true)
+    setIsOpen(true)
+  }
 
   return (
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={openToolkit}
         className="
           inline-flex items-center gap-1.5 px-2 py-1 rounded
           text-xs font-medium
@@ -42,10 +48,10 @@ const AiToolkitLauncher: FC<AiToolkitLauncherProps> = ({
         <LuSparkles size={14} className="text-accent" />
         <span>{messages.launcher}</span>
       </button>
-      {isOpen && (
+      {hasOpened && (
         <AiToolkit
-          title={title}
-          article={article}
+          slug={slug}
+          articleRevision={articleRevision}
           locale={locale}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}

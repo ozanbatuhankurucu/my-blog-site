@@ -23,8 +23,8 @@ interface TabDef {
 }
 
 const AiToolkit: FC<AiToolkitProps> = ({
-  title,
-  article,
+  slug,
+  articleRevision,
   locale,
   isOpen,
   onClose
@@ -107,8 +107,8 @@ const AiToolkit: FC<AiToolkitProps> = ({
         >
           {activeTab === 'summary' && (
             <SummaryTab
-              title={title}
-              article={article}
+              slug={slug}
+              articleRevision={articleRevision}
               cachedText={summaryText}
               onText={setSummaryText}
               locale={locale}
@@ -116,8 +116,8 @@ const AiToolkit: FC<AiToolkitProps> = ({
           )}
           {activeTab === 'keyPoints' && (
             <KeyPointsTab
-              title={title}
-              article={article}
+              slug={slug}
+              articleRevision={articleRevision}
               cachedText={keyPointsText}
               onText={setKeyPointsText}
               locale={locale}
@@ -125,8 +125,8 @@ const AiToolkit: FC<AiToolkitProps> = ({
           )}
           {activeTab === 'ask' && (
             <AskTab
-              title={title}
-              article={article}
+              slug={slug}
+              articleRevision={articleRevision}
               messages={askMessages}
               onMessagesChange={setAskMessages}
               locale={locale}
@@ -134,8 +134,8 @@ const AiToolkit: FC<AiToolkitProps> = ({
           )}
           {activeTab === 'explain' && (
             <ExplainTab
-              title={title}
-              article={article}
+              slug={slug}
+              articleRevision={articleRevision}
               cachedText={explainText}
               onText={setExplainText}
               locale={locale}

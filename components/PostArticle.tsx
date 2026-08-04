@@ -1,3 +1,4 @@
+import { createHash } from 'crypto'
 import Markdown from 'markdown-to-jsx'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -108,6 +109,10 @@ const PostArticle = ({ slug, locale }: PostArticleProps) => {
   const readingTime = calculateReadingTime(post.content)
   const tocHeadings = extractTocHeadings(post.content)
   const postUrl = `${SITE_URL}${getPostPath(slug, locale)}`
+  const articleRevision = createHash('sha256')
+    .update(post.content)
+    .digest('hex')
+    .slice(0, 12)
 
   const blogPostingJsonLd = {
     '@context': 'https://schema.org',
@@ -208,8 +213,8 @@ const PostArticle = ({ slug, locale }: PostArticleProps) => {
             </div>
             <div className="flex items-center gap-1">
               <AiToolkitLauncher
-                title={post.data.title}
-                article={post.rawContent}
+                slug={slug}
+                articleRevision={articleRevision}
                 locale={locale}
               />
               <DownloadArticleButton
