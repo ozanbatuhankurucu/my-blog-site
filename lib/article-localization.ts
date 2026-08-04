@@ -81,8 +81,8 @@ const messages: Record<PostLocale, ArticleMessages> = {
     backToAllPosts: 'Back to all posts',
     minRead: 'min read',
     languageLabel: 'Article language',
-    english: 'English',
-    turkish: 'Türkçe',
+    english: 'EN',
+    turkish: 'TR',
     toc: {
       label: 'On this page',
       sections: 'sections',
@@ -161,8 +161,8 @@ const messages: Record<PostLocale, ArticleMessages> = {
     backToAllPosts: 'Tüm makalelere dön',
     minRead: 'dk okuma',
     languageLabel: 'Makale dili',
-    english: 'English',
-    turkish: 'Türkçe',
+    english: 'EN',
+    turkish: 'TR',
     toc: {
       label: 'Bu sayfada',
       sections: 'bölüm',
