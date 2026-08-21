@@ -297,7 +297,7 @@ export default function PulsePomodoroPage() {
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
                 style={{ aspectRatio: '671 / 566' }}>
                 <Image
-                  src='/images/pulse-pomodoro/settings.jpg?v=20260821'
+                  src='/images/pulse-pomodoro/settings.jpg'
                   alt='Pulse settings for durations, completion sounds, cat celebration animations, and launch at login'
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
