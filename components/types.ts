@@ -52,16 +52,29 @@ export interface ProjectFeature {
   link?: string
 }
 
+export interface ProjectAction {
+  label: string
+  href: string
+  external?: boolean
+}
+
 // Project data structure
 export interface Project {
+  slug: string
   title: string
+  category: string
   description: string
-  githubUrl: string
+  outcome: string
+  githubUrl?: string
   img: string
+  imgAlt: string
   stack: string[]
+  highlights: string[]
   createdAt: string
   status: ProjectStatus
   updatedAt: string
+  primaryAction: ProjectAction
+  secondaryAction?: ProjectAction
   url?: string
   features?: ProjectFeature[]
   featuresTitle?: string

@@ -1,6 +1,7 @@
 'use client'
 
-import { forwardRef, ButtonHTMLAttributes } from 'react'
+import Link from 'next/link'
+import { forwardRef, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import cx from 'classnames'
 import { ButtonVariant, ButtonSize } from './types'
 
@@ -8,6 +9,38 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
   size?: ButtonSize
   isLoading?: boolean
+}
+
+interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string
+  variant?: ButtonVariant
+  size?: ButtonSize
+  external?: boolean
+}
+
+const baseStyles = `
+  inline-flex items-center justify-center font-mono font-medium
+  transition-all duration-base ease-out-custom
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base
+  disabled:opacity-50 disabled:cursor-not-allowed
+  active:scale-[0.98]
+`
+
+const variants: Record<ButtonVariant, string> = {
+  primary: `
+    bg-accent text-bg-base
+    hover:bg-accent-hover
+  `,
+  ghost: `
+    bg-transparent text-text-secondary
+    hover:bg-bg-hover hover:text-text-primary
+  `,
+}
+
+const sizes: Record<ButtonSize, string> = {
+  sm: 'px-3 py-1.5 text-sm rounded-base',
+  md: 'px-4 py-2 text-base rounded-md',
+  lg: 'px-6 py-3 text-lg rounded-md',
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -23,31 +56,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const baseStyles = `
-      inline-flex items-center justify-center font-mono font-medium
-      transition-all duration-base ease-out-custom
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base
-      disabled:opacity-50 disabled:cursor-not-allowed
-      active:scale-[0.98]
-    `
-
-    const variants: Record<ButtonVariant, string> = {
-      primary: `
-        bg-accent text-bg-base
-        hover:bg-accent-hover
-      `,
-      ghost: `
-        bg-transparent text-text-secondary
-        hover:bg-bg-hover hover:text-text-primary
-      `,
-    }
-
-    const sizes: Record<ButtonSize, string> = {
-      sm: 'px-3 py-1.5 text-sm rounded-base',
-      md: 'px-4 py-2 text-base rounded-md',
-      lg: 'px-6 py-3 text-lg rounded-md',
-    }
-
     return (
       <button
         ref={ref}
@@ -89,5 +97,45 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button'
 
-export { Button }
-export type { ButtonProps }
+const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+  (
+    {
+      children,
+      href,
+      variant = 'primary',
+      size = 'md',
+      external = false,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = cx(baseStyles, variants[variant], sizes[size], className)
+
+    if (external) {
+      return (
+        <a
+          ref={ref}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes}
+          {...props}
+        >
+          {children}
+        </a>
+      )
+    }
+
+    return (
+      <Link ref={ref} href={href} className={classes} {...props}>
+        {children}
+      </Link>
+    )
+  }
+)
+
+ButtonLink.displayName = 'ButtonLink'
+
+export { Button, ButtonLink }
+export type { ButtonProps, ButtonLinkProps }

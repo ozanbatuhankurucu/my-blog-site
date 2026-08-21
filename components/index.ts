@@ -4,7 +4,7 @@
  */
 
 // Core UI Components
-export { Button } from './Button'
+export { Button, ButtonLink } from './Button'
 export { Tag } from './Tag'
 export { Drawer } from './Drawer'
 export { ImageGallery } from './ImageGallery'
@@ -17,6 +17,7 @@ export { Hero } from './Hero'
 // Card Components
 export { ArticleCard } from './ArticleCard'
 export { ProjectCard } from './ProjectCard'
+export { WatchPulseDemoButton } from './WatchPulseDemoButton'
 
 // Content Components
 export { default as HomeContent } from './HomeContent'
