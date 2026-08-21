@@ -19,7 +19,15 @@ export function scrollToPulseDemoVideo(onScrolled?: () => void) {
 
   target.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
-  const play = () => onScrolled?.()
+  let didFinishScrolling = false
+  const play = () => {
+    if (didFinishScrolling) {
+      return
+    }
+
+    didFinishScrolling = true
+    onScrolled?.()
+  }
 
   if ('onscrollend' in window) {
     const handleScrollEnd = () => {
@@ -58,10 +66,11 @@ export default function PulseDemoVideo() {
   return (
     <div
       id={PULSE_DEMO_VIDEO_ID}
-      className="
-        relative mx-auto scroll-mt-24 aspect-video
-        w-[min(100%,80rem,calc(70dvh*16/9))] max-h-[70dvh]
-      "
+      className="relative mx-auto scroll-mt-24"
+      style={{
+        aspectRatio: '868 / 646',
+        width: 'min(100%, 80rem, calc(70dvh * 868 / 646))',
+      }}
     >
       <video
         ref={videoRef}
