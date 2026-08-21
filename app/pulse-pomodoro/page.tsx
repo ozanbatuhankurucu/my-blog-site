@@ -120,7 +120,7 @@ export default function PulsePomodoroPage() {
       />
 
       <div className='overflow-hidden'>
-        <section className='container py-16 md:py-24 relative'>
+        <section className='container py-12 md:py-24 relative'>
           <div className='absolute top-16 right-0 w-64 h-64 rounded-full bg-accent-muted blur-3xl' aria-hidden='true' />
           <Link
             href='/projects'
@@ -225,7 +225,7 @@ export default function PulsePomodoroPage() {
               </p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
               {sessions.map((session) => (
                 <article
                   key={session.title}
@@ -256,7 +256,9 @@ export default function PulsePomodoroPage() {
 
         <section className='container py-16 md:py-24'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-24'>
-            <div className='relative aspect-video overflow-hidden rounded-lg border border-border-default bg-bg-elevated'>
+            <div
+              className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated'
+              style={{ aspectRatio: '700 / 590' }}>
               <Image
                 src='/images/pulse-pomodoro/focus-dashboard.jpg'
                 alt='Pulse weekly focus history showing daily sessions, total focus time, and streak'
@@ -291,16 +293,20 @@ export default function PulsePomodoroPage() {
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center'>
             <div className='md:order-last grid grid-cols-2 gap-4'>
-              <div className='relative aspect-video overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'>
+              <div
+                className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
+                style={{ aspectRatio: '671 / 566' }}>
                 <Image
-                  src='/images/pulse-pomodoro/settings.jpg'
-                  alt='Pulse settings for durations, completion sounds, animal animations, and launch at login'
+                  src='/images/pulse-pomodoro/settings.jpg?v=20260821'
+                  alt='Pulse settings for durations, completion sounds, cat celebration animations, and launch at login'
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
                   className='object-contain'
                 />
               </div>
-              <div className='relative aspect-video overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'>
+              <div
+                className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
+                style={{ aspectRatio: '621 / 432' }}>
                 <Image
                   src='/images/pulse-pomodoro/cat-celebration.jpg'
                   alt='Cat celebration animation appearing below the macOS menu bar'
@@ -340,7 +346,7 @@ export default function PulsePomodoroPage() {
                 SwiftUI, AppKit, and macOS system conventions keep Pulse fast, familiar, and dependable.
               </p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
               {nativeFeatures.map(({ icon: Icon, title, description }) => (
                 <article key={title} className='p-6 rounded-lg border border-border-subtle bg-bg-base'>
                   <Icon className='text-accent mb-5' size={28} aria-hidden='true' />
@@ -353,8 +359,8 @@ export default function PulsePomodoroPage() {
         </section>
 
         <section className='container py-16 md:py-24'>
-          <div className='rounded-lg border border-border-default bg-bg-elevated p-8 md:p-12'>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-10 items-center'>
+          <div className='rounded-lg border border-border-default bg-bg-elevated p-6 md:p-12'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center'>
               <div>
                 <LuShieldCheck className='text-success mb-6' size={36} aria-hidden='true' />
                 <p className='font-mono text-sm text-success mb-3'>Private by default</p>
