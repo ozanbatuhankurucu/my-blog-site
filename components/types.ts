@@ -68,6 +68,8 @@ export interface Project {
   githubUrl?: string
   img: string
   imgAlt: string
+  imgAspectRatio?: string
+  imgFit?: 'cover' | 'contain'
   stack: string[]
   highlights: string[]
   createdAt: string

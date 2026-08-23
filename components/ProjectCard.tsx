@@ -28,16 +28,21 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
     >
       <div
         className={cx(
-          'relative overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated aspect-video',
+          'relative overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated',
+          !project.imgAspectRatio && 'aspect-video',
           isMediaLast && 'md:order-last'
         )}
+        style={project.imgAspectRatio ? { aspectRatio: project.imgAspectRatio } : undefined}
       >
         <Image
           src={project.img}
           alt={project.imgAlt}
           fill
           sizes="(min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-slow ease-out-custom group-hover:scale-[1.02]"
+          className={cx(
+            project.imgFit === 'contain' ? 'object-contain' : 'object-cover',
+            'transition-transform duration-slow ease-out-custom group-hover:scale-[1.02]'
+          )}
         />
         <div className="absolute inset-0 border border-border-default/50 rounded-lg" aria-hidden="true" />
       </div>

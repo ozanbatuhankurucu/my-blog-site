@@ -14,6 +14,8 @@ export const PROJECTS: Project[] = [
 			'An intentionally quiet productivity tool with reliable session recovery, local-first progress tracking, and gentle completion feedback.',
 		img: '/images/pulse-pomodoro/focus-dashboard.jpg',
 		imgAlt: 'Pulse Pomodoro focus timer and weekly focus history in the macOS menu bar',
+		imgAspectRatio: '700 / 590',
+		imgFit: 'contain',
 		stack: ['SwiftUI', 'AppKit', 'Combine', 'AVFoundation', 'Swift Testing'],
 		highlights: [
 			'Accurate timers that survive sleep, restarts, and app relaunches',
