@@ -1,4 +1,5 @@
 import { Project, ProjectStatus } from '../components/types'
+import { PULSE_APP_STORE_URL } from '../lib/constants'
 
 // Re-export types for convenience
 export type { Project, ProjectStatus }
@@ -23,9 +24,15 @@ export const PROJECTS: Project[] = [
 			'Optional procedural sounds and animal completion animations',
 		],
 		createdAt: '2026-08-20',
-		status: 'progress',
-		updatedAt: '2026-08-21',
+		status: 'completed',
+		updatedAt: '2026-08-25',
+		url: PULSE_APP_STORE_URL,
 		primaryAction: {
+			label: 'Download on the Mac App Store',
+			href: PULSE_APP_STORE_URL,
+			external: true,
+		},
+		secondaryAction: {
 			label: 'Explore Pulse',
 			href: '/pulse-pomodoro',
 		},

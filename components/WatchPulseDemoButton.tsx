@@ -2,14 +2,23 @@
 
 import { Button } from './Button'
 import { requestPulseDemoPlay, scrollToPulseDemoVideo } from './PulseDemoVideo'
+import { ButtonSize, ButtonVariant } from './types'
 
-export function WatchPulseDemoButton() {
+interface WatchPulseDemoButtonProps {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+export function WatchPulseDemoButton({
+  variant = 'ghost',
+  size = 'lg',
+}: WatchPulseDemoButtonProps) {
   const handleClick = () => {
     scrollToPulseDemoVideo(requestPulseDemoPlay)
   }
 
   return (
-    <Button variant="primary" size="lg" onClick={handleClick}>
+    <Button variant={variant} size={size} onClick={handleClick}>
       Watch Pulse in action
     </Button>
   )

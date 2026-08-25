@@ -1,18 +1,18 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LuArrowLeft, LuClock3, LuHistory, LuMonitor, LuSettings2, LuShieldCheck, LuSparkles } from 'react-icons/lu'
+import { LuArrowLeft, LuArrowUpRight, LuClock3, LuHistory, LuMonitor, LuSettings2, LuShieldCheck, LuSparkles } from 'react-icons/lu'
 import { ButtonLink } from '../../components/Button'
 import PulseDemoVideo from '../../components/PulseDemoVideo'
 import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
 import { Tag } from '../../components/Tag'
-import { SITE_CONFIG, SITE_URL } from '../../lib/constants'
+import { PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
 import { PROJECTS } from '../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pulse-pomodoro')!
 const pageTitle = 'Pulse Pomodoro — A calm Pomodoro timer for macOS'
 const pageDescription =
-  'A free, native macOS menu-bar Pomodoro timer with focus history, customizable sessions, gentle alerts, and no data collection.'
+  'A free, native macOS menu-bar Pomodoro timer with focus history, customizable sessions, gentle alerts, and no data collection. Download on the Mac App Store.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -51,7 +51,7 @@ const softwareJsonLd = {
   operatingSystem: 'macOS 14.6 or later',
   description: pageDescription,
   url: `${SITE_URL}/pulse-pomodoro`,
-  downloadUrl: `${SITE_URL}/pulse-pomodoro`,
+  downloadUrl: PULSE_APP_STORE_URL,
   author: {
     '@type': 'Person',
     name: SITE_CONFIG.name,
@@ -61,7 +61,7 @@ const softwareJsonLd = {
     '@type': 'Offer',
     price: '0',
     priceCurrency: 'USD',
-    availability: 'https://schema.org/PreOrder'
+    availability: 'https://schema.org/InStock'
   },
   featureList: pulseProject.features?.map((feature) => feature.text),
   screenshot: `${SITE_URL}${pulseProject.img}`
@@ -132,8 +132,8 @@ export default function PulsePomodoroPage() {
           <div className='relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
             <div className='animate-slide-up'>
               <div className='flex flex-wrap items-center gap-3 mb-6'>
-                <Tag variant='status' status='warning' size='md'>
-                  Coming soon on the Mac App Store
+                <Tag variant='status' status='success' size='md'>
+                  Available on the Mac App Store
                 </Tag>
                 <span className='font-mono text-sm text-text-muted'>Free · macOS 14.6+</span>
               </div>
@@ -148,6 +148,10 @@ export default function PulsePomodoroPage() {
                 way.
               </p>
               <div className='flex flex-wrap gap-3'>
+                <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
+                  Download on the Mac App Store
+                  <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
+                </ButtonLink>
                 <WatchPulseDemoButton />
                 <ButtonLink href='/pulse-pomodoro/support' variant='ghost' size='lg'>
                   Support
@@ -395,15 +399,20 @@ export default function PulsePomodoroPage() {
         <section className='container pb-16 md:pb-24'>
           <div className='text-center py-16 md:py-24 border-y border-border-subtle'>
             <LuSettings2 className='text-accent mx-auto mb-6' size={32} aria-hidden='true' />
-            <Tag variant='status' status='warning' size='md'>
-              Coming soon on the Mac App Store
+            <Tag variant='status' status='success' size='md'>
+              Available on the Mac App Store
             </Tag>
             <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Make space for focused work.</h2>
             <p className='text-text-secondary text-lg max-w-2xl mx-auto mb-8'>
-              Pulse Pomodoro will be free to download. Until then, read the privacy policy or get support.
+              Pulse Pomodoro is free to download for Mac. Get it from the App Store, or read the privacy policy and support
+              page if you need help.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>
-              <ButtonLink href='/pulse-pomodoro/support' variant='primary' size='lg'>
+              <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
+                Download on the Mac App Store
+                <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
+              </ButtonLink>
+              <ButtonLink href='/pulse-pomodoro/support' variant='ghost' size='lg'>
                 Get support
               </ButtonLink>
               <ButtonLink href='/pulse-pomodoro/privacy' variant='ghost' size='lg'>
