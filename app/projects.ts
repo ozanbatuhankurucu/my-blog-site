@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
 			'Optional procedural sounds and animal completion animations',
 		],
 		createdAt: '2026-08-20',
-		status: 'completed',
+		status: 'progress',
 		updatedAt: '2026-08-25',
 		url: PULSE_APP_STORE_URL,
 		primaryAction: {
