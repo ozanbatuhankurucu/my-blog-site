@@ -10,9 +10,9 @@ export const PROJECTS: Project[] = [
 		title: 'Pulse Pomodoro',
 		category: 'Native macOS app',
 		description:
-			'A calm, native Pomodoro timer that lives in the macOS menu bar and keeps focused work within reach without adding desktop clutter.',
+			'A calm, native Pomodoro timer that lives in the macOS menu bar — with English and Turkish support, focus history, and gentle completion feedback.',
 		outcome:
-			'An intentionally quiet productivity tool with reliable session recovery, local-first progress tracking, and gentle completion feedback.',
+			'An intentionally quiet productivity tool with reliable session recovery, local-first progress tracking, App Store onboarding, and gentle completion feedback.',
 		img: '/images/pulse-pomodoro/focus-dashboard.jpg',
 		imgAlt: 'Pulse Pomodoro focus timer and weekly focus history in the macOS menu bar',
 		imgAspectRatio: '700 / 590',
@@ -20,6 +20,7 @@ export const PROJECTS: Project[] = [
 		stack: ['SwiftUI', 'AppKit', 'Combine', 'AVFoundation', 'Swift Testing'],
 		highlights: [
 			'Accurate timers that survive sleep, restarts, and app relaunches',
+			'English and Turkish interfaces with system-language default',
 			'Weekly activity, all-time focus time, and streak tracking',
 			'Optional procedural sounds and animal completion animations',
 		],
@@ -39,6 +40,8 @@ export const PROJECTS: Project[] = [
 		features: [
 			{ text: 'Focus, short break, and long break sessions with fully customizable durations' },
 			{ text: 'Menu-bar countdown, session history, weekly summaries, and focus streaks' },
+			{ text: 'English and Turkish interfaces with system-language default and manual override' },
+			{ text: 'First-launch introduction, in-app feedback, and App Store rating links' },
 			{ text: 'Six completion sounds and six optional animal celebration animations' },
 			{ text: 'Local-only persistence with no accounts, analytics, ads, or network requests' },
 			{ text: 'VoiceOver support, keyboard controls, and Reduce Motion support' },

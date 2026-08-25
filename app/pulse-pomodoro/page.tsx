@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LuArrowLeft, LuArrowUpRight, LuClock3, LuHistory, LuMonitor, LuSettings2, LuShieldCheck, LuSparkles } from 'react-icons/lu'
+import { LuArrowLeft, LuArrowUpRight, LuClock3, LuGlobe, LuHistory, LuMonitor, LuSettings2, LuShieldCheck, LuSparkles } from 'react-icons/lu'
 import { ButtonLink } from '../../components/Button'
 import PulseDemoVideo from '../../components/PulseDemoVideo'
 import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
@@ -10,9 +10,9 @@ import { PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
 import { PROJECTS } from '../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pulse-pomodoro')!
-const pageTitle = 'Pulse Pomodoro — A calm Pomodoro timer for macOS'
+const pageTitle = 'Pulse Pomodoro — Menu bar Pomodoro timer for macOS'
 const pageDescription =
-  'A free, native macOS menu-bar Pomodoro timer with focus history, customizable sessions, gentle alerts, and no data collection. Download on the Mac App Store.'
+  'Pulse Pomodoro is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -106,6 +106,11 @@ const nativeFeatures = [
     icon: LuShieldCheck,
     title: 'Keeps data local',
     description: 'Your settings and focus history never leave your Mac.'
+  },
+  {
+    icon: LuGlobe,
+    title: 'Speaks your language',
+    description: 'Full English and Turkish UI with system-language default and manual override in Settings.'
   }
 ]
 
@@ -137,15 +142,14 @@ export default function PulsePomodoroPage() {
                 </Tag>
                 <span className='font-mono text-sm text-text-muted'>Free · macOS 14.6+</span>
               </div>
-              <p className='font-mono text-sm text-accent mb-4'>Pulse Pomodoro</p>
-              <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>
-                Focus gently.
-                <br />
-                Finish intentionally.
-              </h1>
-              <p className='text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mb-8'>
-                A native Pomodoro timer designed to live quietly in your menu bar— always within reach, never in the
-                way.
+              <p className='font-mono text-sm text-accent mb-4'>Menu bar Pomodoro timer</p>
+              <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>Pulse Pomodoro</h1>
+              <p className='text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mb-4'>
+                A gentle Pomodoro timer that lives in your menu bar.
+              </p>
+              <p className='text-text-secondary text-lg leading-relaxed max-w-2xl mb-8'>
+                Stay focused without cluttering your desktop. Start a focus session, take a break, and let Pulse Pomodoro
+                track your progress — quietly, in the background.
               </p>
               <div className='flex flex-wrap gap-3'>
                 <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
@@ -179,10 +183,14 @@ export default function PulsePomodoroPage() {
             </div>
           </div>
 
-          <dl className='relative grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
+          <dl className='relative grid grid-cols-2 md:grid-cols-5 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Platform</dt>
               <dd className='text-text-primary'>Native macOS</dd>
+            </div>
+            <div>
+              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Languages</dt>
+              <dd className='text-text-primary'>English, Turkish</dd>
             </div>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Price</dt>
@@ -206,15 +214,16 @@ export default function PulsePomodoroPage() {
               Your timer is there when you need it—and gone when you do not.
             </h2>
             <p className='text-text-secondary text-lg leading-relaxed'>
-              Open Pulse from the menu bar, choose a session, and close the popover. The timer keeps working while you
-              do.
+              Open Pulse Pomodoro from the menu bar, choose a session, and close the popover. The timer keeps working
+              while you do. On first launch, a brief introduction shows you where to find it — respecting Reduce Motion
+              when enabled.
             </p>
           </div>
           <div className='rounded-lg border border-border-default bg-bg-elevated p-2 sm:p-3'>
             <PulseDemoVideo />
           </div>
           <p className='text-text-muted text-sm mt-4'>
-            Product walkthrough showing session controls, history, completion feedback, and settings.
+            Session controls, focus history, English and Turkish localization, completion feedback, and settings.
           </p>
         </section>
 
@@ -224,37 +233,37 @@ export default function PulsePomodoroPage() {
               <p className='font-mono text-sm text-accent mb-3'>A rhythm you control</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>Focus, pause, recover, repeat.</h2>
               <p className='text-text-secondary text-lg'>
-                Pulse suggests what comes next but never starts a session for you. Every duration can be adjusted to fit
-                your day.
+                Pulse Pomodoro suggests what comes next but never starts a session for you. Every duration can be adjusted
+                to fit your day.
               </p>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-              {sessions.map((session) => (
-                <article
-                  key={session.title}
-                  className='rounded-lg border border-border-subtle bg-bg-base overflow-hidden'>
-                  <div className='relative aspect-video border-b border-border-subtle'>
-                    <Image
-                      src={session.image}
-                      alt={session.alt}
-                      fill
-                      sizes='(min-width: 768px) 33vw, 100vw'
-                      className='object-contain'
-                    />
+            {sessions.map((session) => (
+              <article
+                key={session.title}
+                className='rounded-lg border border-border-subtle bg-bg-base overflow-hidden'>
+                <div className='relative aspect-video border-b border-border-subtle'>
+                  <Image
+                    src={session.image}
+                    alt={session.alt}
+                    fill
+                    sizes='(min-width: 768px) 33vw, 100vw'
+                    className='object-contain'
+                  />
+                </div>
+                <div className='p-6'>
+                  <div className='flex items-center justify-between gap-4 mb-3'>
+                    <h3 className='font-mono text-xl text-text-primary'>{session.title}</h3>
+                    <Tag variant='outline' size='sm'>
+                      {session.duration}
+                    </Tag>
                   </div>
-                  <div className='p-6'>
-                    <div className='flex items-center justify-between gap-4 mb-3'>
-                      <h3 className='font-mono text-xl text-text-primary'>{session.title}</h3>
-                      <Tag variant='outline' size='sm'>
-                        {session.duration}
-                      </Tag>
-                    </div>
-                    <p className='text-text-secondary'>{session.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+                  <p className='text-text-secondary'>{session.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
           </div>
         </section>
 
@@ -265,7 +274,7 @@ export default function PulsePomodoroPage() {
               style={{ aspectRatio: '700 / 590' }}>
               <Image
                 src='/images/pulse-pomodoro/focus-dashboard.jpg'
-                alt='Pulse weekly focus history showing daily sessions, total focus time, and streak'
+                alt='Pulse Pomodoro weekly focus history showing daily sessions, total focus time, and streak'
                 fill
                 sizes='(min-width: 768px) 50vw, 100vw'
                 className='object-contain'
@@ -302,7 +311,7 @@ export default function PulsePomodoroPage() {
                 style={{ aspectRatio: '671 / 566' }}>
                 <Image
                   src='/images/pulse-pomodoro/settings.jpg'
-                  alt='Pulse settings for durations, completion sounds, cat celebration animations, and launch at login'
+                  alt='Pulse Pomodoro settings for durations, language, completion sounds, feedback, App Store rating, and launch at login'
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
                   className='object-contain'
@@ -325,11 +334,32 @@ export default function PulsePomodoroPage() {
               <p className='font-mono text-sm text-accent mb-3'>Gentle feedback, your way</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Make finishing feel rewarding.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                Choose from six calm completion sounds and six animal celebrations, or turn either one off. Pulse adapts
-                to how quiet—or playful—you want your workspace to feel.
+                Choose from six calm completion sounds and six animal celebrations, or turn either one off. Pulse Pomodoro
+                adapts to how quiet — or playful — you want your workspace to feel.
               </p>
+              <ul className='space-y-3 mb-6'>
+                {[
+                  'English and Turkish UI with system-language default',
+                  'Language override in Settings: System, English, or Turkish',
+                  'Send feedback and rate on the App Store without leaving the app'
+                ].map((item) => (
+                  <li key={item} className='flex items-center gap-3 text-text-secondary'>
+                    <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <div className='flex flex-wrap gap-2 mb-4'>
+                {['Forest Birds', 'Crystal Chime', 'Gentle Marimba', 'Rain Drops', 'Soft Bell', 'Zen Gong'].map(
+                  (choice) => (
+                    <Tag key={choice} variant='outline' size='md'>
+                      {choice}
+                    </Tag>
+                  )
+                )}
+              </div>
               <div className='flex flex-wrap gap-2'>
-                {['Crystal Chime', 'Soft Bell', 'Zen Gong', 'Cat', 'Fox', 'Rabbit'].map((choice) => (
+                {['Monkey', 'Koala', 'Cat', 'Fox', 'Panda', 'Rabbit'].map((choice) => (
                   <Tag key={choice} variant='outline' size='md'>
                     {choice}
                   </Tag>
@@ -347,7 +377,8 @@ export default function PulsePomodoroPage() {
                 Built to feel at home on your Mac.
               </h2>
               <p className='text-text-secondary text-lg'>
-                SwiftUI, AppKit, and macOS system conventions keep Pulse fast, familiar, and dependable.
+                SwiftUI, AppKit, and macOS system conventions keep Pulse Pomodoro fast, familiar, and dependable — with
+                VoiceOver labels and Reduce Motion support throughout.
               </p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -372,8 +403,8 @@ export default function PulsePomodoroPage() {
                   Your focus is not a data point.
                 </h2>
                 <p className='text-text-secondary text-lg leading-relaxed'>
-                  Pulse has no account, analytics, advertising, or network requests. Settings and history stay in local
-                  macOS storage.
+                  Pulse Pomodoro collects no data. No accounts, analytics, advertising, or network requests. Everything
+                  stays on your Mac.
                 </p>
               </div>
               <ul className='space-y-4'>
