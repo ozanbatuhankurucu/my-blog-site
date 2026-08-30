@@ -81,7 +81,7 @@ export default function PulseDemoVideo() {
         playsInline
         controls={hasStarted}
         preload="metadata"
-        aria-label="Pulse Pomodoro product walkthrough"
+        aria-label="Pomodoro: Work & Study Timer product walkthrough"
       >
         <source src="/images/pulse-pomodoro/pulse-demo.mp4" type="video/mp4" />
         Your browser does not support embedded video.
@@ -98,7 +98,7 @@ export default function PulseDemoVideo() {
             hover:bg-bg-base/40
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated
           "
-          aria-label="Play Pulse Pomodoro product walkthrough"
+          aria-label="Play Pomodoro: Work & Study Timer product walkthrough"
         >
           <span
             className="

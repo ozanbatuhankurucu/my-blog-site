@@ -6,13 +6,13 @@ import { ButtonLink } from '../../components/Button'
 import PulseDemoVideo from '../../components/PulseDemoVideo'
 import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
 import { Tag } from '../../components/Tag'
-import { PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
+import { PULSE_APP_NAME, PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
 import { PROJECTS } from '../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pulse-pomodoro')!
-const pageTitle = 'Pulse Pomodoro — Menu bar Pomodoro timer for macOS'
+const pageTitle = `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`
 const pageDescription =
-  'Pulse Pomodoro is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.'
+  `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
 const softwareJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Pulse Pomodoro',
+  name: PULSE_APP_NAME,
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'macOS 14.6 or later',
   description: pageDescription,
@@ -73,21 +73,21 @@ const sessions = [
     duration: '25 min',
     description: 'Settle into one task with a clear, distraction-free countdown.',
     image: '/images/pulse-pomodoro/focus-session-running.jpg',
-    alt: 'Pulse Pomodoro focus session counting down in the menu bar'
+    alt: `${PULSE_APP_NAME} focus session counting down in the menu bar`
   },
   {
     title: 'Short Break',
     duration: '5 min',
     description: 'Step away briefly and return with a little more room to think.',
     image: '/images/pulse-pomodoro/short-break.jpg',
-    alt: 'Pulse Pomodoro short break ready to start'
+    alt: `${PULSE_APP_NAME} short break ready to start`
   },
   {
     title: 'Long Break',
     duration: '15 min',
     description: 'Recover after a longer stretch of focused work.',
     image: '/images/pulse-pomodoro/long-break.jpg',
-    alt: 'Pulse Pomodoro long break ready to start'
+    alt: `${PULSE_APP_NAME} long break ready to start`
   }
 ]
 
@@ -143,12 +143,12 @@ export default function PulsePomodoroPage() {
                 <span className='font-mono text-sm text-text-muted'>Free · macOS 14.6+</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>Menu bar Pomodoro timer</p>
-              <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>Pulse Pomodoro</h1>
+              <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
               <p className='text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mb-4'>
                 A gentle Pomodoro timer that lives in your menu bar.
               </p>
               <p className='text-text-secondary text-lg leading-relaxed max-w-2xl mb-8'>
-                Stay focused without cluttering your desktop. Start a focus session, take a break, and let Pulse Pomodoro
+                Stay focused without cluttering your desktop. Start a focus session, take a break, and let {PULSE_APP_NAME}{' '}
                 track your progress — quietly, in the background.
               </p>
               <div className='flex flex-wrap gap-3'>
@@ -214,7 +214,7 @@ export default function PulsePomodoroPage() {
               Your timer is there when you need it—and gone when you do not.
             </h2>
             <p className='text-text-secondary text-lg leading-relaxed'>
-              Open Pulse Pomodoro from the menu bar, choose a session, and close the popover. The timer keeps working
+              Open {PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. The timer keeps working
               while you do. On first launch, a brief introduction shows you where to find it — respecting Reduce Motion
               when enabled.
             </p>
@@ -233,7 +233,7 @@ export default function PulsePomodoroPage() {
               <p className='font-mono text-sm text-accent mb-3'>A rhythm you control</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>Focus, pause, recover, repeat.</h2>
               <p className='text-text-secondary text-lg'>
-                Pulse Pomodoro suggests what comes next but never starts a session for you. Every duration can be adjusted
+                {PULSE_APP_NAME} suggests what comes next but never starts a session for you. Every duration can be adjusted
                 to fit your day.
               </p>
             </div>
@@ -274,7 +274,7 @@ export default function PulsePomodoroPage() {
               style={{ aspectRatio: '700 / 590' }}>
               <Image
                 src='/images/pulse-pomodoro/focus-dashboard.jpg'
-                alt='Pulse Pomodoro weekly focus history showing daily sessions, total focus time, and streak'
+                alt={`${PULSE_APP_NAME} weekly focus history showing daily sessions, total focus time, and streak`}
                 fill
                 sizes='(min-width: 768px) 50vw, 100vw'
                 className='object-contain'
@@ -311,7 +311,7 @@ export default function PulsePomodoroPage() {
                 style={{ aspectRatio: '671 / 566' }}>
                 <Image
                   src='/images/pulse-pomodoro/settings.jpg'
-                  alt='Pulse Pomodoro settings for durations, language, completion sounds, feedback, App Store rating, and launch at login'
+                  alt={`${PULSE_APP_NAME} settings for durations, language, completion sounds, feedback, App Store rating, and launch at login`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
                   className='object-contain'
@@ -334,7 +334,7 @@ export default function PulsePomodoroPage() {
               <p className='font-mono text-sm text-accent mb-3'>Gentle feedback, your way</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Make finishing feel rewarding.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                Choose from six calm completion sounds and six animal celebrations, or turn either one off. Pulse Pomodoro
+                Choose from six calm completion sounds and six animal celebrations, or turn either one off. {PULSE_APP_NAME}{' '}
                 adapts to how quiet — or playful — you want your workspace to feel.
               </p>
               <ul className='space-y-3 mb-6'>
@@ -377,7 +377,7 @@ export default function PulsePomodoroPage() {
                 Built to feel at home on your Mac.
               </h2>
               <p className='text-text-secondary text-lg'>
-                SwiftUI, AppKit, and macOS system conventions keep Pulse Pomodoro fast, familiar, and dependable — with
+                SwiftUI, AppKit, and macOS system conventions keep {PULSE_APP_NAME} fast, familiar, and dependable — with
                 VoiceOver labels and Reduce Motion support throughout.
               </p>
             </div>
@@ -403,7 +403,7 @@ export default function PulsePomodoroPage() {
                   Your focus is not a data point.
                 </h2>
                 <p className='text-text-secondary text-lg leading-relaxed'>
-                  Pulse Pomodoro collects no data. No accounts, analytics, advertising, or network requests. Everything
+                  {PULSE_APP_NAME} collects no data. No accounts, analytics, advertising, or network requests. Everything
                   stays on your Mac.
                 </p>
               </div>
@@ -435,7 +435,7 @@ export default function PulsePomodoroPage() {
             </Tag>
             <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Make space for focused work.</h2>
             <p className='text-text-secondary text-lg max-w-2xl mx-auto mb-8'>
-              Pulse Pomodoro is free to download for Mac. Get it from the App Store, or read the privacy policy and support
+              {PULSE_APP_NAME} is free to download for Mac. Get it from the App Store, or read the privacy policy and support
               page if you need help.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>

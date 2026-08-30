@@ -19,7 +19,7 @@ export function WatchPulseDemoButton({
 
   return (
     <Button variant={variant} size={size} onClick={handleClick}>
-      Watch Pulse in action
+      Watch it in action
     </Button>
   )
 }

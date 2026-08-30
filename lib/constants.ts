@@ -40,6 +40,8 @@ export const RESUME_URL = 'https://my-portfolio-ozan.s3.eu-central-1.amazonaws.c
 // Site metadata
 export const SITE_URL = 'https://www.ozanbatuhankurucu.com'
 
+export const PULSE_APP_NAME = 'Pomodoro: Work & Study Timer'
+
 export const PULSE_APP_STORE_URL =
   'https://apps.apple.com/us/app/pulse-pomodoro/id6803482095?mt=12'
 

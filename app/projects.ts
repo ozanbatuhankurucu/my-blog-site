@@ -7,14 +7,14 @@ export type { Project, ProjectStatus }
 export const PROJECTS: Project[] = [
 	{
 		slug: 'pulse-pomodoro',
-		title: 'Pulse Pomodoro',
+		title: 'Pomodoro: Work & Study Timer',
 		category: 'Native macOS app',
 		description:
 			'A calm, native Pomodoro timer that lives in the macOS menu bar — with English and Turkish support, focus history, and gentle completion feedback.',
 		outcome:
 			'An intentionally quiet productivity tool with reliable session recovery, local-first progress tracking, App Store onboarding, and gentle completion feedback.',
 		img: '/images/pulse-pomodoro/focus-dashboard.jpg',
-		imgAlt: 'Pulse Pomodoro focus timer and weekly focus history in the macOS menu bar',
+		imgAlt: 'Pomodoro: Work & Study Timer focus timer and weekly focus history in the macOS menu bar',
 		imgAspectRatio: '700 / 590',
 		imgFit: 'contain',
 		stack: ['SwiftUI', 'AppKit', 'Combine', 'AVFoundation', 'Swift Testing'],
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
 			external: true,
 		},
 		secondaryAction: {
-			label: 'Explore Pulse',
+			label: 'Learn more',
 			href: '/pulse-pomodoro',
 		},
 		features: [
