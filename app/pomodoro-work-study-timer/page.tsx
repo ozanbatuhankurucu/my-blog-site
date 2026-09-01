@@ -6,10 +6,10 @@ import { ButtonLink } from '../../components/Button'
 import PulseDemoVideo from '../../components/PulseDemoVideo'
 import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
 import { Tag } from '../../components/Tag'
-import { PULSE_APP_NAME, PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
+import { PULSE_APP_NAME, PULSE_APP_PATH, PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
 import { PROJECTS } from '../projects'
 
-const pulseProject = PROJECTS.find((project) => project.slug === 'pulse-pomodoro')!
+const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
 const pageTitle = `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`
 const pageDescription =
   `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.`
@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: `${SITE_URL}/pulse-pomodoro`
+    canonical: `${SITE_URL}${PULSE_APP_PATH}`
   },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    url: `${SITE_URL}/pulse-pomodoro`,
+    url: `${SITE_URL}${PULSE_APP_PATH}`,
     type: 'website',
     siteName: `${SITE_CONFIG.name} Blog`,
     images: [
@@ -50,7 +50,7 @@ const softwareJsonLd = {
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'macOS 14.6 or later',
   description: pageDescription,
-  url: `${SITE_URL}/pulse-pomodoro`,
+  url: `${SITE_URL}${PULSE_APP_PATH}`,
   downloadUrl: PULSE_APP_STORE_URL,
   author: {
     '@type': 'Person',
@@ -157,7 +157,7 @@ export default function PulsePomodoroPage() {
                   <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
                 </ButtonLink>
                 <WatchPulseDemoButton />
-                <ButtonLink href='/pulse-pomodoro/support' variant='ghost' size='lg'>
+                <ButtonLink href={`${PULSE_APP_PATH}/support`} variant='ghost' size='lg'>
                   Support
                 </ButtonLink>
               </div>
@@ -443,10 +443,10 @@ export default function PulsePomodoroPage() {
                 Download on the Mac App Store
                 <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
               </ButtonLink>
-              <ButtonLink href='/pulse-pomodoro/support' variant='ghost' size='lg'>
+              <ButtonLink href={`${PULSE_APP_PATH}/support`} variant='ghost' size='lg'>
                 Get support
               </ButtonLink>
-              <ButtonLink href='/pulse-pomodoro/privacy' variant='ghost' size='lg'>
+              <ButtonLink href={`${PULSE_APP_PATH}/privacy`} variant='ghost' size='lg'>
                 Privacy
               </ButtonLink>
             </div>

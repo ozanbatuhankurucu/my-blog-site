@@ -1,11 +1,11 @@
 import { Metadata } from 'next'
-import { PULSE_APP_NAME, SITE_URL } from '../../../lib/constants'
+import { PULSE_APP_NAME, PULSE_APP_PATH, SITE_URL } from '../../../lib/constants'
 
 export const metadata: Metadata = {
   title: `${PULSE_APP_NAME} Support`,
   description: `Support and getting started guide for ${PULSE_APP_NAME}, a menu bar Pomodoro timer for Mac.`,
   alternates: {
-    canonical: `${SITE_URL}/pulse-pomodoro/support`,
+    canonical: `${SITE_URL}${PULSE_APP_PATH}/support`,
   },
   robots: {
     index: true,

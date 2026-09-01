@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getPostMetadata } from '../components/utils'
 import { getPostPath } from '../lib/article-localization'
-import { SITE_URL } from '../lib/constants'
+import { PULSE_APP_PATH, SITE_URL } from '../lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const englishPosts = getPostMetadata('en')
@@ -41,19 +41,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/pulse-pomodoro`,
+      url: `${SITE_URL}${PULSE_APP_PATH}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${SITE_URL}/pulse-pomodoro/support`,
+      url: `${SITE_URL}${PULSE_APP_PATH}/support`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: `${SITE_URL}/pulse-pomodoro/privacy`,
+      url: `${SITE_URL}${PULSE_APP_PATH}/privacy`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,

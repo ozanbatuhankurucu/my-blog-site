@@ -1,12 +1,12 @@
 import { Project, ProjectStatus } from '../components/types'
-import { PULSE_APP_STORE_URL } from '../lib/constants'
+import { PULSE_APP_PATH, PULSE_APP_STORE_URL } from '../lib/constants'
 
 // Re-export types for convenience
 export type { Project, ProjectStatus }
 
 export const PROJECTS: Project[] = [
 	{
-		slug: 'pulse-pomodoro',
+		slug: 'pomodoro-work-study-timer',
 		title: 'Pomodoro: Work & Study Timer',
 		category: 'Native macOS app',
 		description:
@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
 		},
 		secondaryAction: {
 			label: 'Learn more',
-			href: '/pulse-pomodoro',
+			href: PULSE_APP_PATH,
 		},
 		features: [
 			{ text: 'Focus, short break, and long break sessions with fully customizable durations' },
