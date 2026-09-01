@@ -1,5 +1,5 @@
 import { Project, ProjectStatus } from '../components/types'
-import { PULSE_APP_PATH, PULSE_APP_STORE_URL } from '../lib/constants'
+import { PULSE_APP_PATH, PULSE_APP_STORE_URL, PULSE_IMAGE_DIR } from '../lib/constants'
 
 // Re-export types for convenience
 export type { Project, ProjectStatus }
@@ -13,9 +13,9 @@ export const PROJECTS: Project[] = [
 			'A calm, native Pomodoro timer that lives in the macOS menu bar — with English and Turkish support, focus history, and gentle completion feedback.',
 		outcome:
 			'An intentionally quiet productivity tool with reliable session recovery, local-first progress tracking, App Store onboarding, and gentle completion feedback.',
-		img: '/images/pulse-pomodoro/focus-dashboard.jpg',
-		imgAlt: 'Pomodoro: Work & Study Timer focus timer and weekly focus history in the macOS menu bar',
-		imgAspectRatio: '700 / 590',
+		img: `${PULSE_IMAGE_DIR}/hero.png`,
+		imgAlt: 'Pomodoro: Work & Study Timer idle focus session with weekly history in the macOS menu bar',
+		imgAspectRatio: '1024 / 640',
 		imgFit: 'contain',
 		stack: ['SwiftUI', 'AppKit', 'Combine', 'AVFoundation', 'Swift Testing'],
 		highlights: [

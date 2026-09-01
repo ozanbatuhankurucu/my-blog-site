@@ -6,7 +6,7 @@ import { ButtonLink } from '../../components/Button'
 import PulseDemoVideo from '../../components/PulseDemoVideo'
 import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
 import { Tag } from '../../components/Tag'
-import { PULSE_APP_NAME, PULSE_APP_PATH, PULSE_APP_STORE_URL, SITE_CONFIG, SITE_URL } from '../../lib/constants'
+import { PULSE_APP_NAME, PULSE_APP_PATH, PULSE_APP_STORE_URL, PULSE_IMAGE_DIR, SITE_CONFIG, SITE_URL } from '../../lib/constants'
 import { PROJECTS } from '../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     siteName: `${SITE_CONFIG.name} Blog`,
     images: [
       {
-        url: '/images/pulse-pomodoro/focus-dashboard.jpg',
-        width: 700,
-        height: 590,
+        url: `${PULSE_IMAGE_DIR}/hero.png`,
+        width: 1024,
+        height: 640,
         alt: pulseProject.imgAlt
       }
     ]
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/images/pulse-pomodoro/focus-dashboard.jpg']
+    images: [`${PULSE_IMAGE_DIR}/hero.png`]
   }
 }
 
@@ -67,27 +67,29 @@ const softwareJsonLd = {
   screenshot: `${SITE_URL}${pulseProject.img}`
 }
 
-const sessions = [
+const screenshotAspectRatio = '1024 / 640'
+
+const featureShowcases = [
   {
     title: 'Focus',
-    duration: '25 min',
-    description: 'Settle into one task with a clear, distraction-free countdown.',
-    image: '/images/pulse-pomodoro/focus-session-running.jpg',
-    alt: `${PULSE_APP_NAME} focus session counting down in the menu bar`
+    badge: '25 min default',
+    description: 'The countdown runs quietly while you work. Pause, reset, or skip without breaking your flow.',
+    image: `${PULSE_IMAGE_DIR}/focus-running.png`,
+    alt: `${PULSE_APP_NAME} focus session running with pause controls and menu bar countdown`
   },
   {
-    title: 'Short Break',
-    duration: '5 min',
-    description: 'Step away briefly and return with a little more room to think.',
-    image: '/images/pulse-pomodoro/short-break.jpg',
-    alt: `${PULSE_APP_NAME} short break ready to start`
+    title: 'Menu bar',
+    badge: 'Always visible',
+    description: 'No Dock icon. Your timer lives in the menu bar — showing the countdown when you need it, nothing when you do not.',
+    image: `${PULSE_IMAGE_DIR}/menubar.png`,
+    alt: `${PULSE_APP_NAME} countdown displayed in the macOS menu bar`
   },
   {
-    title: 'Long Break',
-    duration: '15 min',
-    description: 'Recover after a longer stretch of focused work.',
-    image: '/images/pulse-pomodoro/long-break.jpg',
-    alt: `${PULSE_APP_NAME} long break ready to start`
+    title: 'Customisation',
+    badge: 'Your rules',
+    description: 'Flexible durations, completion sounds and animations, English and Turkish UI, and launch at login.',
+    image: `${PULSE_IMAGE_DIR}/settings.png`,
+    alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and launch at login`
   }
 ]
 
@@ -170,14 +172,14 @@ export default function PulsePomodoroPage() {
               />
               <div
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated'
-                style={{ aspectRatio: '700 / 590' }}>
+                style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src='/images/pulse-pomodoro/focus-dashboard.jpg'
+                  src={`${PULSE_IMAGE_DIR}/hero.png`}
                   alt={pulseProject.imgAlt}
                   fill
                   priority
                   sizes='(min-width: 768px) 50vw, 100vw'
-                  className='object-contain'
+                  className='object-cover'
                 />
               </div>
             </div>
@@ -239,27 +241,27 @@ export default function PulsePomodoroPage() {
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {sessions.map((session) => (
+            {featureShowcases.map((feature) => (
               <article
-                key={session.title}
+                key={feature.title}
                 className='rounded-lg border border-border-subtle bg-bg-base overflow-hidden'>
-                <div className='relative aspect-video border-b border-border-subtle'>
+                <div className='relative border-b border-border-subtle' style={{ aspectRatio: screenshotAspectRatio }}>
                   <Image
-                    src={session.image}
-                    alt={session.alt}
+                    src={feature.image}
+                    alt={feature.alt}
                     fill
                     sizes='(min-width: 768px) 33vw, 100vw'
-                    className='object-contain'
+                    className='object-cover'
                   />
                 </div>
                 <div className='p-6'>
                   <div className='flex items-center justify-between gap-4 mb-3'>
-                    <h3 className='font-mono text-xl text-text-primary'>{session.title}</h3>
+                    <h3 className='font-mono text-xl text-text-primary'>{feature.title}</h3>
                     <Tag variant='outline' size='sm'>
-                      {session.duration}
+                      {feature.badge}
                     </Tag>
                   </div>
-                  <p className='text-text-secondary'>{session.description}</p>
+                  <p className='text-text-secondary'>{feature.description}</p>
                 </div>
               </article>
             ))}
@@ -271,13 +273,13 @@ export default function PulsePomodoroPage() {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center mb-20 md:mb-24'>
             <div
               className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated'
-              style={{ aspectRatio: '700 / 590' }}>
+              style={{ aspectRatio: screenshotAspectRatio }}>
               <Image
-                src='/images/pulse-pomodoro/focus-dashboard.jpg'
-                alt={`${PULSE_APP_NAME} weekly focus history showing daily sessions, total focus time, and streak`}
+                src={`${PULSE_IMAGE_DIR}/history.png`}
+                alt={`${PULSE_APP_NAME} weekly focus history with session counts, focused hours, and streak`}
                 fill
                 sizes='(min-width: 768px) 50vw, 100vw'
-                className='object-contain'
+                className='object-cover'
               />
             </div>
             <div>
@@ -308,24 +310,24 @@ export default function PulsePomodoroPage() {
             <div className='md:order-last grid grid-cols-2 gap-4'>
               <div
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
-                style={{ aspectRatio: '671 / 566' }}>
+                style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src='/images/pulse-pomodoro/settings.jpg'
-                  alt={`${PULSE_APP_NAME} settings for durations, language, completion sounds, feedback, App Store rating, and launch at login`}
+                  src={`${PULSE_IMAGE_DIR}/settings.png`}
+                  alt={`${PULSE_APP_NAME} settings for durations, language, completion sounds, and launch at login`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
-                  className='object-contain'
+                  className='object-cover'
                 />
               </div>
               <div
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
-                style={{ aspectRatio: '621 / 432' }}>
+                style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src='/images/pulse-pomodoro/cat-celebration.jpg'
-                  alt='Cat celebration animation appearing below the macOS menu bar'
+                  src={`${PULSE_IMAGE_DIR}/celebration.png`}
+                  alt={`${PULSE_APP_NAME} rabbit celebration animation when a session completes`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
-                  className='object-contain'
+                  className='object-cover'
                 />
               </div>
             </div>

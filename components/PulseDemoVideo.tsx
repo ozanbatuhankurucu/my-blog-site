@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LuPlay } from 'react-icons/lu'
+import { PULSE_IMAGE_DIR } from '../lib/constants'
 
 const PLAY_EVENT = 'pulse-demo:play'
 export const PULSE_DEMO_VIDEO_ID = 'pulse-demo-video'
@@ -75,7 +76,7 @@ export default function PulseDemoVideo() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full rounded-lg bg-bg-base object-contain"
-        poster="/images/pulse-pomodoro/focus-dashboard.jpg"
+        poster={`${PULSE_IMAGE_DIR}/hero.png`}
         muted
         loop
         playsInline

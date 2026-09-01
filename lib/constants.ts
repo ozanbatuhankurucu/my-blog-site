@@ -44,6 +44,8 @@ export const PULSE_APP_NAME = 'Pomodoro: Work & Study Timer'
 
 export const PULSE_APP_PATH = '/pomodoro-work-study-timer'
 
+export const PULSE_IMAGE_DIR = '/images/pulse-pomodoro'
+
 export const PULSE_APP_STORE_URL =
   'https://apps.apple.com/us/app/pulse-pomodoro/id6803482095?mt=12'
 
