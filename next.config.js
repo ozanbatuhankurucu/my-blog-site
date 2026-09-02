@@ -19,6 +19,21 @@ const nextConfig = {
         destination: '/pomodoro-work-study-timer/privacy',
         permanent: true,
       },
+      {
+        source: '/tr/pulse-pomodoro',
+        destination: '/tr/pomodoro-work-study-timer',
+        permanent: true,
+      },
+      {
+        source: '/tr/pulse-pomodoro/support',
+        destination: '/tr/pomodoro-work-study-timer/support',
+        permanent: true,
+      },
+      {
+        source: '/tr/pulse-pomodoro/privacy',
+        destination: '/tr/pomodoro-work-study-timer/privacy',
+        permanent: true,
+      },
     ];
   },
 };

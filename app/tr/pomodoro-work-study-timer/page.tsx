@@ -2,41 +2,42 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { LuArrowLeft, LuArrowUpRight, LuClock3, LuGlobe, LuHistory, LuMonitor, LuSettings2, LuShieldCheck, LuSparkles } from 'react-icons/lu'
-import { ButtonLink } from '../../components/Button'
-import PulseDemoVideo from '../../components/PulseDemoVideo'
-import { PulseLocaleSwitcher } from '../../components/PulseLocaleSwitcher'
-import { WatchPulseDemoButton } from '../../components/WatchPulseDemoButton'
-import { Tag } from '../../components/Tag'
+import { ButtonLink } from '../../../components/Button'
+import PulseDemoVideo from '../../../components/PulseDemoVideo'
+import { PulseLocaleSwitcher } from '../../../components/PulseLocaleSwitcher'
+import { WatchPulseDemoButton } from '../../../components/WatchPulseDemoButton'
+import { Tag } from '../../../components/Tag'
 import {
+  getPulseAppPath,
   getPulseLanguageAlternates,
   PULSE_APP_NAME,
-  PULSE_APP_PATH,
   PULSE_APP_STORE_URL,
   PULSE_IMAGE_DIR,
   SITE_CONFIG,
   SITE_URL
-} from '../../lib/constants'
-import { PROJECTS } from '../projects'
+} from '../../../lib/constants'
+import { PROJECTS } from '../../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
-const pageTitle = `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`
+const pulsePath = getPulseAppPath('tr')
+const pageTitle = `${PULSE_APP_NAME} — macOS için menü çubuğu Pomodoro zamanlayıcısı`
 const pageDescription =
-  `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.`
+  `${PULSE_APP_NAME}, menü çubuğunda yaşayan ücretsiz ve native bir macOS Pomodoro zamanlayıcısıdır. Odak seansları, molalar, ilerleme takibi, İngilizce/Türkçe destek ve isteğe bağlı tamamlanma sesleri ile animasyonlar.`
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: `${SITE_URL}${PULSE_APP_PATH}`,
+    canonical: `${SITE_URL}${pulsePath}`,
     languages: getPulseLanguageAlternates()
   },
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    url: `${SITE_URL}${PULSE_APP_PATH}`,
+    url: `${SITE_URL}${pulsePath}`,
     type: 'website',
-    locale: 'en_US',
-    alternateLocale: ['tr_TR'],
+    locale: 'tr_TR',
+    alternateLocale: ['en_US'],
     siteName: `${SITE_CONFIG.name} Blog`,
     images: [
       {
@@ -62,8 +63,9 @@ const softwareJsonLd = {
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'macOS 14.6 or later',
   description: pageDescription,
-  url: `${SITE_URL}${PULSE_APP_PATH}`,
+  url: `${SITE_URL}${pulsePath}`,
   downloadUrl: PULSE_APP_STORE_URL,
+  inLanguage: ['tr', 'en'],
   author: {
     '@type': 'Person',
     name: SITE_CONFIG.name,
@@ -83,52 +85,52 @@ const screenshotAspectRatio = '1024 / 640'
 
 const featureShowcases = [
   {
-    title: 'Focus',
-    badge: '25 min default',
-    description: 'The countdown runs quietly while you work. Pause, reset, or skip without breaking your flow.',
+    title: 'Odak',
+    badge: 'Varsayılan 25 dk',
+    description: 'Geri sayım siz çalışırken sessizce ilerler. Akışınızı bozmadan duraklatın, sıfırlayın veya atlayın.',
     image: `${PULSE_IMAGE_DIR}/focus-running.png`,
-    alt: `${PULSE_APP_NAME} focus session running with pause controls and menu bar countdown`
+    alt: `${PULSE_APP_NAME} odak seansı; duraklatma kontrolleri ve menü çubuğu geri sayımı`
   },
   {
-    title: 'Menu bar',
-    badge: 'Always visible',
-    description: 'No Dock icon. Your timer lives in the menu bar — showing the countdown when you need it, nothing when you do not.',
+    title: 'Menü çubuğu',
+    badge: 'Her zaman görünür',
+    description: 'Dock simgesi yok. Zamanlayıcınız menü çubuğunda yaşar — ihtiyaç duyduğunuzda geri sayımı gösterir, gerekmediğinde sessiz kalır.',
     image: `${PULSE_IMAGE_DIR}/menubar.png`,
-    alt: `${PULSE_APP_NAME} countdown displayed in the macOS menu bar`
+    alt: `${PULSE_APP_NAME} geri sayımının macOS menü çubuğunda görünümü`
   },
   {
-    title: 'Customisation',
-    badge: 'Your rules',
-    description: 'Flexible durations, completion sounds and animations, English and Turkish UI, and launch at login.',
+    title: 'Özelleştirme',
+    badge: 'Sizin kurallarınız',
+    description: 'Esnek süreler, tamamlanma sesleri ve animasyonları, İngilizce ve Türkçe arayüz, oturum açılışında başlatma.',
     image: `${PULSE_IMAGE_DIR}/settings.png`,
-    alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and launch at login`
+    alt: `${PULSE_APP_NAME} süre, tamamlanma uyarıları, dil ve oturum açılışında başlatma ayarları`
   }
 ]
 
 const nativeFeatures = [
   {
     icon: LuMonitor,
-    title: 'Lives in the menu bar',
-    description: 'No Dock icon and no main window competing for your attention.'
+    title: 'Menü çubuğunda yaşar',
+    description: 'Dock simgesi yok; dikkatinizi çalan ana pencere de yok.'
   },
   {
     icon: LuClock3,
-    title: 'Stays accurate',
-    description: 'End-date-based timing remains correct across sleep, wake, and relaunches.'
+    title: 'Doğru kalır',
+    description: 'Bitiş tarihine dayalı zamanlama uyku, uyanma ve yeniden başlatmalarda doğru çalışır.'
   },
   {
     icon: LuShieldCheck,
-    title: 'Keeps data local',
-    description: 'Your settings and focus history never leave your Mac.'
+    title: 'Veriyi yerelde tutar',
+    description: 'Ayarlarınız ve odak geçmişiniz Mac’inizden dışarı çıkmaz.'
   },
   {
     icon: LuGlobe,
-    title: 'Speaks your language',
-    description: 'Full English and Turkish UI with system-language default and manual override in Settings.'
+    title: 'Dilinizi konuşur',
+    description: 'Tam İngilizce ve Türkçe arayüz; sistem dili varsayılanı ve Ayarlar’dan manuel seçim.'
   }
 ]
 
-export default function PulsePomodoroPage() {
+export default function PulsePomodoroTurkishPage() {
   return (
     <>
       <script
@@ -138,7 +140,7 @@ export default function PulsePomodoroPage() {
         }}
       />
 
-      <div className='overflow-hidden'>
+      <div className='overflow-hidden' lang='tr'>
         <section className='container py-12 md:py-24 relative'>
           <div className='absolute top-16 right-0 w-64 h-64 rounded-full bg-accent-muted blur-3xl' aria-hidden='true' />
           <div className='flex flex-wrap items-center justify-between gap-4 mb-12'>
@@ -146,36 +148,36 @@ export default function PulsePomodoroPage() {
               href='/projects'
               className='inline-flex items-center gap-2 font-mono text-sm text-text-secondary hover:text-accent transition-colors duration-fast'>
               <LuArrowLeft size={16} aria-hidden='true' />
-              Back to projects
+              Projelere dön
             </Link>
-            <PulseLocaleSwitcher locale='en' />
+            <PulseLocaleSwitcher locale='tr' />
           </div>
 
           <div className='relative grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
             <div className='animate-slide-up'>
               <div className='flex flex-wrap items-center gap-3 mb-6'>
                 <Tag variant='status' status='success' size='md'>
-                  Available on the Mac App Store
+                  Mac App Store’da mevcut
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>Free · macOS 14.6+</span>
+                <span className='font-mono text-sm text-text-muted'>Ücretsiz · macOS 14.6+</span>
               </div>
-              <p className='font-mono text-sm text-accent mb-4'>Menu bar Pomodoro timer</p>
+              <p className='font-mono text-sm text-accent mb-4'>Menü çubuğu Pomodoro zamanlayıcısı</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
               <p className='text-text-secondary text-lg md:text-xl leading-relaxed max-w-2xl mb-4'>
-                A gentle Pomodoro timer that lives in your menu bar.
+                Menü çubuğunuzda yaşayan sakin bir Pomodoro zamanlayıcısı.
               </p>
               <p className='text-text-secondary text-lg leading-relaxed max-w-2xl mb-8'>
-                Stay focused without cluttering your desktop. Start a focus session, take a break, and let {PULSE_APP_NAME}{' '}
-                track your progress — quietly, in the background.
+                Masaüstünüzü doldurmadan odaklanın. Bir odak seansı başlatın, mola verin ve {PULSE_APP_NAME}{' '}
+                ilerlemenizi sessizce, arka planda takip etsin.
               </p>
               <div className='flex flex-wrap gap-3'>
                 <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
-                  Download on the Mac App Store
+                  Mac App Store’dan indir
                   <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
                 </ButtonLink>
-                <WatchPulseDemoButton />
-                <ButtonLink href={`${PULSE_APP_PATH}/support`} variant='ghost' size='lg'>
-                  Support
+                <WatchPulseDemoButton label='Aksiyonu izle' />
+                <ButtonLink href={`${pulsePath}/support`} variant='ghost' size='lg'>
+                  Destek
                 </ButtonLink>
               </div>
             </div>
@@ -206,19 +208,19 @@ export default function PulsePomodoroPage() {
               <dd className='text-text-primary'>Native macOS</dd>
             </div>
             <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Languages</dt>
-              <dd className='text-text-primary'>English, Turkish</dd>
+              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Diller</dt>
+              <dd className='text-text-primary'>İngilizce, Türkçe</dd>
             </div>
             <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Price</dt>
-              <dd className='text-text-primary'>Free</dd>
+              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Fiyat</dt>
+              <dd className='text-text-primary'>Ücretsiz</dd>
             </div>
             <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Data collection</dt>
-              <dd className='text-text-primary'>None</dd>
+              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Veri toplama</dt>
+              <dd className='text-text-primary'>Yok</dd>
             </div>
             <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Built with</dt>
+              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Teknoloji</dt>
               <dd className='text-text-primary'>SwiftUI + AppKit</dd>
             </div>
           </dl>
@@ -226,61 +228,60 @@ export default function PulsePomodoroPage() {
 
         <section id='demo' className='container py-16 md:py-24'>
           <div className='max-w-3xl mb-10'>
-            <p className='font-mono text-sm text-accent mb-3'>A quieter way to focus</p>
+            <p className='font-mono text-sm text-accent mb-3'>Daha sessiz bir odaklanma</p>
             <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>
-              Your timer is there when you need it—and gone when you do not.
+              Zamanlayıcınız ihtiyaç duyduğunuzda orada—gerekmediğinde ortadan kaybolur.
             </h2>
             <p className='text-text-secondary text-lg leading-relaxed'>
-              Open {PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. The timer keeps working
-              while you do. On first launch, a brief introduction shows you where to find it — respecting Reduce Motion
-              when enabled.
+              {PULSE_APP_NAME}’ı menü çubuğundan açın, bir seans seçin ve popover’ı kapatın. Zamanlayıcı siz çalışırken
+              devam eder. İlk açılışta kısa bir tanıtım nerede bulacağınızı gösterir — Reduce Motion açıksa buna uyar.
             </p>
           </div>
           <div className='rounded-lg border border-border-default bg-bg-elevated p-2 sm:p-3'>
             <PulseDemoVideo />
           </div>
           <p className='text-text-muted text-sm mt-4'>
-            Session controls, focus history, English and Turkish localization, completion feedback, and settings.
+            Seans kontrolleri, odak geçmişi, İngilizce ve Türkçe yerelleştirme, tamamlanma geri bildirimi ve ayarlar.
           </p>
         </section>
 
         <section className='border-y border-border-subtle bg-bg-elevated'>
           <div className='container py-16 md:py-24'>
             <div className='max-w-3xl mb-12'>
-              <p className='font-mono text-sm text-accent mb-3'>A rhythm you control</p>
-              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>Focus, pause, recover, repeat.</h2>
+              <p className='font-mono text-sm text-accent mb-3'>Kontrol sizde olan bir ritim</p>
+              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>Odaklan, duraklat, toparlan, tekrarla.</h2>
               <p className='text-text-secondary text-lg'>
-                {PULSE_APP_NAME} suggests what comes next but never starts a session for you. Every duration can be adjusted
-                to fit your day.
+                {PULSE_APP_NAME} sıradaki adımı önerir ama sizin yerinize seans başlatmaz. Her süre gününüze uyacak
+                şekilde ayarlanabilir.
               </p>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-            {featureShowcases.map((feature) => (
-              <article
-                key={feature.title}
-                className='rounded-lg border border-border-subtle bg-bg-base overflow-hidden'>
-                <div className='relative border-b border-border-subtle' style={{ aspectRatio: screenshotAspectRatio }}>
-                  <Image
-                    src={feature.image}
-                    alt={feature.alt}
-                    fill
-                    sizes='(min-width: 768px) 33vw, 100vw'
-                    className='object-cover'
-                  />
-                </div>
-                <div className='p-6'>
-                  <div className='flex items-center justify-between gap-4 mb-3'>
-                    <h3 className='font-mono text-xl text-text-primary'>{feature.title}</h3>
-                    <Tag variant='outline' size='sm'>
-                      {feature.badge}
-                    </Tag>
+              {featureShowcases.map((feature) => (
+                <article
+                  key={feature.title}
+                  className='rounded-lg border border-border-subtle bg-bg-base overflow-hidden'>
+                  <div className='relative border-b border-border-subtle' style={{ aspectRatio: screenshotAspectRatio }}>
+                    <Image
+                      src={feature.image}
+                      alt={feature.alt}
+                      fill
+                      sizes='(min-width: 768px) 33vw, 100vw'
+                      className='object-cover'
+                    />
                   </div>
-                  <p className='text-text-secondary'>{feature.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+                  <div className='p-6'>
+                    <div className='flex items-center justify-between gap-4 mb-3'>
+                      <h3 className='font-mono text-xl text-text-primary'>{feature.title}</h3>
+                      <Tag variant='outline' size='sm'>
+                        {feature.badge}
+                      </Tag>
+                    </div>
+                    <p className='text-text-secondary'>{feature.description}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -291,7 +292,7 @@ export default function PulsePomodoroPage() {
               style={{ aspectRatio: screenshotAspectRatio }}>
               <Image
                 src={`${PULSE_IMAGE_DIR}/history.png`}
-                alt={`${PULSE_APP_NAME} weekly focus history with session counts, focused hours, and streak`}
+                alt={`${PULSE_APP_NAME} haftalık odak geçmişi; seans sayıları, odak saatleri ve seri`}
                 fill
                 sizes='(min-width: 768px) 50vw, 100vw'
                 className='object-cover'
@@ -299,18 +300,18 @@ export default function PulsePomodoroPage() {
             </div>
             <div>
               <LuHistory className='text-accent mb-6' size={32} aria-hidden='true' />
-              <p className='font-mono text-sm text-accent mb-3'>Progress without pressure</p>
-              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>See the work adding up.</h2>
+              <p className='font-mono text-sm text-accent mb-3'>Baskısız ilerleme</p>
+              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>İşin biriktiğini görün.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                A compact weekly history gives you enough context to build momentum without turning focus into another
-                dashboard to manage.
+                Kompakt haftalık geçmiş, odağı yönetilecek başka bir panele çevirmeden momentum oluşturmanız için yeterli
+                bağlamı verir.
               </p>
               <ul className='space-y-3'>
                 {[
-                  'Daily session counts',
-                  'Weekly focus summaries',
-                  'All-time focused hours',
-                  'Consecutive-day streaks'
+                  'Günlük seans sayıları',
+                  'Haftalık odak özetleri',
+                  'Toplam odak saatleri',
+                  'Ardışık gün serileri'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
@@ -328,7 +329,7 @@ export default function PulsePomodoroPage() {
                 style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
                   src={`${PULSE_IMAGE_DIR}/settings.png`}
-                  alt={`${PULSE_APP_NAME} settings for durations, language, completion sounds, and launch at login`}
+                  alt={`${PULSE_APP_NAME} süre, dil, tamamlanma sesleri ve oturum açılışında başlatma ayarları`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
                   className='object-cover'
@@ -339,7 +340,7 @@ export default function PulsePomodoroPage() {
                 style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
                   src={`${PULSE_IMAGE_DIR}/celebration.png`}
-                  alt={`${PULSE_APP_NAME} rabbit celebration animation when a session completes`}
+                  alt={`${PULSE_APP_NAME} seans tamamlandığında tavşan kutlama animasyonu`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
                   className='object-cover'
@@ -348,17 +349,17 @@ export default function PulsePomodoroPage() {
             </div>
             <div>
               <LuSparkles className='text-accent mb-6' size={32} aria-hidden='true' />
-              <p className='font-mono text-sm text-accent mb-3'>Gentle feedback, your way</p>
-              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Make finishing feel rewarding.</h2>
+              <p className='font-mono text-sm text-accent mb-3'>Nazik geri bildirim, sizin tarzınızda</p>
+              <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Bitirmeyi ödüllendirici kılın.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                Choose from six calm completion sounds and six animal celebrations, or turn either one off. {PULSE_APP_NAME}{' '}
-                adapts to how quiet — or playful — you want your workspace to feel.
+                Altı sakin tamamlanma sesi ve altı hayvan kutlaması arasından seçin ya da ikisini de kapatın.{' '}
+                {PULSE_APP_NAME} çalışma alanınızın ne kadar sessiz — ya da neşeli — olmasını istediğinize uyum sağlar.
               </p>
               <ul className='space-y-3 mb-6'>
                 {[
-                  'English and Turkish UI with system-language default',
-                  'Language override in Settings: System, English, or Turkish',
-                  'Send feedback and rate on the App Store without leaving the app'
+                  'Sistem dili varsayılanıyla İngilizce ve Türkçe arayüz',
+                  'Ayarlar’da dil seçimi: Sistem, İngilizce veya Türkçe',
+                  'Uygulamadan çıkmadan geri bildirim gönderin ve App Store’da puanlayın'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
@@ -376,7 +377,7 @@ export default function PulsePomodoroPage() {
                 )}
               </div>
               <div className='flex flex-wrap gap-2'>
-                {['Monkey', 'Koala', 'Cat', 'Fox', 'Panda', 'Rabbit'].map((choice) => (
+                {['Maymun', 'Koala', 'Kedi', 'Tilki', 'Panda', 'Tavşan'].map((choice) => (
                   <Tag key={choice} variant='outline' size='md'>
                     {choice}
                   </Tag>
@@ -389,13 +390,13 @@ export default function PulsePomodoroPage() {
         <section className='border-y border-border-subtle bg-bg-elevated'>
           <div className='container py-16 md:py-24'>
             <div className='max-w-3xl mb-12'>
-              <p className='font-mono text-sm text-accent mb-3'>Native by design</p>
+              <p className='font-mono text-sm text-accent mb-3'>Tasarım gereği native</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-4'>
-                Built to feel at home on your Mac.
+                Mac’inizde evinde hissetmek için tasarlandı.
               </h2>
               <p className='text-text-secondary text-lg'>
-                SwiftUI, AppKit, and macOS system conventions keep {PULSE_APP_NAME} fast, familiar, and dependable — with
-                VoiceOver labels and Reduce Motion support throughout.
+                SwiftUI, AppKit ve macOS sistem alışkanlıkları {PULSE_APP_NAME}’ı hızlı, tanıdık ve güvenilir tutar —
+                VoiceOver etiketleri ve Reduce Motion desteğiyle birlikte.
               </p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -415,22 +416,21 @@ export default function PulsePomodoroPage() {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center'>
               <div>
                 <LuShieldCheck className='text-success mb-6' size={36} aria-hidden='true' />
-                <p className='font-mono text-sm text-success mb-3'>Private by default</p>
+                <p className='font-mono text-sm text-success mb-3'>Varsayılan olarak özel</p>
                 <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>
-                  Your focus is not a data point.
+                  Odağınız bir veri noktası değil.
                 </h2>
                 <p className='text-text-secondary text-lg leading-relaxed'>
-                  {PULSE_APP_NAME} collects no data. No accounts, analytics, advertising, or network requests. Everything
-                  stays on your Mac.
+                  {PULSE_APP_NAME} veri toplamaz. Hesap, analitik, reklam veya ağ isteği yok. Her şey Mac’inizde kalır.
                 </p>
               </div>
               <ul className='space-y-4'>
                 {[
-                  'No sign-in',
-                  'No cloud sync',
-                  'No tracking',
-                  'No access to personal files',
-                  'No data leaves your Mac'
+                  'Giriş yok',
+                  'Bulut senkronizasyonu yok',
+                  'İzleme yok',
+                  'Kişisel dosyalara erişim yok',
+                  'Hiçbir veri Mac’inizden çıkmaz'
                 ].map((item) => (
                   <li
                     key={item}
@@ -448,23 +448,23 @@ export default function PulsePomodoroPage() {
           <div className='text-center py-16 md:py-24 border-y border-border-subtle'>
             <LuSettings2 className='text-accent mx-auto mb-6' size={32} aria-hidden='true' />
             <Tag variant='status' status='success' size='md'>
-              Available on the Mac App Store
+              Mac App Store’da mevcut
             </Tag>
-            <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Make space for focused work.</h2>
+            <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Odaklı çalışmaya yer açın.</h2>
             <p className='text-text-secondary text-lg max-w-2xl mx-auto mb-8'>
-              {PULSE_APP_NAME} is free to download for Mac. Get it from the App Store, or read the privacy policy and support
-              page if you need help.
+              {PULSE_APP_NAME} Mac için ücretsizdir. App Store’dan indirin; yardıma ihtiyacınız olursa gizlilik politikası
+              ve destek sayfasına bakın.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>
               <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
-                Download on the Mac App Store
+                Mac App Store’dan indir
                 <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
               </ButtonLink>
-              <ButtonLink href={`${PULSE_APP_PATH}/support`} variant='ghost' size='lg'>
-                Get support
+              <ButtonLink href={`${pulsePath}/support`} variant='ghost' size='lg'>
+                Destek al
               </ButtonLink>
-              <ButtonLink href={`${PULSE_APP_PATH}/privacy`} variant='ghost' size='lg'>
-                Privacy
+              <ButtonLink href={`${pulsePath}/privacy`} variant='ghost' size='lg'>
+                Gizlilik
               </ButtonLink>
             </div>
           </div>

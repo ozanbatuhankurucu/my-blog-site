@@ -1,11 +1,15 @@
 import { Metadata } from 'next'
-import { PULSE_APP_NAME, PULSE_APP_PATH, SITE_URL } from '../../../lib/constants'
+import Link from 'next/link'
+import { LuArrowLeft } from 'react-icons/lu'
+import { PulseLocaleSwitcher } from '../../../components/PulseLocaleSwitcher'
+import { getPulseLanguageAlternates, PULSE_APP_NAME, PULSE_APP_PATH, SITE_URL } from '../../../lib/constants'
 
 export const metadata: Metadata = {
   title: `${PULSE_APP_NAME} Privacy Policy`,
   description: `Privacy policy for ${PULSE_APP_NAME}, a menu bar Pomodoro timer for Mac.`,
   alternates: {
     canonical: `${SITE_URL}${PULSE_APP_PATH}/privacy`,
+    languages: getPulseLanguageAlternates('privacy'),
   },
   robots: {
     index: true,
@@ -16,6 +20,16 @@ export const metadata: Metadata = {
 export default function PulsePomodoroPrivacyPage() {
   return (
     <article className="container max-w-2xl py-16 md:py-24">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+        <Link
+          href={PULSE_APP_PATH}
+          className="inline-flex items-center gap-2 font-mono text-sm text-text-secondary hover:text-accent transition-colors duration-fast">
+          <LuArrowLeft size={16} aria-hidden="true" />
+          {PULSE_APP_NAME}
+        </Link>
+        <PulseLocaleSwitcher locale="en" pathSuffix="privacy" />
+      </div>
+
       <header className="mb-10">
         <h1 className="font-mono text-3xl md:text-4xl font-medium text-text-primary mb-4">Privacy Policy</h1>
         <p className="text-text-secondary text-lg leading-relaxed mb-2">

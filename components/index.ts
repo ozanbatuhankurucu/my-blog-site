@@ -18,6 +18,7 @@ export { Hero } from './Hero'
 export { ArticleCard } from './ArticleCard'
 export { ProjectCard } from './ProjectCard'
 export { WatchPulseDemoButton } from './WatchPulseDemoButton'
+export { PulseLocaleSwitcher } from './PulseLocaleSwitcher'
 
 // Content Components
 export { default as HomeContent } from './HomeContent'
