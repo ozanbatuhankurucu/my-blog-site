@@ -69,6 +69,14 @@ export default function PulsePomodoroTurkishSupportPage() {
         </section>
 
         <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>Tam odak geçmişi</h2>
+          <p>
+            Toplam odak sürenizi, tamamlanan seanslarınızı, mevcut serinizi ve en iyi serinizi görmek için popover’dan
+            veya menü çubuğu durum menüsünden <strong className='text-text-primary'>Tam Geçmiş</strong>’i açın.
+          </p>
+        </section>
+
+        <section>
           <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>Gereksinimler</h2>
           <p>macOS 14.6 veya üzeri.</p>
         </section>

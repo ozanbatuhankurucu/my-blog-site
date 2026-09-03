@@ -2,7 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LuPlay } from 'react-icons/lu'
-import { PULSE_IMAGE_DIR } from '../lib/constants'
+import {
+  getPulseImageDir,
+  PULSE_IMAGE_DIR,
+  type PulseLocale,
+} from '../lib/constants'
 
 const PLAY_EVENT = 'pulse-demo:play'
 export const PULSE_DEMO_VIDEO_ID = 'pulse-demo-video'
@@ -41,9 +45,36 @@ export function scrollToPulseDemoVideo(onScrolled?: () => void) {
   window.setTimeout(play, 800)
 }
 
-export default function PulseDemoVideo() {
+interface PulseDemoVideoProps {
+  locale?: PulseLocale
+}
+
+const VIDEO_MESSAGES: Record<
+  PulseLocale,
+  {
+    ariaLabel: string
+    playLabel: string
+    unsupported: string
+  }
+> = {
+  en: {
+    ariaLabel: 'Pomodoro: Work & Study Timer product walkthrough',
+    playLabel: 'Play walkthrough',
+    unsupported: 'Your browser does not support embedded video.',
+  },
+  tr: {
+    ariaLabel: 'Pomodoro: Work & Study Timer ürün tanıtımı',
+    playLabel: 'Tanıtımı oynat',
+    unsupported: 'Tarayıcınız gömülü videoyu desteklemiyor.',
+  },
+}
+
+export default function PulseDemoVideo({
+  locale = 'en',
+}: PulseDemoVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasStarted, setHasStarted] = useState(false)
+  const messages = VIDEO_MESSAGES[locale]
 
   const play = useCallback(() => {
     const video = videoRef.current
@@ -76,16 +107,16 @@ export default function PulseDemoVideo() {
       <video
         ref={videoRef}
         className="absolute inset-0 h-full w-full rounded-lg bg-bg-base object-contain"
-        poster={`${PULSE_IMAGE_DIR}/hero.png`}
+        poster={`${getPulseImageDir(locale)}/hero.png`}
         muted
         loop
         playsInline
         controls={hasStarted}
         preload="metadata"
-        aria-label="Pomodoro: Work & Study Timer product walkthrough"
+        aria-label={messages.ariaLabel}
       >
-        <source src="/images/pulse-pomodoro/pulse-demo.mp4" type="video/mp4" />
-        Your browser does not support embedded video.
+        <source src={`${PULSE_IMAGE_DIR}/pulse-demo.mp4`} type="video/mp4" />
+        {messages.unsupported}
       </video>
 
       {!hasStarted && (
@@ -99,7 +130,7 @@ export default function PulseDemoVideo() {
             hover:bg-bg-base/40
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated
           "
-          aria-label="Play Pomodoro: Work & Study Timer product walkthrough"
+          aria-label={messages.playLabel}
         >
           <span
             className="
@@ -113,7 +144,9 @@ export default function PulseDemoVideo() {
           >
             <LuPlay size={28} className="ml-1" />
           </span>
-          <span className="font-mono text-sm text-text-primary">Play walkthrough</span>
+          <span className="font-mono text-sm text-text-primary">
+            {messages.playLabel}
+          </span>
         </button>
       )}
     </div>

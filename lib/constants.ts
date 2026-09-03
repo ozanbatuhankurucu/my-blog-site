@@ -42,6 +42,8 @@ export const SITE_URL = 'https://www.ozanbatuhankurucu.com'
 
 export const PULSE_APP_NAME = 'Pomodoro: Work & Study Timer'
 
+export const PULSE_APP_VERSION = '1.3'
+
 export const PULSE_APP_PATH = '/pomodoro-work-study-timer'
 
 export type PulseLocale = 'en' | 'tr'
@@ -62,6 +64,9 @@ export const getPulseLanguageAlternates = (pathSuffix = '') => {
 }
 
 export const PULSE_IMAGE_DIR = '/images/pulse-pomodoro'
+
+export const getPulseImageDir = (locale: PulseLocale = 'en'): string =>
+  locale === 'en' ? PULSE_IMAGE_DIR : `${PULSE_IMAGE_DIR}/tr`
 
 export const PULSE_APP_STORE_URL =
   'https://apps.apple.com/us/app/pulse-pomodoro/id6803482095?mt=12'

@@ -60,6 +60,14 @@ export default function PulsePomodoroSupportPage() {
         </section>
 
         <section>
+          <h2 className="font-mono text-xl font-medium text-text-primary mb-4">Full focus history</h2>
+          <p>
+            Open <strong className="text-text-primary">Full History</strong> from the popover or the menu bar status menu
+            to see your total focus time, completed sessions, current streak, and best streak.
+          </p>
+        </section>
+
+        <section>
           <h2 className="font-mono text-xl font-medium text-text-primary mb-4">Requirements</h2>
           <p>macOS 14.6 or later.</p>
         </section>

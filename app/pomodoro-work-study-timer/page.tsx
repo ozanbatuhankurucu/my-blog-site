@@ -11,6 +11,7 @@ import {
   getPulseLanguageAlternates,
   PULSE_APP_NAME,
   PULSE_APP_PATH,
+  PULSE_APP_VERSION,
   PULSE_APP_STORE_URL,
   PULSE_IMAGE_DIR,
   SITE_CONFIG,
@@ -21,7 +22,7 @@ import { PROJECTS } from '../projects'
 const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
 const pageTitle = `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`
 const pageDescription =
-  `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer that lives in your menu bar. Focus sessions, breaks, progress tracking, English/Turkish support, and optional completion sounds and animations.`
+  `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer with a redesigned popover, full focus history, session-aware alerts, and English/Turkish support.`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -61,6 +62,7 @@ const softwareJsonLd = {
   name: PULSE_APP_NAME,
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'macOS 14.6 or later',
+  softwareVersion: PULSE_APP_VERSION,
   description: pageDescription,
   url: `${SITE_URL}${PULSE_APP_PATH}`,
   downloadUrl: PULSE_APP_STORE_URL,
@@ -84,15 +86,15 @@ const screenshotAspectRatio = '1024 / 640'
 const featureShowcases = [
   {
     title: 'Focus',
-    badge: '25 min default',
-    description: 'The countdown runs quietly while you work. Pause, reset, or skip without breaking your flow.',
+    badge: '1–120 min',
+    description: 'The countdown runs quietly while you work. Pause, reset, or skip while the menu bar timer stays anchored.',
     image: `${PULSE_IMAGE_DIR}/focus-running.png`,
     alt: `${PULSE_APP_NAME} focus session running with pause controls and menu bar countdown`
   },
   {
     title: 'Menu bar',
-    badge: 'Always visible',
-    description: 'No Dock icon. Your timer lives in the menu bar — showing the countdown when you need it, nothing when you do not.',
+    badge: 'Stable countdown',
+    description: 'Show or hide the remaining time instantly. The fixed-width status item stays put without shifting the popover, up to 120:00.',
     image: `${PULSE_IMAGE_DIR}/menubar.png`,
     alt: `${PULSE_APP_NAME} countdown displayed in the macOS menu bar`
   },
@@ -114,7 +116,7 @@ const nativeFeatures = [
   {
     icon: LuClock3,
     title: 'Stays accurate',
-    description: 'End-date-based timing remains correct across sleep, wake, and relaunches.'
+    description: 'Sessions remain correct across sleep, wake, and relaunches, with history recorded at the actual deadline.'
   },
   {
     icon: LuShieldCheck,
@@ -157,7 +159,7 @@ export default function PulsePomodoroPage() {
                 <Tag variant='status' status='success' size='md'>
                   Available on the Mac App Store
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>Free · macOS 14.6+</span>
+                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · Free · macOS 14.6+</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>Menu bar Pomodoro timer</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
@@ -166,7 +168,7 @@ export default function PulsePomodoroPage() {
               </p>
               <p className='text-text-secondary text-lg leading-relaxed max-w-2xl mb-8'>
                 Stay focused without cluttering your desktop. Start a focus session, take a break, and let {PULSE_APP_NAME}{' '}
-                track your progress — quietly, in the background.
+                track your progress with full focus history — quietly, in the background.
               </p>
               <div className='flex flex-wrap gap-3'>
                 <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
@@ -240,7 +242,7 @@ export default function PulsePomodoroPage() {
             <PulseDemoVideo />
           </div>
           <p className='text-text-muted text-sm mt-4'>
-            Session controls, focus history, English and Turkish localization, completion feedback, and settings.
+            Redesigned session controls, full focus history, English and Turkish localization, session-aware completion alerts, and settings.
           </p>
         </section>
 
@@ -302,15 +304,15 @@ export default function PulsePomodoroPage() {
               <p className='font-mono text-sm text-accent mb-3'>Progress without pressure</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>See the work adding up.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                A compact weekly history gives you enough context to build momentum without turning focus into another
-                dashboard to manage.
+                Open the full history window from the popover or status menu. Totals and streaks show your progress
+                without turning focus into another dashboard to manage.
               </p>
               <ul className='space-y-3'>
                 {[
-                  'Daily session counts',
-                  'Weekly focus summaries',
-                  'All-time focused hours',
-                  'Consecutive-day streaks'
+                  'Total focus time',
+                  'Completed session count',
+                  'Current streak',
+                  'Best streak'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
@@ -352,13 +354,13 @@ export default function PulsePomodoroPage() {
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Make finishing feel rewarding.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
                 Choose from six calm completion sounds and six animal celebrations, or turn either one off. {PULSE_APP_NAME}{' '}
-                adapts to how quiet — or playful — you want your workspace to feel.
+                shows the right message when a Focus, Short Break, or Long Break session ends.
               </p>
               <ul className='space-y-3 mb-6'>
                 {[
+                  'Session-aware completion title and subtitle',
                   'English and Turkish UI with system-language default',
-                  'Language override in Settings: System, English, or Turkish',
-                  'Send feedback and rate on the App Store without leaving the app'
+                  'Language override in Settings: System, English, or Turkish'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />

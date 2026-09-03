@@ -9,10 +9,11 @@ import { WatchPulseDemoButton } from '../../../components/WatchPulseDemoButton'
 import { Tag } from '../../../components/Tag'
 import {
   getPulseAppPath,
+  getPulseImageDir,
   getPulseLanguageAlternates,
   PULSE_APP_NAME,
+  PULSE_APP_VERSION,
   PULSE_APP_STORE_URL,
-  PULSE_IMAGE_DIR,
   SITE_CONFIG,
   SITE_URL
 } from '../../../lib/constants'
@@ -20,9 +21,10 @@ import { PROJECTS } from '../../projects'
 
 const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
 const pulsePath = getPulseAppPath('tr')
+const pulseImageDir = getPulseImageDir('tr')
 const pageTitle = `${PULSE_APP_NAME} — macOS için menü çubuğu Pomodoro zamanlayıcısı`
 const pageDescription =
-  `${PULSE_APP_NAME}, menü çubuğunda yaşayan ücretsiz ve native bir macOS Pomodoro zamanlayıcısıdır. Odak seansları, molalar, ilerleme takibi, İngilizce/Türkçe destek ve isteğe bağlı tamamlanma sesleri ile animasyonlar.`
+  `${PULSE_APP_NAME}, menü çubuğunda yaşayan ücretsiz ve native bir macOS Pomodoro zamanlayıcısıdır. Yenilenen arayüz, tam odak geçmişi, seansa özel bildirimler ve İngilizce/Türkçe destek sunar.`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -41,10 +43,10 @@ export const metadata: Metadata = {
     siteName: `${SITE_CONFIG.name} Blog`,
     images: [
       {
-        url: `${PULSE_IMAGE_DIR}/hero.png`,
+        url: `${pulseImageDir}/hero.png`,
         width: 1024,
         height: 640,
-        alt: pulseProject.imgAlt
+        alt: `${PULSE_APP_NAME} Türkçe odak zamanlayıcısı ve haftalık geçmiş görünümü`
       }
     ]
   },
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: [`${PULSE_IMAGE_DIR}/hero.png`]
+    images: [`${pulseImageDir}/hero.png`]
   }
 }
 
@@ -62,6 +64,7 @@ const softwareJsonLd = {
   name: PULSE_APP_NAME,
   applicationCategory: 'ProductivityApplication',
   operatingSystem: 'macOS 14.6 or later',
+  softwareVersion: PULSE_APP_VERSION,
   description: pageDescription,
   url: `${SITE_URL}${pulsePath}`,
   downloadUrl: PULSE_APP_STORE_URL,
@@ -78,7 +81,7 @@ const softwareJsonLd = {
     availability: 'https://schema.org/InStock'
   },
   featureList: pulseProject.features?.map((feature) => feature.text),
-  screenshot: `${SITE_URL}${pulseProject.img}`
+  screenshot: `${SITE_URL}${pulseImageDir}/hero.png`
 }
 
 const screenshotAspectRatio = '1024 / 640'
@@ -86,23 +89,23 @@ const screenshotAspectRatio = '1024 / 640'
 const featureShowcases = [
   {
     title: 'Odak',
-    badge: 'Varsayılan 25 dk',
-    description: 'Geri sayım siz çalışırken sessizce ilerler. Akışınızı bozmadan duraklatın, sıfırlayın veya atlayın.',
-    image: `${PULSE_IMAGE_DIR}/focus-running.png`,
+    badge: '1–120 dk',
+    description: 'Geri sayım siz çalışırken sessizce ilerler. Duraklatın, sıfırlayın veya atlayın; sayaç menü çubuğunda sabit kalır.',
+    image: `${pulseImageDir}/focus-running.png`,
     alt: `${PULSE_APP_NAME} odak seansı; duraklatma kontrolleri ve menü çubuğu geri sayımı`
   },
   {
     title: 'Menü çubuğu',
-    badge: 'Her zaman görünür',
-    description: 'Dock simgesi yok. Zamanlayıcınız menü çubuğunda yaşar — ihtiyaç duyduğunuzda geri sayımı gösterir, gerekmediğinde sessiz kalır.',
-    image: `${PULSE_IMAGE_DIR}/menubar.png`,
+    badge: 'Sabit sayaç',
+    description: 'Kalan süreyi anında gösterip gizleyin. Sabit genişlikli sayaç, 120:00’a kadar popover’ı kaydırmadan yerinde kalır.',
+    image: `${pulseImageDir}/menubar.png`,
     alt: `${PULSE_APP_NAME} geri sayımının macOS menü çubuğunda görünümü`
   },
   {
     title: 'Özelleştirme',
     badge: 'Sizin kurallarınız',
     description: 'Esnek süreler, tamamlanma sesleri ve animasyonları, İngilizce ve Türkçe arayüz, oturum açılışında başlatma.',
-    image: `${PULSE_IMAGE_DIR}/settings.png`,
+    image: `${pulseImageDir}/settings.png`,
     alt: `${PULSE_APP_NAME} süre, tamamlanma uyarıları, dil ve oturum açılışında başlatma ayarları`
   }
 ]
@@ -116,7 +119,7 @@ const nativeFeatures = [
   {
     icon: LuClock3,
     title: 'Doğru kalır',
-    description: 'Bitiş tarihine dayalı zamanlama uyku, uyanma ve yeniden başlatmalarda doğru çalışır.'
+    description: 'Seanslar uyku, uyanma ve yeniden başlatmalarda doğru kalır; geçmişe gerçek bitiş zamanıyla kaydedilir.'
   },
   {
     icon: LuShieldCheck,
@@ -159,7 +162,7 @@ export default function PulsePomodoroTurkishPage() {
                 <Tag variant='status' status='success' size='md'>
                   Mac App Store’da mevcut
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>Ücretsiz · macOS 14.6+</span>
+                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · Ücretsiz · macOS 14.6+</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>Menü çubuğu Pomodoro zamanlayıcısı</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
@@ -168,14 +171,14 @@ export default function PulsePomodoroTurkishPage() {
               </p>
               <p className='text-text-secondary text-lg leading-relaxed max-w-2xl mb-8'>
                 Masaüstünüzü doldurmadan odaklanın. Bir odak seansı başlatın, mola verin ve {PULSE_APP_NAME}{' '}
-                ilerlemenizi sessizce, arka planda takip etsin.
+                ilerlemenizi tam odak geçmişiyle sessizce takip etsin.
               </p>
               <div className='flex flex-wrap gap-3'>
                 <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
                   Mac App Store’dan indir
                   <LuArrowUpRight className='ml-2' size={16} aria-hidden='true' />
                 </ButtonLink>
-                <WatchPulseDemoButton label='Aksiyonu izle' />
+                <WatchPulseDemoButton label='Nasıl çalıştığını izle' />
                 <ButtonLink href={`${pulsePath}/support`} variant='ghost' size='lg'>
                   Destek
                 </ButtonLink>
@@ -191,8 +194,8 @@ export default function PulsePomodoroTurkishPage() {
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated'
                 style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src={`${PULSE_IMAGE_DIR}/hero.png`}
-                  alt={pulseProject.imgAlt}
+                  src={`${pulseImageDir}/hero.png`}
+                  alt={`${PULSE_APP_NAME} Türkçe odak zamanlayıcısı ve haftalık geçmiş görünümü`}
                   fill
                   priority
                   sizes='(min-width: 768px) 50vw, 100vw'
@@ -238,10 +241,10 @@ export default function PulsePomodoroTurkishPage() {
             </p>
           </div>
           <div className='rounded-lg border border-border-default bg-bg-elevated p-2 sm:p-3'>
-            <PulseDemoVideo />
+            <PulseDemoVideo locale='tr' />
           </div>
           <p className='text-text-muted text-sm mt-4'>
-            Seans kontrolleri, odak geçmişi, İngilizce ve Türkçe yerelleştirme, tamamlanma geri bildirimi ve ayarlar.
+            Yenilenen seans kontrolleri, tam odak geçmişi, İngilizce ve Türkçe yerelleştirme, seansa özel tamamlanma bildirimleri ve ayarlar.
           </p>
         </section>
 
@@ -291,7 +294,7 @@ export default function PulsePomodoroTurkishPage() {
               className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated'
               style={{ aspectRatio: screenshotAspectRatio }}>
               <Image
-                src={`${PULSE_IMAGE_DIR}/history.png`}
+                src={`${pulseImageDir}/history.png`}
                 alt={`${PULSE_APP_NAME} haftalık odak geçmişi; seans sayıları, odak saatleri ve seri`}
                 fill
                 sizes='(min-width: 768px) 50vw, 100vw'
@@ -303,15 +306,15 @@ export default function PulsePomodoroTurkishPage() {
               <p className='font-mono text-sm text-accent mb-3'>Baskısız ilerleme</p>
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>İşin biriktiğini görün.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
-                Kompakt haftalık geçmiş, odağı yönetilecek başka bir panele çevirmeden momentum oluşturmanız için yeterli
-                bağlamı verir.
+                Popover’dan veya durum menüsünden tam geçmiş penceresini açın. Toplamlar ve seriler, odağı yönetilecek
+                başka bir panele çevirmeden ilerlemenizi gösterir.
               </p>
               <ul className='space-y-3'>
                 {[
-                  'Günlük seans sayıları',
-                  'Haftalık odak özetleri',
-                  'Toplam odak saatleri',
-                  'Ardışık gün serileri'
+                  'Toplam odak süresi',
+                  'Tamamlanan seans sayısı',
+                  'Mevcut seri',
+                  'En iyi seri'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
@@ -328,7 +331,7 @@ export default function PulsePomodoroTurkishPage() {
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
                 style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src={`${PULSE_IMAGE_DIR}/settings.png`}
+                  src={`${pulseImageDir}/settings.png`}
                   alt={`${PULSE_APP_NAME} süre, dil, tamamlanma sesleri ve oturum açılışında başlatma ayarları`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
@@ -339,7 +342,7 @@ export default function PulsePomodoroTurkishPage() {
                 className='relative overflow-hidden rounded-lg border border-border-default bg-bg-elevated col-span-2'
                 style={{ aspectRatio: screenshotAspectRatio }}>
                 <Image
-                  src={`${PULSE_IMAGE_DIR}/celebration.png`}
+                  src={`${pulseImageDir}/celebration.png`}
                   alt={`${PULSE_APP_NAME} seans tamamlandığında tavşan kutlama animasyonu`}
                   fill
                   sizes='(min-width: 768px) 50vw, 100vw'
@@ -353,13 +356,13 @@ export default function PulsePomodoroTurkishPage() {
               <h2 className='font-mono text-3xl md:text-4xl text-text-primary mb-5'>Bitirmeyi ödüllendirici kılın.</h2>
               <p className='text-text-secondary text-lg leading-relaxed mb-6'>
                 Altı sakin tamamlanma sesi ve altı hayvan kutlaması arasından seçin ya da ikisini de kapatın.{' '}
-                {PULSE_APP_NAME} çalışma alanınızın ne kadar sessiz — ya da neşeli — olmasını istediğinize uyum sağlar.
+                {PULSE_APP_NAME}, Odak, Kısa Mola ve Uzun Mola bittiğinde seansa uygun mesajı gösterir.
               </p>
               <ul className='space-y-3 mb-6'>
                 {[
+                  'Her seans türüne özel tamamlanma başlığı ve açıklaması',
                   'Sistem dili varsayılanıyla İngilizce ve Türkçe arayüz',
-                  'Ayarlar’da dil seçimi: Sistem, İngilizce veya Türkçe',
-                  'Uygulamadan çıkmadan geri bildirim gönderin ve App Store’da puanlayın'
+                  'Ayarlar’da dil seçimi: Sistem, İngilizce veya Türkçe'
                 ].map((item) => (
                   <li key={item} className='flex items-center gap-3 text-text-secondary'>
                     <span className='w-2 h-2 rounded-full bg-accent' aria-hidden='true' />
