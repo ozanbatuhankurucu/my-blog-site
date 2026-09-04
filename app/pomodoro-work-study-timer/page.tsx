@@ -22,7 +22,7 @@ import { PROJECTS } from '../projects'
 const pulseProject = PROJECTS.find((project) => project.slug === 'pomodoro-work-study-timer')!
 const pageTitle = `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`
 const pageDescription =
-  `${PULSE_APP_NAME} is a free, native macOS Pomodoro timer with a redesigned popover, full focus history, session-aware alerts, and English/Turkish support.`
+  `${PULSE_APP_NAME} is a native macOS Pomodoro timer with a redesigned popover, full focus history, session-aware alerts, and English/Turkish support.`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -70,12 +70,6 @@ const softwareJsonLd = {
     '@type': 'Person',
     name: SITE_CONFIG.name,
     url: SITE_URL
-  },
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    availability: 'https://schema.org/InStock'
   },
   featureList: pulseProject.features?.map((feature) => feature.text),
   screenshot: `${SITE_URL}${pulseProject.img}`
@@ -159,7 +153,7 @@ export default function PulsePomodoroPage() {
                 <Tag variant='status' status='success' size='md'>
                   Available on the Mac App Store
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · Free · macOS 14.6+</span>
+                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · macOS 14.6+</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>Menu bar Pomodoro timer</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
@@ -202,7 +196,7 @@ export default function PulsePomodoroPage() {
             </div>
           </div>
 
-          <dl className='relative grid grid-cols-2 md:grid-cols-5 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
+          <dl className='relative grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Platform</dt>
               <dd className='text-text-primary'>Native macOS</dd>
@@ -210,10 +204,6 @@ export default function PulsePomodoroPage() {
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Languages</dt>
               <dd className='text-text-primary'>English, Turkish</dd>
-            </div>
-            <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Price</dt>
-              <dd className='text-text-primary'>Free</dd>
             </div>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Data collection</dt>
@@ -454,8 +444,7 @@ export default function PulsePomodoroPage() {
             </Tag>
             <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Make space for focused work.</h2>
             <p className='text-text-secondary text-lg max-w-2xl mx-auto mb-8'>
-              {PULSE_APP_NAME} is free to download for Mac. Get it from the App Store, or read the privacy policy and support
-              page if you need help.
+              Get {PULSE_APP_NAME} from the Mac App Store, or read the privacy policy and support page if you need help.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>
               <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>

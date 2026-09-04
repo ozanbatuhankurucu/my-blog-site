@@ -24,7 +24,7 @@ const pulsePath = getPulseAppPath('tr')
 const pulseImageDir = getPulseImageDir('tr')
 const pageTitle = `${PULSE_APP_NAME} — macOS için menü çubuğu Pomodoro zamanlayıcısı`
 const pageDescription =
-  `${PULSE_APP_NAME}, menü çubuğunda yaşayan ücretsiz ve native bir macOS Pomodoro zamanlayıcısıdır. Yenilenen arayüz, tam odak geçmişi, seansa özel bildirimler ve İngilizce/Türkçe destek sunar.`
+  `${PULSE_APP_NAME}, menü çubuğunda yaşayan native bir macOS Pomodoro zamanlayıcısıdır. Yenilenen arayüz, tam odak geçmişi, seansa özel bildirimler ve İngilizce/Türkçe destek sunar.`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -73,12 +73,6 @@ const softwareJsonLd = {
     '@type': 'Person',
     name: SITE_CONFIG.name,
     url: SITE_URL
-  },
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-    availability: 'https://schema.org/InStock'
   },
   featureList: pulseProject.features?.map((feature) => feature.text),
   screenshot: `${SITE_URL}${pulseImageDir}/hero.png`
@@ -162,7 +156,7 @@ export default function PulsePomodoroTurkishPage() {
                 <Tag variant='status' status='success' size='md'>
                   Mac App Store’da mevcut
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · Ücretsiz · macOS 14.6+</span>
+                <span className='font-mono text-sm text-text-muted'>v{PULSE_APP_VERSION} · macOS 14.6+</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>Menü çubuğu Pomodoro zamanlayıcısı</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>{PULSE_APP_NAME}</h1>
@@ -205,7 +199,7 @@ export default function PulsePomodoroTurkishPage() {
             </div>
           </div>
 
-          <dl className='relative grid grid-cols-2 md:grid-cols-5 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
+          <dl className='relative grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24 pt-8 border-t border-border-subtle'>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Platform</dt>
               <dd className='text-text-primary'>Native macOS</dd>
@@ -213,10 +207,6 @@ export default function PulsePomodoroTurkishPage() {
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Diller</dt>
               <dd className='text-text-primary'>İngilizce, Türkçe</dd>
-            </div>
-            <div>
-              <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Fiyat</dt>
-              <dd className='text-text-primary'>Ücretsiz</dd>
             </div>
             <div>
               <dt className='font-mono text-xs text-text-muted uppercase tracking-wider mb-2'>Veri toplama</dt>
@@ -455,8 +445,8 @@ export default function PulsePomodoroTurkishPage() {
             </Tag>
             <h2 className='font-mono text-3xl md:text-4xl text-text-primary mt-6 mb-4'>Odaklı çalışmaya yer açın.</h2>
             <p className='text-text-secondary text-lg max-w-2xl mx-auto mb-8'>
-              {PULSE_APP_NAME} Mac için ücretsizdir. App Store’dan indirin; yardıma ihtiyacınız olursa gizlilik politikası
-              ve destek sayfasına bakın.
+              {PULSE_APP_NAME}’ı Mac App Store’dan indirin; yardıma ihtiyacınız olursa gizlilik politikası ve destek
+              sayfasına bakın.
             </p>
             <div className='flex flex-wrap justify-center gap-3'>
               <ButtonLink href={PULSE_APP_STORE_URL} external variant='primary' size='lg'>
