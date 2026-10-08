@@ -1,7 +1,10 @@
 import { MetadataRoute } from 'next'
 import { getPostMetadata } from '../components/utils'
 import { getPostPath } from '../lib/article-localization'
-import { PULSE_APP_PATH, SITE_URL } from '../lib/constants'
+import { SITE_URL } from '../lib/constants'
+import { getPulseAppPath, PULSE_LOCALES } from '../lib/pulse/locales'
+
+const PULSE_PATH_SUFFIXES = ['', 'support', 'privacy'] as const
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const englishPosts = getPostMetadata('en')
@@ -20,6 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.7,
   }))
+
+  const pulseEntries: MetadataRoute.Sitemap = PULSE_LOCALES.flatMap((locale) =>
+    PULSE_PATH_SUFFIXES.map((suffix) => ({
+      url: `${SITE_URL}${getPulseAppPath(locale, suffix)}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: suffix === '' ? 0.9 : 0.5,
+    }))
+  )
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -40,43 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}${PULSE_APP_PATH}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/tr${PULSE_APP_PATH}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}${PULSE_APP_PATH}/support`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}/tr${PULSE_APP_PATH}/support`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}${PULSE_APP_PATH}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}/tr${PULSE_APP_PATH}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
   ]
 
-  return [...staticRoutes, ...englishPostEntries, ...turkishPostEntries]
+  return [...staticRoutes, ...pulseEntries, ...englishPostEntries, ...turkishPostEntries]
 }

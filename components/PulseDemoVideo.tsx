@@ -2,14 +2,11 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LuPlay } from 'react-icons/lu'
-import {
-  getPulseImageDir,
-  PULSE_IMAGE_DIR,
-  type PulseLocale,
-} from '../lib/constants'
+import { getPulseImageDir, type PulseLocale } from '../lib/pulse/locales'
 
 const PLAY_EVENT = 'pulse-demo:play'
 export const PULSE_DEMO_VIDEO_ID = 'pulse-demo-video'
+const PULSE_IMAGE_DIR = '/images/pulse-pomodoro'
 
 export function requestPulseDemoPlay() {
   window.dispatchEvent(new Event(PLAY_EVENT))
@@ -47,34 +44,19 @@ export function scrollToPulseDemoVideo(onScrolled?: () => void) {
 
 interface PulseDemoVideoProps {
   locale?: PulseLocale
-}
-
-const VIDEO_MESSAGES: Record<
-  PulseLocale,
-  {
-    ariaLabel: string
-    playLabel: string
-    unsupported: string
-  }
-> = {
-  en: {
-    ariaLabel: 'Pomodoro: Work & Study Timer product walkthrough',
-    playLabel: 'Play walkthrough',
-    unsupported: 'Your browser does not support embedded video.',
-  },
-  tr: {
-    ariaLabel: 'Pomodoro: Work & Study Timer ürün tanıtımı',
-    playLabel: 'Tanıtımı oynat',
-    unsupported: 'Tarayıcınız gömülü videoyu desteklemiyor.',
-  },
+  ariaLabel: string
+  playLabel: string
+  unsupported: string
 }
 
 export default function PulseDemoVideo({
   locale = 'en',
+  ariaLabel,
+  playLabel,
+  unsupported,
 }: PulseDemoVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [hasStarted, setHasStarted] = useState(false)
-  const messages = VIDEO_MESSAGES[locale]
 
   const play = useCallback(() => {
     const video = videoRef.current
@@ -98,55 +80,49 @@ export default function PulseDemoVideo({
   return (
     <div
       id={PULSE_DEMO_VIDEO_ID}
-      className="relative mx-auto scroll-mt-24"
+      className='relative mx-auto scroll-mt-24'
       style={{
         aspectRatio: '868 / 646',
         width: 'min(100%, 80rem, calc(70dvh * 868 / 646))',
-      }}
-    >
+      }}>
       <video
         ref={videoRef}
-        className="absolute inset-0 h-full w-full rounded-lg bg-bg-base object-contain"
+        className='absolute inset-0 h-full w-full rounded-lg bg-bg-base object-contain'
         poster={`${getPulseImageDir(locale)}/hero.png`}
         muted
         loop
         playsInline
         controls={hasStarted}
-        preload="metadata"
-        aria-label={messages.ariaLabel}
-      >
-        <source src={`${PULSE_IMAGE_DIR}/pulse-demo.mp4`} type="video/mp4" />
-        {messages.unsupported}
+        preload='metadata'
+        aria-label={ariaLabel}>
+        <source src={`${PULSE_IMAGE_DIR}/pulse-demo.mp4`} type='video/mp4' />
+        {unsupported}
       </video>
 
       {!hasStarted && (
         <button
-          type="button"
+          type='button'
           onClick={play}
-          className="
+          className='
             absolute inset-0 z-10 flex flex-col items-center justify-center gap-3
             rounded-lg bg-bg-base/60 backdrop-blur-[2px]
             transition-colors duration-base ease-out-custom
             hover:bg-bg-base/40
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated
-          "
-          aria-label={messages.playLabel}
-        >
+          '
+          aria-label={playLabel}>
           <span
-            className="
+            className='
               flex h-14 w-14 items-center justify-center rounded-full
               bg-accent text-bg-base shadow-lg shadow-accent/20
               transition-transform duration-base ease-out-custom
               hover:scale-105
               sm:h-16 sm:w-16
-            "
-            aria-hidden="true"
-          >
-            <LuPlay size={28} className="ml-1" />
+            '
+            aria-hidden='true'>
+            <LuPlay size={28} className='ml-1' />
           </span>
-          <span className="font-mono text-sm text-text-primary">
-            {messages.playLabel}
-          </span>
+          <span className='font-mono text-sm text-text-primary'>{playLabel}</span>
         </button>
       )}
     </div>

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
+    "test": "npx --yes tsx --test lib/pulse/pulse-localization.test.ts",
     "prepare": "husky"
   },
   "dependencies": {
