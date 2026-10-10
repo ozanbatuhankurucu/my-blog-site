@@ -17,12 +17,23 @@ export interface PulseNativeFeature {
   description: string
 }
 
+export interface PulseFaqItem {
+  question: string
+  answer: string
+}
+
+export interface PulseFaqSection {
+  title: string
+  items: PulseFaqItem[]
+}
+
 export interface PulseLandingMessages {
   metaTitle: string
   metaDescription: string
   heroImageAlt: string
   backToProjects: string
   availableOnAppStore: string
+  availabilityLine: string
   eyebrow: string
   tagline: string
   description: string
@@ -93,18 +104,12 @@ export interface PulseSupportMessages {
   metaDescription: string
   title: string
   intro: string
-  gettingStarted: {
-    title: string
-    steps: string[]
-  }
-  settings: {
-    title: string
-    body: string
-  }
-  history: {
-    title: string
-    body: string
-  }
+  gettingStarted: PulseFaqSection
+  accounts: PulseFaqSection
+  cloudSync: PulseFaqSection
+  migration: PulseFaqSection
+  notifications: PulseFaqSection
+  accountPrivacy: PulseFaqSection
   requirements: {
     title: string
     body: string
@@ -113,6 +118,7 @@ export interface PulseSupportMessages {
     title: string
     body: string
   }
+  privacyPolicyLink: string
 }
 
 export interface PulsePrivacyMessages {
@@ -126,6 +132,28 @@ export interface PulsePrivacyMessages {
     body: string
   }
   localData: {
+    title: string
+    body: string
+    migrationSafety: string
+  }
+  accountAndSync: {
+    title: string
+    intro: string
+    items: string[]
+    closing: string
+  }
+  processors: {
+    title: string
+    bodyBeforeSupabase: string
+    bodyAfterSupabase: string
+    orWord: string
+    bodyAfterProviders: string
+  }
+  retention: {
+    title: string
+    items: string[]
+  }
+  export: {
     title: string
     body: string
   }

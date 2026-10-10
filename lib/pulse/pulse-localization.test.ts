@@ -15,6 +15,15 @@ import { assertPulseMessagesComplete, getPulseMessages } from './messages'
 
 const PAGES = ['', 'support', 'privacy'] as const
 
+const SUPPORT_SECTIONS = [
+  'gettingStarted',
+  'accounts',
+  'cloudSync',
+  'migration',
+  'notifications',
+  'accountPrivacy',
+] as const
+
 describe('Pulse locales', () => {
   it('supports exactly 12 locales', () => {
     assert.equal(PULSE_LOCALES.length, 12)
@@ -81,32 +90,66 @@ describe('Pulse message catalogs', () => {
       const messages = getPulseMessages(locale)
 
       assert.ok(messages.languageLabel.length > 0)
-      assert.ok(messages.landing.metaTitle.includes('Pomodoro') || messages.landing.metaTitle.length > 0)
+      assert.ok(messages.landing.metaTitle.length > 0)
+      assert.ok(messages.landing.availabilityLine.length > 0)
       assert.ok(messages.support.metaTitle.length > 0)
       assert.ok(messages.privacy.metaTitle.length > 0)
       assert.equal(messages.landing.featureShowcases.length, 3)
       assert.equal(messages.landing.native.features.length, 4)
-      assert.equal(messages.landing.history.items.length, 4)
-      assert.equal(messages.support.gettingStarted.steps.length, 3)
+      assert.equal(messages.landing.history.items.length, 5)
       assert.ok(messages.privacy.lastUpdated.length > 0)
       assert.ok(messages.privacy.summary.body.length > 0)
+      assert.ok(messages.privacy.localData.migrationSafety.length > 0)
+      assert.ok(messages.privacy.accountAndSync.items.length >= 3)
+      assert.ok(messages.privacy.retention.items.length >= 4)
       assert.ok(messages.privacy.analytics.introBeforeLink.length > 0)
       assert.ok(messages.privacy.analytics.introAfterLink.length > 0)
-      assert.equal(messages.privacy.whatWeDoNotDo.items.length, 4)
+      assert.equal(messages.privacy.whatWeDoNotDo.items.length, 3)
+      assert.ok(messages.privacy.processors.bodyBeforeSupabase.length > 0)
+      assert.ok(messages.privacy.processors.bodyAfterSupabase.length > 0)
+      assert.ok(messages.privacy.processors.orWord.length > 0)
+      assert.ok(messages.privacy.processors.bodyAfterProviders.length > 0)
+
+      for (const sectionKey of SUPPORT_SECTIONS) {
+        const section = messages.support[sectionKey]
+        assert.ok(section.title.length > 0, `${locale} support.${sectionKey}.title`)
+        assert.ok(section.items.length >= 3, `${locale} support.${sectionKey}.items`)
+        for (const item of section.items) {
+          assert.ok(item.question.length > 0)
+          assert.ok(item.answer.length > 0)
+        }
+      }
+
+      assert.ok(messages.support.privacyPolicyLink.length > 0)
     }
   })
 
-  it('keeps privacy contact and TelemetryDeck disclosures present in every locale', () => {
+  it('keeps account, sync, TelemetryDeck, and deletion disclosures in every locale', () => {
     for (const locale of PULSE_LOCALES) {
       const privacy = getPulseMessages(locale).privacy
+      const support = getPulseMessages(locale).support
       assert.match(privacy.analytics.identifier, /TelemetryDeck/)
+      assert.match(privacy.summary.body, /Apple|Google|Supabase|TelemetryDeck|Apple|Google/i)
       assert.ok(privacy.contact.body.length > 0)
       assert.ok(privacy.children.body.length > 0)
+      assert.ok(privacy.export.body.length > 0)
+      assert.ok(
+        support.accountPrivacy.items.some((item) => {
+          const text = `${item.question} ${item.answer}`
+          return (
+            /Delete account|Hesabı sil|Konto löschen|Eliminar cuenta|Excluir conta|Supprimer le compte|アカウントを削除|계정 삭제|删除账户|删除帐户|Xóa tài khoản|खाता हटा/i.test(
+              text
+            ) || /удал/i.test(text)
+          )
+        }),
+        `missing deletion guidance in ${locale}`
+      )
     }
   })
 
   it('does not leave obvious untranslated English placeholders in non-English catalogs', () => {
     const englishLandingTitle = getPulseMessages('en').landing.metaTitle
+    const englishPrivacySummary = getPulseMessages('en').privacy.summary.body
 
     for (const locale of PULSE_LOCALES) {
       if (locale === 'en') {
@@ -115,6 +158,33 @@ describe('Pulse message catalogs', () => {
 
       const title = getPulseMessages(locale).landing.metaTitle
       assert.notEqual(title, englishLandingTitle, `landing title still English for ${locale}`)
+      assert.notEqual(
+        getPulseMessages(locale).privacy.summary.body,
+        englishPrivacySummary,
+        `privacy summary still English for ${locale}`
+      )
+    }
+  })
+
+  it('avoids outdated local-only claims on landing and privacy pages', () => {
+    for (const locale of PULSE_LOCALES) {
+      const landing = getPulseMessages(locale).landing
+      const privacy = getPulseMessages(locale).privacy
+      const banned =
+        /No sign-in|No cloud sync|No accounts(?![\s\S]*sync)|Keine Anmeldung|Pas de synchronisation cloud|无云同步|クラウド同期なし|サインイン不要/i
+
+      for (const item of landing.privacy.items) {
+        assert.equal(banned.test(item), false, `outdated landing privacy claim in ${locale}: ${item}`)
+      }
+      assert.equal(banned.test(landing.privacy.description), false, `outdated landing privacy copy in ${locale}`)
+      assert.equal(
+        /No account or sign-in|does not require an account|Kein Konto oder|Aucun compte/i.test(privacy.summary.body),
+        false,
+        `outdated privacy summary in ${locale}`
+      )
+      assert.ok(
+        privacy.whatWeDoNotDo.items.every((item) => !/No account or sign-in|Kein Konto oder|Aucun compte/i.test(item))
+      )
     }
   })
 })

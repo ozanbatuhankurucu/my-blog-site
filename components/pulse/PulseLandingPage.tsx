@@ -17,7 +17,7 @@ import { PulseLocaleSwitcher } from '../PulseLocaleSwitcher'
 import { Tag } from '../Tag'
 import { WatchPulseDemoButton } from '../WatchPulseDemoButton'
 import { PulseDocumentLang } from './PulseDocumentLang'
-import { PULSE_APP_NAME, PULSE_APP_STORE_URL, PULSE_APP_VERSION } from '../../lib/constants'
+import { PULSE_APP_NAME, PULSE_APP_STORE_URL } from '../../lib/constants'
 import { getPulseAppPath, getPulseImageDir, type PulseLocale } from '../../lib/pulse/locales'
 import { createPulseSoftwareJsonLd } from '../../lib/pulse/metadata'
 import { getPulseMessages } from '../../lib/pulse/messages'
@@ -75,9 +75,7 @@ export function PulseLandingPage({ locale }: PulseLandingPageProps) {
                 <Tag variant='status' status='success' size='md'>
                   {landing.availableOnAppStore}
                 </Tag>
-                <span className='font-mono text-sm text-text-muted'>
-                  v{PULSE_APP_VERSION} · macOS 14.6+
-                </span>
+                <span className='font-mono text-sm text-text-muted'>{landing.availabilityLine}</span>
               </div>
               <p className='font-mono text-sm text-accent mb-4'>{landing.eyebrow}</p>
               <h1 className='font-mono text-4xl md:text-5xl font-medium text-text-primary mb-6'>

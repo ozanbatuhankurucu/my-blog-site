@@ -4,6 +4,7 @@ import { PulseLocaleSwitcher } from '../PulseLocaleSwitcher'
 import { PULSE_APP_NAME } from '../../lib/constants'
 import { getPulseAppPath, type PulseLocale } from '../../lib/pulse/locales'
 import { getPulseMessages } from '../../lib/pulse/messages'
+import type { PulseFaqSection } from '../../lib/pulse/messages/types'
 import { PulseDocumentLang } from './PulseDocumentLang'
 
 interface PulseSupportPageProps {
@@ -13,7 +14,17 @@ interface PulseSupportPageProps {
 export function PulseSupportPage({ locale }: PulseSupportPageProps) {
   const messages = getPulseMessages(locale).support
   const pulsePath = getPulseAppPath(locale)
+  const privacyPath = getPulseAppPath(locale, 'privacy')
   const htmlLang = locale === 'en' ? undefined : locale === 'zh-Hans' ? 'zh-Hans' : locale
+
+  const faqSections: PulseFaqSection[] = [
+    messages.gettingStarted,
+    messages.accounts,
+    messages.cloudSync,
+    messages.migration,
+    messages.notifications,
+    messages.accountPrivacy,
+  ]
 
   return (
     <article className='container max-w-2xl py-16 md:py-24' lang={htmlLang}>
@@ -34,26 +45,19 @@ export function PulseSupportPage({ locale }: PulseSupportPageProps) {
       </header>
 
       <div className='space-y-10 text-text-secondary leading-relaxed'>
-        <section>
-          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>
-            {messages.gettingStarted.title}
-          </h2>
-          <ol className='list-decimal list-inside space-y-2'>
-            {messages.gettingStarted.steps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-        </section>
-
-        <section>
-          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.settings.title}</h2>
-          <p>{messages.settings.body}</p>
-        </section>
-
-        <section>
-          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.history.title}</h2>
-          <p>{messages.history.body}</p>
-        </section>
+        {faqSections.map((section) => (
+          <section key={section.title}>
+            <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{section.title}</h2>
+            <div className='space-y-5'>
+              {section.items.map((item) => (
+                <div key={item.question}>
+                  <h3 className='font-mono text-base font-medium text-text-primary mb-2'>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
 
         <section>
           <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>
@@ -65,12 +69,17 @@ export function PulseSupportPage({ locale }: PulseSupportPageProps) {
         <section>
           <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.contact.title}</h2>
           <p className='mb-2'>{messages.contact.body}</p>
-          <p>
+          <p className='mb-4'>
             <a
               href='mailto:ozanbatusss@gmail.com'
               className='text-accent hover:text-accent-hover transition-colors'>
               ozanbatusss@gmail.com
             </a>
+          </p>
+          <p>
+            <Link href={privacyPath} className='text-accent hover:text-accent-hover transition-colors'>
+              {messages.privacyPolicyLink}
+            </Link>
           </p>
         </section>
       </div>
