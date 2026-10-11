@@ -9,33 +9,34 @@ export const deMessages: PulseMessages = {
     unsupported: 'Ihr Browser unterstützt eingebettete Videos nicht.',
   },
   landing: {
-    metaTitle: `${PULSE_APP_NAME} — Menüleisten-Pomodoro-Timer für macOS`,
-    metaDescription: `${PULSE_APP_NAME} ist ein nativer macOS-Pomodoro-Timer mit neu gestalteter Popover-Oberfläche, vollständiger Fokus-Historie, sitzungsbewussten Hinweisen und Unterstützung für 12 Sprachen.`,
+    metaTitle: `${PULSE_APP_NAME} — Fokus-Timer für iPhone und Mac`,
+    metaDescription: `${PULSE_APP_NAME} ist ein ruhiger Pomodoro-Timer für iPhone und Mac mit Focus History, Daily Focus Goals, Anmeldung mit Apple und Google sowie offline-first Synchronisation auf all Ihren Geräten.`,
     heroImageAlt: `${PULSE_APP_NAME} Fokus-Timer und wöchentliche Historie im Überblick`,
     backToProjects: 'Zurück zu den Projekten',
-    availableOnAppStore: 'Erhältlich im Mac App Store',
-    eyebrow: 'Menüleisten-Pomodoro-Timer',
-    tagline: 'Ein ruhiger Pomodoro-Timer, der in Ihrer Menüleiste lebt.',
-    description: `Bleiben Sie fokussiert, ohne den Schreibtisch zu überladen. Starten Sie eine Fokus-Sitzung, machen Sie eine Pause und lassen Sie ${PULSE_APP_NAME} Ihren Fortschritt mit der vollständigen Fokus-Historie still im Hintergrund verfolgen.`,
-    downloadCta: 'Im Mac App Store laden',
+    availableOnAppStore: 'Im App Store erhältlich',
+    availabilityLine: 'iOS 17+ · macOS 14.6+',
+    eyebrow: 'Fokus-Timer für iPhone und Mac',
+    tagline: 'Ein sanfter Pomodoro-Timer, der beim Fokussieren hilft — auf dem iPhone und in der Mac-Menüleiste.',
+    description: `Starten Sie eine Fokus-Sitzung, machen Sie eine Pause und behalten Sie Ihre Historie bei. Melden Sie sich mit Apple oder Google an, damit Daily Focus Goals, Focus History und synchronisierte Einstellungen mit Ihrem Konto auf iPhone und Mac bleiben — während der Timer offline weiterläuft.`,
+    downloadCta: 'Im App Store laden',
     watchDemo: 'In Aktion ansehen',
     supportCta: 'Support',
     stats: {
-      platformLabel: 'Plattform',
-      platformValue: 'Natives macOS',
+      platformLabel: 'Plattformen',
+      platformValue: 'iPhone & Mac',
       languagesLabel: 'Sprachen',
       languagesValue: '12 Sprachen',
-      dataLabel: 'Datenerhebung',
-      dataValue: 'Keine',
+      dataLabel: 'Sync',
+      dataValue: 'Offline-first',
       builtWithLabel: 'Erstellt mit',
       builtWithValue: 'SwiftUI + AppKit',
     },
     demo: {
       eyebrow: 'Eine ruhigere Art zu fokussieren',
-      title: 'Ihr Timer ist da, wenn Sie ihn brauchen—und weg, wenn nicht.',
-      description: `Öffnen Sie ${PULSE_APP_NAME} aus der Menüleiste, wählen Sie eine Sitzung und schließen Sie das Popover. Der Timer läuft weiter, während Sie arbeiten. Beim ersten Start zeigt eine kurze Einführung, wo Sie ihn finden — und respektiert Reduce Motion, wenn aktiviert.`,
+      title: 'Ihr Timer ist da, wenn Sie ihn brauchen — und weg, wenn nicht.',
+      description: `Öffnen Sie ${PULSE_APP_NAME} auf dem Mac aus der Menüleiste, wählen Sie eine Sitzung und schließen Sie das Popover. Auf dem iPhone starten Sie Fokus auf dem Home-Bildschirm und nutzen auf unterstützten Geräten Live Activities. Der Timer läuft weiter, während Sie arbeiten.`,
       caption:
-        'Neugestaltete Sitzungssteuerung, vollständige Fokus-Historie, Lokalisierung in 12 Sprachen, sitzungsbewusste Abschlussmeldungen und Einstellungen.',
+        'Fokus- und Pausen-Timer, Daily Focus Goals, Focus History, Streak-Tracking, Lokalisierung in 12 Sprachen und optionale Abschlussbenachrichtigungen.',
     },
     rhythm: {
       eyebrow: 'Ein Rhythmus, den Sie steuern',
@@ -47,15 +48,15 @@ export const deMessages: PulseMessages = {
         title: 'Fokus',
         badge: '1–120 Min.',
         description:
-          'Der Countdown läuft leise, während Sie arbeiten. Pausieren, zurücksetzen oder überspringen — der Menüleisten-Timer bleibt fest verankert.',
+          'Der Countdown läuft leise, während Sie arbeiten. Pausieren, zurücksetzen oder überspringen — auf iPhone und Mac behalten Sie die Kontrolle.',
         imageFile: 'focus-running.png',
-        alt: `${PULSE_APP_NAME} Fokus-Sitzung mit Pausesteuerung und Countdown in der Menüleiste`,
+        alt: `${PULSE_APP_NAME} Fokus-Sitzung mit Pausesteuerung und Countdown`,
       },
       {
         title: 'Menüleiste',
-        badge: 'Stabiler Countdown',
+        badge: 'Mac',
         description:
-          'Restzeit sofort ein- oder ausblenden. Das Status-Element mit fester Breite bleibt bis 120:00 an Ort und Stelle, ohne das Popover zu verschieben.',
+          'Auf dem Mac die Restzeit in der Menüleiste ein- oder ausblenden. Das Status-Element mit fester Breite bleibt bis 120:00 an Ort und Stelle, ohne das Popover zu verschieben.',
         imageFile: 'menubar.png',
         alt: `${PULSE_APP_NAME} Countdown in der macOS-Menüleiste`,
       },
@@ -63,17 +64,17 @@ export const deMessages: PulseMessages = {
         title: 'Anpassung',
         badge: 'Ihre Regeln',
         description:
-          'Flexible Dauern, Abschlussklänge und Animationen, 12 UI-Sprachen und Start bei Anmeldung.',
+          'Flexible Dauern, Daily Focus Goals, Abschlussklänge und Animationen, 12 UI-Sprachen und Darstellungsoptionen.',
         imageFile: 'settings.png',
-        alt: `${PULSE_APP_NAME} Einstellungen für Dauern, Abschlussmeldungen, Sprache und Start bei Anmeldung`,
+        alt: `${PULSE_APP_NAME} Einstellungen für Dauern, Abschlussbenachrichtigungen, Sprache und Ziele`,
       },
     ],
     history: {
       eyebrow: 'Fortschritt ohne Druck',
-      title: 'Sehen Sie, wie die Arbeit sich summiert.',
+      title: 'Sehen Sie, wie sich die Arbeit summiert.',
       description:
-        'Öffnen Sie das vollständige Historie-Fenster über das Popover oder das Statusmenü. Summen und Streaks zeigen Ihren Fortschritt, ohne Fokus zu einem weiteren Dashboard zu machen.',
-      items: ['Gesamte Fokuszeit', 'Abgeschlossene Sitzungen', 'Aktuelle Serie', 'Beste Serie'],
+        'Öffnen Sie Focus History, um Summen und Streaks zu prüfen. Wenn Sie angemeldet sind, kann die Historie zwischen iPhone und Mac synchronisiert werden, damit Ihr Fortschritt mitkommt.',
+      items: ['Gesamte Fokuszeit', 'Abgeschlossene Sitzungen', 'Aktuelle Serie', 'Beste Serie', 'Daily Focus Goals'],
       imageAlt: `${PULSE_APP_NAME} wöchentliche Fokus-Historie mit Sitzungsanzahl, Fokusstunden und Serie`,
     },
     feedback: {
@@ -81,23 +82,24 @@ export const deMessages: PulseMessages = {
       title: 'Abschluss soll sich lohnen.',
       description: `Wählen Sie aus sechs ruhigen Abschlussklängen und sechs Tierfeiern — oder schalten Sie beides aus. ${PULSE_APP_NAME} zeigt die passende Meldung, wenn eine Fokus-, Kurz- oder Langpausensitzung endet.`,
       items: [
-        'Sitzungsbewusster Abschlusstitel und Untertitel',
+        'Sitzungsbezogener Abschlusstitel und Untertitel',
         'UI in 12 Sprachen mit Systemsprache als Standard',
-        'Sprachüberschreibung in den Einstellungen: System oder jede unterstützte Sprache',
+        'Sprach- und Darstellungseinstellungen auf jedem Gerät',
+        'Optionale Motivations-Erinnerungen auf dem iPhone',
       ],
-      settingsImageAlt: `${PULSE_APP_NAME} Einstellungen für Dauern, Sprache, Abschlussklänge und Start bei Anmeldung`,
+      settingsImageAlt: `${PULSE_APP_NAME} Einstellungen für Dauern, Sprache, Abschlussklänge und Ziele`,
       celebrationImageAlt: `${PULSE_APP_NAME} Hasen-Feieranimation beim Abschluss einer Sitzung`,
       soundNames: ['Forest Birds', 'Crystal Chime', 'Gentle Marimba', 'Rain Drops', 'Soft Bell', 'Zen Gong'],
       animalNames: ['Affe', 'Koala', 'Katze', 'Fuchs', 'Panda', 'Hase'],
     },
     native: {
       eyebrow: 'Native by design',
-      title: 'Gebaut, um sich auf Ihrem Mac zu Hause zu fühlen.',
-      description: `SwiftUI, AppKit und macOS-Systemkonventionen halten ${PULSE_APP_NAME} schnell, vertraut und zuverlässig — mit VoiceOver-Beschriftungen und Reduce-Motion-Unterstützung durchgängig.`,
+      title: 'Gebaut, um sich auf Apple-Geräten zu Hause zu fühlen.',
+      description: `SwiftUI, AppKit und Systemkonventionen halten ${PULSE_APP_NAME} schnell und vertraut — mit VoiceOver-Beschriftungen und Reduce-Motion-Unterstützung durchgängig.`,
       features: [
         {
-          title: 'Lebt in der Menüleiste',
-          description: 'Kein Dock-Symbol und kein Hauptfenster, das um Ihre Aufmerksamkeit konkurriert.',
+          title: 'Mac-Menüleiste & iPhone-Home',
+          description: 'Ein unaufdringlicher Menüleisten-Begleiter auf dem Mac und ein fokussiertes Home-Erlebnis auf dem iPhone.',
         },
         {
           title: 'Bleibt präzise',
@@ -105,84 +107,271 @@ export const deMessages: PulseMessages = {
             'Sitzungen bleiben über Ruhezustand, Aufwachen und Neustarts korrekt; die Historie wird zum tatsächlichen Endzeitpunkt gespeichert.',
         },
         {
-          title: 'Daten bleiben lokal',
-          description: 'Ihre Einstellungen und Fokus-Historie verlassen Ihren Mac nie.',
+          title: 'Offline-first Sync',
+          description:
+            'Fokussieren Sie ohne Verbindung weiter. Sobald Sie wieder online sind, synchronisieren angemeldete Änderungen mit Ihrem Konto.',
         },
         {
           title: 'Spricht Ihre Sprache',
           description:
-            'Vollständige UI in 12 Sprachen mit Systemsprache als Standard und manueller Überschreibung in den Einstellungen.',
+            'Vollständige UI in 12 Sprachen mit Systemsprache als Standard und manueller Auswahl in den Einstellungen.',
         },
       ],
     },
     privacy: {
-      eyebrow: 'Privat von Anfang an',
-      title: 'Ihr Fokus ist kein Datenpunkt.',
-      description: `${PULSE_APP_NAME} erhebt keine Daten. Keine Konten, keine Analytik, keine Werbung, keine Netzwerkanfragen. Alles bleibt auf Ihrem Mac.`,
+      eyebrow: 'Privat by design',
+      title: 'Ihr Fokus bleibt Ihrer.',
+      description: `${PULSE_APP_NAME} nutzt ein Konto, damit die Historie zwischen Ihren Geräten synchronisiert werden kann. Wir speichern nur, was die Synchronisation braucht, verkaufen Ihre Daten nie und halten Analytik von Ihrer Fokus-Historie getrennt.`,
       items: [
-        'Keine Anmeldung',
-        'Keine Cloud-Synchronisation',
-        'Kein Tracking',
-        'Kein Zugriff auf persönliche Dateien',
-        'Keine Daten verlassen Ihren Mac',
+        'Anmeldung mit Apple oder Google',
+        'Offline-first Fokus auf jedem Gerät',
+        'Cloud-Sync für Historie und synchronisierte Einstellungen',
+        'Keine Werbenetzwerke',
+        'Konto jederzeit in den Einstellungen löschen',
       ],
     },
     closing: {
       title: 'Schaffen Sie Raum für fokussierte Arbeit.',
-      description: `Holen Sie sich ${PULSE_APP_NAME} im Mac App Store — oder lesen Sie die Datenschutzrichtlinie und die Support-Seite, wenn Sie Hilfe brauchen.`,
+      description: `Holen Sie sich ${PULSE_APP_NAME} im App Store für iPhone und Mac — oder lesen Sie die Datenschutzrichtlinie und die Support-Seite, wenn Sie Hilfe brauchen.`,
       getSupport: 'Support erhalten',
       privacy: 'Datenschutz',
     },
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Support`,
-    metaDescription: `Support und Einstiegsleitfaden für ${PULSE_APP_NAME}, einen Menüleisten-Pomodoro-Timer für den Mac.`,
+    metaDescription: `Support, FAQ und Konto-Hilfe für ${PULSE_APP_NAME} auf iPhone und Mac — einschließlich Anmeldung, Sync, Migration und Kontolöschung.`,
     title: `${PULSE_APP_NAME} Support`,
-    intro: `${PULSE_APP_NAME} ist ein einfacher Menüleisten-Pomodoro-Timer für den Mac.`,
+    intro: `${PULSE_APP_NAME} ist ein ruhiger Pomodoro-Timer für iPhone und Mac. Melden Sie sich mit Apple oder Google an, um Focus History zwischen Ihren Geräten zu synchronisieren.`,
     gettingStarted: {
       title: 'Erste Schritte',
-      steps: [
-        'Klicken Sie auf das App-Symbol in der Menüleiste (oben rechts auf dem Bildschirm).',
-        'Wählen Sie Fokus, Kurzpause oder Langpause.',
-        'Drücken Sie Start. Sie können das Popover schließen, während der Timer läuft.',
+      items: [
+        {
+          question: 'Wie starte ich eine Fokus-Sitzung?',
+          answer:
+            'Auf dem Mac klicken Sie auf das App-Symbol in der Menüleiste, wählen Fokus, Kurzpause oder Langpause und drücken Start. Auf dem iPhone öffnen Sie die App, wählen auf Home eine Sitzung und drücken Start. Sie können die App schließen, während der Timer läuft.',
+        },
+        {
+          question: 'Wie ändere ich Fokus- und Pausendauern?',
+          answer:
+            'Öffnen Sie die Einstellungen und passen Sie die Längen für Fokus, Kurzpause und Langpause an. Sie können auch ein vorgegebenes Rhythmus-Profil wählen und die Minuten feinjustieren.',
+        },
+        {
+          question: 'Wie richte ich Daily Focus Goals ein?',
+          answer:
+            'Legen Sie in den Einstellungen fest, wie viele Fokus-Sitzungen Sie pro Tag möchten. Der Fortschritt erscheint auf Home und in Focus History.',
+        },
+        {
+          question: 'Wie sehe ich Focus History?',
+          answer:
+            'Öffnen Sie Focus History in der App (auf dem Mac über das Popover oder das Statusmenü). Sie sehen Summen, Streaks und wöchentlichen Fortschritt.',
+        },
+        {
+          question: 'Wie ändere ich Sprache und Darstellung?',
+          answer:
+            'Wählen Sie in den Einstellungen Sprache (System oder eine unterstützte Sprache) und Erscheinungsbild (System, Hell oder Dunkel). Diese Einstellungen bleiben auf jedem Gerät und werden nicht synchronisiert.',
+        },
       ],
     },
-    settings: {
-      title: 'Einstellungen',
-      body: 'Öffnen Sie den Tab Einstellungen, um Sitzungsdauern, Abschlussklänge, Menüleisten-Animationen und Start bei Anmeldung zu ändern.',
+    accounts: {
+      title: 'Konten',
+      items: [
+        {
+          question: 'Warum ist eine Anmeldung erforderlich?',
+          answer:
+            'Ein Konto sorgt dafür, dass Focus History, Daily Focus Goals und synchronisierte Einstellungen mit Ihnen auf iPhone und Mac bleiben. Neue Installationen verlangen eine Anmeldung, bevor Sie den Timer nutzen. Geräte, die von älteren Versionen upgraden, können lokale Historie bis zur Anmeldung weiter nutzbar halten.',
+        },
+        {
+          question: 'Wie melde ich mich mit Apple oder Google an?',
+          answer:
+            'Wählen Sie auf dem Anmeldebildschirm Mit Apple fortfahren oder Mit Google fortfahren und schließen Sie den Anbieter-Flow ab. Apple kann Hide My Email anbieten.',
+        },
+        {
+          question: 'Wie melde ich mich ab?',
+          answer:
+            'Öffnen Sie Einstellungen → Konto → Abmelden. Wenn Änderungen noch nicht synchronisiert wurden, kann die App Sie bitten, zuerst zu synchronisieren oder trotzdem abzumelden. Abmelden löscht Ihr Konto nicht.',
+        },
+        {
+          question: 'Wie melde ich mich wieder an?',
+          answer:
+            'Verwenden Sie auf dem Anmeldebildschirm dieselbe Apple- oder Google-Methode. Ihre Cloud-Historie wird für dieses Konto auf dem Gerät wiederhergestellt.',
+        },
+        {
+          question: 'Was passiert, wenn ich ein anderes Konto verwende?',
+          answer:
+            'Jedes Konto hat seine eigene Historie. Die Anmeldung bei einem anderen Konto führt keine fremden Historien zusammen. Wählen Sie sorgfältig, bevor Sie einen Historien-Claim auf einem Gerät bestätigen, das bereits lokale Sitzungen hat.',
+        },
+        {
+          question: 'Kann ich Apple und Google demselben Konto zuordnen?',
+          answer:
+            'Ja. Unter Einstellungen → Konto können Sie die andere Anmeldemethode verknüpfen, wenn sie nicht bereits von einem anderen Konto genutzt wird.',
+        },
+      ],
     },
-    history: {
-      title: 'Vollständige Fokus-Historie',
-      body: 'Öffnen Sie die vollständige Historie über das Popover oder das Statusmenü der Menüleiste, um Ihre gesamte Fokuszeit, abgeschlossene Sitzungen, aktuelle Serie und beste Serie zu sehen.',
+    cloudSync: {
+      title: 'Cloud-Synchronisation',
+      items: [
+        {
+          question: 'Was wird zwischen Geräten synchronisiert?',
+          answer:
+            'Historie von Fokus- und Pausensitzungen, Daily-Focus-Goal-Einträge, streak-bezogene Kontodaten und synchronisierte Einstellungen wie Sitzungsdauern, Tagesziel, Ton, Animationen, Abschlussklang und Feiertier.',
+        },
+        {
+          question: 'Was passiert ohne Internet?',
+          answer:
+            'Nach der Anmeldung können Sie den Timer offline weiter nutzen. Neue Sitzungen und Änderungen bleiben auf dem Gerät, bis eine Verbindung verfügbar ist.',
+        },
+        {
+          question: 'Was passiert, wenn ich wieder online bin?',
+          answer:
+            'Die App synchronisiert ausstehende Änderungen mit Ihrem Konto. Die Synchronisation ist offline-first und eventual consistent — keine sofortige Echtzeit-Kollaboration.',
+        },
+        {
+          question: 'Wie nutze ich dasselbe Konto auf iPhone und Mac?',
+          answer:
+            'Installieren Sie die App auf beiden Geräten und melden Sie sich mit demselben Apple- oder Google-Konto an. Nach Abschluss der Wiederherstellung kann Focus History auf beiden erscheinen.',
+        },
+        {
+          question: 'Was, wenn Historie fehlt?',
+          answer:
+            'Prüfen Sie, ob Sie mit demselben Konto angemeldet sind, warten Sie, bis Wiederherstellung/Sync abgeschlossen ist, und öffnen Sie Focus History erneut. Bei einem anderen Konto sehen Sie dessen eigene Historie.',
+        },
+      ],
+    },
+    migration: {
+      title: 'Upgrade von einer älteren Version',
+      items: [
+        {
+          question: 'Was passiert mit meiner bestehenden lokalen Historie?',
+          answer:
+            'Bestehende lokale Historie wird nicht stillschweigend gelöscht. Nach der Anmeldung fragt die App, bevor diese Historie Ihrem Konto hinzugefügt wird.',
+        },
+        {
+          question: 'Wie übernehme ich meine Historie?',
+          answer:
+            'Melden Sie sich mit dem Konto an, dem die Historie gehören soll, prüfen Sie den Bildschirm Historie hinzufügen und wählen Sie Zu diesem Konto hinzufügen. Verwenden Sie ein anderes Konto, wenn das angezeigte Konto falsch ist. Sitzungen können später nicht auf ein anderes Konto verschoben werden.',
+        },
+        {
+          question: 'Was, wenn Geräte- und Kontoeinstellungen abweichen?',
+          answer:
+            'Die App kann fragen, ob Sie die Einstellungen dieses Geräts oder die Kontoeinstellungen behalten möchten. Sprache, Erscheinungsbild, Benachrichtigungen und Motivations-Erinnerungen bleiben gerätelokal.',
+        },
+      ],
+    },
+    notifications: {
+      title: 'Benachrichtigungen',
+      items: [
+        {
+          question: 'Wie aktiviere ich Benachrichtigungen auf dem iPhone?',
+          answer:
+            'Öffnen Sie Einstellungen → Benachrichtigungen und wählen Sie Aktivieren, oder öffnen Sie die Systemeinstellungen, wenn die Berechtigung zuvor verweigert wurde.',
+        },
+        {
+          question: 'Wie funktionieren Motivations-Erinnerungen?',
+          answer:
+            'Öffnen Sie auf dem iPhone Einstellungen → Motivations-Erinnerungen und schalten Sie sie ein, nachdem Benachrichtigungen erlaubt sind. Sie können pausieren oder Ruhezeiten festlegen. Sie sind optional und standardmäßig aus.',
+        },
+        {
+          question: 'Was, wenn Benachrichtigungen deaktiviert sind?',
+          answer:
+            'Sitzungs-Endbenachrichtigungen und Motivations-Erinnerungen benötigen die Benachrichtigungsberechtigung. Nutzen Sie Einstellungen → Benachrichtigungen → Einstellungen öffnen, um sie in den iOS-Einstellungen zu aktivieren.',
+        },
+        {
+          question: 'Wie funktionieren Live Activities?',
+          answer:
+            'Auf unterstützten iPhones kann eine optionale Live Activity eine aktive Sitzung auf dem Sperrbildschirm und in der Dynamic Island anzeigen. Die Berechtigung wird angefragt, wenn Sie zugehörige Funktionen aktivieren.',
+        },
+      ],
+    },
+    accountPrivacy: {
+      title: 'Konto und Datenschutz',
+      items: [
+        {
+          question: 'Wie lösche ich mein Konto?',
+          answer:
+            'Melden Sie sich an, öffnen Sie Einstellungen → Konto → Konto löschen und bestätigen Sie. Ihr Konto und synchronisierte Fokus-Historie werden dauerhaft aus unserer Live-Datenbank gelöscht. Das kann nicht rückgängig gemacht werden. Die Löschung erfordert eine Netzwerkverbindung.',
+        },
+        {
+          question: 'Was bewirkt die Kontolöschung?',
+          answer:
+            'Synchronisierte Cloud-Daten für dieses Konto werden entfernt, die Sign-in-with-Apple-Autorisierung wird widerrufen, wenn gespeichert, und die Kontodaten werden auf dem Gerät entfernt, auf dem Sie löschen. Lokale Kopien auf anderen Geräten können nicht mehr synchronisieren; entfernen Sie die App dort oder löschen Sie die Daten, falls nötig. Anbieter-Backups können gelöschte Daten für ein begrenztes Wiederherstellungsfenster aufbewahren.',
+        },
+        {
+          question: 'Wie exportiere ich meine Daten?',
+          answer:
+            'Einstellungen → Konto → Meine Daten exportieren speichert eine JSON-Datei mit Sitzungen, Tageszielen, synchronisierten Einstellungen und Kontoprofil. Nicht übernommene lokale Daten können auch vom Anmeldebildschirm exportiert werden.',
+        },
+        {
+          question: 'Wo finde ich die Datenschutzrichtlinie?',
+          answer:
+            'Öffnen Sie die Datenschutzrichtlinie auf der Produktwebsite oder nutzen Sie den Datenschutz-Link auf den Produktseiten dieser Website.',
+        },
+      ],
     },
     requirements: {
       title: 'Voraussetzungen',
-      body: 'macOS 14.6 oder neuer.',
+      body: 'iPhone: iOS 17 oder neuer. Mac: macOS 14.6 oder neuer.',
     },
     contact: {
       title: 'Kontakt',
       body: 'Für Hilfe, Feedback oder Fehlermeldungen:',
     },
+    privacyPolicyLink: 'Datenschutzrichtlinie',
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Datenschutzrichtlinie`,
-    metaDescription: `Datenschutzrichtlinie für ${PULSE_APP_NAME}, einen Pomodoro-Timer für Mac und iPhone.`,
+    metaDescription: `Datenschutzrichtlinie für ${PULSE_APP_NAME}: Anmeldung mit Apple und Google, Cloud-Sync, lokale Speicherung, Analytik und Kontolöschung auf Mac und iPhone.`,
     title: 'Datenschutzrichtlinie',
     subtitle: `${PULSE_APP_NAME} — Pomodoro-Timer für Mac und iPhone`,
-    lastUpdated: 'Zuletzt aktualisiert: 24. September 2026',
+    lastUpdated: 'Zuletzt aktualisiert: 11. Oktober 2026',
     summary: {
       title: 'Zusammenfassung',
-      body: `${PULSE_APP_NAME} erfordert kein Konto und erhebt keine Namen, E-Mails oder persönliche Inhalte. Die App kann anonyme, datenschutzschonende Nutzungsanalytik senden, damit wir Fokusabläufe verbessern können. Ihre Timer-Einstellungen und Fokus-Historie bleiben auf Ihrem Gerät.`,
+      body: `Wenn Sie sich mit Apple oder Google anmelden, hält Ihr Konto Fokus-Historie, Tagesziele und Timer-Einstellungen zwischen Mac und iPhone synchron. Wir speichern nur, was die App dafür braucht: Ihre E-Mail-Adresse, eine Konto-Kennung und die von Ihnen erzeugten Fokusdaten. Wir verkaufen sie nicht, nutzen sie nicht für Werbung und teilen sie nicht mit unserem Analytik-Anbieter. Sie können Ihre Daten jederzeit in den Einstellungen exportieren oder Ihr Konto löschen. Separat kann die App anonyme, datenschutzschonende Nutzungsanalytik senden, damit wir Fokusabläufe verbessern können.`,
     },
     localData: {
       title: 'Auf Ihrem Gerät gespeicherte Daten',
-      body: 'Ihre Timer-Einstellungen, Sitzungspräferenzen und Fokus-Historie werden lokal auf Ihrem Mac oder iPhone mit dem standardmäßigen Systemspeicher gespeichert. Der Inhalt der Fokus-Historie selbst wird nicht an unseren Analytik-Anbieter hochgeladen.',
+      body: 'Ihre Timer-Einstellungen, Sitzungspräferenzen und Fokus-Historie werden lokal auf Mac oder iPhone mit dem standardmäßigen Systemspeicher gespeichert, damit der Timer offline weiterläuft. Jedes auf einem Gerät angemeldete Konto hat einen eigenen lokalen Speicher. Ihre Anmeldesitzung wird in der System-Schlüsselkette aufbewahrt. Sprache, Erscheinungsbild, Start bei Anmeldung, Benachrichtigungen und Motivations-Erinnerungen bleiben auf jedem Gerät und werden nicht synchronisiert. Der Inhalt der Fokus-Historie selbst wird nicht an unseren Analytik-Anbieter hochgeladen.',
+      migrationSafety:
+        'Wenn Sie sich auf einem Gerät erstmals anmelden, das bereits Fokus-Historie hat, fragt die App, bevor diese Historie in Ihr Konto verschoben wird. Bis die Verschiebung auf unseren Servern bestätigt ist, plus 90 Tage, behält die App die frühere lokale Kopie und eine lokale Sicherungsdatei auf dem Gerät als Sicherheitsnetz und entfernt sie anschließend automatisch.',
+    },
+    accountAndSync: {
+      title: 'Ihr Konto und synchronisierte Daten',
+      intro: 'Wenn Sie sich anmelden, verarbeiten wir:',
+      items: [
+        'Kontaktinfo: die von Sign in with Apple (ggf. private Relay-Adresse über Hide My Email) oder Google geteilte E-Mail-Adresse. Wir fragen nicht nach Ihrem Namen.',
+        'Kennungen: eine bei der Anmeldung erstellte Konto-ID und eine zufällige ID pro Installation, nur für Sync und um zu erkennen, welches Gerät eine Änderung vorgenommen hat.',
+        'Fokusdaten: abgeschlossene und gelöschte Fokus- und Pausensitzungen (Zeiten, Dauern, lokaler Tag und Zeitzone), Tagesziele, Ihre beste Serie und synchronisierte Einstellungen (Sitzungsdauern, Tagesziel, Ton, Animationen, Abschlussklang, Feiertier).',
+      ],
+      closing:
+        'Diese Daten dienen nur Sync, Historie und Kontofunktionen. Sie sind mit Ihrem Konto verknüpft, werden nicht zum Tracking genutzt und nicht an Dritte außer den unten genannten Auftragsverarbeitern weitergegeben.',
+    },
+    processors: {
+      title: 'Auftragsverarbeiter und Speicherort',
+      bodyBeforeSupabase: 'Konto- und Sync-Daten werden bei',
+      bodyAfterSupabase:
+        ' (Datenbank und Authentifizierung) in der Europäischen Union gespeichert. Die Anmeldung wird abhängig von Ihrer Wahl von',
+      orWord: 'oder',
+      bodyAfterProviders:
+        ' abgewickelt. Daten werden bei der Übertragung verschlüsselt; der Zugriff ist so beschränkt, dass jedes Konto nur seine eigenen Daten lesen kann.',
+    },
+    retention: {
+      title: 'Aufbewahrung, Backups und Löschung',
+      items: [
+        'Ihre synchronisierten Daten werden aufbewahrt, solange Ihr Konto besteht.',
+        'Konto löschen (Einstellungen → Konto → Konto löschen) löscht Ihr Konto und alle synchronisierten Daten dauerhaft aus unserer Live-Datenbank, widerruft die Sign-in-with-Apple-Autorisierung der App, wenn gespeichert, und entfernt die Kontodaten auf dem Gerät, auf dem Sie löschen. Lokale Kopien auf anderen Geräten können nicht mehr synchronisieren und bleiben dort, bis Sie die App auf diesen Geräten löschen oder sie über den Anmeldebildschirm entfernen, wenn angeboten.',
+        'Unser Datenbankanbieter bewahrt tägliche Backups 7 Tage auf. Gelöschte Daten können in diesen Backups verbleiben, bis sie ablaufen; Backups dienen nur der Notfallwiederherstellung. Wir können zusätzlich bis zu 90 Tage ein verschlüsseltes Wochenbackup für denselben Zweck aufbewahren.',
+        'Abmelden löscht nichts. Noch nicht synchronisierte Änderungen bleiben auf dem Gerät, bis sich dasselbe Konto wieder anmeldet.',
+        'Analytik-Einträge werden von TelemetryDeck gemäß dessen Aufbewahrungspraxis verarbeitet und nicht zur Wiederherstellung Ihrer Fokus-Historie genutzt.',
+      ],
+    },
+    export: {
+      title: 'Export',
+      body: 'Einstellungen → Konto → Meine Daten exportieren speichert eine JSON-Datei mit Ihren Sitzungen, Tageszielen, synchronisierten Einstellungen und Kontoprofil. Daten, die noch nicht in ein Konto übernommen wurden, können auch vom Anmeldebildschirm exportiert werden.',
     },
     analytics: {
       title: 'Analytik',
       introBeforeLink: 'Wir nutzen',
       introAfterLink:
-        ', einen datenschutzorientierten Analytik-Dienst, um zu verstehen, wie die App genutzt wird (zum Beispiel: gestartete oder abgeschlossene Fokus- oder Pausensitzungen, Änderungen am Tagesziel, Einstellungsänderungen und ob die Einführung abgeschlossen wurde). Signale enthalten keinen Freitext, keine Namen, keine E-Mails und keine Inhalte Ihrer Fokus-Historie.',
+        ', einen datenschutzorientierten Analytik-Dienst, um zu verstehen, wie die App genutzt wird (z. B. gestartete oder abgeschlossene Fokus- oder Pausensitzungen, Änderungen am Tagesziel, Einstellungsänderungen, Ergebnisse der Benachrichtigungsberechtigung, Motivations-Erinnerungs-Ereignisse und ob das Onboarding abgeschlossen wurde). Signale enthalten keinen Freitext, keine Namen, keine E-Mails und keine Inhalte Ihrer Fokus-Historie.',
       identifier:
         'TelemetryDeck erkennt Installationen über eine gehashte, gerätebezogene Kennung und kann nicht-persönliche Gerätemetadaten anhängen (etwa Modell, Betriebssystemversion und Gebietsschema). Diese Daten werden nur für Analytik verwendet, von uns nicht mit Ihrer Identität verknüpft und nicht zum Tracking über Apps oder Websites anderer Unternehmen genutzt.',
       learnMore: 'Mehr erfahren:',
@@ -198,20 +387,19 @@ export const deMessages: PulseMessages = {
     },
     notifications: {
       title: 'Benachrichtigungen und Live Activities (iPhone)',
-      body: 'Auf dem iPhone helfen optionale lokale Benachrichtigungen und Live Activities dabei zu sehen, wann eine Sitzung endet. Die Berechtigung wird nur angefragt, wenn Sie diese Funktionen aktivieren. Der Inhalt der Benachrichtigungen bleibt auf Ihrem Gerät.',
+      body: 'Auf dem iPhone helfen optionale lokale Benachrichtigungen, Motivations-Erinnerungen und Live Activities dabei zu sehen, wann eine Sitzung endet, oder sanft zurück in den Fokus zu finden. Die Berechtigung wird nur angefragt, wenn Sie diese Funktionen aktivieren. Der Inhalt der Benachrichtigungen bleibt auf Ihrem Gerät.',
     },
     whatWeDoNotDo: {
       title: 'Was wir nicht tun',
       items: [
-        'Kein Konto und keine Anmeldung',
         'Keine Werbenetzwerke',
-        'Kein Verkauf personenbezogener Daten',
+        'Kein Verkauf personenbezogener Informationen',
         'Kein Zugriff auf Kontakte, Fotos, präzisen Standort, Kamera oder Mikrofon für Analytik',
       ],
     },
     children: {
       title: 'Kinder',
-      body: `${PULSE_APP_NAME} erhebt wissentlich keine personenbezogenen Daten von Kindern. Analytik-Signale sind anonym und enthalten keine persönlichen Inhalte.`,
+      body: `${PULSE_APP_NAME} erhebt wissentlich keine personenbezogenen Daten von Kindern über das hinaus, was ein Konto für die Synchronisation benötigt, wie oben beschrieben. Analytik-Signale sind anonym und enthalten keine persönlichen Inhalte.`,
     },
     changes: {
       title: 'Änderungen',

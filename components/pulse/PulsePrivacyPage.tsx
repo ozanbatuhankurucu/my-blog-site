@@ -12,6 +12,7 @@ interface PulsePrivacyPageProps {
 
 export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
   const messages = getPulseMessages(locale).privacy
+  const supportPath = getPulseAppPath(locale, 'support')
   const pulsePath = getPulseAppPath(locale)
   const htmlLang = locale === 'en' ? undefined : locale === 'zh-Hans' ? 'zh-Hans' : locale
 
@@ -42,7 +43,66 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
 
         <section>
           <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.localData.title}</h2>
-          <p>{messages.localData.body}</p>
+          <p className='mb-4'>{messages.localData.body}</p>
+          <p>{messages.localData.migrationSafety}</p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>
+            {messages.accountAndSync.title}
+          </h2>
+          <p className='mb-4'>{messages.accountAndSync.intro}</p>
+          <ul className='list-disc list-inside space-y-2 mb-4'>
+            {messages.accountAndSync.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>{messages.accountAndSync.closing}</p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.processors.title}</h2>
+          <p>
+            {messages.processors.bodyBeforeSupabase}{' '}
+            <a
+              href='https://supabase.com/privacy'
+              className='text-accent hover:text-accent-hover transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              Supabase
+            </a>{' '}
+            {messages.processors.bodyAfterSupabase}{' '}
+            <a
+              href='https://www.apple.com/legal/privacy/'
+              className='text-accent hover:text-accent-hover transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              Apple
+            </a>{' '}
+            {messages.processors.orWord}{' '}
+            <a
+              href='https://policies.google.com/privacy'
+              className='text-accent hover:text-accent-hover transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              Google
+            </a>{' '}
+            {messages.processors.bodyAfterProviders}
+          </p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.retention.title}</h2>
+          <ul className='list-disc list-inside space-y-2'>
+            {messages.retention.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.export.title}</h2>
+          <p>{messages.export.body}</p>
         </section>
 
         <section>
@@ -123,6 +183,11 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
               className='text-accent hover:text-accent-hover transition-colors'>
               ozanbatusss@gmail.com
             </a>
+          </p>
+          <p className='mt-4'>
+            <Link href={supportPath} className='text-accent hover:text-accent-hover transition-colors'>
+              {getPulseMessages(locale).landing.closing.getSupport}
+            </Link>
           </p>
         </section>
       </div>

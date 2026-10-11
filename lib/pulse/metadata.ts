@@ -98,7 +98,7 @@ export function createPulseSoftwareJsonLd(locale: PulseLocale, featureList?: str
     '@type': 'SoftwareApplication',
     name: PULSE_APP_NAME,
     applicationCategory: 'ProductivityApplication',
-    operatingSystem: 'macOS 14.6 or later',
+    operatingSystem: 'iOS 17 or later, macOS 14.6 or later',
     softwareVersion: PULSE_APP_VERSION,
     description: messages.metaDescription,
     url: `${SITE_URL}${path}`,

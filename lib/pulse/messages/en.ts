@@ -9,33 +9,34 @@ export const enMessages: PulseMessages = {
     unsupported: 'Your browser does not support embedded video.',
   },
   landing: {
-    metaTitle: `${PULSE_APP_NAME} — Menu bar Pomodoro timer for macOS`,
-    metaDescription: `${PULSE_APP_NAME} is a native macOS Pomodoro timer with a redesigned popover, full focus history, session-aware alerts, and support for 12 languages.`,
+    metaTitle: `${PULSE_APP_NAME} — Focus timer for iPhone and Mac`,
+    metaDescription: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac with Focus History, Daily Focus Goals, Apple and Google sign-in, and offline-first sync across your devices.`,
     heroImageAlt: `${PULSE_APP_NAME} focus timer and weekly history overview`,
     backToProjects: 'Back to projects',
-    availableOnAppStore: 'Available on the Mac App Store',
-    eyebrow: 'Menu bar Pomodoro timer',
-    tagline: 'A gentle Pomodoro timer that lives in your menu bar.',
-    description: `Stay focused without cluttering your desktop. Start a focus session, take a break, and let ${PULSE_APP_NAME} track your progress with full focus history — quietly, in the background.`,
-    downloadCta: 'Download on the Mac App Store',
+    availableOnAppStore: 'Available on the App Store',
+    availabilityLine: 'iOS 17+ · macOS 14.6+',
+    eyebrow: 'Focus timer for iPhone and Mac',
+    tagline: 'A gentle Pomodoro timer that helps you focus — on iPhone and in your Mac menu bar.',
+    description: `Start a Focus session, take a break, and keep your history with you. Sign in with Apple or Google so Daily Focus Goals, Focus History, and synced preferences stay with your account across iPhone and Mac — while the timer still works offline.`,
+    downloadCta: 'Download on the App Store',
     watchDemo: 'Watch it in action',
     supportCta: 'Support',
     stats: {
-      platformLabel: 'Platform',
-      platformValue: 'Native macOS',
+      platformLabel: 'Platforms',
+      platformValue: 'iPhone & Mac',
       languagesLabel: 'Languages',
       languagesValue: '12 languages',
-      dataLabel: 'Data collection',
-      dataValue: 'None',
+      dataLabel: 'Sync',
+      dataValue: 'Offline-first',
       builtWithLabel: 'Built with',
       builtWithValue: 'SwiftUI + AppKit',
     },
     demo: {
       eyebrow: 'A quieter way to focus',
       title: 'Your timer is there when you need it—and gone when you do not.',
-      description: `Open ${PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. The timer keeps working while you do. On first launch, a brief introduction shows you where to find it — respecting Reduce Motion when enabled.`,
+      description: `On Mac, open ${PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. On iPhone, start Focus from Home and keep going with Live Activities on supported devices. The timer keeps working while you do.`,
       caption:
-        'Redesigned session controls, full focus history, 12-language localization, session-aware completion alerts, and settings.',
+        'Focus and break timers, Daily Focus Goals, Focus History, streak tracking, 12-language localization, and optional completion alerts.',
     },
     rhythm: {
       eyebrow: 'A rhythm you control',
@@ -47,15 +48,15 @@ export const enMessages: PulseMessages = {
         title: 'Focus',
         badge: '1–120 min',
         description:
-          'The countdown runs quietly while you work. Pause, reset, or skip while the menu bar timer stays anchored.',
+          'The countdown runs quietly while you work. Pause, reset, or skip — you stay in control on iPhone and Mac.',
         imageFile: 'focus-running.png',
-        alt: `${PULSE_APP_NAME} focus session running with pause controls and menu bar countdown`,
+        alt: `${PULSE_APP_NAME} focus session running with pause controls and countdown`,
       },
       {
         title: 'Menu bar',
-        badge: 'Stable countdown',
+        badge: 'Mac',
         description:
-          'Show or hide the remaining time instantly. The fixed-width status item stays put without shifting the popover, up to 120:00.',
+          'On Mac, show or hide the remaining time in the menu bar. The fixed-width status item stays put without shifting the popover, up to 120:00.',
         imageFile: 'menubar.png',
         alt: `${PULSE_APP_NAME} countdown displayed in the macOS menu bar`,
       },
@@ -63,17 +64,17 @@ export const enMessages: PulseMessages = {
         title: 'Customisation',
         badge: 'Your rules',
         description:
-          'Flexible durations, completion sounds and animations, 12 UI languages, and launch at login.',
+          'Flexible durations, Daily Focus Goals, completion sounds and animations, 12 UI languages, and appearance preferences.',
         imageFile: 'settings.png',
-        alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and launch at login`,
+        alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and goals`,
       },
     ],
     history: {
       eyebrow: 'Progress without pressure',
       title: 'See the work adding up.',
       description:
-        'Open the full history window from the popover or status menu. Totals and streaks show your progress without turning focus into another dashboard to manage.',
-      items: ['Total focus time', 'Completed session count', 'Current streak', 'Best streak'],
+        'Open Focus History to review totals and streaks. When you are signed in, history can sync across your iPhone and Mac so progress follows you.',
+      items: ['Total focus time', 'Completed session count', 'Current streak', 'Best streak', 'Daily Focus Goals'],
       imageAlt: `${PULSE_APP_NAME} weekly focus history with session counts, focused hours, and streak`,
     },
     feedback: {
@@ -83,21 +84,22 @@ export const enMessages: PulseMessages = {
       items: [
         'Session-aware completion title and subtitle',
         'UI in 12 languages with system-language default',
-        'Language override in Settings: System or any supported language',
+        'Language and appearance preferences on each device',
+        'Optional motivation reminders on iPhone',
       ],
-      settingsImageAlt: `${PULSE_APP_NAME} settings for durations, language, completion sounds, and launch at login`,
+      settingsImageAlt: `${PULSE_APP_NAME} settings for durations, language, completion sounds, and goals`,
       celebrationImageAlt: `${PULSE_APP_NAME} rabbit celebration animation when a session completes`,
       soundNames: ['Forest Birds', 'Crystal Chime', 'Gentle Marimba', 'Rain Drops', 'Soft Bell', 'Zen Gong'],
       animalNames: ['Monkey', 'Koala', 'Cat', 'Fox', 'Panda', 'Rabbit'],
     },
     native: {
       eyebrow: 'Native by design',
-      title: 'Built to feel at home on your Mac.',
-      description: `SwiftUI, AppKit, and macOS system conventions keep ${PULSE_APP_NAME} fast, familiar, and dependable — with VoiceOver labels and Reduce Motion support throughout.`,
+      title: 'Built to feel at home on Apple devices.',
+      description: `SwiftUI, AppKit, and system conventions keep ${PULSE_APP_NAME} fast and familiar — with VoiceOver labels and Reduce Motion support throughout.`,
       features: [
         {
-          title: 'Lives in the menu bar',
-          description: 'No Dock icon and no main window competing for your attention.',
+          title: 'Mac menu bar & iPhone Home',
+          description: 'A quiet menu bar companion on Mac, and a focused Home experience on iPhone.',
         },
         {
           title: 'Stays accurate',
@@ -105,8 +107,9 @@ export const enMessages: PulseMessages = {
             'Sessions remain correct across sleep, wake, and relaunches, with history recorded at the actual deadline.',
         },
         {
-          title: 'Keeps data local',
-          description: 'Your settings and focus history never leave your Mac.',
+          title: 'Offline-first sync',
+          description:
+            'Keep focusing without a connection. When you are back online, signed-in changes sync to your account.',
         },
         {
           title: 'Speaks your language',
@@ -116,73 +119,259 @@ export const enMessages: PulseMessages = {
       ],
     },
     privacy: {
-      eyebrow: 'Private by default',
-      title: 'Your focus is not a data point.',
-      description: `${PULSE_APP_NAME} collects no data. No accounts, analytics, advertising, or network requests. Everything stays on your Mac.`,
+      eyebrow: 'Private by design',
+      title: 'Your focus stays yours.',
+      description: `${PULSE_APP_NAME} uses an account so history can sync between your devices. We store only what sync needs, never sell your data, and keep analytics separate from your focus history.`,
       items: [
-        'No sign-in',
-        'No cloud sync',
-        'No tracking',
-        'No access to personal files',
-        'No data leaves your Mac',
+        'Sign in with Apple or Google',
+        'Offline-first focus on each device',
+        'Cloud sync for history and synced preferences',
+        'No advertising networks',
+        'Delete your account anytime in Settings',
       ],
     },
     closing: {
       title: 'Make space for focused work.',
-      description: `Get ${PULSE_APP_NAME} from the Mac App Store, or read the privacy policy and support page if you need help.`,
+      description: `Get ${PULSE_APP_NAME} on the App Store for iPhone and Mac, or read the privacy policy and support page if you need help.`,
       getSupport: 'Get support',
       privacy: 'Privacy',
     },
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Support`,
-    metaDescription: `Support and getting started guide for ${PULSE_APP_NAME}, a menu bar Pomodoro timer for Mac.`,
+    metaDescription: `Support, FAQ, and account help for ${PULSE_APP_NAME} on iPhone and Mac — including sign-in, sync, migration, and account deletion.`,
     title: `${PULSE_APP_NAME} Support`,
-    intro: `${PULSE_APP_NAME} is a simple menu bar Pomodoro timer for Mac.`,
+    intro: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac. Sign in with Apple or Google to sync Focus History across your devices.`,
     gettingStarted: {
       title: 'Getting started',
-      steps: [
-        'Click the app icon in your menu bar (top-right area of the screen).',
-        'Choose Focus, Short Break, or Long Break.',
-        'Press Start. You can close the popover while the timer runs.',
+      items: [
+        {
+          question: 'How do I start a Focus session?',
+          answer:
+            'On Mac, click the app icon in the menu bar, choose Focus, Short Break, or Long Break, then press Start. On iPhone, open the app, choose a session on Home, and press Start. You can leave the app while the timer runs.',
+        },
+        {
+          question: 'How do I change Focus and Break durations?',
+          answer:
+            'Open Settings and adjust Focus, Short Break, and Long Break lengths. You can also pick a preset rhythm, then fine-tune the minutes.',
+        },
+        {
+          question: 'How do I configure Daily Focus Goals?',
+          answer:
+            'In Settings, set how many Focus sessions you want each day. Progress appears on Home and in Focus History.',
+        },
+        {
+          question: 'How do I view Focus History?',
+          answer:
+            'Open Focus History from the app (on Mac, from the popover or status menu). You will see totals, streaks, and weekly progress.',
+        },
+        {
+          question: 'How do I change language and appearance?',
+          answer:
+            'In Settings, choose Language (System or a supported language) and Appearance (System, Light, or Dark). These preferences stay on each device and are not synced.',
+        },
       ],
     },
-    settings: {
-      title: 'Settings',
-      body: 'Open the Settings tab to change session lengths, completion sounds, menu bar animations, and Launch at Login.',
+    accounts: {
+      title: 'Accounts',
+      items: [
+        {
+          question: 'Why is sign-in required?',
+          answer:
+            'An account lets Focus History, Daily Focus Goals, and synced preferences stay with you across iPhone and Mac. New installs ask you to sign in before using the timer. Devices upgrading from older versions may keep local history usable until you sign in.',
+        },
+        {
+          question: 'How do I sign in with Apple or Google?',
+          answer:
+            'On the sign-in screen, choose Continue with Apple or Continue with Google and finish the provider flow. Apple may offer Hide My Email.',
+        },
+        {
+          question: 'How do I sign out?',
+          answer:
+            'Open Settings → Account → Sign out. If some changes have not synced yet, the app may ask you to sync first or sign out anyway. Signing out does not delete your account.',
+        },
+        {
+          question: 'How do I sign back in?',
+          answer:
+            'Use the same Apple or Google method on the sign-in screen. Your cloud history restores to that account on the device.',
+        },
+        {
+          question: 'What happens if I use a different account?',
+          answer:
+            'Each account has its own history. Signing into another account does not merge unrelated histories. Choose carefully before confirming a history claim on a device that already has local sessions.',
+        },
+        {
+          question: 'Can I link Apple and Google to the same account?',
+          answer:
+            'Yes. In Settings → Account you can link the other sign-in method when it is not already used by a different account.',
+        },
+      ],
     },
-    history: {
-      title: 'Full focus history',
-      body: 'Open Full History from the popover or the menu bar status menu to see your total focus time, completed sessions, current streak, and best streak.',
+    cloudSync: {
+      title: 'Cloud synchronization',
+      items: [
+        {
+          question: 'What syncs between devices?',
+          answer:
+            'Focus and break session history, Daily Focus Goal records, streak-related account data, and synced preferences such as session lengths, daily goal, sound, animations, completion sound, and celebration animal.',
+        },
+        {
+          question: 'What happens without internet?',
+          answer:
+            'After you are signed in, you can keep using the timer offline. New sessions and changes stay on the device until a connection is available.',
+        },
+        {
+          question: 'What happens when I am back online?',
+          answer:
+            'The app syncs pending changes with your account. Sync is offline-first and eventually consistent — it is not instantaneous real-time collaboration.',
+        },
+        {
+          question: 'How do I use the same account on iPhone and Mac?',
+          answer:
+            'Install the app on both devices and sign in with the same Apple or Google account. After restore finishes, Focus History can appear on both.',
+        },
+        {
+          question: 'What if history is missing?',
+          answer:
+            'Confirm you are signed into the same account, wait for restore/sync to finish, and check Focus History again. If you signed into a different account, that account will show its own history.',
+        },
+      ],
+    },
+    migration: {
+      title: 'Upgrading from an older version',
+      items: [
+        {
+          question: 'What happens to my existing local history?',
+          answer:
+            'Existing local history is not silently deleted. After sign-in, the app asks before adding that history to your account.',
+        },
+        {
+          question: 'How should I claim my history?',
+          answer:
+            'Sign into the account that should own the history, review the Add your history screen, then choose Add to this account. Use a different account if the shown account is wrong. Sessions cannot be moved to another account later.',
+        },
+        {
+          question: 'What if device and account settings differ?',
+          answer:
+            'The app may ask whether to keep this device’s settings or use account settings. Language, appearance, notifications, and motivation reminders stay device-local.',
+        },
+      ],
+    },
+    notifications: {
+      title: 'Notifications',
+      items: [
+        {
+          question: 'How do I enable notifications on iPhone?',
+          answer:
+            'Open Settings → Notifications and choose Enable, or open system Settings if permission was previously denied.',
+        },
+        {
+          question: 'How do Motivation reminders work?',
+          answer:
+            'On iPhone, open Settings → Motivation reminders and turn them on after notifications are allowed. You can pause them or set quiet hours. They are optional and off by default.',
+        },
+        {
+          question: 'What if notifications are disabled?',
+          answer:
+            'Session-end alerts and motivation reminders need notification permission. Use Settings → Notifications → Open Settings to turn them on in iOS Settings.',
+        },
+        {
+          question: 'How do Live Activities work?',
+          answer:
+            'On supported iPhones, an optional Live Activity can show an active session on the Lock Screen and Dynamic Island. Permission is requested when you enable related features.',
+        },
+      ],
+    },
+    accountPrivacy: {
+      title: 'Account and privacy',
+      items: [
+        {
+          question: 'How do I delete my account?',
+          answer:
+            'Sign in, open Settings → Account → Delete account, then confirm. Your account and synced focus history are permanently deleted from our live database. This cannot be undone. Deletion requires a network connection.',
+        },
+        {
+          question: 'What does account deletion affect?',
+          answer:
+            'Synced cloud data for that account is removed, Sign in with Apple authorization is revoked when stored, and the account’s data is removed from the device where you delete it. Local copies on other devices can no longer sync; remove the app or clear them there if needed. Provider backups may retain deleted data for a limited recovery window.',
+        },
+        {
+          question: 'How do I export my data?',
+          answer:
+            'Settings → Account → Export my data saves a JSON file with sessions, daily goal targets, synced settings, and account profile. Unclaimed local data can also be exported from the sign-in screen.',
+        },
+        {
+          question: 'Where is the Privacy Policy?',
+          answer:
+            'Open the Privacy Policy from the product website, or use the privacy link on this site’s product pages.',
+        },
+      ],
     },
     requirements: {
       title: 'Requirements',
-      body: 'macOS 14.6 or later.',
+      body: 'iPhone: iOS 17 or later. Mac: macOS 14.6 or later.',
     },
     contact: {
       title: 'Contact',
       body: 'For help, feedback, or bug reports:',
     },
+    privacyPolicyLink: 'Privacy Policy',
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Privacy Policy`,
-    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, a Pomodoro timer for Mac and iPhone.`,
+    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, local storage, analytics, and account deletion on Mac and iPhone.`,
     title: 'Privacy Policy',
     subtitle: `${PULSE_APP_NAME} — Pomodoro timer for Mac and iPhone`,
-    lastUpdated: 'Last updated: September 24, 2026',
+    lastUpdated: 'Last updated: October 11, 2026',
     summary: {
       title: 'Summary',
-      body: `${PULSE_APP_NAME} does not require an account and does not collect names, emails, or personal content. The app may send anonymous, privacy-preserving usage analytics so we can improve focus flows. Your timer settings and focus history stay on your device.`,
+      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
     },
     localData: {
       title: 'Data stored on your device',
-      body: 'Your timer settings, session preferences, and focus history are saved locally on your Mac or iPhone using standard system storage. Focus history content itself is not uploaded to our analytics provider.',
+      body: 'Your timer settings, session preferences, and focus history are saved locally on your Mac or iPhone using standard system storage, so the timer keeps working offline. Each account signed in on a device has its own separate local store. Your sign-in session is kept in the system Keychain. Language, appearance, Launch at Login, notification, and motivation reminder settings stay on each device and are not synced. Focus history content itself is not uploaded to our analytics provider.',
+      migrationSafety:
+        'When you first sign in on a device that already has focus history, the app asks before moving that history into your account. Until the move is confirmed on our servers, plus 90 days, the app keeps the previous local copy and a local backup file on the device as a safety net, then removes them automatically.',
+    },
+    accountAndSync: {
+      title: 'Your account and synced data',
+      intro: 'If you sign in, we process:',
+      items: [
+        'Contact info: the email address shared by Sign in with Apple (which may be a private relay address via Hide My Email) or Google. We do not request your name.',
+        'Identifiers: an account ID created at sign-in, and a random ID for each install, used only to sync and to identify which device made a change.',
+        'Focus data: completed and deleted focus and break sessions (times, durations, local day and time zone), daily goal targets, your best streak, and the synced settings (session lengths, daily goal, sound, animations, completion sound, celebration animal).',
+      ],
+      closing:
+        'This data is used only to provide sync, history, and account features. It is linked to your account, is not used for tracking, and is not shared with third parties other than the processors below.',
+    },
+    processors: {
+      title: 'Processors and storage location',
+      bodyBeforeSupabase: 'Account and sync data is stored with',
+      bodyAfterSupabase:
+        '(database and authentication) in the European Union. Sign-in is handled by',
+      orWord: 'or',
+      bodyAfterProviders:
+        ', depending on the option you choose. Data is encrypted in transit, and access is restricted so each account can read only its own data.',
+    },
+    retention: {
+      title: 'Retention, backups, and deletion',
+      items: [
+        'Your synced data is kept for as long as your account exists.',
+        'Delete account (Settings → Account → Delete account) permanently deletes your account and all synced data from our live database, revokes the app’s Sign in with Apple authorization when one is stored, and removes that account’s data from the device you delete it on. Local copies on your other devices can no longer sync and stay there until you delete the app on those devices, or remove them from the sign-in screen when it offers to.',
+        'Our database provider keeps daily backups for 7 days. Deleted data may remain in those backups until they expire; backups are used only for disaster recovery. We may also keep an encrypted weekly backup for up to 90 days for the same purpose.',
+        'Signing out does not delete anything. Changes that have not synced yet stay on the device until the same account signs in again.',
+        'Analytics records are handled by TelemetryDeck under its retention practices and are not used to restore your focus history.',
+      ],
+    },
+    export: {
+      title: 'Export',
+      body: 'Settings → Account → Export my data saves a JSON file with your sessions, daily goal targets, synced settings, and account profile. Data that has not been moved into an account yet can also be exported from the sign-in screen.',
     },
     analytics: {
       title: 'Analytics',
       introBeforeLink: 'We use',
       introAfterLink:
-        ', a privacy-focused analytics service, to understand how the app is used (for example: focus or break sessions started or completed, daily goal changes, settings changes, and whether onboarding finished). Signals do not include free-form text, names, emails, or your focus history contents.',
+        ', a privacy-focused analytics service, to understand how the app is used (for example: focus or break sessions started or completed, daily goal changes, settings changes, notification permission results, motivation reminder events, and whether onboarding finished). Signals do not include free-form text, names, emails, or your focus history contents.',
       identifier:
         'TelemetryDeck identifies installs with a hashed device-scoped identifier and may attach non-personal device metadata (such as model, OS version, and locale). This data is used only for analytics, is not linked to your identity by us, and is not used for tracking across other companies’ apps or websites.',
       learnMore: 'Learn more:',
@@ -198,12 +387,11 @@ export const enMessages: PulseMessages = {
     },
     notifications: {
       title: 'Notifications and Live Activities (iPhone)',
-      body: 'On iPhone, optional local notifications and Live Activities help you see when a session ends. Permission is requested only when you choose to enable those features. Notification content stays on your device.',
+      body: 'On iPhone, optional local notifications, motivation reminders, and Live Activities help you see when a session ends or gently return to focus. Permission is requested only when you choose to enable those features. Notification content stays on your device.',
     },
     whatWeDoNotDo: {
       title: 'What we do not do',
       items: [
-        'No account or sign-in',
         'No advertising networks',
         'No sale of personal information',
         'No access to your contacts, photos, precise location, camera, or microphone for analytics',
@@ -211,7 +399,7 @@ export const enMessages: PulseMessages = {
     },
     children: {
       title: 'Children',
-      body: `${PULSE_APP_NAME} does not knowingly collect personal information from children. Analytics signals are anonymous and do not include personal content.`,
+      body: `${PULSE_APP_NAME} does not knowingly collect personal information from children beyond what an account needs to sync, as described above. Analytics signals are anonymous and do not include personal content.`,
     },
     changes: {
       title: 'Changes',
