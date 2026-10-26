@@ -139,9 +139,9 @@ export const frMessages: PulseMessages = {
   },
   support: {
     metaTitle: `Assistance ${PULSE_APP_NAME}`,
-    metaDescription: `Assistance, FAQ et aide compte pour ${PULSE_APP_NAME} sur iPhone et Mac — connexion, sync, migration et suppression de compte.`,
+    metaDescription: `Assistance, FAQ et aide compte pour ${PULSE_APP_NAME} sur iPhone et Mac — Pomodoro Pro, achats, Focus Protection, connexion, sync et suppression de compte.`,
     title: `Assistance ${PULSE_APP_NAME}`,
-    intro: `${PULSE_APP_NAME} est un minuteur Pomodoro discret pour iPhone et Mac. Connectez-vous avec Apple ou Google pour synchroniser Focus History entre vos appareils.`,
+    intro: `${PULSE_APP_NAME} est un minuteur Pomodoro discret pour iPhone et Mac. Connectez-vous avec Apple ou Google pour synchroniser Focus History entre vos appareils. Sur iPhone, l’option Pomodoro Pro débloque Focus Protection, des tags personnalisés et Tag Insights.`,
     gettingStarted: {
       title: 'Pour commencer',
       items: [
@@ -178,7 +178,7 @@ export const frMessages: PulseMessages = {
         {
           question: 'Pourquoi la connexion est-elle requise ?',
           answer:
-            'Un compte permet à Focus History, Daily Focus Goals et les préférences synchronisées de rester avec vous sur iPhone et Mac. Les nouvelles installations demandent de se connecter avant d’utiliser le minuteur. Les appareils qui mettent à jour depuis d’anciennes versions peuvent garder l’historique local utilisable jusqu’à la connexion.',
+            'Un compte permet à Focus History, Daily Focus Goals et les préférences synchronisées de rester avec vous sur iPhone et Mac. Les nouvelles installations demandent de se connecter avant d’utiliser le minuteur. Les appareils qui mettent à jour depuis d’anciennes versions peuvent garder l’historique local utilisable jusqu’à la connexion. Les achats Pomodoro Pro restent également liés à votre compte connecté.',
         },
         {
           question: 'Comment me connecter avec Apple ou Google ?',
@@ -213,7 +213,7 @@ export const frMessages: PulseMessages = {
         {
           question: 'Qu’est-ce qui se synchronise entre appareils ?',
           answer:
-            'L’historique des sessions Focus et pause, les enregistrements Daily Focus Goal, les données de compte liées aux séries, et les préférences synchronisées comme durées de session, objectif quotidien, son, animations, son de fin et animal de célébration.',
+            'L’historique des sessions Focus et pause (y compris le tag choisi), les tags que vous créez, les enregistrements Daily Focus Goal, les données de compte liées aux séries, et les préférences synchronisées comme durées de session, objectif quotidien, son, animations, son de fin et animal de célébration.',
         },
         {
           question: 'Que se passe-t-il sans internet ?',
@@ -282,18 +282,93 @@ export const frMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: 'Qu’est-ce que Pomodoro Pro ?',
+          answer:
+            'Pomodoro Pro est un achat intégré optionnel sur iPhone. Il débloque Focus Protection, des tags personnalisés (vos propres noms et couleurs) et Tag Insights (temps de focus par tag sur la semaine et le mois). Le minuteur, les tags intégrés, Focus History et la sync restent disponibles sans Pro.',
+        },
+        {
+          question: 'Quelles options d’achat sont disponibles ?',
+          answer:
+            'Pomodoro Pro est proposé en abonnement Mensuel, abonnement Annuel ou achat unique Lifetime. Les abonnements se renouvellent automatiquement sauf annulation au moins 24 heures avant la fin de la période en cours. Lifetime est facturé une seule fois et n’est pas un abonnement.',
+        },
+        {
+          question: 'Où acheter ou voir Pomodoro Pro ?',
+          answer:
+            'Sur iPhone, ouvrez Réglages → Pomodoro Pro, ou touchez la puce protection sur l’accueil. Vous devez être connecté. Pro reste lié à votre compte sur chaque appareil où vous vous connectez.',
+        },
+        {
+          question: 'Comment restaurer les achats ?',
+          answer:
+            'Utilisez Restaurer les achats sur le paywall ou dans Réglages → Pomodoro Pro. Les achats effectués avec le même compte Apple passent sur le compte auquel vous êtes connecté. Si rien n’est trouvé, vérifiez que vous utilisez le compte Apple qui a acheté Pro et réessayez en ligne.',
+        },
+      ],
+    },
+    purchases: {
+      title: 'Abonnements et achats',
+      items: [
+        {
+          question: 'Comment gérer ou annuler un abonnement ?',
+          answer:
+            'Les abonnements sont facturés par Apple. Sur iPhone, ouvrez Réglages → Pomodoro Pro → Gérer l’abonnement, ou allez dans Réglages → [votre nom] → Abonnements et sélectionnez l’app. Annulez au moins 24 heures avant le renouvellement pour éviter le prochain prélèvement. Supprimer l’app ou votre compte Pomodoro n’annule pas un abonnement.',
+        },
+        {
+          question: 'Comment demander un remboursement ?',
+          answer:
+            'Les remboursements sont gérés par Apple. Visitez reportaproblem.apple.com, connectez-vous avec le compte Apple utilisé pour l’achat, trouvez la transaction et soumettez une demande de remboursement. Nous ne pouvons pas traiter nous-mêmes les remboursements App Store.',
+        },
+        {
+          question: 'Et si un achat échoue ou Pro ne se débloque pas ?',
+          answer:
+            'Restez connecté, vérifiez votre connexion réseau et réessayez. Si le paiement est en attente (par exemple Demander à acheter), Pro se débloque après approbation. Si vous avez déjà payé, utilisez Restaurer les achats. Pour un problème de paiement sur un abonnement actif, mettez à jour votre moyen de paiement dans les réglages App Store.',
+        },
+        {
+          question: 'Et si j’achète Lifetime alors qu’un abonnement est actif ?',
+          answer:
+            'Lifetime débloque Pro de façon permanente, mais un abonnement existant n’est pas annulé automatiquement. Désactivez le renouvellement automatique dans les réglages d’abonnement App Store pour ne pas être facturé à nouveau.',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: 'Qu’est-ce que Focus Protection ?',
+          answer:
+            'Focus Protection est une fonctionnalité Pomodoro Pro sur iPhone. Elle utilise les API Screen Time d’Apple pour bloquer les apps, catégories ou sites web que vous choisissez pendant une session Focus. Les pauses ne sont jamais bloquées. À la fin de la session, les apps bloquées se déverrouillent automatiquement.',
+        },
+        {
+          question: 'Comment la configurer ?',
+          answer:
+            'Avec Pro actif, touchez la puce Focus Protection sur l’accueil (ou ouvrez-la depuis Réglages). Autorisez l’accès Screen Time lorsque demandé, choisissez quoi bloquer, puis activez Focus Protection. Démarrez une session Focus pour appliquer les boucliers.',
+        },
+        {
+          question: 'Comment la désactiver ou déverrouiller les apps ?',
+          answer:
+            'Ouvrez la feuille Focus Protection et choisissez Désactiver maintenant, ou désactivez la fonctionnalité. Après la fin d’une session, vous pouvez aussi utiliser Déverrouiller les apps sur l’écran de bouclier. Pour retirer entièrement l’accès Screen Time de l’app, allez dans Réglages iOS → Screen Time → Apps avec accès Screen Time.',
+        },
+        {
+          question: 'Et si Focus Protection ne fonctionne pas ?',
+          answer:
+            'Vérifiez que Pro est actif, que l’accès Screen Time est autorisé et que vous avez sélectionné des apps ou catégories à bloquer. Focus Protection s’applique uniquement pendant les sessions Focus, pas les pauses. Si l’accès a été révoqué dans les Réglages système, ouvrez l’app et autorisez à nouveau l’accès. Redémarrer l’iPhone peut aider après un changement d’autorisation.',
+        },
+      ],
+    },
     accountPrivacy: {
       title: 'Compte et confidentialité',
       items: [
         {
           question: 'Comment supprimer mon compte ?',
           answer:
-            'Connectez-vous, ouvrez Réglages → Compte → Supprimer le compte, puis confirmez. Votre compte et l’historique de focus synchronisé sont définitivement supprimés de notre base active. C’est irréversible. La suppression nécessite une connexion réseau.',
+            'Connectez-vous, ouvrez Réglages → Compte → Supprimer le compte, puis confirmez. Votre compte et l’historique de focus synchronisé sont définitivement supprimés de notre base active. C’est irréversible. La suppression nécessite une connexion réseau. Supprimer votre compte n’annule pas un abonnement App Store — gérez-le dans les réglages App Store.',
         },
         {
           question: 'Que change la suppression du compte ?',
           answer:
-            'Les données cloud synchronisées pour ce compte sont supprimées, l’autorisation Sign in with Apple est révoquée si elle est stockée, et les données du compte sont retirées de l’appareil où vous supprimez. Les copies locales sur d’autres appareils ne peuvent plus se synchroniser ; supprimez l’app ou effacez-les là-bas si besoin. Les sauvegardes du fournisseur peuvent conserver les données supprimées pendant une fenêtre de récupération limitée.',
+            'Les données cloud synchronisées pour ce compte sont supprimées, l’autorisation Sign in with Apple est révoquée si elle est stockée, l’enregistrement d’achat lié à votre compte est demandé à être supprimé chez notre fournisseur d’achats, et les données du compte sont retirées de l’appareil où vous supprimez. Les copies locales sur d’autres appareils ne peuvent plus se synchroniser ; supprimez l’app ou effacez-les là-bas si besoin. Les sauvegardes du fournisseur peuvent conserver les données supprimées pendant une fenêtre de récupération limitée. Apple conserve ses propres enregistrements de transactions App Store.',
         },
         {
           question: 'Comment exporter mes données ?',
@@ -309,7 +384,7 @@ export const frMessages: PulseMessages = {
     },
     requirements: {
       title: 'Configuration requise',
-      body: 'iPhone : iOS 17 ou version ultérieure. Mac : macOS 14.6 ou version ultérieure.',
+      body: 'iPhone : iOS 17 ou version ultérieure. Mac : macOS 14.6 ou version ultérieure. Les achats Pomodoro Pro et Focus Protection sont disponibles sur iPhone.',
     },
     contact: {
       title: 'Contact',
@@ -319,13 +394,13 @@ export const frMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `Politique de confidentialité de ${PULSE_APP_NAME}`,
-    metaDescription: `Politique de confidentialité de ${PULSE_APP_NAME} : connexion Apple et Google, sync cloud, stockage local, analytique et suppression de compte sur Mac et iPhone.`,
+    metaDescription: `Politique de confidentialité de ${PULSE_APP_NAME} : connexion Apple et Google, sync cloud, achats Pomodoro Pro via RevenueCat, Focus Protection, analytique et suppression de compte sur Mac et iPhone.`,
     title: 'Politique de confidentialité',
     subtitle: `${PULSE_APP_NAME} — Minuteur Pomodoro pour Mac et iPhone`,
-    lastUpdated: 'Dernière mise à jour : 11 octobre 2026',
+    lastUpdated: 'Dernière mise à jour : 26 octobre 2026',
     summary: {
       title: 'Résumé',
-      body: `Lorsque vous vous connectez avec Apple ou Google, votre compte garde votre historique de focus, vos objectifs quotidiens et vos réglages de minuteur synchronisés entre Mac et iPhone. Nous ne stockons que ce dont l’app a besoin : votre adresse e-mail, un identifiant de compte et les données de focus que vous créez. Nous ne les vendons jamais, ne les utilisons pas pour la publicité et ne les partageons pas avec notre fournisseur d’analytique. Vous pouvez exporter vos données ou supprimer votre compte à tout moment depuis Réglages. Séparément, l’app peut envoyer des analyses d’usage anonymes et respectueuses de la vie privée pour améliorer les parcours de focus.`,
+      body: `Lorsque vous vous connectez avec Apple ou Google, votre compte garde votre historique de focus, vos objectifs quotidiens et vos réglages de minuteur synchronisés entre Mac et iPhone. Nous ne stockons que ce dont l’app a besoin : votre adresse e-mail, un identifiant de compte et les données de focus que vous créez. Nous ne les vendons jamais, ne les utilisons pas pour la publicité et ne les partageons pas avec notre fournisseur d’analytique. Si vous achetez Pomodoro Pro sur iPhone, notre fournisseur d’achats RevenueCat conserve l’historique d’achat lié à votre compte pour que Pro fonctionne sur chaque appareil où vous vous connectez. Les choix d’apps de Focus Protection ne quittent jamais votre iPhone. Vous pouvez exporter vos données ou supprimer votre compte à tout moment depuis Réglages. Séparément, l’app peut envoyer des analyses d’usage anonymes et respectueuses de la vie privée pour améliorer les parcours de focus.`,
     },
     localData: {
       title: 'Données stockées sur votre appareil',
@@ -339,7 +414,7 @@ export const frMessages: PulseMessages = {
       items: [
         'Coordonnées : l’adresse e-mail partagée par Sign in with Apple (éventuellement une adresse relais privée via Hide My Email) ou Google. Nous ne demandons pas votre nom.',
         'Identifiants : un ID de compte créé à la connexion, et un ID aléatoire par installation, utilisés uniquement pour la sync et pour identifier quel appareil a effectué un changement.',
-        'Données de focus : sessions focus et pause terminées et supprimées (horaires, durées, jour local et fuseau horaire), objectifs quotidiens, votre meilleure série, et réglages synchronisés (durées de session, objectif quotidien, son, animations, son de fin, animal de célébration).',
+        'Données de focus : sessions focus et pause terminées et supprimées (horaires, durées, jour local et fuseau horaire, et le tag choisi), les tags que vous créez (nom et couleur), objectifs quotidiens, votre meilleure série, et réglages synchronisés (durées de session, objectif quotidien, son, animations, son de fin, animal de célébration).',
       ],
       closing:
         'Ces données servent uniquement à la sync, l’historique et les fonctionnalités de compte. Elles sont liées à votre compte, ne sont pas utilisées pour le suivi, et ne sont pas partagées avec des tiers autres que les sous-traitants ci-dessous.',
@@ -351,14 +426,28 @@ export const frMessages: PulseMessages = {
         ' (base de données et authentification) dans l’Union européenne. La connexion est gérée par',
       orWord: 'ou',
       bodyAfterProviders:
-        ', selon l’option choisie. Les données sont chiffrées en transit et l’accès est restreint pour que chaque compte ne lise que ses propres données.',
+        ', selon l’option choisie. Les achats Pomodoro Pro sont gérés avec',
+      bodyAfterRevenueCat:
+        ' (voir Achats ci-dessous). Les données sont chiffrées en transit et l’accès est restreint pour que chaque compte ne lise que ses propres données.',
+    },
+    purchases: {
+      title: 'Achats (iPhone)',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro est vendu via l’App Store ; Apple gère le paiement et nous ne voyons jamais vos coordonnées de paiement. Pour débloquer Pro sur chaque appareil où vous vous connectez, l’app partage votre identifiant de compte avec',
+      bodyAfterRevenueCat:
+        ', qui conserve l’historique d’achat (produits achetés, dates d’achat et de renouvellement, statut d’abonnement) lié à cet identifiant. Ces données servent uniquement à accorder et restaurer l’accès Pro, ne sont pas utilisées pour le suivi et ne sont pas partagées avec notre fournisseur d’analytique. Pro nécessite un compte connecté ; rien n’est envoyé à RevenueCat avant votre connexion.',
+    },
+    focusProtection: {
+      title: 'Focus Protection (iPhone)',
+      body: 'Focus Protection utilise le framework Screen Time d’Apple (Family Controls) pour bloquer les apps, catégories et sites web que vous choisissez pendant une session de focus. Apple ne donne à l’app que des jetons opaques pour vos choix : nous ne pouvons pas voir quelles apps ou sites vous avez choisis, comment vous les utilisez, ni d’autres données Screen Time. Vos choix restent sur cet iPhone, ne sont jamais téléversés ni synchronisés, et ne sont pas envoyés à notre fournisseur d’analytique. Vous pouvez désactiver Focus Protection dans l’app à tout moment, ou retirer l’accès de l’app dans Réglages → Screen Time → Apps avec accès Screen Time.',
     },
     retention: {
       title: 'Conservation, sauvegardes et suppression',
       items: [
         'Vos données synchronisées sont conservées tant que votre compte existe.',
-        'Supprimer le compte (Réglages → Compte → Supprimer le compte) supprime définitivement votre compte et toutes les données synchronisées de notre base active, révoque l’autorisation Sign in with Apple de l’app si elle est stockée, et retire les données du compte sur l’appareil où vous supprimez. Les copies locales sur vos autres appareils ne peuvent plus se synchroniser et y restent jusqu’à suppression de l’app ou retrait depuis l’écran de connexion lorsque proposé.',
+        'Supprimer le compte (Réglages → Compte → Supprimer le compte) supprime définitivement votre compte et toutes les données synchronisées de notre base active, révoque l’autorisation Sign in with Apple de l’app si elle est stockée, demande à RevenueCat de supprimer l’enregistrement d’achat lié à votre compte, et retire les données du compte sur l’appareil où vous supprimez. Les copies locales sur vos autres appareils ne peuvent plus se synchroniser et y restent jusqu’à suppression de l’app ou retrait depuis l’écran de connexion lorsque proposé.',
         'Notre fournisseur de base de données conserve des sauvegardes quotidiennes pendant 7 jours. Les données supprimées peuvent rester dans ces sauvegardes jusqu’à expiration ; elles servent uniquement à la reprise après sinistre. Nous pouvons aussi conserver une sauvegarde hebdomadaire chiffrée jusqu’à 90 jours pour le même objectif.',
+        'Supprimer votre compte n’annule pas un abonnement App Store ; gérez-le ou annulez-le dans les réglages de votre compte Apple. Apple conserve son propre enregistrement de vos transactions App Store.',
         'Se déconnecter ne supprime rien. Les changements non encore synchronisés restent sur l’appareil jusqu’à reconnexion du même compte.',
         'Les enregistrements d’analytique sont traités par TelemetryDeck selon ses pratiques de conservation et ne servent pas à restaurer votre Focus History.',
       ],

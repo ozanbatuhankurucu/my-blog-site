@@ -139,9 +139,9 @@ export const zhHansMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} 支持`,
-    metaDescription: `${PULSE_APP_NAME} 在 iPhone 和 Mac 上的支持、常见问题与账户帮助 — 包括登录、同步、迁移与账户删除。`,
+    metaDescription: `${PULSE_APP_NAME} 在 iPhone 和 Mac 上的支持、常见问题与账户帮助 — 包括 Pomodoro Pro、购买、Focus Protection、登录、同步与账户删除。`,
     title: `${PULSE_APP_NAME} 支持`,
-    intro: `${PULSE_APP_NAME} 是适用于 iPhone 和 Mac 的平静 Pomodoro 计时器。使用 Apple 或 Google 登录可在设备间同步专注历史。`,
+    intro: `${PULSE_APP_NAME} 是适用于 iPhone 和 Mac 的平静 Pomodoro 计时器。使用 Apple 或 Google 登录可在设备间同步专注历史。在 iPhone 上，可选的 Pomodoro Pro 可解锁 Focus Protection、自定义标签与 Tag Insights。`,
     gettingStarted: {
       title: '开始使用',
       items: [
@@ -178,7 +178,7 @@ export const zhHansMessages: PulseMessages = {
         {
           question: '为什么需要登录？',
           answer:
-            '账户让专注历史、每日专注目标与同步偏好随你在 iPhone 与 Mac 间保持一致。新安装会要求在使用计时器前登录。从旧版本升级的设备在登录前可能仍可使用本地历史。',
+            '账户让专注历史、每日专注目标与同步偏好随你在 iPhone 与 Mac 间保持一致。新安装会要求在使用计时器前登录。从旧版本升级的设备在登录前可能仍可使用本地历史。Pomodoro Pro 购买也会保留在你已登录的账户中。',
         },
         {
           question: '如何使用 Apple 或 Google 登录？',
@@ -213,7 +213,7 @@ export const zhHansMessages: PulseMessages = {
         {
           question: '设备间同步什么？',
           answer:
-            '专注与休息会话历史、每日专注目标记录、与连续记录相关的账户数据，以及同步偏好（会话长度、每日目标、声音、动画、完成音效、庆祝动物等）。',
+            '专注与休息会话历史（含所选标签）、你创建的标签、每日专注目标记录、与连续记录相关的账户数据，以及同步偏好（会话长度、每日目标、声音、动画、完成音效、庆祝动物等）。',
         },
         {
           question: '没有互联网时会怎样？',
@@ -282,18 +282,93 @@ export const zhHansMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: '什么是 Pomodoro Pro？',
+          answer:
+            'Pomodoro Pro 是 iPhone 上可选的应用内购买。它可解锁 Focus Protection、自定义标签（你自己的名称与颜色）以及 Tag Insights（按标签查看每周与每月专注时长）。计时器、内置标签、专注历史与同步无需 Pro 也可使用。',
+        },
+        {
+          question: '有哪些购买选项？',
+          answer:
+            'Pomodoro Pro 提供月度订阅、年度（Annual）订阅或 Lifetime 一次性购买。除非在当前周期结束前至少 24 小时取消，否则订阅会自动续期。Lifetime 仅收费一次，不是订阅。',
+        },
+        {
+          question: '在哪里购买或查看 Pomodoro Pro？',
+          answer:
+            '在 iPhone 上打开 设置 → Pomodoro Pro，或点击首页上的保护芯片。你必须已登录。Pro 会随你在每台登录设备上的账户保留。',
+        },
+        {
+          question: '如何恢复购买？',
+          answer:
+            '在付费墙或 设置 → Pomodoro Pro 中使用「恢复购买」。使用同一 Apple 账户进行的购买会关联到你当前登录的账户。若未找到，请确认使用的是购买 Pro 时的 Apple 账户，并在联网时重试。',
+        },
+      ],
+    },
+    purchases: {
+      title: '订阅与购买',
+      items: [
+        {
+          question: '如何管理或取消订阅？',
+          answer:
+            '订阅由 Apple 计费。在 iPhone 上打开 设置 → Pomodoro Pro → 管理订阅，或前往 设置 → [你的姓名] → 订阅 并选择本应用。请在续订前至少 24 小时取消，以免产生下一笔费用。删除应用或 Pomodoro 账户不会取消订阅。',
+        },
+        {
+          question: '如何申请退款？',
+          answer:
+            '退款由 Apple 处理。访问 reportaproblem.apple.com，使用购买时的 Apple 账户登录，找到交易并提交退款请求。我们无法自行处理 App Store 退款。',
+        },
+        {
+          question: '若购买失败或 Pro 未解锁怎么办？',
+          answer:
+            '保持登录，检查网络连接并重试。若付款待处理（例如「请求购买」），批准后会解锁 Pro。若已付款，请使用「恢复购买」。若有效订阅存在付款问题，请在 App Store 设置中更新付款方式。',
+        },
+        {
+          question: '在订阅仍有效时购买 Lifetime 会怎样？',
+          answer:
+            'Lifetime 会永久解锁 Pro，但现有订阅不会自动取消。请在 App Store 订阅设置中关闭自动续订，以免再次扣费。',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: '什么是 Focus Protection？',
+          answer:
+            'Focus Protection 是 iPhone 上的 Pomodoro Pro 功能。它使用 Apple 的 Screen Time API，在专注会话进行时屏蔽你选择的应用、类别或网站。休息期间从不屏蔽。会话结束后，被屏蔽的应用会自动解锁。',
+        },
+        {
+          question: '如何设置？',
+          answer:
+            'Pro 生效后，点击首页上的 Focus Protection 芯片（或从设置中打开）。在提示时允许 Screen Time 访问，选择要屏蔽的内容，然后开启 Focus Protection。开始专注会话以应用屏蔽。',
+        },
+        {
+          question: '如何关闭或解锁应用？',
+          answer:
+            '打开 Focus Protection 面板并选择「立即关闭」，或关闭该功能。会话结束后也可在屏蔽界面使用「解锁应用」。要完全移除应用的 Screen Time 访问权限，请前往 iOS 设置 → 屏幕使用时间 → 具有屏幕使用时间访问权限的应用。',
+        },
+        {
+          question: '若 Focus Protection 无法正常工作怎么办？',
+          answer:
+            '请确认 Pro 已生效、已允许 Screen Time 访问，且已选择要屏蔽的应用或类别。Focus Protection 仅在专注会话期间生效，休息期间不生效。若在系统设置中撤销了访问权限，请打开应用并重新允许。更改权限后重启 iPhone 可能有帮助。',
+        },
+      ],
+    },
     accountPrivacy: {
       title: '账户与隐私',
       items: [
         {
           question: '如何删除账户？',
           answer:
-            '登录后打开 设置 → 账户 → 删除账户 并确认。你的账户与已同步的专注历史会从我们的在线数据库永久删除。无法撤销。删除需要网络连接。',
+            '登录后打开 设置 → 账户 → 删除账户 并确认。你的账户与已同步的专注历史会从我们的在线数据库永久删除。无法撤销。删除需要网络连接。删除账户不会取消 App Store 订阅 — 请在 App Store 设置中管理。',
         },
         {
           question: '删除账户会影响什么？',
           answer:
-            '该账户的同步云数据会被移除，若已存储则撤销「通过 Apple 登录」授权，并在你删除账户的设备上移除该账户数据。其他设备上的本地副本无法再同步；如需可删除应用或在登录界面清除。提供商备份可能在有限恢复窗口内保留已删除数据。',
+            '该账户的同步云数据会被移除，若已存储则撤销「通过 Apple 登录」授权，会请求购买提供商删除与你账户关联的购买记录，并在你删除账户的设备上移除该账户数据。其他设备上的本地副本无法再同步；如需可删除应用或在登录界面清除。提供商备份可能在有限恢复窗口内保留已删除数据。Apple 会保留其自己的 App Store 交易记录。',
         },
         {
           question: '如何导出数据？',
@@ -309,7 +384,7 @@ export const zhHansMessages: PulseMessages = {
     },
     requirements: {
       title: '系统要求',
-      body: 'iPhone：iOS 17 或更高版本。Mac：macOS 14.6 或更高版本。',
+      body: 'iPhone：iOS 17 或更高版本。Mac：macOS 14.6 或更高版本。Pomodoro Pro 购买与 Focus Protection 可在 iPhone 上使用。',
     },
     contact: {
       title: '联系',
@@ -319,13 +394,13 @@ export const zhHansMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} 隐私政策`,
-    metaDescription: `${PULSE_APP_NAME} 隐私政策，涵盖 Apple 与 Google 登录、云同步、本地存储、分析与 Mac 和 iPhone 上的账户删除。`,
+    metaDescription: `${PULSE_APP_NAME} 隐私政策，涵盖 Apple 与 Google 登录、云同步、通过 RevenueCat 的 Pomodoro Pro 购买、Focus Protection、分析与 Mac 和 iPhone 上的账户删除。`,
     title: '隐私政策',
     subtitle: `${PULSE_APP_NAME} — 适用于 Mac 和 iPhone 的 Pomodoro 计时器`,
-    lastUpdated: '最后更新：2026年10月11日',
+    lastUpdated: '最后更新：2026年10月26日',
     summary: {
       title: '摘要',
-      body: `使用 Apple 或 Google 登录后，你的账户会在 Mac 与 iPhone 间同步专注历史、每日目标与计时器设置。我们仅存储应用所需内容：你的电子邮件地址、账户标识符以及你创建的专注数据。我们从不出售、从不用于广告，也从不与我们的分析提供商共享。你可随时在设置中导出数据或删除账户。此外，应用可能发送匿名、保护隐私的使用分析，以改进专注流程。`,
+      body: `使用 Apple 或 Google 登录后，你的账户会在 Mac 与 iPhone 间同步专注历史、每日目标与计时器设置。我们仅存储应用所需内容：你的电子邮件地址、账户标识符以及你创建的专注数据。我们从不出售、从不用于广告，也从不与我们的分析提供商共享。若在 iPhone 上购买 Pomodoro Pro，我们的购买提供商 RevenueCat 会将你的购买历史与你的账户关联，以便在你登录的每台设备上启用 Pro。Focus Protection 的应用选择永远不会离开你的 iPhone。你可随时在设置中导出数据或删除账户。此外，应用可能发送匿名、保护隐私的使用分析，以改进专注流程。`,
     },
     localData: {
       title: '存储在你设备上的数据',
@@ -339,7 +414,7 @@ export const zhHansMessages: PulseMessages = {
       items: [
         '联系信息：通过 Apple 登录（可能为通过「隐藏我的电子邮件」的私人中继地址）或 Google 共享的电子邮件地址。我们不会请求你的姓名。',
         '标识符：登录时创建的账户 ID，以及每次安装的随机 ID，仅用于同步及识别哪台设备进行了更改。',
-        '专注数据：已完成与已删除的专注及休息会话（时间、时长、本地日期与时区）、每日目标、最佳连续记录，以及同步设置（会话长度、每日目标、声音、动画、完成音效、庆祝动物）。',
+        '专注数据：已完成与已删除的专注及休息会话（时间、时长、本地日期与时区，以及所选标签）、你创建的标签（名称与颜色）、每日目标、最佳连续记录，以及同步设置（会话长度、每日目标、声音、动画、完成音效、庆祝动物）。',
       ],
       closing:
         '这些数据仅用于提供同步、历史与账户功能。与账户关联，不用于跟踪，除下列处理方外不与第三方共享。',
@@ -351,14 +426,28 @@ export const zhHansMessages: PulseMessages = {
         '（数据库与身份验证），位于欧盟。登录由',
       orWord: '或',
       bodyAfterProviders:
-        '处理，取决于你所选方式。传输中数据加密，访问受限，使每个账户只能读取自己的数据。',
+        '处理，取决于你所选方式。Pomodoro Pro 购买由',
+      bodyAfterRevenueCat:
+        '管理（见下方「购买」）。传输中数据加密，访问受限，使每个账户只能读取自己的数据。',
+    },
+    purchases: {
+      title: '购买（iPhone）',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro 通过 App Store 销售；Apple 处理付款，我们永远不会看到你的付款详情。为在你登录的每台设备上解锁 Pro，应用会将你的账户 ID 分享给',
+      bodyAfterRevenueCat:
+        '，由其将你的购买历史（所购产品、购买与续订日期、订阅状态）与该 ID 关联。这些数据仅用于授予和恢复 Pro 访问权限，不用于跟踪，也不与我们的分析提供商共享。Pro 需要已登录账户；在你登录之前不会向 RevenueCat 发送任何内容。',
+    },
+    focusProtection: {
+      title: 'Focus Protection（iPhone）',
+      body: 'Focus Protection 使用 Apple 的 Screen Time 框架（Family Controls），在专注会话进行时屏蔽你选择的应用、类别与网站。Apple 仅向应用提供与你选择对应的不透明令牌：我们无法看到你选择了哪些应用或网站、你如何使用它们，或任何其他 Screen Time 数据。你的选择保留在该 iPhone 上，从不上传或同步，也不会发送给我们的分析提供商。你可随时在应用中关闭 Focus Protection，或在 设置 → 屏幕使用时间 → 具有屏幕使用时间访问权限的应用 中移除应用访问权限。',
     },
     retention: {
       title: '保留、备份与删除',
       items: [
         '你的同步数据在账户存在期间一直保留。',
-        '删除账户（设置 → 账户 → 删除账户）会从我们的在线数据库永久删除你的账户及所有同步数据，若已存储则撤销应用的「通过 Apple 登录」授权，并在你执行删除的设备上移除该账户数据。其他设备上的本地副本无法再同步，直至你在那些设备上删除应用或在登录界面清除。',
+        '删除账户（设置 → 账户 → 删除账户）会从我们的在线数据库永久删除你的账户及所有同步数据，若已存储则撤销应用的「通过 Apple 登录」授权，会请求 RevenueCat 删除与你账户关联的购买记录，并在你执行删除的设备上移除该账户数据。其他设备上的本地副本无法再同步，直至你在那些设备上删除应用或在登录界面清除。',
         '我们的数据库提供商保留 7 天的每日备份。已删除数据可能在备份过期前仍存在于备份中；备份仅用于灾难恢复。我们也可能为同样目的保留最长 90 天的加密每周备份。',
+        '删除账户不会取消 App Store 订阅；请在 Apple 账户设置中管理或取消。Apple 会保留其自己的 App Store 交易记录。',
         '退出登录不会删除任何内容。尚未同步的更改会保留在设备上，直到同一账户再次登录。',
         '分析记录由 TelemetryDeck 按其保留做法处理，不用于恢复你的专注历史。',
       ],

@@ -139,9 +139,9 @@ export const enMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Support`,
-    metaDescription: `Support, FAQ, and account help for ${PULSE_APP_NAME} on iPhone and Mac — including sign-in, sync, migration, and account deletion.`,
+    metaDescription: `Support, FAQ, and account help for ${PULSE_APP_NAME} on iPhone and Mac — including Pomodoro Pro, purchases, Focus Protection, sign-in, sync, and account deletion.`,
     title: `${PULSE_APP_NAME} Support`,
-    intro: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac. Sign in with Apple or Google to sync Focus History across your devices.`,
+    intro: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac. Sign in with Apple or Google to sync Focus History across your devices. On iPhone, optional Pomodoro Pro unlocks Focus Protection, custom tags, and tag insights.`,
     gettingStarted: {
       title: 'Getting started',
       items: [
@@ -178,7 +178,7 @@ export const enMessages: PulseMessages = {
         {
           question: 'Why is sign-in required?',
           answer:
-            'An account lets Focus History, Daily Focus Goals, and synced preferences stay with you across iPhone and Mac. New installs ask you to sign in before using the timer. Devices upgrading from older versions may keep local history usable until you sign in.',
+            'An account lets Focus History, Daily Focus Goals, and synced preferences stay with you across iPhone and Mac. New installs ask you to sign in before using the timer. Devices upgrading from older versions may keep local history usable until you sign in. Pomodoro Pro purchases also stay with your signed-in account.',
         },
         {
           question: 'How do I sign in with Apple or Google?',
@@ -213,7 +213,7 @@ export const enMessages: PulseMessages = {
         {
           question: 'What syncs between devices?',
           answer:
-            'Focus and break session history, Daily Focus Goal records, streak-related account data, and synced preferences such as session lengths, daily goal, sound, animations, completion sound, and celebration animal.',
+            'Focus and break session history (including the tag you chose), the tags you create, Daily Focus Goal records, streak-related account data, and synced preferences such as session lengths, daily goal, sound, animations, completion sound, and celebration animal.',
         },
         {
           question: 'What happens without internet?',
@@ -282,18 +282,93 @@ export const enMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: 'What is Pomodoro Pro?',
+          answer:
+            'Pomodoro Pro is an optional in-app purchase on iPhone. It unlocks Focus Protection, custom tags (your own names and colors), and Tag Insights (week and month focus time by tag). The timer, built-in tags, Focus History, and sync stay available without Pro.',
+        },
+        {
+          question: 'What purchase options are available?',
+          answer:
+            'Pomodoro Pro is offered as a Monthly subscription, a Yearly (Annual) subscription, or a Lifetime one-time purchase. Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current period. Lifetime is charged once and is not a subscription.',
+        },
+        {
+          question: 'Where do I buy or see Pomodoro Pro?',
+          answer:
+            'On iPhone, open Settings → Pomodoro Pro, or tap the protection chip on Home. You must be signed in. Pro stays with your account on every device you sign in on.',
+        },
+        {
+          question: 'How do I restore purchases?',
+          answer:
+            'Use Restore Purchases on the paywall or in Settings → Pomodoro Pro. Purchases made with the same Apple Account move to the account you are signed in to. If nothing is found, confirm you are using the Apple Account that bought Pro and try again while online.',
+        },
+      ],
+    },
+    purchases: {
+      title: 'Subscriptions and purchases',
+      items: [
+        {
+          question: 'How do I manage or cancel a subscription?',
+          answer:
+            'Subscriptions are billed by Apple. On iPhone, open Settings → Pomodoro Pro → Manage Subscription, or go to Settings → [your name] → Subscriptions and select the app. Cancel at least 24 hours before renewal to avoid the next charge. Deleting the app or your Pomodoro account does not cancel a subscription.',
+        },
+        {
+          question: 'How do I request a refund?',
+          answer:
+            'Refunds are handled by Apple. Visit reportaproblem.apple.com, sign in with the Apple Account used for the purchase, find the transaction, and submit a refund request. We cannot process App Store refunds ourselves.',
+        },
+        {
+          question: 'What if a purchase fails or Pro does not unlock?',
+          answer:
+            'Stay signed in, check your network connection, and try again. If payment is pending (for example Ask to Buy), Pro unlocks after approval. If you already paid, use Restore Purchases. For payment problems on an active subscription, update your payment method in App Store settings.',
+        },
+        {
+          question: 'What if I buy Lifetime while a subscription is active?',
+          answer:
+            'Lifetime unlocks Pro permanently, but an existing subscription is not canceled automatically. Turn off auto-renew in App Store subscription settings so you are not charged again.',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: 'What is Focus Protection?',
+          answer:
+            'Focus Protection is a Pomodoro Pro feature on iPhone. It uses Apple’s Screen Time APIs to block the apps, categories, or websites you choose while a Focus session runs. Breaks are never blocked. When the session ends, blocked apps unlock automatically.',
+        },
+        {
+          question: 'How do I set it up?',
+          answer:
+            'With Pro active, tap the Focus Protection chip on Home (or open it from Settings). Allow Screen Time access when asked, choose what to block, then turn Focus Protection on. Start a Focus session to apply the shields.',
+        },
+        {
+          question: 'How do I turn it off or unlock apps?',
+          answer:
+            'Open the Focus Protection sheet and choose Turn Off Now, or turn the feature off. After a session ends you can also use Unlock Apps on the shield screen. To remove the app’s Screen Time access entirely, go to iOS Settings → Screen Time → Apps with Screen Time Access.',
+        },
+        {
+          question: 'What if Focus Protection is not working?',
+          answer:
+            'Confirm Pro is active, Screen Time access is allowed, and you selected apps or categories to block. Focus Protection only applies during Focus sessions, not breaks. If access was revoked in system Settings, open the app and allow access again. Restarting the iPhone can help after a permission change.',
+        },
+      ],
+    },
     accountPrivacy: {
       title: 'Account and privacy',
       items: [
         {
           question: 'How do I delete my account?',
           answer:
-            'Sign in, open Settings → Account → Delete account, then confirm. Your account and synced focus history are permanently deleted from our live database. This cannot be undone. Deletion requires a network connection.',
+            'Sign in, open Settings → Account → Delete account, then confirm. Your account and synced focus history are permanently deleted from our live database. This cannot be undone. Deletion requires a network connection. Deleting your account does not cancel an App Store subscription — manage that in App Store settings.',
         },
         {
           question: 'What does account deletion affect?',
           answer:
-            'Synced cloud data for that account is removed, Sign in with Apple authorization is revoked when stored, and the account’s data is removed from the device where you delete it. Local copies on other devices can no longer sync; remove the app or clear them there if needed. Provider backups may retain deleted data for a limited recovery window.',
+            'Synced cloud data for that account is removed, Sign in with Apple authorization is revoked when stored, the purchase record linked to your account is asked to be deleted from our purchase provider, and the account’s data is removed from the device where you delete it. Local copies on other devices can no longer sync; remove the app or clear them there if needed. Provider backups may retain deleted data for a limited recovery window. Apple keeps its own App Store transaction records.',
         },
         {
           question: 'How do I export my data?',
@@ -309,7 +384,7 @@ export const enMessages: PulseMessages = {
     },
     requirements: {
       title: 'Requirements',
-      body: 'iPhone: iOS 17 or later. Mac: macOS 14.6 or later.',
+      body: 'iPhone: iOS 17 or later. Mac: macOS 14.6 or later. Pomodoro Pro purchases and Focus Protection are available on iPhone.',
     },
     contact: {
       title: 'Contact',
@@ -319,13 +394,13 @@ export const enMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Privacy Policy`,
-    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, local storage, analytics, and account deletion on Mac and iPhone.`,
+    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, Pomodoro Pro purchases via RevenueCat, Focus Protection, analytics, and account deletion on Mac and iPhone.`,
     title: 'Privacy Policy',
     subtitle: `${PULSE_APP_NAME} — Pomodoro timer for Mac and iPhone`,
-    lastUpdated: 'Last updated: October 11, 2026',
+    lastUpdated: 'Last updated: October 26, 2026',
     summary: {
       title: 'Summary',
-      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
+      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. If you buy Pomodoro Pro on iPhone, our purchase provider RevenueCat keeps your purchase history linked to your account so Pro works on every device you sign in on. Focus Protection’s app choices never leave your iPhone. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
     },
     localData: {
       title: 'Data stored on your device',
@@ -339,7 +414,7 @@ export const enMessages: PulseMessages = {
       items: [
         'Contact info: the email address shared by Sign in with Apple (which may be a private relay address via Hide My Email) or Google. We do not request your name.',
         'Identifiers: an account ID created at sign-in, and a random ID for each install, used only to sync and to identify which device made a change.',
-        'Focus data: completed and deleted focus and break sessions (times, durations, local day and time zone), daily goal targets, your best streak, and the synced settings (session lengths, daily goal, sound, animations, completion sound, celebration animal).',
+        'Focus data: completed and deleted focus and break sessions (times, durations, local day and time zone, and the tag you chose), the tags you create (name and color), daily goal targets, your best streak, and the synced settings (session lengths, daily goal, sound, animations, completion sound, celebration animal).',
       ],
       closing:
         'This data is used only to provide sync, history, and account features. It is linked to your account, is not used for tracking, and is not shared with third parties other than the processors below.',
@@ -351,14 +426,28 @@ export const enMessages: PulseMessages = {
         '(database and authentication) in the European Union. Sign-in is handled by',
       orWord: 'or',
       bodyAfterProviders:
-        ', depending on the option you choose. Data is encrypted in transit, and access is restricted so each account can read only its own data.',
+        ', depending on the option you choose. Pomodoro Pro purchases are managed with',
+      bodyAfterRevenueCat:
+        '(see Purchases below). Data is encrypted in transit, and access is restricted so each account can read only its own data.',
+    },
+    purchases: {
+      title: 'Purchases (iPhone)',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro is sold through the App Store; Apple handles payment, and we never see your payment details. To unlock Pro on every device you sign in on, the app shares your account ID with',
+      bodyAfterRevenueCat:
+        ', which keeps your purchase history (products bought, purchase and renewal dates, and subscription status) linked to that ID. This data is used only to grant and restore Pro access, is not used for tracking, and is not shared with our analytics provider. Pro requires a signed-in account; nothing is sent to RevenueCat before you sign in.',
+    },
+    focusProtection: {
+      title: 'Focus Protection (iPhone)',
+      body: 'Focus Protection uses Apple’s Screen Time framework (Family Controls) to block the apps, categories, and websites you choose while a focus session runs. Apple gives the app only opaque tokens for your choices: we cannot see which apps or websites you picked, how you use them, or any other Screen Time data. Your choices stay on that iPhone, are never uploaded or synced, and are not sent to our analytics provider. You can turn Focus Protection off in the app at any time, or remove the app’s access in Settings → Screen Time → Apps with Screen Time Access.',
     },
     retention: {
       title: 'Retention, backups, and deletion',
       items: [
         'Your synced data is kept for as long as your account exists.',
-        'Delete account (Settings → Account → Delete account) permanently deletes your account and all synced data from our live database, revokes the app’s Sign in with Apple authorization when one is stored, and removes that account’s data from the device you delete it on. Local copies on your other devices can no longer sync and stay there until you delete the app on those devices, or remove them from the sign-in screen when it offers to.',
+        'Delete account (Settings → Account → Delete account) permanently deletes your account and all synced data from our live database, revokes the app’s Sign in with Apple authorization when one is stored, asks RevenueCat to delete the purchase record linked to your account, and removes that account’s data from the device you delete it on. Local copies on your other devices can no longer sync and stay there until you delete the app on those devices, or remove them from the sign-in screen when it offers to.',
         'Our database provider keeps daily backups for 7 days. Deleted data may remain in those backups until they expire; backups are used only for disaster recovery. We may also keep an encrypted weekly backup for up to 90 days for the same purpose.',
+        'Deleting your account does not cancel an App Store subscription; manage or cancel it in your Apple Account settings. Apple keeps its own record of your App Store transactions.',
         'Signing out does not delete anything. Changes that have not synced yet stay on the device until the same account signs in again.',
         'Analytics records are handled by TelemetryDeck under its retention practices and are not used to restore your focus history.',
       ],

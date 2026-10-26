@@ -23,6 +23,9 @@ export function PulseSupportPage({ locale }: PulseSupportPageProps) {
     messages.cloudSync,
     messages.migration,
     messages.notifications,
+    messages.pomodoroPro,
+    messages.purchases,
+    messages.focusProtection,
     messages.accountPrivacy,
   ]
 

@@ -86,9 +86,39 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
               target='_blank'
               rel='noopener noreferrer'>
               Google
+            </a>
+            {messages.processors.bodyAfterProviders}{' '}
+            <a
+              href='https://www.revenuecat.com/privacy'
+              className='text-accent hover:text-accent-hover transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              RevenueCat
             </a>{' '}
-            {messages.processors.bodyAfterProviders}
+            {messages.processors.bodyAfterRevenueCat}
           </p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.purchases.title}</h2>
+          <p>
+            {messages.purchases.bodyBeforeRevenueCat}{' '}
+            <a
+              href='https://www.revenuecat.com/privacy'
+              className='text-accent hover:text-accent-hover transition-colors'
+              target='_blank'
+              rel='noopener noreferrer'>
+              RevenueCat
+            </a>
+            {messages.purchases.bodyAfterRevenueCat}
+          </p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>
+            {messages.focusProtection.title}
+          </h2>
+          <p>{messages.focusProtection.body}</p>
         </section>
 
         <section>

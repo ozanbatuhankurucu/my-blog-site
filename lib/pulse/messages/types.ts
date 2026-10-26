@@ -109,6 +109,9 @@ export interface PulseSupportMessages {
   cloudSync: PulseFaqSection
   migration: PulseFaqSection
   notifications: PulseFaqSection
+  pomodoroPro: PulseFaqSection
+  purchases: PulseFaqSection
+  focusProtection: PulseFaqSection
   accountPrivacy: PulseFaqSection
   requirements: {
     title: string
@@ -148,6 +151,16 @@ export interface PulsePrivacyMessages {
     bodyAfterSupabase: string
     orWord: string
     bodyAfterProviders: string
+    bodyAfterRevenueCat: string
+  }
+  purchases: {
+    title: string
+    bodyBeforeRevenueCat: string
+    bodyAfterRevenueCat: string
+  }
+  focusProtection: {
+    title: string
+    body: string
   }
   retention: {
     title: string
