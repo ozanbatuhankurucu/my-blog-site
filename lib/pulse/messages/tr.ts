@@ -139,9 +139,9 @@ export const trMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Destek`,
-    metaDescription: `iPhone ve Mac’te ${PULSE_APP_NAME} için destek, SSS ve hesap yardımı — giriş, senkronizasyon, geçiş ve hesap silme dahil.`,
+    metaDescription: `iPhone ve Mac’te ${PULSE_APP_NAME} için destek, SSS ve hesap yardımı — Pomodoro Pro, satın almalar, Focus Protection, giriş, senkronizasyon ve hesap silme dahil.`,
     title: `${PULSE_APP_NAME} Destek`,
-    intro: `${PULSE_APP_NAME}, iPhone ve Mac için sakin bir Pomodoro zamanlayıcısıdır. Focus History’yi cihazlar arasında senkronize etmek için Apple veya Google ile giriş yapın.`,
+    intro: `${PULSE_APP_NAME}, iPhone ve Mac için sakin bir Pomodoro zamanlayıcısıdır. Focus History’yi cihazlar arasında senkronize etmek için Apple veya Google ile giriş yapın. iPhone’da isteğe bağlı Pomodoro Pro; Focus Protection, özel etiketler ve Tag Insights’ı açar.`,
     gettingStarted: {
       title: 'Başlarken',
       items: [
@@ -178,7 +178,7 @@ export const trMessages: PulseMessages = {
         {
           question: 'Giriş neden gerekli?',
           answer:
-            'Bir hesap, Focus History, Daily Focus Goals ve senkronize tercihlerin iPhone ile Mac arasında sizinle kalmasını sağlar. Yeni kurulumlar zamanlayıcıyı kullanmadan önce giriş yapmanızı ister. Eski sürümlerden yükselen cihazlar, giriş yapana kadar yerel geçmişi kullanılabilir tutabilir.',
+            'Bir hesap, Focus History, Daily Focus Goals ve senkronize tercihlerin iPhone ile Mac arasında sizinle kalmasını sağlar. Yeni kurulumlar zamanlayıcıyı kullanmadan önce giriş yapmanızı ister. Eski sürümlerden yükselen cihazlar, giriş yapana kadar yerel geçmişi kullanılabilir tutabilir. Pomodoro Pro satın almaları da oturum açmış hesabınızla kalır.',
         },
         {
           question: 'Apple veya Google ile nasıl giriş yaparım?',
@@ -213,7 +213,7 @@ export const trMessages: PulseMessages = {
         {
           question: 'Cihazlar arasında ne senkronize olur?',
           answer:
-            'Odak ve mola seans geçmişi, Daily Focus Goal kayıtları, seriyle ilgili hesap verileri ve seans süreleri, günlük hedef, ses, animasyonlar, tamamlanma sesi ve kutlama hayvanı gibi senkronize tercihler.',
+            'Odak ve mola seans geçmişi (seçtiğiniz etiket dahil), oluşturduğunuz etiketler, Daily Focus Goal kayıtları, seriyle ilgili hesap verileri ve seans süreleri, günlük hedef, ses, animasyonlar, tamamlanma sesi ve kutlama hayvanı gibi senkronize tercihler.',
         },
         {
           question: 'İnternet olmadan ne olur?',
@@ -282,18 +282,93 @@ export const trMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: 'Pomodoro Pro nedir?',
+          answer:
+            'Pomodoro Pro, iPhone’da isteğe bağlı bir uygulama içi satın almadır. Focus Protection, özel etiketler (kendi adlarınız ve renkleriniz) ve Tag Insights’ı (etikete göre haftalık ve aylık odak süresi) açar. Zamanlayıcı, yerleşik etiketler, Focus History ve senkronizasyon Pro olmadan da kullanılabilir.',
+        },
+        {
+          question: 'Hangi satın alma seçenekleri var?',
+          answer:
+            'Pomodoro Pro Aylık abonelik, Yıllık (Annual) abonelik veya Lifetime tek seferlik satın alma olarak sunulur. Abonelikler, mevcut dönemin bitiminden en az 24 saat önce iptal etmediğiniz sürece otomatik yenilenir. Lifetime bir kez ücretlendirilir ve abonelik değildir.',
+        },
+        {
+          question: 'Pomodoro Pro’yu nereden satın alır veya görürüm?',
+          answer:
+            'iPhone’da Ayarlar → Pomodoro Pro’yu açın veya Ana ekrandaki koruma çipine dokunun. Oturum açmış olmanız gerekir. Pro, oturum açtığınız her cihazda hesabınızla kalır.',
+        },
+        {
+          question: 'Satın almaları nasıl geri yüklerim?',
+          answer:
+            'Ödeme duvarında veya Ayarlar → Pomodoro Pro’da Satın Almaları Geri Yükle’yi kullanın. Aynı Apple Hesabıyla yapılan satın almalar, oturum açtığınız hesaba taşınır. Bir şey bulunamazsa Pro’yu satın aldığınız Apple Hesabını kullandığınızdan emin olun ve çevrimiçiyken tekrar deneyin.',
+        },
+      ],
+    },
+    purchases: {
+      title: 'Abonelikler ve satın almalar',
+      items: [
+        {
+          question: 'Aboneliği nasıl yönetir veya iptal ederim?',
+          answer:
+            'Abonelikler Apple tarafından faturalandırılır. iPhone’da Ayarlar → Pomodoro Pro → Aboneliği Yönet’i açın veya Ayarlar → [adınız] → Abonelikler’den uygulamayı seçin. Bir sonraki ücreti önlemek için yenilemeden en az 24 saat önce iptal edin. Uygulamayı veya Pomodoro hesabınızı silmek aboneliği iptal etmez.',
+        },
+        {
+          question: 'İade nasıl talep ederim?',
+          answer:
+            'İadeler Apple tarafından işlenir. reportaproblem.apple.com adresini ziyaret edin, satın alma için kullanılan Apple Hesabıyla giriş yapın, işlemi bulun ve iade talebi gönderin. App Store iadelerini kendimiz işleyemeyiz.',
+        },
+        {
+          question: 'Satın alma başarısız olursa veya Pro açılmazsa ne yapmalıyım?',
+          answer:
+            'Oturum açık kalsın, ağ bağlantınızı kontrol edin ve tekrar deneyin. Ödeme beklemedeyse (örneğin Satın Alma İste) onaydan sonra Pro açılır. Zaten ödediyseniz Satın Almaları Geri Yükle’yi kullanın. Etkin abonelikte ödeme sorunu varsa App Store ayarlarından ödeme yönteminizi güncelleyin.',
+        },
+        {
+          question: 'Etkin abonelik varken Lifetime alırsam ne olur?',
+          answer:
+            'Lifetime Pro’yu kalıcı olarak açar, ancak mevcut abonelik otomatik iptal edilmez. Tekrar ücretlendirilmemek için App Store abonelik ayarlarında otomatik yenilemeyi kapatın.',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: 'Focus Protection nedir?',
+          answer:
+            'Focus Protection, iPhone’da bir Pomodoro Pro özelliğidir. Odak seansı sürerken seçtiğiniz uygulamaları, kategorileri veya web sitelerini engellemek için Apple’ın Screen Time API’lerini kullanır. Molalar asla engellenmez. Seans bittiğinde engellenen uygulamalar otomatik açılır.',
+        },
+        {
+          question: 'Nasıl kurulur?',
+          answer:
+            'Pro etkinken Ana ekrandaki Focus Protection çipine dokunun (veya Ayarlar’dan açın). İstendiğinde Screen Time erişimine izin verin, ne engelleneceğini seçin, ardından Focus Protection’ı açın. Kalkanların uygulanması için bir Odak seansı başlatın.',
+        },
+        {
+          question: 'Nasıl kapatır veya uygulamaların kilidini açarım?',
+          answer:
+            'Focus Protection sayfasını açın ve Hemen Kapat’ı seçin veya özelliği kapatın. Seans bittikten sonra kalkan ekranında Uygulamaların Kilidini Aç’ı da kullanabilirsiniz. Uygulamanın Screen Time erişimini tamamen kaldırmak için iOS Ayarlar → Screen Time → Screen Time Erişimi Olan Uygulamalar’a gidin.',
+        },
+        {
+          question: 'Focus Protection çalışmıyorsa ne yapmalıyım?',
+          answer:
+            'Pro’nun etkin, Screen Time erişiminin verilmiş ve engellenecek uygulama veya kategori seçilmiş olduğunu doğrulayın. Focus Protection yalnızca Odak seanslarında geçerlidir, molalarda değil. Sistem Ayarları’nda erişim iptal edildiyse uygulamayı açıp tekrar izin verin. İzin değişikliğinden sonra iPhone’u yeniden başlatmak yardımcı olabilir.',
+        },
+      ],
+    },
     accountPrivacy: {
       title: 'Hesap ve gizlilik',
       items: [
         {
           question: 'Hesabımı nasıl silerim?',
           answer:
-            'Giriş yapın, Ayarlar → Hesap → Hesabı sil’i açın ve onaylayın. Hesabınız ve senkronize odak geçmişiniz canlı veritabanımızdan kalıcı olarak silinir. Bu geri alınamaz. Silme işlemi ağ bağlantısı gerektirir.',
+            'Giriş yapın, Ayarlar → Hesap → Hesabı sil’i açın ve onaylayın. Hesabınız ve senkronize odak geçmişiniz canlı veritabanımızdan kalıcı olarak silinir. Bu geri alınamaz. Silme işlemi ağ bağlantısı gerektirir. Hesabınızı silmek App Store aboneliğinizi iptal etmez — bunu App Store ayarlarından yönetin.',
         },
         {
           question: 'Hesap silme neleri etkiler?',
           answer:
-            'Bu hesaba ait senkronize bulut verileri kaldırılır, saklanıyorsa Sign in with Apple yetkisi iptal edilir ve hesabın verileri sildiğiniz cihazdan kaldırılır. Diğer cihazlardaki yerel kopyalar artık senkronize olamaz; gerekirse uygulamayı kaldırın veya orada temizleyin. Sağlayıcı yedekleri silinen verileri sınırlı bir kurtarma süresi boyunca tutabilir.',
+            'Bu hesaba ait senkronize bulut verileri kaldırılır, saklanıyorsa Sign in with Apple yetkisi iptal edilir, hesabınıza bağlı satın alma kaydının satın alma sağlayıcımızdan silinmesi istenir ve hesabın verileri sildiğiniz cihazdan kaldırılır. Diğer cihazlardaki yerel kopyalar artık senkronize olamaz; gerekirse uygulamayı kaldırın veya orada temizleyin. Sağlayıcı yedekleri silinen verileri sınırlı bir kurtarma süresi boyunca tutabilir. Apple kendi App Store işlem kayıtlarını tutar.',
         },
         {
           question: 'Verilerimi nasıl dışa aktarırım?',
@@ -309,7 +384,7 @@ export const trMessages: PulseMessages = {
     },
     requirements: {
       title: 'Gereksinimler',
-      body: 'iPhone: iOS 17 veya üzeri. Mac: macOS 14.6 veya üzeri.',
+      body: 'iPhone: iOS 17 veya üzeri. Mac: macOS 14.6 veya üzeri. Pomodoro Pro satın almaları ve Focus Protection iPhone’da kullanılabilir.',
     },
     contact: {
       title: 'İletişim',
@@ -319,13 +394,13 @@ export const trMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Gizlilik Politikası`,
-    metaDescription: `${PULSE_APP_NAME} gizlilik politikası; Mac ve iPhone’da Apple ve Google ile giriş, bulut senkronizasyonu, yerel depolama, analitik ve hesap silme.`,
+    metaDescription: `${PULSE_APP_NAME} gizlilik politikası; Mac ve iPhone’da Apple ve Google ile giriş, bulut senkronizasyonu, RevenueCat ile Pomodoro Pro satın almaları, Focus Protection, analitik ve hesap silme.`,
     title: 'Gizlilik Politikası',
     subtitle: `${PULSE_APP_NAME} — Mac ve iPhone için Pomodoro zamanlayıcısı`,
-    lastUpdated: 'Son güncelleme: 11 Ekim 2026',
+    lastUpdated: 'Son güncelleme: 26 Ekim 2026',
     summary: {
       title: 'Özet',
-      body: `Apple veya Google ile giriş yaptığınızda hesabınız odak geçmişinizi, günlük hedeflerinizi ve zamanlayıcı ayarlarınızı Mac ile iPhone arasında senkronize tutar. Bunun için yalnızca uygulamanın ihtiyaç duyduğu verileri saklarız: e-posta adresiniz, bir hesap tanımlayıcısı ve oluşturduğunuz odak verileri. Verilerinizi asla satmayız, reklam için kullanmayız ve analitik sağlayıcımızla paylaşmayız. Verilerinizi Ayarlar’dan istediğiniz zaman dışa aktarabilir veya hesabınızı silebilirsiniz. Ayrıca uygulama, odak akışlarını iyileştirebilmemiz için anonim, gizliliği koruyan kullanım analitiği gönderebilir.`,
+      body: `Apple veya Google ile giriş yaptığınızda hesabınız odak geçmişinizi, günlük hedeflerinizi ve zamanlayıcı ayarlarınızı Mac ile iPhone arasında senkronize tutar. Bunun için yalnızca uygulamanın ihtiyaç duyduğu verileri saklarız: e-posta adresiniz, bir hesap tanımlayıcısı ve oluşturduğunuz odak verileri. Verilerinizi asla satmayız, reklam için kullanmayız ve analitik sağlayıcımızla paylaşmayız. iPhone’da Pomodoro Pro satın alırsanız satın alma sağlayıcımız RevenueCat, oturum açtığınız her cihazda Pro’nun çalışması için satın alma geçmişinizi hesabınıza bağlı tutar. Focus Protection uygulama seçimleri iPhone’unuzdan asla ayrılmaz. Verilerinizi Ayarlar’dan istediğiniz zaman dışa aktarabilir veya hesabınızı silebilirsiniz. Ayrıca uygulama, odak akışlarını iyileştirebilmemiz için anonim, gizliliği koruyan kullanım analitiği gönderebilir.`,
     },
     localData: {
       title: 'Cihazınızda saklanan veriler',
@@ -339,7 +414,7 @@ export const trMessages: PulseMessages = {
       items: [
         'İletişim bilgisi: Sign in with Apple (Hide My Email ile özel aktarma adresi olabilir) veya Google tarafından paylaşılan e-posta adresi. Adınızı istemeyiz.',
         'Tanımlayıcılar: girişte oluşturulan bir hesap kimliği ve yalnızca senkronizasyon ile hangi cihazın değişiklik yaptığını belirlemek için kullanılan her kurulum için rastgele bir kimlik.',
-        'Odak verileri: tamamlanan ve silinen odak ve mola seansları (zamanlar, süreler, yerel gün ve saat dilimi), günlük hedefler, en iyi seriniz ve senkronize ayarlar (seans süreleri, günlük hedef, ses, animasyonlar, tamamlanma sesi, kutlama hayvanı).',
+        'Odak verileri: tamamlanan ve silinen odak ve mola seansları (zamanlar, süreler, yerel gün ve saat dilimi ve seçtiğiniz etiket), oluşturduğunuz etiketler (ad ve renk), günlük hedefler, en iyi seriniz ve senkronize ayarlar (seans süreleri, günlük hedef, ses, animasyonlar, tamamlanma sesi, kutlama hayvanı).',
       ],
       closing:
         'Bu veriler yalnızca senkronizasyon, geçmiş ve hesap özelliklerini sağlamak için kullanılır. Hesabınıza bağlıdır, izleme için kullanılmaz ve aşağıdaki işleyiciler dışında üçüncü taraflarla paylaşılmaz.',
@@ -351,14 +426,28 @@ export const trMessages: PulseMessages = {
         ' (veritabanı ve kimlik doğrulama) ile Avrupa Birliği’nde saklanır. Giriş, seçtiğiniz seçeneğe bağlı olarak',
       orWord: 'veya',
       bodyAfterProviders:
-        ' tarafından yönetilir. Veriler aktarım sırasında şifrelenir ve erişim, her hesabın yalnızca kendi verisini okuyabilmesi için kısıtlanır.',
+        ' tarafından yönetilir. Pomodoro Pro satın almaları şununla yönetilir:',
+      bodyAfterRevenueCat:
+        ' (Satın almalar bölümüne bakın). Veriler aktarım sırasında şifrelenir ve erişim, her hesabın yalnızca kendi verisini okuyabilmesi için kısıtlanır.',
+    },
+    purchases: {
+      title: 'Satın almalar (iPhone)',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro App Store üzerinden satılır; ödemeyi Apple işler ve ödeme bilgilerinizi asla görmeyiz. Oturum açtığınız her cihazda Pro’yu açmak için uygulama hesap kimliğinizi',
+      bodyAfterRevenueCat:
+        ' ile paylaşır; bu sağlayıcı satın alma geçmişinizi (satın alınan ürünler, satın alma ve yenileme tarihleri, abonelik durumu) bu kimliğe bağlı tutar. Bu veriler yalnızca Pro erişimini vermek ve geri yüklemek için kullanılır, izleme için kullanılmaz ve analitik sağlayıcımızla paylaşılmaz. Pro oturum açmış bir hesap gerektirir; oturum açmadan önce RevenueCat’e hiçbir şey gönderilmez.',
+    },
+    focusProtection: {
+      title: 'Focus Protection (iPhone)',
+      body: 'Focus Protection, odak seansı sürerken seçtiğiniz uygulamaları, kategorileri ve web sitelerini engellemek için Apple’ın Screen Time çerçevesini (Family Controls) kullanır. Apple uygulamaya yalnızca seçimleriniz için opak belirteçler verir: hangi uygulamaları veya web sitelerini seçtiğinizi, bunları nasıl kullandığınızı veya başka Screen Time verilerini göremeyiz. Seçimleriniz o iPhone’da kalır, asla yüklenmez veya senkronize edilmez ve analitik sağlayıcımıza gönderilmez. Focus Protection’ı uygulamada istediğiniz zaman kapatabilir veya erişimi Ayarlar → Screen Time → Screen Time Erişimi Olan Uygulamalar’dan kaldırabilirsiniz.',
     },
     retention: {
       title: 'Saklama, yedekler ve silme',
       items: [
         'Senkronize verileriniz hesabınız var olduğu sürece saklanır.',
-        'Hesabı sil (Ayarlar → Hesap → Hesabı sil), hesabınızı ve tüm senkronize verileri canlı veritabanımızdan kalıcı olarak siler, saklanıyorsa uygulamanın Sign in with Apple yetkisini iptal eder ve hesabın verilerini sildiğiniz cihazdan kaldırır. Diğer cihazlardaki yerel kopyalar artık senkronize olamaz; o cihazlarda uygulamayı silene veya giriş ekranı sunulduğunda kaldırana kadar orada kalır.',
+        'Hesabı sil (Ayarlar → Hesap → Hesabı sil), hesabınızı ve tüm senkronize verileri canlı veritabanımızdan kalıcı olarak siler, saklanıyorsa uygulamanın Sign in with Apple yetkisini iptal eder, hesabınıza bağlı satın alma kaydının RevenueCat’ten silinmesini ister ve hesabın verilerini sildiğiniz cihazdan kaldırır. Diğer cihazlardaki yerel kopyalar artık senkronize olamaz; o cihazlarda uygulamayı silene veya giriş ekranı sunulduğunda kaldırana kadar orada kalır.',
         'Veritabanı sağlayıcımız günlük yedekleri 7 gün tutar. Silinen veriler bu yedeklerde süre dolana kadar kalabilir; yedekler yalnızca felaket kurtarması içindir. Aynı amaçla 90 güne kadar şifreli haftalık bir yedek de tutabiliriz.',
+        'Hesabınızı silmek App Store aboneliğinizi iptal etmez; Apple Hesabı ayarlarınızdan yönetin veya iptal edin. Apple kendi App Store işlem kaydınızı tutar.',
         'Çıkış yapmak hiçbir şeyi silmez. Henüz senkronize olmamış değişiklikler, aynı hesap tekrar giriş yapana kadar cihazda kalır.',
         'Analitik kayıtları TelemetryDeck tarafından kendi saklama uygulamalarına göre işlenir ve odak geçmişinizi geri yüklemek için kullanılmaz.',
       ],

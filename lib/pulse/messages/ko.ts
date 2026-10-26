@@ -139,9 +139,9 @@ export const koMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} 지원`,
-    metaDescription: `iPhone 및 Mac용 ${PULSE_APP_NAME} 지원, FAQ, 계정 도움말 — 로그인, 동기화, 마이그레이션, 계정 삭제 포함.`,
+    metaDescription: `iPhone 및 Mac용 ${PULSE_APP_NAME} 지원, FAQ, 계정 도움말 — Pomodoro Pro, 구매, Focus Protection, 로그인, 동기화, 계정 삭제 포함.`,
     title: `${PULSE_APP_NAME} 지원`,
-    intro: `${PULSE_APP_NAME}는 iPhone과 Mac용 차분한 Pomodoro 타이머입니다. Apple 또는 Google로 로그인하면 포커스 기록을 기기 간에 동기화할 수 있습니다.`,
+    intro: `${PULSE_APP_NAME}는 iPhone과 Mac용 차분한 Pomodoro 타이머입니다. Apple 또는 Google로 로그인하면 포커스 기록을 기기 간에 동기화할 수 있습니다. iPhone에서는 선택적 Pomodoro Pro로 Focus Protection, 사용자 지정 태그, Tag Insights를 사용할 수 있습니다.`,
     gettingStarted: {
       title: '시작하기',
       items: [
@@ -178,7 +178,7 @@ export const koMessages: PulseMessages = {
         {
           question: '로그인이 왜 필요한가요?',
           answer:
-            '계정을 통해 포커스 기록, 일일 포커스 목표, 동기화된 설정이 iPhone과 Mac에서 사용자와 함께 유지됩니다. 새 설치는 타이머 사용 전 로그인을 요청합니다. 이전 버전에서 업그레이드한 기기는 로그인할 때까지 로컬 기록을 계속 사용할 수 있습니다.',
+            '계정을 통해 포커스 기록, 일일 포커스 목표, 동기화된 설정이 iPhone과 Mac에서 사용자와 함께 유지됩니다. 새 설치는 타이머 사용 전 로그인을 요청합니다. 이전 버전에서 업그레이드한 기기는 로그인할 때까지 로컬 기록을 계속 사용할 수 있습니다. Pomodoro Pro 구매도 로그인한 계정에 유지됩니다.',
         },
         {
           question: 'Apple 또는 Google로 어떻게 로그인하나요?',
@@ -213,7 +213,7 @@ export const koMessages: PulseMessages = {
         {
           question: '기기 간에 무엇이 동기화되나요?',
           answer:
-            '포커스 및 휴식 세션 기록, 일일 포커스 목표 기록, 연속 기록 관련 계정 데이터, 세션 길이, 일일 목표, 사운드, 애니메이션, 완료 사운드, 축하 동물 등 동기화 설정.',
+            '포커스 및 휴식 세션 기록(선택한 태그 포함), 사용자가 만든 태그, 일일 포커스 목표 기록, 연속 기록 관련 계정 데이터, 세션 길이, 일일 목표, 사운드, 애니메이션, 완료 사운드, 축하 동물 등 동기화 설정.',
         },
         {
           question: '인터넷이 없으면 어떻게 되나요?',
@@ -282,18 +282,93 @@ export const koMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: 'Pomodoro Pro란?',
+          answer:
+            'Pomodoro Pro는 iPhone용 선택적 인앱 구매입니다. Focus Protection, 사용자 지정 태그(직접 정한 이름과 색), Tag Insights(태그별 주·월 포커스 시간)를 사용할 수 있습니다. 타이머, 기본 태그, 포커스 기록, 동기화는 Pro 없이도 이용할 수 있습니다.',
+        },
+        {
+          question: '어떤 구매 옵션이 있나요?',
+          answer:
+            'Pomodoro Pro는 월간 구독, 연간(Annual) 구독 또는 Lifetime 일회성 구매로 제공됩니다. 구독은 현재 기간 종료 최소 24시간 전에 취소하지 않으면 자동 갱신됩니다. Lifetime은 한 번만 청구되며 구독이 아닙니다.',
+        },
+        {
+          question: 'Pomodoro Pro는 어디서 구매·확인하나요?',
+          answer:
+            'iPhone에서 설정 → Pomodoro Pro를 열거나 홈의 protection 칩을 탭합니다. 로그인이 필요합니다. Pro는 로그인하는 모든 기기에서 계정에 유지됩니다.',
+        },
+        {
+          question: '구매를 어떻게 복원하나요?',
+          answer:
+            '페이월 또는 설정 → Pomodoro Pro에서 구매 복원을 사용하세요. 같은 Apple Account로 한 구매는 현재 로그인한 계정으로 이전됩니다. 찾을 수 없으면 Pro를 구매한 Apple Account인지 확인하고 온라인 상태에서 다시 시도하세요.',
+        },
+      ],
+    },
+    purchases: {
+      title: '구독 및 구매',
+      items: [
+        {
+          question: '구독을 관리하거나 취소하려면?',
+          answer:
+            '구독 요금은 Apple이 청구합니다. iPhone에서 설정 → Pomodoro Pro → 구독 관리를 열거나 설정 → [사용자 이름] → 구독에서 앱을 선택하세요. 다음 결제를 피하려면 갱신 최소 24시간 전에 취소하세요. 앱이나 Pomodoro 계정을 삭제해도 구독은 취소되지 않습니다.',
+        },
+        {
+          question: '환불을 요청하려면?',
+          answer:
+            '환불은 Apple이 처리합니다. reportaproblem.apple.com을 방문해 구매에 사용한 Apple Account로 로그인하고 거래를 찾아 환불을 요청하세요. App Store 환불은 당사에서 처리할 수 없습니다.',
+        },
+        {
+          question: '구매가 실패하거나 Pro가 잠금 해제되지 않으면?',
+          answer:
+            '로그인 상태를 유지하고 네트워크를 확인한 뒤 다시 시도하세요. 결제가 보류 중이면(예: 구매 요청) 승인 후 Pro가 잠금 해제됩니다. 이미 결제했다면 구매 복원을 사용하세요. 활성 구독의 결제 문제는 App Store 설정에서 결제 수단을 업데이트하세요.',
+        },
+        {
+          question: '구독이 활성인 상태에서 Lifetime을 구매하면?',
+          answer:
+            'Lifetime은 Pro를 영구적으로 잠금 해제하지만 기존 구독은 자동으로 취소되지 않습니다. App Store 구독 설정에서 자동 갱신을 끄면 다시 청구되지 않습니다.',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: 'Focus Protection이란?',
+          answer:
+            'Focus Protection은 iPhone용 Pomodoro Pro 기능입니다. Apple Screen Time API로 포커스 세션 중 선택한 앱, 카테고리, 웹사이트를 차단합니다. 휴식 중에는 차단되지 않습니다. 세션이 끝나면 차단된 앱이 자동으로 잠금 해제됩니다.',
+        },
+        {
+          question: '설정 방법은?',
+          answer:
+            'Pro가 활성화된 상태에서 홈의 Focus Protection 칩을 탭하거나(또는 설정에서 열기) Screen Time 접근을 허용하고 차단할 항목을 선택한 뒤 Focus Protection을 켭니다. 포커스 세션을 시작하면 차단이 적용됩니다.',
+        },
+        {
+          question: '끄거나 앱 잠금을 해제하려면?',
+          answer:
+            'Focus Protection 시트를 열고 지금 끄기를 선택하거나 기능을 끕니다. 세션 종료 후 차단 화면에서 앱 잠금 해제도 사용할 수 있습니다. 앱의 Screen Time 접근을 완전히 제거하려면 iOS 설정 → Screen Time → Screen Time 접근 앱으로 이동하세요.',
+        },
+        {
+          question: 'Focus Protection이 작동하지 않으면?',
+          answer:
+            'Pro가 활성화되어 있고 Screen Time 접근이 허용되었으며 차단할 앱이나 카테고리를 선택했는지 확인하세요. Focus Protection은 휴식이 아닌 포커스 세션 중에만 적용됩니다. 시스템 설정에서 접근이 취소되었다면 앱을 열어 다시 허용하세요. 권한 변경 후 iPhone을 재시작하면 도움이 될 수 있습니다.',
+        },
+      ],
+    },
     accountPrivacy: {
       title: '계정 및 개인정보',
       items: [
         {
           question: '계정을 어떻게 삭제하나요?',
           answer:
-            '로그인한 뒤 설정 → 계정 → 계정 삭제를 열고 확인합니다. 계정과 동기화된 포커스 기록이 운영 데이터베이스에서 영구 삭제됩니다. 되돌릴 수 없습니다. 삭제에는 네트워크 연결이 필요합니다.',
+            '로그인한 뒤 설정 → 계정 → 계정 삭제를 열고 확인합니다. 계정과 동기화된 포커스 기록이 운영 데이터베이스에서 영구 삭제됩니다. 되돌릴 수 없습니다. 삭제에는 네트워크 연결이 필요합니다. 계정을 삭제해도 App Store 구독은 취소되지 않습니다 — App Store 설정에서 관리하세요.',
         },
         {
           question: '계정 삭제의 영향은?',
           answer:
-            '해당 계정의 동기화 클라우드 데이터가 제거되고, 저장된 경우 Apple로 로그인 권한이 취소되며, 삭제한 기기에서 계정 데이터가 제거됩니다. 다른 기기의 로컬 사본은 더 이상 동기화되지 않습니다. 필요하면 해당 기기에서 앱을 제거하거나 로그인 화면에서 지우세요. 제공자 백업은 제한된 복구 기간 동안 삭제된 데이터를 보관할 수 있습니다.',
+            '해당 계정의 동기화 클라우드 데이터가 제거되고, 저장된 경우 Apple로 로그인 권한이 취소되며, 계정에 연결된 구매 기록이 구매 제공업체에서 삭제되도록 요청되고, 삭제한 기기에서 계정 데이터가 제거됩니다. 다른 기기의 로컬 사본은 더 이상 동기화되지 않습니다. 필요하면 해당 기기에서 앱을 제거하거나 로그인 화면에서 지우세요. 제공자 백업은 제한된 복구 기간 동안 삭제된 데이터를 보관할 수 있습니다. Apple은 App Store 거래 기록을 별도로 보관합니다.',
         },
         {
           question: '데이터를 어떻게 내보내나요?',
@@ -309,7 +384,7 @@ export const koMessages: PulseMessages = {
     },
     requirements: {
       title: '요구 사항',
-      body: 'iPhone: iOS 17 이상. Mac: macOS 14.6 이상.',
+      body: 'iPhone: iOS 17 이상. Mac: macOS 14.6 이상. Pomodoro Pro 구매와 Focus Protection은 iPhone에서 이용할 수 있습니다.',
     },
     contact: {
       title: '문의',
@@ -319,13 +394,13 @@ export const koMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} 개인정보 처리방침`,
-    metaDescription: `${PULSE_APP_NAME} 개인정보 처리방침 — Apple 및 Google 로그인, 클라우드 동기화, 로컬 저장, 분석, Mac 및 iPhone 계정 삭제.`,
+    metaDescription: `${PULSE_APP_NAME} 개인정보 처리방침 — Apple 및 Google 로그인, 클라우드 동기화, RevenueCat을 통한 Pomodoro Pro 구매, Focus Protection, 분석, Mac 및 iPhone 계정 삭제.`,
     title: '개인정보 처리방침',
     subtitle: `${PULSE_APP_NAME} — Mac 및 iPhone용 Pomodoro 타이머`,
-    lastUpdated: '최종 업데이트: 2026년 10월 11일',
+    lastUpdated: '최종 업데이트: 2026년 10월 26일',
     summary: {
       title: '요약',
-      body: `Apple 또는 Google로 로그인하면 계정이 Mac과 iPhone 간 포커스 기록, 일일 목표, 타이머 설정을 동기화합니다. 이메일 주소, 계정 식별자, 사용자가 만든 포커스 데이터 등 앱에 필요한 것만 저장합니다. 판매·광고·분석 제공업체와의 공유는 하지 않습니다. 설정에서 언제든 데이터를 내보내거나 계정을 삭제할 수 있습니다. 별도로 앱은 익명의 프라이버시 보호 사용 분석을 보내 포커스 흐름을 개선할 수 있습니다.`,
+      body: `Apple 또는 Google로 로그인하면 계정이 Mac과 iPhone 간 포커스 기록, 일일 목표, 타이머 설정을 동기화합니다. 이메일 주소, 계정 식별자, 사용자가 만든 포커스 데이터 등 앱에 필요한 것만 저장합니다. 판매·광고·분석 제공업체와의 공유는 하지 않습니다. iPhone에서 Pomodoro Pro를 구매하면 구매 제공업체 RevenueCat이 로그인하는 모든 기기에서 Pro가 작동하도록 계정에 연결된 구매 기록을 보관합니다. Focus Protection의 앱 선택은 iPhone을 벗어나지 않습니다. 설정에서 언제든 데이터를 내보내거나 계정을 삭제할 수 있습니다. 별도로 앱은 익명의 프라이버시 보호 사용 분석을 보내 포커스 흐름을 개선할 수 있습니다.`,
     },
     localData: {
       title: '기기에 저장되는 데이터',
@@ -339,7 +414,7 @@ export const koMessages: PulseMessages = {
       items: [
         '연락처 정보: Apple로 로그인(이메일 가리기를 통한 비공개 릴레이 주소일 수 있음) 또는 Google이 공유하는 이메일 주소. 이름은 요청하지 않습니다.',
         '식별자: 로그인 시 생성되는 계정 ID와 설치마다의 임의 ID — 동기화 및 어떤 기기가 변경했는지 식별에만 사용.',
-        '포커스 데이터: 완료 및 삭제된 포커스·휴식 세션(시각, 길이, 로컬 날짜 및 시간대), 일일 목표, 최고 연속 기록, 동기화 설정(세션 길이, 일일 목표, 사운드, 애니메이션, 완료 사운드, 축하 동물).',
+        '포커스 데이터: 완료 및 삭제된 포커스·휴식 세션(시각, 길이, 로컬 날짜 및 시간대, 선택한 태그), 사용자가 만든 태그(이름과 색), 일일 목표, 최고 연속 기록, 동기화 설정(세션 길이, 일일 목표, 사운드, 애니메이션, 완료 사운드, 축하 동물).',
       ],
       closing:
         '이 데이터는 동기화, 기록, 계정 기능 제공에만 사용됩니다. 계정에 연결되며 추적에 사용되지 않고, 아래 처리자 외 제3자와 공유하지 않습니다.',
@@ -351,14 +426,28 @@ export const koMessages: PulseMessages = {
         '(데이터베이스 및 인증)을 유럽 연합에 두고 있습니다. 로그인은',
       orWord: '또는',
       bodyAfterProviders:
-        '가 처리합니다(선택한 옵션에 따라). 전송 중 암호화되며, 각 계정이 자신의 데이터만 읽을 수 있도록 접근이 제한됩니다.',
+        '가 처리합니다(선택한 옵션에 따라). Pomodoro Pro 구매는',
+      bodyAfterRevenueCat:
+        '로 관리됩니다(아래 구매 참조). 전송 중 암호화되며, 각 계정이 자신의 데이터만 읽을 수 있도록 접근이 제한됩니다.',
+    },
+    purchases: {
+      title: '구매(iPhone)',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro는 App Store를 통해 판매되며 Apple이 결제를 처리하고 당사는 결제 정보를 볼 수 없습니다. 로그인하는 모든 기기에서 Pro를 잠금 해제하려면 앱이 계정 ID를',
+      bodyAfterRevenueCat:
+        '와 공유하고, 구매 기록(구매한 제품, 구매 및 갱신 날짜, 구독 상태)을 해당 ID에 연결해 보관합니다. 이 데이터는 Pro 접근 부여 및 복원에만 사용되며 추적에 사용되지 않고 분석 제공업체와 공유되지 않습니다. Pro에는 로그인한 계정이 필요하며 로그인 전 RevenueCat으로 전송되는 데이터는 없습니다.',
+    },
+    focusProtection: {
+      title: 'Focus Protection(iPhone)',
+      body: 'Focus Protection은 Apple Screen Time 프레임워크(Family Controls)를 사용해 포커스 세션 중 선택한 앱, 카테고리, 웹사이트를 차단합니다. Apple은 선택에 대해 불투명한 토큰만 앱에 제공합니다. 어떤 앱·웹사이트를 선택했는지, 사용 방식, 기타 Screen Time 데이터를 당사가 볼 수 없습니다. 선택은 해당 iPhone에만 남으며 업로드·동기화되지 않고 분석 제공업체로도 전송되지 않습니다. 앱에서 언제든 Focus Protection을 끌 수 있고, 설정 → Screen Time → Screen Time 접근 앱에서 앱 접근을 제거할 수 있습니다.',
     },
     retention: {
       title: '보관, 백업 및 삭제',
       items: [
         '동기화 데이터는 계정이 존재하는 동안 보관됩니다.',
-        '계정 삭제(설정 → 계정 → 계정 삭제)는 계정과 모든 동기화 데이터를 운영 데이터베이스에서 영구 삭제하고, 저장된 경우 Apple로 로그인 권한을 취소하며, 삭제한 기기에서 해당 계정 데이터를 제거합니다. 다른 기기의 로컬 사본은 더 이상 동기화되지 않으며, 해당 기기에서 앱을 삭제하거나 로그인 화면에서 제거할 때까지 남습니다.',
+        '계정 삭제(설정 → 계정 → 계정 삭제)는 계정과 모든 동기화 데이터를 운영 데이터베이스에서 영구 삭제하고, 저장된 경우 Apple로 로그인 권한을 취소하며, RevenueCat에 계정에 연결된 구매 기록 삭제를 요청하고, 삭제한 기기에서 해당 계정 데이터를 제거합니다. 다른 기기의 로컬 사본은 더 이상 동기화되지 않으며, 해당 기기에서 앱을 삭제하거나 로그인 화면에서 제거할 때까지 남습니다.',
         '데이터베이스 제공업체는 7일간 일일 백업을 보관합니다. 삭제된 데이터는 백업 만료까지 남을 수 있으며, 백업은 재해 복구에만 사용됩니다. 같은 목적으로 최대 90일 암호화 주간 백업을 보관할 수도 있습니다.',
+        '계정을 삭제해도 App Store 구독은 취소되지 않습니다. Apple Account 설정에서 관리하거나 취소하세요. Apple은 App Store 거래 기록을 별도로 보관합니다.',
         '로그아웃은 아무 것도 삭제하지 않습니다. 아직 동기화되지 않은 변경은 같은 계정이 다시 로그인할 때까지 기기에 남습니다.',
         '분석 기록은 TelemetryDeck의 보관 관행에 따르며 포커스 기록 복원에 사용되지 않습니다.',
       ],

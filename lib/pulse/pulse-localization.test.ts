@@ -21,6 +21,9 @@ const SUPPORT_SECTIONS = [
   'cloudSync',
   'migration',
   'notifications',
+  'pomodoroPro',
+  'purchases',
+  'focusProtection',
   'accountPrivacy',
 ] as const
 
@@ -109,6 +112,13 @@ describe('Pulse message catalogs', () => {
       assert.ok(messages.privacy.processors.bodyAfterSupabase.length > 0)
       assert.ok(messages.privacy.processors.orWord.length > 0)
       assert.ok(messages.privacy.processors.bodyAfterProviders.length > 0)
+      assert.ok(messages.privacy.processors.bodyAfterRevenueCat.length > 0)
+      assert.ok(messages.privacy.purchases.title.length > 0)
+      assert.ok(messages.privacy.purchases.bodyBeforeRevenueCat.length > 0)
+      assert.ok(messages.privacy.purchases.bodyAfterRevenueCat.length > 0)
+      assert.ok(messages.privacy.focusProtection.title.length > 0)
+      assert.ok(messages.privacy.focusProtection.body.length > 0)
+      assert.ok(messages.privacy.retention.items.length >= 5)
 
       for (const sectionKey of SUPPORT_SECTIONS) {
         const section = messages.support[sectionKey]
@@ -124,15 +134,29 @@ describe('Pulse message catalogs', () => {
     }
   })
 
-  it('keeps account, sync, TelemetryDeck, and deletion disclosures in every locale', () => {
+  it('keeps account, sync, TelemetryDeck, Pro purchase, and deletion disclosures in every locale', () => {
     for (const locale of PULSE_LOCALES) {
       const privacy = getPulseMessages(locale).privacy
       const support = getPulseMessages(locale).support
       assert.match(privacy.analytics.identifier, /TelemetryDeck/)
-      assert.match(privacy.summary.body, /Apple|Google|Supabase|TelemetryDeck|Apple|Google/i)
+      assert.match(privacy.summary.body, /Apple|Google|Supabase|TelemetryDeck|RevenueCat|Apple|Google/i)
+      assert.match(privacy.summary.body, /RevenueCat|Focus Protection|Focus Protection|Pomodoro Pro/i)
       assert.ok(privacy.contact.body.length > 0)
       assert.ok(privacy.children.body.length > 0)
       assert.ok(privacy.export.body.length > 0)
+      assert.match(privacy.purchases.bodyAfterRevenueCat, /RevenueCat|Pro/)
+      assert.ok(
+        support.pomodoroPro.items.length >= 3,
+        `missing Pomodoro Pro FAQ in ${locale}`
+      )
+      assert.ok(
+        support.purchases.items.length >= 3,
+        `missing purchases FAQ in ${locale}`
+      )
+      assert.ok(
+        support.focusProtection.items.length >= 3,
+        `missing Focus Protection FAQ in ${locale}`
+      )
       assert.ok(
         support.accountPrivacy.items.some((item) => {
           const text = `${item.question} ${item.answer}`

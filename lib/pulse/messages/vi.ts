@@ -145,9 +145,9 @@ export const viMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Hỗ trợ`,
-    metaDescription: `Hỗ trợ, FAQ và trợ giúp tài khoản cho ${PULSE_APP_NAME} trên iPhone và Mac — gồm đăng nhập, đồng bộ, chuyển đổi và xóa tài khoản.`,
+    metaDescription: `Hỗ trợ, FAQ và trợ giúp tài khoản cho ${PULSE_APP_NAME} trên iPhone và Mac — Pomodoro Pro, mua hàng, Focus Protection, đăng nhập, đồng bộ và xóa tài khoản.`,
     title: `${PULSE_APP_NAME} Hỗ trợ`,
-    intro: `${PULSE_APP_NAME} là bộ đếm Pomodoro nhẹ nhàng cho iPhone và Mac. Đăng nhập bằng Apple hoặc Google để đồng bộ Focus History trên các thiết bị.`,
+    intro: `${PULSE_APP_NAME} là bộ đếm Pomodoro nhẹ nhàng cho iPhone và Mac. Đăng nhập bằng Apple hoặc Google để đồng bộ Focus History trên các thiết bị. Trên iPhone, Pomodoro Pro tùy chọn mở khóa Focus Protection, thẻ tùy chỉnh và Tag Insights.`,
     gettingStarted: {
       title: 'Bắt đầu',
       items: [
@@ -184,7 +184,7 @@ export const viMessages: PulseMessages = {
         {
           question: 'Tại sao cần đăng nhập?',
           answer:
-            'Tài khoản giúp Focus History, Daily Focus Goals và tùy chọn đồng bộ đi theo bạn trên iPhone và Mac. Cài đặt mới yêu cầu đăng nhập trước khi dùng bộ đếm. Thiết bị nâng cấp từ phiên bản cũ có thể dùng lịch sử cục bộ cho đến khi bạn đăng nhập.',
+            'Tài khoản giúp Focus History, Daily Focus Goals và tùy chọn đồng bộ đi theo bạn trên iPhone và Mac. Cài đặt mới yêu cầu đăng nhập trước khi dùng bộ đếm. Thiết bị nâng cấp từ phiên bản cũ có thể dùng lịch sử cục bộ cho đến khi bạn đăng nhập. Mua Pomodoro Pro cũng gắn với tài khoản bạn đăng nhập.',
         },
         {
           question: 'Làm sao đăng nhập bằng Apple hoặc Google?',
@@ -219,7 +219,7 @@ export const viMessages: PulseMessages = {
         {
           question: 'Những gì được đồng bộ giữa các thiết bị?',
           answer:
-            'Lịch sử phiên Tập trung và nghỉ, bản ghi Daily Focus Goal, dữ liệu tài khoản liên quan chuỗi, và tùy chọn đồng bộ như thời lượng phiên, mục tiêu hàng ngày, âm thanh, hoạt ảnh, âm hoàn thành và động vật chúc mừng.',
+            'Lịch sử phiên Tập trung và nghỉ (gồm thẻ bạn chọn), các thẻ bạn tạo, bản ghi Daily Focus Goal, dữ liệu tài khoản liên quan chuỗi, và tùy chọn đồng bộ như thời lượng phiên, mục tiêu hàng ngày, âm thanh, hoạt ảnh, âm hoàn thành và động vật chúc mừng.',
         },
         {
           question: 'Không có internet thì sao?',
@@ -288,18 +288,93 @@ export const viMessages: PulseMessages = {
         },
       ],
     },
+    pomodoroPro: {
+      title: 'Pomodoro Pro',
+      items: [
+        {
+          question: 'Pomodoro Pro là gì?',
+          answer:
+            'Pomodoro Pro là mua trong ứng dụng tùy chọn trên iPhone. Nó mở khóa Focus Protection, thẻ tùy chỉnh (tên và màu của bạn) và Tag Insights (thời gian tập trung theo thẻ theo tuần và tháng). Bộ đếm, thẻ tích hợp, Focus History và đồng bộ vẫn dùng được khi không có Pro.',
+        },
+        {
+          question: 'Có những tùy chọn mua nào?',
+          answer:
+            'Pomodoro Pro có gói đăng ký Hàng tháng, Hàng năm (Annual) hoặc mua một lần Lifetime. Gói đăng ký tự gia hạn trừ khi bạn hủy ít nhất 24 giờ trước khi kết thúc kỳ hiện tại. Lifetime chỉ tính phí một lần và không phải đăng ký.',
+        },
+        {
+          question: 'Mua hoặc xem Pomodoro Pro ở đâu?',
+          answer:
+            'Trên iPhone, mở Cài đặt → Pomodoro Pro hoặc chạm chip bảo vệ trên Home. Bạn phải đăng nhập. Pro gắn với tài khoản trên mọi thiết bị bạn đăng nhập.',
+        },
+        {
+          question: 'Làm sao khôi phục mua hàng?',
+          answer:
+            'Dùng Restore Purchases trên paywall hoặc trong Cài đặt → Pomodoro Pro. Mua bằng cùng Apple Account chuyển sang tài khoản bạn đang đăng nhập. Nếu không thấy gì, xác nhận bạn dùng Apple Account đã mua Pro và thử lại khi trực tuyến.',
+        },
+      ],
+    },
+    purchases: {
+      title: 'Đăng ký và mua hàng',
+      items: [
+        {
+          question: 'Làm sao quản lý hoặc hủy đăng ký?',
+          answer:
+            'Apple tính phí đăng ký. Trên iPhone, mở Cài đặt → Pomodoro Pro → Manage Subscription, hoặc vào Cài đặt → [tên bạn] → Subscriptions và chọn ứng dụng. Hủy ít nhất 24 giờ trước khi gia hạn để tránh bị tính phí kỳ tiếp theo. Xóa ứng dụng hoặc tài khoản Pomodoro không hủy đăng ký.',
+        },
+        {
+          question: 'Làm sao yêu cầu hoàn tiền?',
+          answer:
+            'Apple xử lý hoàn tiền. Truy cập reportaproblem.apple.com, đăng nhập bằng Apple Account đã dùng mua, tìm giao dịch và gửi yêu cầu hoàn tiền. Chúng tôi không thể tự xử lý hoàn tiền App Store.',
+        },
+        {
+          question: 'Nếu mua thất bại hoặc Pro không mở khóa?',
+          answer:
+            'Giữ đăng nhập, kiểm tra mạng và thử lại. Nếu thanh toán đang chờ (ví dụ Ask to Buy), Pro mở sau khi được duyệt. Nếu đã trả tiền, dùng Restore Purchases. Với sự cố thanh toán trên đăng ký đang hoạt động, cập nhật phương thức thanh toán trong cài đặt App Store.',
+        },
+        {
+          question: 'Nếu mua Lifetime khi đang có đăng ký?',
+          answer:
+            'Lifetime mở Pro vĩnh viễn, nhưng đăng ký hiện có không tự hủy. Tắt tự gia hạn trong cài đặt đăng ký App Store để không bị tính phí lại.',
+        },
+      ],
+    },
+    focusProtection: {
+      title: 'Focus Protection',
+      items: [
+        {
+          question: 'Focus Protection là gì?',
+          answer:
+            'Focus Protection là tính năng Pomodoro Pro trên iPhone. Nó dùng API Screen Time của Apple để chặn ứng dụng, danh mục hoặc trang web bạn chọn khi phiên Tập trung đang chạy. Giờ nghỉ không bao giờ bị chặn. Khi phiên kết thúc, ứng dụng bị chặn tự mở khóa.',
+        },
+        {
+          question: 'Làm sao thiết lập?',
+          answer:
+            'Khi Pro đang bật, chạm chip Focus Protection trên Home (hoặc mở từ Cài đặt). Cho phép truy cập Screen Time khi được hỏi, chọn nội dung cần chặn, rồi bật Focus Protection. Bắt đầu phiên Tập trung để áp dụng lớp chắn.',
+        },
+        {
+          question: 'Làm sao tắt hoặc mở khóa ứng dụng?',
+          answer:
+            'Mở sheet Focus Protection và chọn Turn Off Now, hoặc tắt tính năng. Sau khi phiên kết thúc bạn cũng có thể dùng Unlock Apps trên màn hình chắn. Để gỡ hoàn toàn quyền Screen Time của ứng dụng, vào Cài đặt iOS → Screen Time → Apps with Screen Time Access.',
+        },
+        {
+          question: 'Nếu Focus Protection không hoạt động?',
+          answer:
+            'Xác nhận Pro đang bật, quyền Screen Time được cho phép và bạn đã chọn ứng dụng hoặc danh mục cần chặn. Focus Protection chỉ áp dụng trong phiên Tập trung, không phải giờ nghỉ. Nếu quyền bị thu hồi trong Cài đặt hệ thống, mở ứng dụng và cho phép lại. Khởi động lại iPhone có thể giúp sau khi đổi quyền.',
+        },
+      ],
+    },
     accountPrivacy: {
       title: 'Tài khoản và quyền riêng tư',
       items: [
         {
           question: 'Làm sao xóa tài khoản?',
           answer:
-            'Đăng nhập, mở Cài đặt → Tài khoản → Xóa tài khoản, rồi xác nhận. Tài khoản và lịch sử tập trung đã đồng bộ bị xóa vĩnh viễn khỏi cơ sở dữ liệu đang hoạt động của chúng tôi. Không thể hoàn tác. Xóa cần kết nối mạng.',
+            'Đăng nhập, mở Cài đặt → Tài khoản → Xóa tài khoản, rồi xác nhận. Tài khoản và lịch sử tập trung đã đồng bộ bị xóa vĩnh viễn khỏi cơ sở dữ liệu đang hoạt động của chúng tôi. Không thể hoàn tác. Xóa cần kết nối mạng. Xóa tài khoản không hủy đăng ký App Store — quản lý trong cài đặt App Store.',
         },
         {
           question: 'Xóa tài khoản ảnh hưởng gì?',
           answer:
-            'Dữ liệu đám mây đã đồng bộ của tài khoản đó bị gỡ, ủy quyền Sign in with Apple bị thu hồi khi đã lưu, và dữ liệu tài khoản bị xóa khỏi thiết bị bạn xóa trên đó. Bản sao cục bộ trên thiết bị khác không còn đồng bộ; gỡ ứng dụng hoặc xóa ở đó nếu cần. Sao lưu nhà cung cấp có thể giữ dữ liệu đã xóa trong cửa sổ phục hồi giới hạn.',
+            'Dữ liệu đám mây đã đồng bộ của tài khoản đó bị gỡ, ủy quyền Sign in with Apple bị thu hồi khi đã lưu, yêu cầu xóa bản ghi mua gắn với tài khoản khỏi nhà cung cấp mua hàng, và dữ liệu tài khoản bị xóa khỏi thiết bị bạn xóa trên đó. Bản sao cục bộ trên thiết bị khác không còn đồng bộ; gỡ ứng dụng hoặc xóa ở đó nếu cần. Sao lưu nhà cung cấp có thể giữ dữ liệu đã xóa trong cửa sổ phục hồi giới hạn. Apple giữ bản ghi giao dịch App Store riêng của họ.',
         },
         {
           question: 'Làm sao xuất dữ liệu?',
@@ -315,7 +390,7 @@ export const viMessages: PulseMessages = {
     },
     requirements: {
       title: 'Yêu cầu',
-      body: 'iPhone: iOS 17 trở lên. Mac: macOS 14.6 trở lên.',
+      body: 'iPhone: iOS 17 trở lên. Mac: macOS 14.6 trở lên. Mua Pomodoro Pro và Focus Protection có trên iPhone.',
     },
     contact: {
       title: 'Liên hệ',
@@ -325,13 +400,13 @@ export const viMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Chính sách quyền riêng tư`,
-    metaDescription: `Chính sách quyền riêng tư cho ${PULSE_APP_NAME}, gồm đăng nhập Apple và Google, đồng bộ đám mây, lưu trữ cục bộ, phân tích và xóa tài khoản trên Mac và iPhone.`,
+    metaDescription: `Chính sách quyền riêng tư cho ${PULSE_APP_NAME}, gồm đăng nhập Apple và Google, đồng bộ đám mây, mua Pomodoro Pro qua RevenueCat, Focus Protection, phân tích và xóa tài khoản trên Mac và iPhone.`,
     title: 'Chính sách quyền riêng tư',
     subtitle: `${PULSE_APP_NAME} — Bộ đếm Pomodoro cho Mac và iPhone`,
-    lastUpdated: 'Cập nhật lần cuối: 11 tháng 10, 2026',
+    lastUpdated: 'Cập nhật lần cuối: 26 tháng 10, 2026',
     summary: {
       title: 'Tóm tắt',
-      body: `Khi bạn đăng nhập bằng Apple hoặc Google, tài khoản giữ lịch sử tập trung, mục tiêu hàng ngày và cài đặt bộ đếm đồng bộ giữa Mac và iPhone. Chúng tôi chỉ lưu những gì ứng dụng cần: địa chỉ email, mã định danh tài khoản và dữ liệu tập trung bạn tạo. Chúng tôi không bán, không dùng cho quảng cáo và không chia sẻ với nhà cung cấp phân tích. Bạn có thể xuất dữ liệu hoặc xóa tài khoản bất cứ lúc nào trong Cài đặt. Riêng biệt, ứng dụng có thể gửi phân tích sử dụng ẩn danh, bảo vệ quyền riêng tư để chúng tôi cải thiện luồng tập trung.`,
+      body: `Khi bạn đăng nhập bằng Apple hoặc Google, tài khoản giữ lịch sử tập trung, mục tiêu hàng ngày và cài đặt bộ đếm đồng bộ giữa Mac và iPhone. Chúng tôi chỉ lưu những gì ứng dụng cần: địa chỉ email, mã định danh tài khoản và dữ liệu tập trung bạn tạo. Chúng tôi không bán, không dùng cho quảng cáo và không chia sẻ với nhà cung cấp phân tích. Nếu bạn mua Pomodoro Pro trên iPhone, nhà cung cấp mua hàng RevenueCat giữ lịch sử mua gắn với tài khoản để Pro hoạt động trên mọi thiết bị bạn đăng nhập. Lựa chọn ứng dụng Focus Protection không bao giờ rời khỏi iPhone của bạn. Bạn có thể xuất dữ liệu hoặc xóa tài khoản bất cứ lúc nào trong Cài đặt. Riêng biệt, ứng dụng có thể gửi phân tích sử dụng ẩn danh, bảo vệ quyền riêng tư để chúng tôi cải thiện luồng tập trung.`,
     },
     localData: {
       title: 'Dữ liệu lưu trên thiết bị của bạn',
@@ -345,7 +420,7 @@ export const viMessages: PulseMessages = {
       items: [
         'Thông tin liên hệ: địa chỉ email do Sign in with Apple (có thể là địa chỉ relay riêng qua Hide My Email) hoặc Google chia sẻ. Chúng tôi không yêu cầu tên của bạn.',
         'Định danh: ID tài khoản tạo khi đăng nhập và ID ngẫu nhiên cho mỗi lần cài, chỉ dùng để đồng bộ và xác định thiết bị nào đã thay đổi.',
-        'Dữ liệu tập trung: phiên Tập trung và nghỉ đã hoàn thành và đã xóa (thời gian, thời lượng, ngày và múi giờ cục bộ), mục tiêu hàng ngày, chuỗi tốt nhất, và cài đặt đồng bộ (thời lượng phiên, mục tiêu hàng ngày, âm thanh, hoạt ảnh, âm hoàn thành, động vật chúc mừng).',
+        'Dữ liệu tập trung: phiên Tập trung và nghỉ đã hoàn thành và đã xóa (thời gian, thời lượng, ngày và múi giờ cục bộ, và thẻ bạn chọn), các thẻ bạn tạo (tên và màu), mục tiêu hàng ngày, chuỗi tốt nhất, và cài đặt đồng bộ (thời lượng phiên, mục tiêu hàng ngày, âm thanh, hoạt ảnh, âm hoàn thành, động vật chúc mừng).',
       ],
       closing:
         'Dữ liệu này chỉ dùng để cung cấp đồng bộ, lịch sử và tính năng tài khoản. Dữ liệu gắn với tài khoản của bạn, không dùng để theo dõi và không chia sẻ với bên thứ ba ngoài các bên xử lý bên dưới.',
@@ -357,14 +432,28 @@ export const viMessages: PulseMessages = {
         '(cơ sở dữ liệu và xác thực) tại Liên minh Châu Âu. Đăng nhập do',
       orWord: 'hoặc',
       bodyAfterProviders:
-        ' xử lý, tùy theo tùy chọn bạn chọn. Dữ liệu được mã hóa khi truyền, và quyền truy cập bị giới hạn để mỗi tài khoản chỉ đọc dữ liệu của mình.',
+        ' xử lý, tùy theo tùy chọn bạn chọn. Mua Pomodoro Pro được quản lý với',
+      bodyAfterRevenueCat:
+        ' (xem Mua hàng bên dưới). Dữ liệu được mã hóa khi truyền, và quyền truy cập bị giới hạn để mỗi tài khoản chỉ đọc dữ liệu của mình.',
+    },
+    purchases: {
+      title: 'Mua hàng (iPhone)',
+      bodyBeforeRevenueCat:
+        'Pomodoro Pro bán qua App Store; Apple xử lý thanh toán và chúng tôi không bao giờ thấy chi tiết thanh toán của bạn. Để mở Pro trên mọi thiết bị bạn đăng nhập, ứng dụng chia sẻ ID tài khoản với',
+      bodyAfterRevenueCat:
+        ', giữ lịch sử mua (sản phẩm đã mua, ngày mua và gia hạn, trạng thái đăng ký) gắn với ID đó. Dữ liệu này chỉ dùng để cấp và khôi phục quyền Pro, không dùng để theo dõi và không chia sẻ với nhà cung cấp phân tích. Pro cần tài khoản đăng nhập; không gửi gì tới RevenueCat trước khi bạn đăng nhập.',
+    },
+    focusProtection: {
+      title: 'Focus Protection (iPhone)',
+      body: 'Focus Protection dùng framework Screen Time của Apple (Family Controls) để chặn ứng dụng, danh mục và trang web bạn chọn khi phiên tập trung đang chạy. Apple chỉ cung cấp token không đọc được cho lựa chọn của bạn: chúng tôi không thấy bạn chọn ứng dụng hay trang web nào, cách bạn dùng chúng, hay dữ liệu Screen Time khác. Lựa chọn của bạn ở trên iPhone đó, không bao giờ tải lên hay đồng bộ, và không gửi tới nhà cung cấp phân tích. Bạn có thể tắt Focus Protection trong ứng dụng bất cứ lúc nào, hoặc gỡ quyền ứng dụng trong Cài đặt → Screen Time → Apps with Screen Time Access.',
     },
     retention: {
       title: 'Lưu giữ, sao lưu và xóa',
       items: [
         'Dữ liệu đồng bộ của bạn được giữ chừng nào tài khoản còn tồn tại.',
-        'Xóa tài khoản (Cài đặt → Tài khoản → Xóa tài khoản) xóa vĩnh viễn tài khoản và mọi dữ liệu đồng bộ khỏi cơ sở dữ liệu đang hoạt động, thu hồi ủy quyền Sign in with Apple khi đã lưu, và gỡ dữ liệu tài khoản khỏi thiết bị bạn xóa trên đó. Bản sao cục bộ trên thiết bị khác không còn đồng bộ và ở lại cho đến khi bạn gỡ ứng dụng trên các thiết bị đó, hoặc xóa chúng trên màn hình đăng nhập khi được đề xuất.',
+        'Xóa tài khoản (Cài đặt → Tài khoản → Xóa tài khoản) xóa vĩnh viễn tài khoản và mọi dữ liệu đồng bộ khỏi cơ sở dữ liệu đang hoạt động, thu hồi ủy quyền Sign in with Apple khi đã lưu, yêu cầu RevenueCat xóa bản ghi mua gắn với tài khoản, và gỡ dữ liệu tài khoản khỏi thiết bị bạn xóa trên đó. Bản sao cục bộ trên thiết bị khác không còn đồng bộ và ở lại cho đến khi bạn gỡ ứng dụng trên các thiết bị đó, hoặc xóa chúng trên màn hình đăng nhập khi được đề xuất.',
         'Nhà cung cấp cơ sở dữ liệu giữ sao lưu hàng ngày trong 7 ngày. Dữ liệu đã xóa có thể còn trong các sao lưu đó cho đến khi hết hạn; sao lưu chỉ dùng để phục hồi thảm họa. Chúng tôi cũng có thể giữ sao lưu tuần được mã hóa tối đa 90 ngày cho cùng mục đích.',
+        'Xóa tài khoản không hủy đăng ký App Store; quản lý hoặc hủy trong cài đặt Apple Account. Apple giữ bản ghi giao dịch App Store riêng của bạn.',
         'Đăng xuất không xóa gì. Thay đổi chưa đồng bộ ở trên thiết bị cho đến khi cùng tài khoản đăng nhập lại.',
         'Bản ghi phân tích do TelemetryDeck xử lý theo thực hành lưu giữ của họ và không dùng để khôi phục lịch sử tập trung của bạn.',
       ],
