@@ -25,7 +25,7 @@ export const trMessages: PulseMessages = {
       platformLabel: 'Platformlar',
       platformValue: 'iPhone ve Mac',
       languagesLabel: 'Diller',
-      languagesValue: '12 dil',
+      languagesValue: '48 dil',
       dataLabel: 'Senkronizasyon',
       dataValue: 'Çevrimdışı öncelikli',
       builtWithLabel: 'Teknoloji',
@@ -36,7 +36,7 @@ export const trMessages: PulseMessages = {
       title: 'Zamanlayıcınız ihtiyaç duyduğunuzda orada—gerekmediğinde kaybolur.',
       description: `Mac’te ${PULSE_APP_NAME}’ı menü çubuğundan açın, bir seans seçin ve popover’ı kapatın. iPhone’da Ana ekrandan Odak’ı başlatın; desteklenen cihazlarda Live Activities ile devam edin. Siz işinize bakarken zamanlayıcı çalışmaya devam eder.`,
       caption:
-        'Odak ve mola zamanlayıcıları, Daily Focus Goals, Focus History, seri takibi, 12 dil yerelleştirmesi ve isteğe bağlı tamamlanma uyarıları.',
+        'Odak ve mola zamanlayıcıları, Daily Focus Goals, Focus History, seri takibi, 48 dil yerelleştirmesi ve isteğe bağlı tamamlanma uyarıları.',
     },
     rhythm: {
       eyebrow: 'Kontrol sizde olan bir ritim',
@@ -64,7 +64,7 @@ export const trMessages: PulseMessages = {
         title: 'Özelleştirme',
         badge: 'Sizin kurallarınız',
         description:
-          'Esnek süreler, Daily Focus Goals, tamamlanma sesleri ve animasyonları, 12 arayüz dili ve görünüm tercihleri.',
+          'Esnek süreler, Daily Focus Goals, tamamlanma sesleri ve animasyonları, 48 arayüz dili ve görünüm tercihleri.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} süre, tamamlanma uyarıları, dil ve hedef ayarları`,
       },
@@ -83,7 +83,7 @@ export const trMessages: PulseMessages = {
       description: `Altı sakin tamamlanma sesi ve altı hayvan kutlaması arasından seçin ya da ikisini de kapatın. ${PULSE_APP_NAME}, Odak, Kısa Mola veya Uzun Mola bittiğinde seansa uygun mesajı gösterir.`,
       items: [
         'Seansa göre tamamlanma başlığı ve alt başlığı',
-        'Sistem dili varsayılanıyla 12 dilde arayüz',
+        'Sistem dili varsayılanıyla 48 dilde arayüz',
         'Her cihazda dil ve görünüm tercihleri',
         'iPhone’da isteğe bağlı motivasyon hatırlatıcıları',
       ],
@@ -114,7 +114,7 @@ export const trMessages: PulseMessages = {
         {
           title: 'Dilinizi konuşur',
           description:
-            '12 dilde tam arayüz; sistem dili varsayılanı ve Ayarlar’da manuel seçim.',
+            '48 dilde tam arayüz; sistem dili varsayılanı ve Ayarlar’da manuel seçim.',
         },
       ],
     },

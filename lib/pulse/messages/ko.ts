@@ -25,7 +25,7 @@ export const koMessages: PulseMessages = {
       platformLabel: '플랫폼',
       platformValue: 'iPhone 및 Mac',
       languagesLabel: '언어',
-      languagesValue: '12개 언어',
+      languagesValue: '48개 언어',
       dataLabel: '동기화',
       dataValue: '오프라인 우선',
       builtWithLabel: '기술',
@@ -36,7 +36,7 @@ export const koMessages: PulseMessages = {
       title: '필요할 때는 있고, 필요 없을 때는 사라집니다.',
       description: `Mac에서는 메뉴 막대에서 ${PULSE_APP_NAME}을 열고 세션을 선택한 뒤 팝오버를 닫습니다. iPhone에서는 홈에서 포커스를 시작하고 지원 기기에서는 Live Activities로 이어갈 수 있습니다. 작업하는 동안에도 타이머는 계속됩니다.`,
       caption:
-        '포커스 및 휴식 타이머, 일일 포커스 목표, 포커스 기록, 연속 기록, 12개 언어 현지화, 선택적 완료 알림.',
+        '포커스 및 휴식 타이머, 일일 포커스 목표, 포커스 기록, 연속 기록, 48개 언어 현지화, 선택적 완료 알림.',
     },
     rhythm: {
       eyebrow: '내가 조절하는 리듬',
@@ -64,7 +64,7 @@ export const koMessages: PulseMessages = {
         title: '맞춤 설정',
         badge: '내 규칙',
         description:
-          '유연한 시간, 일일 포커스 목표, 완료 사운드 및 애니메이션, 12개 UI 언어, 외관 설정.',
+          '유연한 시간, 일일 포커스 목표, 완료 사운드 및 애니메이션, 48개 UI 언어, 외관 설정.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} 시간, 완료 알림, 언어 및 목표 설정`,
       },
@@ -83,7 +83,7 @@ export const koMessages: PulseMessages = {
       description: `여섯 가지 차분한 완료 사운드와 여섯 가지 동물 축하 중에서 고르거나 각각 끌 수 있습니다. ${PULSE_APP_NAME}는 포커스, 짧은 휴식, 긴 휴식 세션이 끝날 때 적절한 메시지를 표시합니다.`,
       items: [
         '세션 유형에 맞는 완료 제목 및 부제',
-        '시스템 언어 기본값의 12개 언어 UI',
+        '시스템 언어 기본값의 48개 언어 UI',
         '각 기기의 언어 및 외관 설정',
         'iPhone에서 선택적 동기 부여 알림',
       ],
@@ -114,7 +114,7 @@ export const koMessages: PulseMessages = {
         {
           title: '내 언어로',
           description:
-            '12개 언어 전체 UI, 시스템 언어 기본값, 설정에서 수동 변경 가능.',
+            '48개 언어 전체 UI, 시스템 언어 기본값, 설정에서 수동 변경 가능.',
         },
       ],
     },

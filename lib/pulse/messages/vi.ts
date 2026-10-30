@@ -25,7 +25,7 @@ export const viMessages: PulseMessages = {
       platformLabel: 'Nền tảng',
       platformValue: 'iPhone và Mac',
       languagesLabel: 'Ngôn ngữ',
-      languagesValue: '12 ngôn ngữ',
+      languagesValue: '48 ngôn ngữ',
       dataLabel: 'Đồng bộ',
       dataValue: 'Offline-first',
       builtWithLabel: 'Xây dựng bằng',
@@ -36,7 +36,7 @@ export const viMessages: PulseMessages = {
       title: 'Bộ đếm có mặt khi bạn cần — và biến mất khi bạn không cần.',
       description: `Trên Mac, mở ${PULSE_APP_NAME} từ thanh menu, chọn một phiên và đóng popover. Trên iPhone, bắt đầu Tập trung từ Home và tiếp tục với Live Activities trên thiết bị được hỗ trợ. Bộ đếm vẫn chạy trong khi bạn làm việc.`,
       caption:
-        'Bộ đếm Tập trung và nghỉ, Daily Focus Goals, Focus History, theo dõi chuỗi, bản địa hóa 12 ngôn ngữ và cảnh báo hoàn thành tùy chọn.',
+        'Bộ đếm Tập trung và nghỉ, Daily Focus Goals, Focus History, theo dõi chuỗi, bản địa hóa 48 ngôn ngữ và cảnh báo hoàn thành tùy chọn.',
     },
     rhythm: {
       eyebrow: 'Nhịp điệu do bạn kiểm soát',
@@ -64,7 +64,7 @@ export const viMessages: PulseMessages = {
         title: 'Tùy chỉnh',
         badge: 'Theo cách của bạn',
         description:
-          'Thời lượng linh hoạt, Daily Focus Goals, âm thanh và hoạt ảnh hoàn thành, 12 ngôn ngữ giao diện và tùy chọn giao diện.',
+          'Thời lượng linh hoạt, Daily Focus Goals, âm thanh và hoạt ảnh hoàn thành, 48 ngôn ngữ giao diện và tùy chọn giao diện.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} cài đặt thời lượng, cảnh báo hoàn thành, ngôn ngữ và mục tiêu`,
       },
@@ -89,7 +89,7 @@ export const viMessages: PulseMessages = {
       description: `Chọn trong sáu âm thanh hoàn thành nhẹ nhàng và sáu hoạt ảnh động vật, hoặc tắt một trong hai. ${PULSE_APP_NAME} hiện thông báo phù hợp khi phiên Tập trung, Nghỉ ngắn hoặc Nghỉ dài kết thúc.`,
       items: [
         'Tiêu đề và phụ đề hoàn thành theo từng loại phiên',
-        'Giao diện 12 ngôn ngữ với mặc định theo ngôn ngữ hệ thống',
+        'Giao diện 48 ngôn ngữ với mặc định theo ngôn ngữ hệ thống',
         'Tùy chọn ngôn ngữ và giao diện trên từng thiết bị',
         'Nhắc nhở động lực tùy chọn trên iPhone',
       ],
@@ -120,7 +120,7 @@ export const viMessages: PulseMessages = {
         {
           title: 'Nói ngôn ngữ của bạn',
           description:
-            'Giao diện đầy đủ bằng 12 ngôn ngữ với mặc định theo hệ thống và tùy chọn ghi đè trong Cài đặt.',
+            'Giao diện đầy đủ bằng 48 ngôn ngữ với mặc định theo hệ thống và tùy chọn ghi đè trong Cài đặt.',
         },
       ],
     },

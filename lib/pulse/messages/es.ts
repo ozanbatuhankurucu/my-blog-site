@@ -25,7 +25,7 @@ export const esMessages: PulseMessages = {
       platformLabel: 'Plataformas',
       platformValue: 'iPhone y Mac',
       languagesLabel: 'Idiomas',
-      languagesValue: '12 idiomas',
+      languagesValue: '48 idiomas',
       dataLabel: 'Sincronización',
       dataValue: 'Offline-first',
       builtWithLabel: 'Creado con',
@@ -36,7 +36,7 @@ export const esMessages: PulseMessages = {
       title: 'Tu temporizador está cuando lo necesitas — y desaparece cuando no.',
       description: `En Mac, abre ${PULSE_APP_NAME} desde la barra de menús, elige una sesión y cierra el popover. En iPhone, inicia Enfoque desde Inicio y continúa con Live Activities en dispositivos compatibles. El temporizador sigue mientras tú trabajas.`,
       caption:
-        'Temporizadores de enfoque y descanso, Daily Focus Goals, Focus History, seguimiento de rachas, localización en 12 idiomas y alertas de finalización opcionales.',
+        'Temporizadores de enfoque y descanso, Daily Focus Goals, Focus History, seguimiento de rachas, localización en 48 idiomas y alertas de finalización opcionales.',
     },
     rhythm: {
       eyebrow: 'Un ritmo que controlas tú',
@@ -64,7 +64,7 @@ export const esMessages: PulseMessages = {
         title: 'Personalización',
         badge: 'Tus reglas',
         description:
-          'Duraciones flexibles, Daily Focus Goals, sonidos y animaciones de finalización, 12 idiomas de interfaz y preferencias de apariencia.',
+          'Duraciones flexibles, Daily Focus Goals, sonidos y animaciones de finalización, 48 idiomas de interfaz y preferencias de apariencia.',
         imageFile: 'settings.png',
         alt: `Ajustes de ${PULSE_APP_NAME} para duraciones, alertas de finalización, idioma y objetivos`,
       },
@@ -83,7 +83,7 @@ export const esMessages: PulseMessages = {
       description: `Elige entre seis sonidos de finalización calmados y seis celebraciones con animales, o desactiva cualquiera de ellos. ${PULSE_APP_NAME} muestra el mensaje adecuado cuando termina una sesión de Enfoque, Descanso corto o Descanso largo.`,
       items: [
         'Título y subtítulo de finalización según la sesión',
-        'Interfaz en 12 idiomas con el idioma del sistema por defecto',
+        'Interfaz en 48 idiomas con el idioma del sistema por defecto',
         'Preferencias de idioma y apariencia en cada dispositivo',
         'Recordatorios de motivación opcionales en iPhone',
       ],
@@ -114,7 +114,7 @@ export const esMessages: PulseMessages = {
         {
           title: 'Habla tu idioma',
           description:
-            'Interfaz completa en 12 idiomas con el idioma del sistema por defecto y cambio manual en Ajustes.',
+            'Interfaz completa en 48 idiomas con el idioma del sistema por defecto y cambio manual en Ajustes.',
         },
       ],
     },

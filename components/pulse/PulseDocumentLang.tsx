@@ -9,10 +9,20 @@ interface PulseDocumentLangProps {
 
 export function PulseDocumentLang({ locale }: PulseDocumentLangProps) {
   useEffect(() => {
-    const previous = document.documentElement.lang
-    document.documentElement.lang = PULSE_LOCALE_CONFIG[locale].languageTag
+    const previousLang = document.documentElement.lang
+    const previousDir = document.documentElement.getAttribute('dir')
+    const config = PULSE_LOCALE_CONFIG[locale]
+
+    document.documentElement.lang = config.languageTag
+    document.documentElement.setAttribute('dir', config.dir)
+
     return () => {
-      document.documentElement.lang = previous || 'en'
+      document.documentElement.lang = previousLang || 'en'
+      if (previousDir) {
+        document.documentElement.setAttribute('dir', previousDir)
+      } else {
+        document.documentElement.removeAttribute('dir')
+      }
     }
   }, [locale])
 
