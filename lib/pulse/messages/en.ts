@@ -25,7 +25,7 @@ export const enMessages: PulseMessages = {
       platformLabel: 'Platforms',
       platformValue: 'iPhone & Mac',
       languagesLabel: 'Languages',
-      languagesValue: '12 languages',
+      languagesValue: '48 languages',
       dataLabel: 'Sync',
       dataValue: 'Offline-first',
       builtWithLabel: 'Built with',
@@ -36,7 +36,7 @@ export const enMessages: PulseMessages = {
       title: 'Your timer is there when you need it—and gone when you do not.',
       description: `On Mac, open ${PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. On iPhone, start Focus from Home and keep going with Live Activities on supported devices. The timer keeps working while you do.`,
       caption:
-        'Focus and break timers, Daily Focus Goals, Focus History, streak tracking, 12-language localization, and optional completion alerts.',
+        'Focus and break timers, Daily Focus Goals, Focus History, streak tracking, 48-language localization, and optional completion alerts.',
     },
     rhythm: {
       eyebrow: 'A rhythm you control',
@@ -64,7 +64,7 @@ export const enMessages: PulseMessages = {
         title: 'Customisation',
         badge: 'Your rules',
         description:
-          'Flexible durations, Daily Focus Goals, completion sounds and animations, 12 UI languages, and appearance preferences.',
+          'Flexible durations, Daily Focus Goals, completion sounds and animations, 48 UI languages, and appearance preferences.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and goals`,
       },
@@ -83,7 +83,7 @@ export const enMessages: PulseMessages = {
       description: `Choose from six calm completion sounds and six animal celebrations, or turn either one off. ${PULSE_APP_NAME} shows the right message when a Focus, Short Break, or Long Break session ends.`,
       items: [
         'Session-aware completion title and subtitle',
-        'UI in 12 languages with system-language default',
+        'UI in 48 languages with system-language default',
         'Language and appearance preferences on each device',
         'Optional motivation reminders on iPhone',
       ],
@@ -114,7 +114,7 @@ export const enMessages: PulseMessages = {
         {
           title: 'Speaks your language',
           description:
-            'Full UI in 12 languages with system-language default and manual override in Settings.',
+            'Full UI in 48 languages with system-language default and manual override in Settings.',
         },
       ],
     },

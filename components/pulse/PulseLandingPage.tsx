@@ -18,7 +18,12 @@ import { Tag } from '../Tag'
 import { WatchPulseDemoButton } from '../WatchPulseDemoButton'
 import { PulseDocumentLang } from './PulseDocumentLang'
 import { PULSE_APP_NAME, PULSE_APP_STORE_URL } from '../../lib/constants'
-import { getPulseAppPath, getPulseImageDir, type PulseLocale } from '../../lib/pulse/locales'
+import {
+  getPulseAppPath,
+  getPulseImageDir,
+  PULSE_LOCALE_CONFIG,
+  type PulseLocale,
+} from '../../lib/pulse/locales'
 import { createPulseSoftwareJsonLd } from '../../lib/pulse/metadata'
 import { getPulseMessages } from '../../lib/pulse/messages'
 import { PROJECTS } from '../../app/projects'
@@ -41,7 +46,8 @@ export function PulseLandingPage({ locale }: PulseLandingPageProps) {
     locale,
     pulseProject?.features?.map((feature) => feature.text)
   )
-  const htmlLang = locale === 'en' ? undefined : locale === 'zh-Hans' ? 'zh-Hans' : locale
+  const localeConfig = PULSE_LOCALE_CONFIG[locale]
+  const isRtl = localeConfig.dir === 'rtl'
 
   return (
     <>
@@ -53,7 +59,7 @@ export function PulseLandingPage({ locale }: PulseLandingPageProps) {
         }}
       />
 
-      <div className='overflow-hidden' lang={htmlLang}>
+      <div className='overflow-hidden' lang={localeConfig.languageTag} dir={localeConfig.dir}>
         <section className='container py-12 md:py-24 relative'>
           <div
             className='pointer-events-none absolute top-16 right-0 w-64 h-64 rounded-full bg-accent-muted blur-3xl'
@@ -63,7 +69,11 @@ export function PulseLandingPage({ locale }: PulseLandingPageProps) {
             <Link
               href='/projects'
               className='inline-flex items-center gap-2 font-mono text-sm text-text-secondary hover:text-accent transition-colors duration-fast'>
-              <LuArrowLeft size={16} aria-hidden='true' />
+              <LuArrowLeft
+                size={16}
+                aria-hidden='true'
+                className={isRtl ? '-scale-x-100' : undefined}
+              />
               {landing.backToProjects}
             </Link>
             <PulseLocaleSwitcher locale={locale} />

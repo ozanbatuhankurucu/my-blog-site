@@ -25,7 +25,7 @@ export const hiMessages: PulseMessages = {
       platformLabel: 'प्लेटफ़ॉर्म',
       platformValue: 'iPhone और Mac',
       languagesLabel: 'भाषाएँ',
-      languagesValue: '12 भाषाएँ',
+      languagesValue: '48 भाषाएँ',
       dataLabel: 'सिंक',
       dataValue: 'ऑफ़लाइन-पहले',
       builtWithLabel: 'निर्मित',
@@ -64,7 +64,7 @@ export const hiMessages: PulseMessages = {
         title: 'अनुकूलन',
         badge: 'आपके नियम',
         description:
-          'लचीली अवधियाँ, Daily Focus Goals, पूर्णता ध्वनियाँ और एनिमेशन, 12 UI भाषाएँ, और दिखावट की प्राथमिकताएँ।',
+          'लचीली अवधियाँ, Daily Focus Goals, पूर्णता ध्वनियाँ और एनिमेशन, 48 UI भाषाएँ, और दिखावट की प्राथमिकताएँ।',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} अवधियों, पूर्णता अलर्ट, भाषा और लक्ष्यों की सेटिंग्स`,
       },
@@ -89,7 +89,7 @@ export const hiMessages: PulseMessages = {
       description: `छह शांत पूर्णता ध्वनियों और छह पशु उत्सवों में से चुनें, या किसी एक को बंद करें। ${PULSE_APP_NAME} फोकस, शॉर्ट ब्रेक या लॉन्ग ब्रेक समाप्त होने पर सही संदेश दिखाता है।`,
       items: [
         'सत्र-संवेदी पूर्णता शीर्षक और उपशीर्षक',
-        'सिस्टम-भाषा डिफ़ॉल्ट के साथ 12 भाषाओं में UI',
+        'सिस्टम-भाषा डिफ़ॉल्ट के साथ 48 भाषाओं में UI',
         'प्रत्येक उपकरण पर भाषा और दिखावट की प्राथमिकताएँ',
         'iPhone पर वैकल्पिक प्रेरणा रिमाइंडर',
       ],
@@ -120,7 +120,7 @@ export const hiMessages: PulseMessages = {
         {
           title: 'आपकी भाषा बोलता है',
           description:
-            'सिस्टम-भाषा डिफ़ॉल्ट और सेटिंग्स में मैन्युअल ओवरराइड के साथ 12 भाषाओं में पूरा UI।',
+            'सिस्टम-भाषा डिफ़ॉल्ट और सेटिंग्स में मैन्युअल ओवरराइड के साथ 48 भाषाओं में पूरा UI।',
         },
       ],
     },

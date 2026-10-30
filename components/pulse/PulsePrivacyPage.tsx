@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { LuArrowLeft } from 'react-icons/lu'
 import { PulseLocaleSwitcher } from '../PulseLocaleSwitcher'
 import { PULSE_APP_NAME } from '../../lib/constants'
-import { getPulseAppPath, type PulseLocale } from '../../lib/pulse/locales'
+import { getPulseAppPath, PULSE_LOCALE_CONFIG, type PulseLocale } from '../../lib/pulse/locales'
 import { getPulseMessages } from '../../lib/pulse/messages'
 import { PulseDocumentLang } from './PulseDocumentLang'
 
@@ -14,16 +14,24 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
   const messages = getPulseMessages(locale).privacy
   const supportPath = getPulseAppPath(locale, 'support')
   const pulsePath = getPulseAppPath(locale)
-  const htmlLang = locale === 'en' ? undefined : locale === 'zh-Hans' ? 'zh-Hans' : locale
+  const localeConfig = PULSE_LOCALE_CONFIG[locale]
+  const isRtl = localeConfig.dir === 'rtl'
 
   return (
-    <article className='container max-w-2xl py-16 md:py-24' lang={htmlLang}>
+    <article
+      className='container max-w-2xl py-16 md:py-24'
+      lang={localeConfig.languageTag}
+      dir={localeConfig.dir}>
       <PulseDocumentLang locale={locale} />
       <div className='flex flex-wrap items-center justify-between gap-4 mb-10'>
         <Link
           href={pulsePath}
           className='inline-flex items-center gap-2 font-mono text-sm text-text-secondary hover:text-accent transition-colors duration-fast'>
-          <LuArrowLeft size={16} aria-hidden='true' />
+          <LuArrowLeft
+            size={16}
+            aria-hidden='true'
+            className={isRtl ? '-scale-x-100' : undefined}
+          />
           {PULSE_APP_NAME}
         </Link>
         <PulseLocaleSwitcher locale={locale} pathSuffix='privacy' />

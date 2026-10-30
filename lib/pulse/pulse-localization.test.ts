@@ -10,6 +10,7 @@ import {
   normalizePulseLocale,
   PULSE_LOCALES,
   PULSE_LOCALE_CONFIG,
+  PULSE_RTL_LOCALES,
 } from './locales'
 import { assertPulseMessagesComplete, getPulseMessages } from './messages'
 
@@ -27,19 +28,33 @@ const SUPPORT_SECTIONS = [
   'accountPrivacy',
 ] as const
 
+const EXPECTED_LOCALE_COUNT = 48
+const EXPECTED_ROUTE_COUNT = EXPECTED_LOCALE_COUNT * PAGES.length
+
 describe('Pulse locales', () => {
-  it('supports exactly 12 locales', () => {
-    assert.equal(PULSE_LOCALES.length, 12)
+  it(`supports exactly ${EXPECTED_LOCALE_COUNT} locales matching the iOS app`, () => {
+    assert.equal(PULSE_LOCALES.length, EXPECTED_LOCALE_COUNT)
+  })
+
+  it('marks Arabic, Hebrew, and Urdu as RTL', () => {
+    assert.deepEqual(Array.from(PULSE_RTL_LOCALES).sort(), ['ar', 'he', 'ur'])
+    assert.equal(PULSE_LOCALE_CONFIG.ar.dir, 'rtl')
+    assert.equal(PULSE_LOCALE_CONFIG.he.dir, 'rtl')
+    assert.equal(PULSE_LOCALE_CONFIG.ur.dir, 'rtl')
+    assert.equal(PULSE_LOCALE_CONFIG.en.dir, 'ltr')
   })
 
   it('keeps English unprefixed and other locales prefixed', () => {
     assert.equal(getPulseAppPath('en'), '/pomodoro-work-study-timer')
     assert.equal(getPulseAppPath('tr', 'support'), '/tr/pomodoro-work-study-timer/support')
     assert.equal(getPulseAppPath('pt-BR', 'privacy'), '/pt-BR/pomodoro-work-study-timer/privacy')
+    assert.equal(getPulseAppPath('pt-PT', 'support'), '/pt-PT/pomodoro-work-study-timer/support')
     assert.equal(getPulseAppPath('zh-Hans'), '/zh-Hans/pomodoro-work-study-timer')
+    assert.equal(getPulseAppPath('zh-Hant', 'privacy'), '/zh-Hant/pomodoro-work-study-timer/privacy')
+    assert.equal(getPulseAppPath('ar', 'support'), '/ar/pomodoro-work-study-timer/support')
   })
 
-  it('resolves all 36 page/locale route combinations', () => {
+  it(`resolves all ${EXPECTED_ROUTE_COUNT} page/locale route combinations`, () => {
     const paths = new Set<string>()
 
     for (const locale of PULSE_LOCALES) {
@@ -51,7 +66,7 @@ describe('Pulse locales', () => {
       }
     }
 
-    assert.equal(paths.size, 36)
+    assert.equal(paths.size, EXPECTED_ROUTE_COUNT)
   })
 
   it('builds hreflang alternates for every locale plus x-default', () => {
@@ -71,23 +86,32 @@ describe('Pulse locales', () => {
     assert.equal(getPulseImageDir('tr'), '/images/pulse-pomodoro/tr')
     assert.equal(getPulseImageDir('ja'), '/images/pulse-pomodoro')
     assert.equal(getPulseImageDir('de'), '/images/pulse-pomodoro')
+    assert.equal(getPulseImageDir('ar'), '/images/pulse-pomodoro')
   })
 
   it('normalizes and negotiates locales with graceful fallbacks', () => {
     assert.equal(isPulseLocale('ja'), true)
+    assert.equal(isPulseLocale('zh-Hant'), true)
     assert.equal(isPulseLocale('nope'), false)
     assert.equal(normalizePulseLocale('zh-CN'), 'zh-Hans')
+    assert.equal(normalizePulseLocale('zh-TW'), 'zh-Hant')
+    assert.equal(normalizePulseLocale('zh-HK'), 'zh-Hant')
     assert.equal(normalizePulseLocale('pt'), 'pt-BR')
+    assert.equal(normalizePulseLocale('pt-PT'), 'pt-PT')
+    assert.equal(normalizePulseLocale('nb-NO'), 'nb')
+    assert.equal(normalizePulseLocale('no'), 'nb')
+    assert.equal(normalizePulseLocale('iw'), 'he')
     assert.equal(normalizePulseLocale('es-MX'), 'es')
     assert.equal(normalizePulseLocale('xx'), null)
     assert.equal(negotiatePulseLocale('fr-FR,fr;q=0.9,en;q=0.8'), 'fr')
+    assert.equal(negotiatePulseLocale('ar-SA,ar;q=0.9'), 'ar')
     assert.equal(negotiatePulseLocale('xx-YY'), 'en')
     assert.equal(negotiatePulseLocale(null), 'en')
   })
 })
 
 describe('Pulse message catalogs', () => {
-  it('provides complete catalogs for all 12 locales and three pages', () => {
+  it(`provides complete catalogs for all ${EXPECTED_LOCALE_COUNT} locales and three pages`, () => {
     for (const locale of PULSE_LOCALES) {
       assertPulseMessagesComplete(locale)
       const messages = getPulseMessages(locale)
@@ -139,31 +163,22 @@ describe('Pulse message catalogs', () => {
       const privacy = getPulseMessages(locale).privacy
       const support = getPulseMessages(locale).support
       assert.match(privacy.analytics.identifier, /TelemetryDeck/)
-      assert.match(privacy.summary.body, /Apple|Google|Supabase|TelemetryDeck|RevenueCat|Apple|Google/i)
-      assert.match(privacy.summary.body, /RevenueCat|Focus Protection|Focus Protection|Pomodoro Pro/i)
+      assert.match(privacy.summary.body, /Apple|Google|Supabase|TelemetryDeck|RevenueCat/i)
+      assert.match(privacy.summary.body, /RevenueCat|Focus Protection|Pomodoro Pro/i)
       assert.ok(privacy.contact.body.length > 0)
       assert.ok(privacy.children.body.length > 0)
       assert.ok(privacy.export.body.length > 0)
       assert.match(privacy.purchases.bodyAfterRevenueCat, /RevenueCat|Pro/)
-      assert.ok(
-        support.pomodoroPro.items.length >= 3,
-        `missing Pomodoro Pro FAQ in ${locale}`
-      )
-      assert.ok(
-        support.purchases.items.length >= 3,
-        `missing purchases FAQ in ${locale}`
-      )
-      assert.ok(
-        support.focusProtection.items.length >= 3,
-        `missing Focus Protection FAQ in ${locale}`
-      )
+      assert.ok(support.pomodoroPro.items.length >= 3, `missing Pomodoro Pro FAQ in ${locale}`)
+      assert.ok(support.purchases.items.length >= 3, `missing purchases FAQ in ${locale}`)
+      assert.ok(support.focusProtection.items.length >= 3, `missing Focus Protection FAQ in ${locale}`)
       assert.ok(
         support.accountPrivacy.items.some((item) => {
           const text = `${item.question} ${item.answer}`
           return (
-            /Delete account|Hesabı sil|Konto löschen|Eliminar cuenta|Excluir conta|Supprimer le compte|アカウントを削除|계정 삭제|删除账户|删除帐户|Xóa tài khoản|खाता हटा/i.test(
+            /Delete account|Hesabı sil|Konto löschen|Eliminar cuenta|Excluir conta|Supprimer le compte|アカウントを削除|계정 삭제|删除账户|删除帐户|刪除帳戶|Xóa tài khoản|खाता हटा|حذف الحساب|מחיקת החשבון|اکاؤنٹ حذف|Видалити обліковий|Изтриване на акаунт|Smazat účet|Slett konto|Usuń konto|Șterge cont|Elimina account|Account verwijderen|Smazat|Odstranit účet|Töröld a fiókot|Izbriši račun|Διαγραφή λογαριασμού|Hapus akun|Padam akaun|ลบบัญชี|Eliminar conta|Smazat účet|Vymazať účet|Izbriši račun|Poista tili|Radera konto|Dzēst|Ištrinti paskyrą|계정 삭제|खाते हटवा|অ্যাকাউন্ট মুছুন|ਖਾਤਾ ਮਿਟਾਓ|એકાઉન્ટ કાઢી|ଖାତା ବିଲୋପ|கணக்கை நீக்கு|ఖాతాను తొలగించండి|ಖಾತೆ ಅಳಿಸಿ|അക്കൗണ്ട് ഇക്കുക|حساب حذف|Жою/i.test(
               text
-            ) || /удал/i.test(text)
+            ) || /удал|изтри|smaz|slett|usuń|șterg|elimin|verwijder|odstran|töröl|izbriš|διαγραφ|hapus|padam|ลบ|poista|radera|ištrink|vymaž|mukt|মিশ|ਮਿਟ|કાઢ|ବିଲୋପ|நீக்கு|తొలగ|ಅಳಿಸಿ|നീക്കം|حذف|מחק|жою/i.test(text)
           )
         }),
         `missing deletion guidance in ${locale}`

@@ -25,7 +25,7 @@ export const ptBRMessages: PulseMessages = {
       platformLabel: 'Plataformas',
       platformValue: 'iPhone e Mac',
       languagesLabel: 'Idiomas',
-      languagesValue: '12 idiomas',
+      languagesValue: '48 idiomas',
       dataLabel: 'Sincronização',
       dataValue: 'Offline-first',
       builtWithLabel: 'Feito com',
@@ -36,7 +36,7 @@ export const ptBRMessages: PulseMessages = {
       title: 'Seu timer está lá quando você precisa — e some quando não precisa.',
       description: `No Mac, abra o ${PULSE_APP_NAME} pela barra de menus, escolha uma sessão e feche o popover. No iPhone, inicie o Foco na Home e continue com Live Activities em dispositivos compatíveis. O timer segue enquanto você trabalha.`,
       caption:
-        'Timers de foco e pausa, Metas Diárias de Foco, Histórico de Foco, sequências, localização em 12 idiomas e alertas opcionais ao concluir.',
+        'Timers de foco e pausa, Metas Diárias de Foco, Histórico de Foco, sequências, localização em 48 idiomas e alertas opcionais ao concluir.',
     },
     rhythm: {
       eyebrow: 'Um ritmo que você controla',
@@ -64,7 +64,7 @@ export const ptBRMessages: PulseMessages = {
         title: 'Personalização',
         badge: 'Suas regras',
         description:
-          'Durações flexíveis, Metas Diárias de Foco, sons e animações ao concluir, 12 idiomas de interface e preferências de aparência.',
+          'Durações flexíveis, Metas Diárias de Foco, sons e animações ao concluir, 48 idiomas de interface e preferências de aparência.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} configurações de durações, alertas ao concluir, idioma e metas`,
       },
@@ -83,7 +83,7 @@ export const ptBRMessages: PulseMessages = {
       description: `Escolha entre seis sons calmos ao concluir e seis celebrações com animais, ou desative cada um. O ${PULSE_APP_NAME} mostra a mensagem certa quando uma sessão de Foco, Pausa Curta ou Pausa Longa termina.`,
       items: [
         'Título e subtítulo de conclusão conforme a sessão',
-        'Interface em 12 idiomas com idioma do sistema como padrão',
+        'Interface em 48 idiomas com idioma do sistema como padrão',
         'Preferências de idioma e aparência em cada dispositivo',
         'Lembretes de motivação opcionais no iPhone',
       ],
@@ -114,7 +114,7 @@ export const ptBRMessages: PulseMessages = {
         {
           title: 'Fala seu idioma',
           description:
-            'Interface completa em 12 idiomas com padrão do sistema e substituição manual em Ajustes.',
+            'Interface completa em 48 idiomas com padrão do sistema e substituição manual em Ajustes.',
         },
       ],
     },

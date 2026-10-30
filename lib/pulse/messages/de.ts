@@ -25,7 +25,7 @@ export const deMessages: PulseMessages = {
       platformLabel: 'Plattformen',
       platformValue: 'iPhone & Mac',
       languagesLabel: 'Sprachen',
-      languagesValue: '12 Sprachen',
+      languagesValue: '48 Sprachen',
       dataLabel: 'Sync',
       dataValue: 'Offline-first',
       builtWithLabel: 'Erstellt mit',
@@ -36,7 +36,7 @@ export const deMessages: PulseMessages = {
       title: 'Ihr Timer ist da, wenn Sie ihn brauchen — und weg, wenn nicht.',
       description: `Öffnen Sie ${PULSE_APP_NAME} auf dem Mac aus der Menüleiste, wählen Sie eine Sitzung und schließen Sie das Popover. Auf dem iPhone starten Sie Fokus auf dem Home-Bildschirm und nutzen auf unterstützten Geräten Live Activities. Der Timer läuft weiter, während Sie arbeiten.`,
       caption:
-        'Fokus- und Pausen-Timer, Daily Focus Goals, Focus History, Streak-Tracking, Lokalisierung in 12 Sprachen und optionale Abschlussbenachrichtigungen.',
+        'Fokus- und Pausen-Timer, Daily Focus Goals, Focus History, Streak-Tracking, Lokalisierung in 48 Sprachen und optionale Abschlussbenachrichtigungen.',
     },
     rhythm: {
       eyebrow: 'Ein Rhythmus, den Sie steuern',
@@ -64,7 +64,7 @@ export const deMessages: PulseMessages = {
         title: 'Anpassung',
         badge: 'Ihre Regeln',
         description:
-          'Flexible Dauern, Daily Focus Goals, Abschlussklänge und Animationen, 12 UI-Sprachen und Darstellungsoptionen.',
+          'Flexible Dauern, Daily Focus Goals, Abschlussklänge und Animationen, 48 UI-Sprachen und Darstellungsoptionen.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} Einstellungen für Dauern, Abschlussbenachrichtigungen, Sprache und Ziele`,
       },
@@ -83,7 +83,7 @@ export const deMessages: PulseMessages = {
       description: `Wählen Sie aus sechs ruhigen Abschlussklängen und sechs Tierfeiern — oder schalten Sie beides aus. ${PULSE_APP_NAME} zeigt die passende Meldung, wenn eine Fokus-, Kurz- oder Langpausensitzung endet.`,
       items: [
         'Sitzungsbezogener Abschlusstitel und Untertitel',
-        'UI in 12 Sprachen mit Systemsprache als Standard',
+        'UI in 48 Sprachen mit Systemsprache als Standard',
         'Sprach- und Darstellungseinstellungen auf jedem Gerät',
         'Optionale Motivations-Erinnerungen auf dem iPhone',
       ],
@@ -114,7 +114,7 @@ export const deMessages: PulseMessages = {
         {
           title: 'Spricht Ihre Sprache',
           description:
-            'Vollständige UI in 12 Sprachen mit Systemsprache als Standard und manueller Auswahl in den Einstellungen.',
+            'Vollständige UI in 48 Sprachen mit Systemsprache als Standard und manueller Auswahl in den Einstellungen.',
         },
       ],
     },

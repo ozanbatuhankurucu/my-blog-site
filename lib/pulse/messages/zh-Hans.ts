@@ -25,7 +25,7 @@ export const zhHansMessages: PulseMessages = {
       platformLabel: '平台',
       platformValue: 'iPhone 与 Mac',
       languagesLabel: '语言',
-      languagesValue: '12 种语言',
+      languagesValue: '48 种语言',
       dataLabel: '同步',
       dataValue: '离线优先',
       builtWithLabel: '技术栈',
@@ -36,7 +36,7 @@ export const zhHansMessages: PulseMessages = {
       title: '需要时它在，不需要时它不在。',
       description: `在 Mac 上，从菜单栏打开 ${PULSE_APP_NAME}，选择会话并关闭弹出窗口。在 iPhone 上，从首页开始专注，在支持的设备上可通过 Live Activities 继续。计时器在你工作时持续运行。`,
       caption:
-        '专注与休息计时、每日专注目标、专注历史、连续记录、12 种语言本地化，以及可选的完成提醒。',
+        '专注与休息计时、每日专注目标、专注历史、连续记录、48 种语言本地化，以及可选的完成提醒。',
     },
     rhythm: {
       eyebrow: '由你掌控的节奏',
@@ -64,7 +64,7 @@ export const zhHansMessages: PulseMessages = {
         title: '个性化',
         badge: '你的规则',
         description:
-          '灵活时长、每日专注目标、完成音效与动画、12 种界面语言，以及外观偏好。',
+          '灵活时长、每日专注目标、完成音效与动画、48 种界面语言，以及外观偏好。',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} 时长、完成提醒、语言与目标设置`,
       },
@@ -83,7 +83,7 @@ export const zhHansMessages: PulseMessages = {
       description: `可从六种平静的完成音效与六种动物庆祝动画中选择，或分别关闭。${PULSE_APP_NAME} 在专注、短休息或长休息结束时显示合适的信息。`,
       items: [
         '按会话类型显示的完成标题与副标题',
-        '12 种界面语言，默认跟随系统语言',
+        '48 种界面语言，默认跟随系统语言',
         '各设备上的语言与外观偏好',
         'iPhone 上可选的激励提醒',
       ],
@@ -114,7 +114,7 @@ export const zhHansMessages: PulseMessages = {
         {
           title: '用你的语言',
           description:
-            '完整 12 种界面语言，默认系统语言，可在设置中手动覆盖。',
+            '完整 48 种界面语言，默认系统语言，可在设置中手动覆盖。',
         },
       ],
     },

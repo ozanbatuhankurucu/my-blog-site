@@ -25,7 +25,7 @@ export const frMessages: PulseMessages = {
       platformLabel: 'Plateformes',
       platformValue: 'iPhone et Mac',
       languagesLabel: 'Langues',
-      languagesValue: '12 langues',
+      languagesValue: '48 langues',
       dataLabel: 'Sync',
       dataValue: 'Offline-first',
       builtWithLabel: 'Construit avec',
@@ -36,7 +36,7 @@ export const frMessages: PulseMessages = {
       title: 'Votre minuteur est là quand vous en avez besoin — et disparaît quand vous n’en avez plus.',
       description: `Sur Mac, ouvrez ${PULSE_APP_NAME} depuis la barre de menus, choisissez une session et fermez le popover. Sur iPhone, démarrez Focus depuis l’accueil et continuez avec Live Activities sur les appareils pris en charge. Le minuteur continue pendant que vous travaillez.`,
       caption:
-        'Minuteurs Focus et pause, Daily Focus Goals, Focus History, suivi des séries, localisation en 12 langues et alertes de fin optionnelles.',
+        'Minuteurs Focus et pause, Daily Focus Goals, Focus History, suivi des séries, localisation en 48 langues et alertes de fin optionnelles.',
     },
     rhythm: {
       eyebrow: 'Un rythme que vous contrôlez',
@@ -64,7 +64,7 @@ export const frMessages: PulseMessages = {
         title: 'Personnalisation',
         badge: 'Vos règles',
         description:
-          'Durées flexibles, Daily Focus Goals, sons et animations de fin, 12 langues d’interface et préférences d’apparence.',
+          'Durées flexibles, Daily Focus Goals, sons et animations de fin, 48 langues d’interface et préférences d’apparence.',
         imageFile: 'settings.png',
         alt: `Réglages de ${PULSE_APP_NAME} pour les durées, alertes de fin, langue et objectifs`,
       },
@@ -83,7 +83,7 @@ export const frMessages: PulseMessages = {
       description: `Choisissez parmi six sons de fin apaisants et six célébrations animales, ou désactivez l’un ou l’autre. ${PULSE_APP_NAME} affiche le bon message à la fin d’une session Focus, Pause courte ou Pause longue.`,
       items: [
         'Titre et sous-titre de fin adaptés à la session',
-        'Interface en 12 langues avec la langue système par défaut',
+        'Interface en 48 langues avec la langue système par défaut',
         'Préférences de langue et d’apparence sur chaque appareil',
         'Rappels de motivation optionnels sur iPhone',
       ],
@@ -114,7 +114,7 @@ export const frMessages: PulseMessages = {
         {
           title: 'Parle votre langue',
           description:
-            'Interface complète en 12 langues avec la langue système par défaut et remplacement manuel dans Réglages.',
+            'Interface complète en 48 langues avec la langue système par défaut et remplacement manuel dans Réglages.',
         },
       ],
     },

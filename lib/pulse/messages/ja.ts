@@ -25,7 +25,7 @@ export const jaMessages: PulseMessages = {
       platformLabel: 'プラットフォーム',
       platformValue: 'iPhone と Mac',
       languagesLabel: '言語',
-      languagesValue: '12言語',
+      languagesValue: '48言語',
       dataLabel: '同期',
       dataValue: 'オフライン優先',
       builtWithLabel: '技術',
@@ -36,7 +36,7 @@ export const jaMessages: PulseMessages = {
       title: '必要なときはそこにあり、不要なときは姿を消します。',
       description: `Mac ではメニューバーから ${PULSE_APP_NAME} を開き、セッションを選んでポップオーバーを閉じます。iPhone ではホームからフォーカスを始め、対応デバイスでは Live Activities で続けられます。作業中もタイマーは動き続けます。`,
       caption:
-        'フォーカスと休憩タイマー、デイリーフォーカス目標、フォーカス履歴、連続記録、12言語ローカライズ、任意の完了アラート。',
+        'フォーカスと休憩タイマー、デイリーフォーカス目標、フォーカス履歴、連続記録、48言語ローカライズ、任意の完了アラート。',
     },
     rhythm: {
       eyebrow: 'あなたが操るリズム',
@@ -64,7 +64,7 @@ export const jaMessages: PulseMessages = {
         title: 'カスタマイズ',
         badge: 'あなたのルール',
         description:
-          '柔軟な時間設定、デイリーフォーカス目標、完了音とアニメーション、12のUI言語、外観の好み。',
+          '柔軟な時間設定、デイリーフォーカス目標、完了音とアニメーション、48のUI言語、外観の好み。',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} の時間、完了アラート、言語、目標の設定`,
       },
@@ -83,7 +83,7 @@ export const jaMessages: PulseMessages = {
       description: `6つの穏やかな完了音と6つのアニマルセレブレーションから選ぶか、どちらもオフにできます。${PULSE_APP_NAME} はフォーカス、短い休憩、長い休憩の終了時に適切なメッセージを表示します。`,
       items: [
         'セッションに応じた完了タイトルとサブタイトル',
-        'システム言語を既定とする12言語のUI',
+        'システム言語を既定とする48言語のUI',
         '各デバイスでの言語と外観の好み',
         'iPhone で任意のモチベーションリマインダー',
       ],
@@ -114,7 +114,7 @@ export const jaMessages: PulseMessages = {
         {
           title: 'あなたの言語で話す',
           description:
-            '12言語の完全なUI。システム言語を既定とし、設定で手動オーバーライドも可能です。',
+            '48言語の完全なUI。システム言語を既定とし、設定で手動オーバーライドも可能です。',
         },
       ],
     },
