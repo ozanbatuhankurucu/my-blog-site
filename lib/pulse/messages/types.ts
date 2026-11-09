@@ -198,6 +198,12 @@ export interface PulsePrivacyMessages {
     title: string
     body: string
   }
+  privacyRights: {
+    title: string
+    intro: string
+    items: string[]
+    closing: string
+  }
   changes: {
     title: string
     body: string

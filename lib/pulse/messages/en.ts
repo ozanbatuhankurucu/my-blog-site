@@ -25,7 +25,7 @@ export const enMessages: PulseMessages = {
       platformLabel: 'Platforms',
       platformValue: 'iPhone & Mac',
       languagesLabel: 'Languages',
-      languagesValue: '48 languages',
+      languagesValue: '7 languages',
       dataLabel: 'Sync',
       dataValue: 'Offline-first',
       builtWithLabel: 'Built with',
@@ -36,7 +36,7 @@ export const enMessages: PulseMessages = {
       title: 'Your timer is there when you need it—and gone when you do not.',
       description: `On Mac, open ${PULSE_APP_NAME} from the menu bar, choose a session, and close the popover. On iPhone, start Focus from Home and keep going with Live Activities on supported devices. The timer keeps working while you do.`,
       caption:
-        'Focus and break timers, Daily Focus Goals, Focus History, streak tracking, 48-language localization, and optional completion alerts.',
+        'Focus and break timers, Daily Focus Goals, Focus History, streak tracking, 7-language localization, and optional completion alerts.',
     },
     rhythm: {
       eyebrow: 'A rhythm you control',
@@ -64,7 +64,7 @@ export const enMessages: PulseMessages = {
         title: 'Customisation',
         badge: 'Your rules',
         description:
-          'Flexible durations, Daily Focus Goals, completion sounds and animations, 48 UI languages, and appearance preferences.',
+          'Flexible durations, Daily Focus Goals, completion sounds and animations, 7 UI languages, and appearance preferences.',
         imageFile: 'settings.png',
         alt: `${PULSE_APP_NAME} settings for durations, completion alerts, language, and goals`,
       },
@@ -83,9 +83,9 @@ export const enMessages: PulseMessages = {
       description: `Choose from six calm completion sounds and six animal celebrations, or turn either one off. ${PULSE_APP_NAME} shows the right message when a Focus, Short Break, or Long Break session ends.`,
       items: [
         'Session-aware completion title and subtitle',
-        'UI in 48 languages with system-language default',
+        'UI in 7 languages with system-language default',
         'Language and appearance preferences on each device',
-        'Optional motivation reminders on iPhone',
+        'Optional notifications and Live Activities on iPhone',
       ],
       settingsImageAlt: `${PULSE_APP_NAME} settings for durations, language, completion sounds, and goals`,
       celebrationImageAlt: `${PULSE_APP_NAME} rabbit celebration animation when a session completes`,
@@ -114,7 +114,7 @@ export const enMessages: PulseMessages = {
         {
           title: 'Speaks your language',
           description:
-            'Full UI in 48 languages with system-language default and manual override in Settings.',
+            'Full UI in English, Turkish, German, Japanese, Korean, Simplified Chinese, and Traditional Chinese, with system-language default and manual override in Settings.',
         },
       ],
     },
@@ -139,36 +139,41 @@ export const enMessages: PulseMessages = {
   },
   support: {
     metaTitle: `${PULSE_APP_NAME} Support`,
-    metaDescription: `Support, FAQ, and account help for ${PULSE_APP_NAME} on iPhone and Mac — including Pomodoro Pro, purchases, Focus Protection, sign-in, sync, and account deletion.`,
+    metaDescription: `Support, FAQ, and account help for ${PULSE_APP_NAME} on iPhone and Mac — including Pomodoro Pro, free trials, Limited Annual offers, Focus Protection, sign-in, sync, and account deletion.`,
     title: `${PULSE_APP_NAME} Support`,
-    intro: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac. Sign in with Apple or Google to sync Focus History across your devices. On iPhone, optional Pomodoro Pro unlocks Focus Protection, custom tags, and tag insights.`,
+    intro: `${PULSE_APP_NAME} is a calm Pomodoro timer for iPhone and Mac. Sign in with Apple or Google to sync Focus History across your devices. On iPhone, optional Pomodoro Pro unlocks Focus Protection, custom tags, Tag Insights, Stopwatch Mode, Session Notes, and Custom Breaks.`,
     gettingStarted: {
       title: 'Getting started',
       items: [
         {
-          question: 'How do I start a Focus session?',
+          question: 'How do I start, pause, resume, or complete a Focus session?',
           answer:
-            'On Mac, click the app icon in the menu bar, choose Focus, Short Break, or Long Break, then press Start. On iPhone, open the app, choose a session on Home, and press Start. You can leave the app while the timer runs.',
+            'On Mac, click the app icon in the menu bar, choose Focus, Short Break, or Long Break, then press Start. On iPhone, open the app, choose a session, and press Start. Pause and resume from the running session controls. When the countdown ends, the session completes automatically; you can also stop or skip from the controls. You can leave the app while the timer runs.',
         },
         {
-          question: 'How do I change Focus and Break durations?',
+          question: 'How do Focus and Break timers work?',
           answer:
-            'Open Settings and adjust Focus, Short Break, and Long Break lengths. You can also pick a preset rhythm, then fine-tune the minutes.',
+            'Focus is for deep work. Short Break and Long Break are rest sessions. The app can suggest what comes next after you finish, but it never auto-starts the next session for you. Open Settings to adjust Focus, Short Break, and Long Break lengths, or choose a preset rhythm and fine-tune the minutes.',
         },
         {
-          question: 'How do I configure Daily Focus Goals?',
+          question: 'How do tags and custom tags work?',
           answer:
-            'In Settings, set how many Focus sessions you want each day. Progress appears on Home and in Focus History.',
+            'You can label sessions with built-in tags for free. Pomodoro Pro on iPhone unlocks custom tags with your own names and colours. The tag you choose is saved with the session and can sync with your account.',
         },
         {
-          question: 'How do I view Focus History?',
+          question: 'How do Daily Focus Goals and streaks work?',
           answer:
-            'Open Focus History from the app (on Mac, from the popover or status menu). You will see totals, streaks, and weekly progress.',
+            'In Settings, set how many Focus sessions you want each day. Progress appears on Home and in Focus History. Streaks track consecutive days with completed Focus sessions when you are signed in.',
+        },
+        {
+          question: 'How do I view productivity statistics and session history?',
+          answer:
+            'Open Focus History / Summary to review totals, streaks, weekly progress, and past sessions. Pomodoro Pro unlocks richer Tag Insights and additional history filters on iPhone.',
         },
         {
           question: 'How do I change language and appearance?',
           answer:
-            'In Settings, choose Language (System or a supported language) and Appearance (System, Light, or Dark). These preferences stay on each device and are not synced.',
+            'In Settings, choose Language (System or a supported language) and Appearance (System, Light, or Dark). These preferences stay on each device and are not synced. Supported languages are English, Turkish, German, Japanese, Korean, Simplified Chinese, and Traditional Chinese.',
         },
       ],
     },
@@ -213,7 +218,7 @@ export const enMessages: PulseMessages = {
         {
           question: 'What syncs between devices?',
           answer:
-            'Focus and break session history (including the tag you chose), the tags you create, Daily Focus Goal records, streak-related account data, and synced preferences such as session lengths, daily goal, sound, animations, completion sound, and celebration animal.',
+            'Focus and break session history (including the tag you chose and any session notes), the tags you create, Daily Focus Goal records, streak-related account data, and synced preferences such as session lengths, daily goal, sound, animations, completion sound, and celebration animal.',
         },
         {
           question: 'What happens without internet?',
@@ -253,32 +258,27 @@ export const enMessages: PulseMessages = {
         {
           question: 'What if device and account settings differ?',
           answer:
-            'The app may ask whether to keep this device’s settings or use account settings. Language, appearance, notifications, and motivation reminders stay device-local.',
+            'The app may ask whether to keep this device’s settings or use account settings. Language, appearance, notification preferences, and Focus Protection choices stay device-local.',
         },
       ],
     },
     notifications: {
-      title: 'Notifications',
+      title: 'Notifications and Live Activities',
       items: [
         {
           question: 'How do I enable notifications on iPhone?',
           answer:
-            'Open Settings → Notifications and choose Enable, or open system Settings if permission was previously denied.',
-        },
-        {
-          question: 'How do Motivation reminders work?',
-          answer:
-            'On iPhone, open Settings → Motivation reminders and turn them on after notifications are allowed. You can pause them or set quiet hours. They are optional and off by default.',
-        },
-        {
-          question: 'What if notifications are disabled?',
-          answer:
-            'Session-end alerts and motivation reminders need notification permission. Use Settings → Notifications → Open Settings to turn them on in iOS Settings.',
+            'Open Settings → Notifications and choose Enable, or open system Settings if permission was previously denied. Session-end alerts need notification permission.',
         },
         {
           question: 'How do Live Activities work?',
           answer:
-            'On supported iPhones, an optional Live Activity can show an active session on the Lock Screen and Dynamic Island. Permission is requested when you enable related features.',
+            'On supported iPhones, an optional Live Activity can show an active session on the Lock Screen and Dynamic Island. You can turn Live Activities on or off in Settings. Live Activities do not use push notifications from our servers.',
+        },
+        {
+          question: 'What if notifications are disabled?',
+          answer:
+            'Without notification permission, session-end alerts cannot appear. Use Settings → Notifications → Open Settings to turn them on in iOS Settings.',
         },
       ],
     },
@@ -286,19 +286,29 @@ export const enMessages: PulseMessages = {
       title: 'Pomodoro Pro',
       items: [
         {
-          question: 'What is Pomodoro Pro?',
+          question: 'What is free versus Pomodoro Pro?',
           answer:
-            'Pomodoro Pro is an optional in-app purchase on iPhone. It unlocks Focus Protection, custom tags (your own names and colors), and Tag Insights (week and month focus time by tag). The timer, built-in tags, Focus History, and sync stay available without Pro.',
+            'Free includes the Focus and Break timers, built-in tags, Focus History basics, Daily Focus Goals, streaks, sign-in, and cloud sync. Pomodoro Pro on iPhone unlocks Focus Protection, custom tags, Tag Insights, Stopwatch Mode, Session Notes, Custom Breaks, editing or deleting past sessions, and richer statistics filters.',
         },
         {
           question: 'What purchase options are available?',
           answer:
-            'Pomodoro Pro is offered as a Monthly subscription, a Yearly (Annual) subscription, or a Lifetime one-time purchase. Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current period. Lifetime is charged once and is not a subscription.',
+            'Pomodoro Pro is offered as a Monthly subscription, an Annual subscription, a Limited Annual offer when available, or a Lifetime one-time purchase. Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current period. Lifetime is charged once and is not a subscription.',
+        },
+        {
+          question: 'What is the Limited Annual offer?',
+          answer:
+            'Limited Annual is a discounted annual Pomodoro Pro subscription that may appear for a limited time for eligible users who have not purchased Pro before. It unlocks the same Pro entitlement as the regular Annual plan. Availability is time-limited and not guaranteed for every account.',
+        },
+        {
+          question: 'Do subscriptions include a free trial?',
+          answer:
+            'Eligible Monthly or Annual subscriptions may include a free trial. The paywall shows a free trial only when eligibility is confirmed for your Apple Account, and the trial length is shown on the paywall and in the App Store purchase sheet before you confirm. Lifetime does not include a trial. If you are not eligible, standard pricing is shown instead.',
         },
         {
           question: 'Where do I buy or see Pomodoro Pro?',
           answer:
-            'On iPhone, open Settings → Pomodoro Pro, or tap the protection chip on Home. You must be signed in. Pro stays with your account on every device you sign in on.',
+            'On iPhone, open Settings → Pomodoro Pro. You must be signed in. Pro stays with your account on every device you sign in on.',
         },
         {
           question: 'How do I restore purchases?',
@@ -338,17 +348,17 @@ export const enMessages: PulseMessages = {
         {
           question: 'What is Focus Protection?',
           answer:
-            'Focus Protection is a Pomodoro Pro feature on iPhone. It uses Apple’s Screen Time APIs to block the apps, categories, or websites you choose while a Focus session runs. Breaks are never blocked. When the session ends, blocked apps unlock automatically.',
+            'Focus Protection is a Pomodoro Pro feature on iPhone. It uses Apple’s Screen Time APIs to block the apps, categories, or websites you choose while a Focus session runs. Breaks are never blocked. When the session ends, blocked apps unlock automatically. Your block choices stay on that iPhone and are not uploaded or synced.',
         },
         {
           question: 'How do I set it up?',
           answer:
-            'With Pro active, tap the Focus Protection chip on Home (or open it from Settings). Allow Screen Time access when asked, choose what to block, then turn Focus Protection on. Start a Focus session to apply the shields.',
+            'With Pro active, open Settings → Focus Protection. Allow Screen Time access when asked, choose what to block, then turn Focus Protection on. Start a Focus session to apply the shields.',
         },
         {
           question: 'How do I turn it off or unlock apps?',
           answer:
-            'Open the Focus Protection sheet and choose Turn Off Now, or turn the feature off. After a session ends you can also use Unlock Apps on the shield screen. To remove the app’s Screen Time access entirely, go to iOS Settings → Screen Time → Apps with Screen Time Access.',
+            'Open Focus Protection in Settings and turn the feature off, or use the unlock options on the shield screen after a session. To remove the app’s Screen Time access entirely, go to iOS Settings → Screen Time → Apps with Screen Time Access.',
         },
         {
           question: 'What if Focus Protection is not working?',
@@ -384,7 +394,7 @@ export const enMessages: PulseMessages = {
     },
     requirements: {
       title: 'Requirements',
-      body: 'iPhone: iOS 17 or later. Mac: macOS 14.6 or later. Pomodoro Pro purchases and Focus Protection are available on iPhone.',
+      body: 'iPhone: iOS 17 or later. Mac: macOS 14.6 or later. Pomodoro Pro purchases, free trials, Limited Annual offers, and Focus Protection are available on iPhone.',
     },
     contact: {
       title: 'Contact',
@@ -394,17 +404,17 @@ export const enMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Privacy Policy`,
-    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, Pomodoro Pro purchases via RevenueCat, Focus Protection, analytics, and account deletion on Mac and iPhone.`,
+    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, Pomodoro Pro purchases via RevenueCat, Focus Protection, analytics, account deletion, and privacy rights on Mac and iPhone.`,
     title: 'Privacy Policy',
     subtitle: `${PULSE_APP_NAME} — Pomodoro timer for Mac and iPhone`,
-    lastUpdated: 'Last updated: October 26, 2026',
+    lastUpdated: 'Last updated: 9 November 2026',
     summary: {
       title: 'Summary',
-      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. If you buy Pomodoro Pro on iPhone, our purchase provider RevenueCat keeps your purchase history linked to your account so Pro works on every device you sign in on. Focus Protection’s app choices never leave your iPhone. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
+      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. If you buy Pomodoro Pro on iPhone — including Monthly, Annual, Limited Annual, Lifetime, or an eligible free trial — our purchase provider RevenueCat keeps your purchase and entitlement history linked to your account so Pro works on every device you sign in on. Focus Protection’s app choices never leave your iPhone. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
     },
     localData: {
       title: 'Data stored on your device',
-      body: 'Your timer settings, session preferences, and focus history are saved locally on your Mac or iPhone using standard system storage, so the timer keeps working offline. Each account signed in on a device has its own separate local store. Your sign-in session is kept in the system Keychain. Language, appearance, Launch at Login, notification, and motivation reminder settings stay on each device and are not synced. Focus history content itself is not uploaded to our analytics provider.',
+      body: 'Your timer settings, session preferences, and focus history are saved locally on your Mac or iPhone using standard system storage, so the timer keeps working offline. Each account signed in on a device has its own separate local store. Your sign-in session is kept in the system Keychain. Language, appearance, Launch at Login, notification preferences, Live Activity preferences, and Focus Protection selections stay on each device and are not synced. Focus history content itself is not uploaded to our analytics provider.',
       migrationSafety:
         'When you first sign in on a device that already has focus history, the app asks before moving that history into your account. Until the move is confirmed on our servers, plus 90 days, the app keeps the previous local copy and a local backup file on the device as a safety net, then removes them automatically.',
     },
@@ -414,7 +424,7 @@ export const enMessages: PulseMessages = {
       items: [
         'Contact info: the email address shared by Sign in with Apple (which may be a private relay address via Hide My Email) or Google. We do not request your name.',
         'Identifiers: an account ID created at sign-in, and a random ID for each install, used only to sync and to identify which device made a change.',
-        'Focus data: completed and deleted focus and break sessions (times, durations, local day and time zone, and the tag you chose), the tags you create (name and color), daily goal targets, your best streak, and the synced settings (session lengths, daily goal, sound, animations, completion sound, celebration animal).',
+        'Focus data: completed and deleted focus and break sessions (times, durations, local day and time zone, the tag you chose, and any session notes), the tags you create (name and colour), daily goal targets, your best streak, and the synced settings (session lengths, daily goal, sound, animations, completion sound, celebration animal).',
       ],
       closing:
         'This data is used only to provide sync, history, and account features. It is linked to your account, is not used for tracking, and is not shared with third parties other than the processors below.',
@@ -426,20 +436,20 @@ export const enMessages: PulseMessages = {
         '(database and authentication) in the European Union. Sign-in is handled by',
       orWord: 'or',
       bodyAfterProviders:
-        ', depending on the option you choose. Pomodoro Pro purchases are managed with',
+        ', depending on the option you choose. Pomodoro Pro purchases and entitlements are managed with',
       bodyAfterRevenueCat:
         '(see Purchases below). Data is encrypted in transit, and access is restricted so each account can read only its own data.',
     },
     purchases: {
       title: 'Purchases (iPhone)',
       bodyBeforeRevenueCat:
-        'Pomodoro Pro is sold through the App Store; Apple handles payment, and we never see your payment details. To unlock Pro on every device you sign in on, the app shares your account ID with',
+        'Pomodoro Pro is sold through the App Store as Monthly, Annual, Limited Annual (when offered), and Lifetime products; eligible subscriptions may include a free trial shown before purchase. Apple handles payment, and we never see your payment card details. To unlock Pro on every device you sign in on, the app shares your account ID with',
       bodyAfterRevenueCat:
-        ', which keeps your purchase history (products bought, purchase and renewal dates, and subscription status) linked to that ID. This data is used only to grant and restore Pro access, is not used for tracking, and is not shared with our analytics provider. Pro requires a signed-in account; nothing is sent to RevenueCat before you sign in.',
+        ', which keeps your purchase and entitlement history (products bought, purchase and renewal dates, trial or subscription status, and lifetime unlock) linked to that ID. This data is used only to grant and restore Pro access, is not used for tracking, and is not shared with our analytics provider. Pro requires a signed-in account; nothing is sent to RevenueCat before you sign in.',
     },
     focusProtection: {
       title: 'Focus Protection (iPhone)',
-      body: 'Focus Protection uses Apple’s Screen Time framework (Family Controls) to block the apps, categories, and websites you choose while a focus session runs. Apple gives the app only opaque tokens for your choices: we cannot see which apps or websites you picked, how you use them, or any other Screen Time data. Your choices stay on that iPhone, are never uploaded or synced, and are not sent to our analytics provider. You can turn Focus Protection off in the app at any time, or remove the app’s access in Settings → Screen Time → Apps with Screen Time Access.',
+      body: 'Focus Protection uses Apple’s Screen Time frameworks (including Family Controls, Managed Settings, and Device Activity) to block the apps, categories, and websites you choose while a focus session runs. Apple gives the app only opaque tokens for your choices: we cannot see which apps or websites you picked, how you use them, or any other Screen Time usage information. Your choices stay on that iPhone, are never uploaded or synced to our servers, and are not sent to our analytics provider. We do not collect or sell Screen Time data. You can turn Focus Protection off in the app at any time, or remove the app’s access in Settings → Screen Time → Apps with Screen Time Access.',
     },
     retention: {
       title: 'Retention, backups, and deletion',
@@ -460,7 +470,7 @@ export const enMessages: PulseMessages = {
       title: 'Analytics',
       introBeforeLink: 'We use',
       introAfterLink:
-        ', a privacy-focused analytics service, to understand how the app is used (for example: focus or break sessions started or completed, daily goal changes, settings changes, notification permission results, motivation reminder events, and whether onboarding finished). Signals do not include free-form text, names, emails, or your focus history contents.',
+        ', a privacy-focused analytics service, to understand how the app is used (for example: focus or break sessions started or completed, history opened, settings changes, notification permission results, onboarding completion, and selected review or migration diagnostics). Signals do not include free-form text, names, emails, session notes, or your focus history contents.',
       identifier:
         'TelemetryDeck identifies installs with a hashed device-scoped identifier and may attach non-personal device metadata (such as model, OS version, and locale). This data is used only for analytics, is not linked to your identity by us, and is not used for tracking across other companies’ apps or websites.',
       learnMore: 'Learn more:',
@@ -476,7 +486,7 @@ export const enMessages: PulseMessages = {
     },
     notifications: {
       title: 'Notifications and Live Activities (iPhone)',
-      body: 'On iPhone, optional local notifications, motivation reminders, and Live Activities help you see when a session ends or gently return to focus. Permission is requested only when you choose to enable those features. Notification content stays on your device.',
+      body: 'On iPhone, optional local notifications and Live Activities help you see when a session ends or keep an active session visible on the Lock Screen and Dynamic Island. Permission is requested when you choose to enable related features. Notification and Live Activity content stays on your device and is not sent to our servers.',
     },
     whatWeDoNotDo: {
       title: 'What we do not do',
@@ -484,19 +494,35 @@ export const enMessages: PulseMessages = {
         'No advertising networks',
         'No sale of personal information',
         'No access to your contacts, photos, precise location, camera, or microphone for analytics',
+        'No collection or upload of Screen Time usage details beyond the opaque tokens Apple provides for Focus Protection on your device',
       ],
     },
     children: {
       title: 'Children',
       body: `${PULSE_APP_NAME} does not knowingly collect personal information from children beyond what an account needs to sync, as described above. Analytics signals are anonymous and do not include personal content.`,
     },
+    privacyRights: {
+      title: 'Your privacy rights (including GDPR and KVKK)',
+      intro:
+        'Depending on where you live, you may have rights under the EU/UK General Data Protection Regulation (GDPR), Turkey’s Personal Data Protection Law (KVKK), and similar laws. Subject to applicable law, these may include the right to:',
+      items: [
+        'Request access to the personal data we hold about your account',
+        'Request correction of inaccurate personal data',
+        'Export your data from the app (Settings → Account → Export my data)',
+        'Delete your account and synced data (Settings → Account → Delete account), or ask us to help with deletion',
+        'Object to or restrict certain processing where the law provides that right',
+        'Lodge a complaint with your local data protection authority',
+      ],
+      closing:
+        'Account and sync data is stored in the European Union with our processor Supabase. To exercise these rights, use the in-app controls where available, or contact us at the email below. We respond to verified requests as required by applicable law. We do not sell personal data.',
+    },
     changes: {
       title: 'Changes',
-      body: 'If this policy changes, the updated version will be posted at this URL.',
+      body: 'If this policy changes, the updated version will be posted at this URL with a new “Last updated” date.',
     },
     contact: {
       title: 'Contact',
-      body: 'Questions about this policy:',
+      body: 'Questions about this policy or privacy rights:',
     },
   },
 }
