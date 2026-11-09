@@ -42,7 +42,7 @@ export const SITE_URL = 'https://www.ozanbatuhankurucu.com'
 
 export const PULSE_APP_NAME = 'Pomodoro: Work & Study Timer'
 
-export const PULSE_APP_VERSION = '1.10'
+export const PULSE_APP_VERSION = '1.13'
 
 export const PULSE_APP_PATH = '/pomodoro-work-study-timer'
 

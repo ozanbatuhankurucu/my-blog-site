@@ -208,6 +208,19 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
         </section>
 
         <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>
+            {messages.privacyRights.title}
+          </h2>
+          <p className='mb-4'>{messages.privacyRights.intro}</p>
+          <ul className='list-disc list-inside space-y-2 mb-4'>
+            {messages.privacyRights.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>{messages.privacyRights.closing}</p>
+        </section>
+
+        <section>
           <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.changes.title}</h2>
           <p>{messages.changes.body}</p>
         </section>
