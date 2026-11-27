@@ -126,7 +126,7 @@ export const zhHansMessages: PulseMessages = {
         '使用 Apple 或 Google 登录',
         '每台设备上的离线优先专注',
         '历史与已同步偏好的云同步',
-        '无广告网络',
+        '应用内无广告',
         '可随时在设置中删除账户',
       ],
     },
@@ -404,13 +404,13 @@ export const zhHansMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} 隐私政策`,
-    metaDescription: `${PULSE_APP_NAME} 的隐私政策，涵盖 Apple 与 Google 登录、云同步、通过 RevenueCat 进行的 Pomodoro Pro 购买、Focus Protection、分析、账户删除，以及 Mac 与 iPhone 上的隐私权利。`,
+    metaDescription: `${PULSE_APP_NAME} 的隐私政策，涵盖 Apple 与 Google 登录、云同步、通过 RevenueCat 进行的 Pomodoro Pro 购买、Focus Protection、分析、广告效果衡量、账户删除，以及 Mac 与 iPhone 上的隐私权利。`,
     title: '隐私政策',
     subtitle: `${PULSE_APP_NAME} — 适用于 Mac 与 iPhone 的番茄钟计时器`,
-    lastUpdated: '最后更新：2026年11月9日',
+    lastUpdated: '最后更新：2026年11月28日',
     summary: {
       title: '摘要',
-      body: `当你使用 Apple 或 Google 登录时，你的账户会在 Mac 与 iPhone 之间同步专注历史、每日目标与计时器设置。我们只存储应用所需内容：你的电子邮件地址、账户标识符，以及你创建的专注数据。我们从不出售这些数据，不将其用于广告，也不与我们的分析提供商共享。若你在 iPhone 上购买 Pomodoro Pro — 包括月度、年度、Limited Annual、Lifetime 或符合条件的免费试用 — 我们的购买提供商 RevenueCat 会将你的购买与权益历史关联到账户，使 Pro 在你登录的每台设备上可用。Focus Protection 的 App 选择绝不会离开你的 iPhone。你可以随时在设置中导出数据或删除账户。另外，应用可能会发送匿名、注重隐私的使用分析，以便我们改进专注流程。`,
+      body: `当你使用 Apple 或 Google 登录时，你的账户会在 Mac 与 iPhone 之间同步专注历史、每日目标与计时器设置。我们只存储应用所需内容：你的电子邮件地址、账户标识符，以及你创建的专注数据。我们从不出售这些数据，不将其用于广告，也不与我们的分析提供商或广告平台共享。若你在 iPhone 上购买 Pomodoro Pro — 包括月度、年度、Limited Annual、Lifetime 或符合条件的免费试用 — 我们的购买提供商 RevenueCat 会将你的购买与权益历史关联到账户，使 Pro 在你登录的每台设备上可用。Focus Protection 的 App 选择绝不会离开你的 iPhone。你可以随时在设置中导出数据或删除账户。另外，应用可能会发送匿名、注重隐私的使用分析，以便我们改进专注流程；在 iPhone 上，应用还会衡量我们自己的广告是否带来了安装：对所有人都通过 Apple 匿名衡量，仅当你是成年人并允许跟踪时才会进行更详细的衡量（参见下文“广告效果衡量”）。`,
     },
     localData: {
       title: '存储在设备上的数据',
@@ -476,6 +476,37 @@ export const zhHansMessages: PulseMessages = {
       learnMore: '了解更多：',
       faqLabel: 'TelemetryDeck 隐私常见问题',
     },
+    advertising: {
+      title: '广告效果衡量（iPhone）',
+      intro:
+        '我们在 Google、Instagram 和 TikTok 上投放 Pomodoro 广告。应用本身不显示广告。iPhone 应用内置了 Google（Google Analytics for Firebase）、Meta 和 TikTok 的官方衡量套件，以便我们了解这些广告是否促使用户安装并使用应用。',
+      items: [
+        {
+          label: '对所有人（不跟踪）：',
+          body: 'Google Analytics for Firebase 会在关闭所有广告同意的情况下记录下列应用内事件，因此这些数据不会用于广告，也不会与 Meta 或 TikTok 共享。它只设置 Apple 的 SKAdNetwork 转化值；随后 Apple 会以匿名且延迟的方式告知广告网络，广告是否带来了安装，以及新用户进行到了哪一步。Meta 和 TikTok 的套件不会启动。',
+        },
+        {
+          label: '仅当你允许跟踪时：',
+          body: '在你完成第一个专注会话后，应用可能会显示 Apple 的年龄范围页面；仅当你表明自己年满 18 岁时，才会显示 Apple 的“允许跟踪”提示。如果你允许跟踪，下列应用内事件还会连同广告标识符（IDFA）、套件或系统为此应用生成的随机标识符（例如供应商标识符）以及基本设备信息（例如机型、操作系统版本、语言、时区和 IP 地址）一起发送给 Meta、TikTok 和 Google Ads，以便它们将这些事件与你和我们广告的互动进行匹配。你可以随时在 iOS 设置 → 隐私与安全性 → 跟踪中更改选择；无论如何选择，应用的使用都不受影响。',
+        },
+        {
+          label: '应用内事件：',
+          body: '应用被打开、引导完成、Pro 页面被显示（以及从哪个页面打开）、第一个专注会话完成，以及免费试用、订阅或 Lifetime 购买已开始（方案、价格与币种，以及 App Store 交易编号）。',
+        },
+        {
+          label: '绝不会发送的内容：',
+          body: '你的电子邮件地址、姓名、账户 ID、专注历史、标签名称、备注或 Focus Protection 选择。广告个性化始终关闭。',
+        },
+        {
+          label: '不进行衡量的情况：',
+          body: '表明自己未满 18 岁的用户、通过 TestFlight 或 App Review 安装的版本，以及来自欧洲经济区、英国和瑞士的 App Store 账户。',
+        },
+      ],
+      learnMore: '了解更多：',
+      googleLinkLabel: 'Google 如何使用来自使用其服务的应用的信息',
+      metaLinkLabel: 'Meta 隐私政策',
+      tiktokLinkLabel: 'TikTok 隐私政策',
+    },
     appStoreUpdates: {
       title: 'App Store 更新',
       body: '若你在设置中使用“检查更新”，应用可能会联系 Apple，以查看 App Store 是否有更新版本。',
@@ -491,7 +522,8 @@ export const zhHansMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: '我们不会做的事',
       items: [
-        '无广告网络',
+        '应用内无广告',
+        '不与广告平台共享你的账户、电子邮件或专注数据',
         '不出售个人信息',
         '不为分析访问你的通讯录、照片、精确位置、相机或麦克风',
         '不收集或上传超出 Apple 为设备上 Focus Protection 提供的不透明令牌之外的 Screen Time 使用详情',
@@ -499,7 +531,7 @@ export const zhHansMessages: PulseMessages = {
     },
     children: {
       title: '儿童',
-      body: `${PULSE_APP_NAME} 不会在明知情况下，收集超出账户同步所需（如上所述）之外的儿童个人信息。分析信号是匿名的，不包含个人内容。`,
+      body: `${PULSE_APP_NAME} 不会在明知情况下，收集超出账户同步所需（如上所述）之外的儿童个人信息。分析信号是匿名的，不包含个人内容。通过 Apple 年龄范围页面表明自己未满 18 岁的用户绝不会被纳入广告衡量，且“允许跟踪”提示仅向表明自己年满 18 岁的用户显示。`,
     },
     privacyRights: {
       title: '你的隐私权利（包括 GDPR 与 KVKK）',

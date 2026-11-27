@@ -126,7 +126,7 @@ export const trMessages: PulseMessages = {
         'Apple veya Google ile giriş',
         'Her cihazda çevrimdışı öncelikli odaklanma',
         'Geçmiş ve senkronize tercihler için bulut senkronizasyonu',
-        'Reklam ağı yok',
+        'Uygulamada reklam yok',
         'Hesabınızı istediğiniz zaman Ayarlar’dan silin',
       ],
     },
@@ -404,13 +404,13 @@ export const trMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Gizlilik Politikası`,
-    metaDescription: `${PULSE_APP_NAME} gizlilik politikası; Apple ve Google ile giriş, bulut senkronizasyonu, RevenueCat üzerinden Pomodoro Pro satın alımları, Focus Protection, analitik, hesap silme ve Mac ile iPhone’da gizlilik haklarını kapsar.`,
+    metaDescription: `${PULSE_APP_NAME} gizlilik politikası; Apple ve Google ile giriş, bulut senkronizasyonu, RevenueCat üzerinden Pomodoro Pro satın alımları, Focus Protection, analitik, reklam ölçümü, hesap silme ve Mac ile iPhone’da gizlilik haklarını kapsar.`,
     title: 'Gizlilik Politikası',
     subtitle: `${PULSE_APP_NAME} — Mac ve iPhone için Pomodoro zamanlayıcısı`,
-    lastUpdated: 'Son güncelleme: 9 Kasım 2026',
+    lastUpdated: 'Son güncelleme: 28 Kasım 2026',
     summary: {
       title: 'Özet',
-      body: `Apple veya Google ile giriş yaptığınızda hesabınız, odak geçmişinizi, günlük hedeflerinizi ve zamanlayıcı ayarlarınızı Mac ile iPhone arasında senkronize tutar. Yalnızca uygulamanın buna ihtiyacı olanı saklarız: e-posta adresiniz, bir hesap tanımlayıcısı ve oluşturduğunuz odak verileri. Bunları asla satmayız, reklam için kullanmayız ve analitik sağlayıcımızla paylaşmayız. iPhone’da Pomodoro Pro satın alırsanız — Aylık, Yıllık, Limited Annual, Lifetime veya uygun bir ücretsiz deneme dahil — satın alma sağlayıcımız RevenueCat, satın alma ve yetki geçmişinizi hesabınıza bağlayarak Pro’nun giriş yaptığınız her cihazda çalışmasını sağlar. Focus Protection uygulama seçimleri iPhone’unuzdan asla çıkmaz. Verilerinizi istediğiniz zaman Ayarlar’dan dışa aktarabilir veya hesabınızı silebilirsiniz. Ayrı olarak uygulama, odak akışlarını iyileştirmemiz için anonim, gizliliği koruyan kullanım analitiği gönderebilir.`,
+      body: `Apple veya Google ile giriş yaptığınızda hesabınız, odak geçmişinizi, günlük hedeflerinizi ve zamanlayıcı ayarlarınızı Mac ile iPhone arasında senkronize tutar. Yalnızca uygulamanın buna ihtiyacı olanı saklarız: e-posta adresiniz, bir hesap tanımlayıcısı ve oluşturduğunuz odak verileri. Bunları asla satmayız, reklam için kullanmayız ve analitik sağlayıcımızla ya da reklam platformlarıyla paylaşmayız. iPhone’da Pomodoro Pro satın alırsanız — Aylık, Yıllık, Limited Annual, Lifetime veya uygun bir ücretsiz deneme dahil — satın alma sağlayıcımız RevenueCat, satın alma ve yetki geçmişinizi hesabınıza bağlayarak Pro’nun giriş yaptığınız her cihazda çalışmasını sağlar. Focus Protection uygulama seçimleri iPhone’unuzdan asla çıkmaz. Verilerinizi istediğiniz zaman Ayarlar’dan dışa aktarabilir veya hesabınızı silebilirsiniz. Ayrı olarak uygulama, odak akışlarını iyileştirmemiz için anonim, gizliliği koruyan kullanım analitiği gönderebilir ve iPhone’da kendi reklamlarımızın yüklemelere yol açıp açmadığını ölçer: herkes için Apple üzerinden anonim olarak, daha ayrıntılı olarak ise yalnızca yetişkinseniz ve izlemeye izin verirseniz (aşağıdaki Reklam ölçümü bölümüne bakın).`,
     },
     localData: {
       title: 'Cihazınızda saklanan veriler',
@@ -476,6 +476,37 @@ export const trMessages: PulseMessages = {
       learnMore: 'Daha fazla bilgi:',
       faqLabel: 'TelemetryDeck Gizlilik SSS',
     },
+    advertising: {
+      title: 'Reklam ölçümü (iPhone)',
+      intro:
+        'Pomodoro’nun reklamlarını Google, Instagram ve TikTok’ta veriyoruz. Uygulama reklam göstermez. iPhone uygulaması, bu reklamların insanların uygulamayı yükleyip kullanmasına yol açıp açmadığını anlayabilmemiz için Google (Google Analytics for Firebase), Meta ve TikTok’un resmi ölçüm kitlerini içerir.',
+      items: [
+        {
+          label: 'Herkes için (izleme yok):',
+          body: 'Google Analytics for Firebase, aşağıda listelenen uygulama içi anları tüm reklam onayları kapalıyken kaydeder; bu nedenle veriler reklam için kullanılmaz ve Meta ya da TikTok ile paylaşılmaz. Yalnızca Apple’ın SKAdNetwork dönüşüm değerini ayarlar; ardından Apple, bir reklamın yüklemeye yol açıp açmadığını ve yeni kullanıcının ne kadar ilerlediğini reklam ağına anonim olarak ve gecikmeli şekilde bildirir. Meta ve TikTok kitleri başlatılmaz.',
+        },
+        {
+          label: 'Yalnızca izlemeye izin verirseniz:',
+          body: 'İlk odak seansınızı tamamladıktan sonra uygulama, Apple’ın yaş aralığı sayfasını ve yalnızca 18 yaşında veya daha büyük olduğunuzu paylaşırsanız Apple’ın “İzlemeye izin ver” istemini gösterebilir. İzlemeye izin verirseniz aşağıdaki uygulama içi anlar; Reklam Tanımlayıcısı (IDFA), kitler veya sistem tarafından bu uygulama için oluşturulan rastgele tanımlayıcılar (satıcı tanımlayıcısı gibi) ve temel cihaz bilgileriyle (model, işletim sistemi sürümü, dil, saat dilimi ve IP adresi gibi) birlikte Meta, TikTok ve Google Ads’e de gönderilir; böylece bunları reklamlarımızla etkileşimlerinizle eşleştirebilirler. Seçiminizi istediğiniz zaman iOS Ayarlar → Gizlilik ve Güvenlik → İzleme bölümünden değiştirebilirsiniz; uygulama her iki durumda da aynı şekilde çalışır.',
+        },
+        {
+          label: 'Uygulama içi anlar:',
+          body: 'Uygulamanın açılması, tanıtımın tamamlanması, Pro ekranının gösterilmesi (ve hangi ekrandan açıldığı), ilk odak seansının tamamlanması ve bir ücretsiz deneme, abonelik ya da Lifetime satın alımının başlaması (plan, fiyatı ve para birimi ile App Store işlem numarası).',
+        },
+        {
+          label: 'Asla gönderilmeyenler:',
+          body: 'E-posta adresiniz, adınız, hesap kimliğiniz, odak geçmişiniz, etiket adlarınız, notlarınız veya Focus Protection seçimleriniz. Reklam kişiselleştirme her zaman kapalıdır.',
+        },
+        {
+          label: 'Ölçümün kapalı olduğu durumlar:',
+          body: '18 yaşından küçük olduğunu paylaşan kişiler, TestFlight veya App Review üzerinden yüklenen sürümler ve Avrupa Ekonomik Alanı, Birleşik Krallık ve İsviçre’deki App Store hesapları.',
+        },
+      ],
+      learnMore: 'Daha fazla bilgi:',
+      googleLinkLabel: 'Google’ın, hizmetlerini kullanan uygulamalardan gelen bilgileri nasıl kullandığı',
+      metaLinkLabel: 'Meta Gizlilik Politikası',
+      tiktokLinkLabel: 'TikTok Gizlilik Politikası',
+    },
     appStoreUpdates: {
       title: 'App Store güncellemeleri',
       body: 'Ayarlar’da “Güncellemeleri Denetle”yi kullanırsanız uygulama, App Store’da daha yeni bir sürüm olup olmadığını görmek için Apple ile iletişim kurabilir.',
@@ -491,7 +522,8 @@ export const trMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: 'Yapmadıklarımız',
       items: [
-        'Reklam ağı yok',
+        'Uygulamada reklam yok',
+        'Hesap, e-posta veya odak verilerinizin reklam platformlarıyla paylaşılması yok',
         'Kişisel bilgilerin satışı yok',
         'Analitik için kişilerinize, fotoğraflarınıza, kesin konumunuza, kameranıza veya mikrofonunuza erişim yok',
         'Cihazınızdaki Focus Protection için Apple’ın sağladığı opak belirteçlerin ötesinde Screen Time kullanım ayrıntılarının toplanması veya yüklenmesi yok',
@@ -499,7 +531,7 @@ export const trMessages: PulseMessages = {
     },
     children: {
       title: 'Çocuklar',
-      body: `${PULSE_APP_NAME}, yukarıda açıklandığı gibi bir hesabın senkronizasyon için ihtiyacı olanın ötesinde çocuklardan bilerek kişisel bilgi toplamaz. Analitik sinyalleri anonimdir ve kişisel içerik içermez.`,
+      body: `${PULSE_APP_NAME}, yukarıda açıklandığı gibi bir hesabın senkronizasyon için ihtiyacı olanın ötesinde çocuklardan bilerek kişisel bilgi toplamaz. Analitik sinyalleri anonimdir ve kişisel içerik içermez. Apple’ın yaş aralığı sayfası üzerinden 18 yaşından küçük olduğunu paylaşan kişiler hiçbir zaman reklam ölçümüne dahil edilmez ve “İzlemeye izin ver” istemi yalnızca 18 yaşında veya daha büyük olduğunu paylaşan kişilere gösterilir.`,
     },
     privacyRights: {
       title: 'Gizlilik haklarınız (GDPR ve KVKK dahil)',

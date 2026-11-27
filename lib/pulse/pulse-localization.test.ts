@@ -143,7 +143,7 @@ describe('Pulse message catalogs', () => {
       assert.ok(messages.privacy.retention.items.length >= 5)
       assert.ok(messages.privacy.analytics.introBeforeLink.length > 0)
       assert.ok(messages.privacy.analytics.introAfterLink.length > 0)
-      assert.equal(messages.privacy.whatWeDoNotDo.items.length, 4)
+      assert.equal(messages.privacy.whatWeDoNotDo.items.length, 5)
       assert.ok(messages.privacy.processors.bodyBeforeSupabase.length > 0)
       assert.ok(messages.privacy.processors.bodyAfterSupabase.length > 0)
       assert.ok(messages.privacy.processors.orWord.length > 0)

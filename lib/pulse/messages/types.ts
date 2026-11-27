@@ -22,6 +22,11 @@ export interface PulseFaqItem {
   answer: string
 }
 
+export interface PulseLabeledItem {
+  label: string
+  body: string
+}
+
 export interface PulseFaqSection {
   title: string
   items: PulseFaqItem[]
@@ -177,6 +182,15 @@ export interface PulsePrivacyMessages {
     identifier: string
     learnMore: string
     faqLabel: string
+  }
+  advertising: {
+    title: string
+    intro: string
+    items: PulseLabeledItem[]
+    learnMore: string
+    googleLinkLabel: string
+    metaLinkLabel: string
+    tiktokLinkLabel: string
   }
   appStoreUpdates: {
     title: string
