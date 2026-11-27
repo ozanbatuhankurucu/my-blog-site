@@ -126,7 +126,7 @@ export const deMessages: PulseMessages = {
         'Anmeldung mit Apple oder Google',
         'Offline-first-Fokus auf jedem Gerät',
         'Cloud-Sync für Verlauf und synchronisierte Einstellungen',
-        'Keine Werbenetzwerke',
+        'Keine Werbung in der App',
         'Konto jederzeit in den Einstellungen löschen',
       ],
     },
@@ -404,13 +404,13 @@ export const deMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Datenschutzrichtlinie`,
-    metaDescription: `Datenschutzrichtlinie für ${PULSE_APP_NAME}, einschließlich Anmeldung mit Apple und Google, Cloud-Sync, Pomodoro-Pro-Käufen über RevenueCat, Focus Protection, Analysen, Kontolöschung und Datenschutzrechten auf Mac und iPhone.`,
+    metaDescription: `Datenschutzrichtlinie für ${PULSE_APP_NAME}, einschließlich Anmeldung mit Apple und Google, Cloud-Sync, Pomodoro-Pro-Käufen über RevenueCat, Focus Protection, Analysen, Werbemessung, Kontolöschung und Datenschutzrechten auf Mac und iPhone.`,
     title: 'Datenschutzrichtlinie',
     subtitle: `${PULSE_APP_NAME} — Pomodoro-Timer für Mac und iPhone`,
-    lastUpdated: 'Zuletzt aktualisiert: 9. November 2026',
+    lastUpdated: 'Zuletzt aktualisiert: 28. November 2026',
     summary: {
       title: 'Zusammenfassung',
-      body: `Wenn Sie sich mit Apple oder Google anmelden, hält Ihr Konto Fokusverlauf, Tagesziele und Timer-Einstellungen zwischen Mac und iPhone synchron. Wir speichern nur, was die App dafür braucht: Ihre E-Mail-Adresse, eine Konto-ID und die von Ihnen erstellten Fokusdaten. Wir verkaufen sie nie, nutzen sie nie für Werbung und teilen sie nie mit unserem Analyseanbieter. Wenn Sie Pomodoro Pro auf dem iPhone kaufen — einschließlich Monatlich, Jährlich, Limited Annual, Lifetime oder einer berechtigten kostenlosen Testphase — speichert unser Kaufanbieter RevenueCat Ihre Kauf- und Berechtigungshistorie verknüpft mit Ihrem Konto, damit Pro auf jedem Gerät funktioniert, auf dem Sie sich anmelden. Die App-Auswahl von Focus Protection verlässt Ihr iPhone nie. Sie können Ihre Daten jederzeit in den Einstellungen exportieren oder Ihr Konto löschen. Separat kann die App anonyme, datenschutzschonende Nutzungsanalysen senden, damit wir Fokusabläufe verbessern können.`,
+      body: `Wenn Sie sich mit Apple oder Google anmelden, hält Ihr Konto Fokusverlauf, Tagesziele und Timer-Einstellungen zwischen Mac und iPhone synchron. Wir speichern nur, was die App dafür braucht: Ihre E-Mail-Adresse, eine Konto-ID und die von Ihnen erstellten Fokusdaten. Wir verkaufen sie nie, nutzen sie nie für Werbung und teilen sie nie mit unserem Analyseanbieter oder mit Werbeplattformen. Wenn Sie Pomodoro Pro auf dem iPhone kaufen — einschließlich Monatlich, Jährlich, Limited Annual, Lifetime oder einer berechtigten kostenlosen Testphase — speichert unser Kaufanbieter RevenueCat Ihre Kauf- und Berechtigungshistorie verknüpft mit Ihrem Konto, damit Pro auf jedem Gerät funktioniert, auf dem Sie sich anmelden. Die App-Auswahl von Focus Protection verlässt Ihr iPhone nie. Sie können Ihre Daten jederzeit in den Einstellungen exportieren oder Ihr Konto löschen. Separat kann die App anonyme, datenschutzschonende Nutzungsanalysen senden, damit wir Fokusabläufe verbessern können, und auf dem iPhone misst sie, ob unsere eigenen Anzeigen zu Installationen führen: für alle anonym über Apple und detaillierter nur, wenn Sie volljährig sind und Tracking erlauben (siehe Werbemessung unten).`,
     },
     localData: {
       title: 'Auf Ihrem Gerät gespeicherte Daten',
@@ -476,6 +476,37 @@ export const deMessages: PulseMessages = {
       learnMore: 'Mehr erfahren:',
       faqLabel: 'TelemetryDeck Datenschutz-FAQ',
     },
+    advertising: {
+      title: 'Werbemessung (iPhone)',
+      intro:
+        'Wir bewerben Pomodoro auf Google, Instagram und TikTok. Die App zeigt keine Werbung. Die iPhone-App enthält die offiziellen Mess-Kits von Google (Google Analytics for Firebase), Meta und TikTok, damit wir erkennen können, ob diese Anzeigen dazu führen, dass Menschen die App installieren und nutzen.',
+      items: [
+        {
+          label: 'Für alle (kein Tracking):',
+          body: 'Google Analytics for Firebase erfasst die unten aufgeführten In-App-Momente mit deaktivierten Werbeeinwilligungen; die Daten werden daher nicht für Werbung genutzt und nicht mit Meta oder TikTok geteilt. Es setzt nur Apples SKAdNetwork-Conversion-Wert; Apple teilt dem Werbenetzwerk dann anonym und zeitverzögert mit, ob eine Anzeige zu einer Installation geführt hat und wie weit der neue Nutzer gekommen ist. Die Kits von Meta und TikTok werden nicht gestartet.',
+        },
+        {
+          label: 'Nur wenn Sie Tracking erlauben:',
+          body: 'Nach Ihrer ersten abgeschlossenen Fokussitzung kann die App Apples Altersbereich-Abfrage anzeigen und, nur wenn Sie angeben, 18 Jahre oder älter zu sein, Apples Abfrage „Tracking erlauben“. Wenn Sie Tracking erlauben, werden die unten aufgeführten In-App-Momente zusätzlich an Meta, TikTok und Google Ads gesendet, zusammen mit der Werbe-ID (IDFA), zufälligen Kennungen, die die Kits oder das System für diese App erstellen (z. B. die Kennung für Anbieter), und grundlegenden Geräteinformationen (z. B. Modell, OS-Version, Sprache, Zeitzone und IP-Adresse), damit diese sie Ihren Interaktionen mit unseren Anzeigen zuordnen können. Sie können Ihre Wahl jederzeit in den iOS-Einstellungen → Datenschutz & Sicherheit → Tracking ändern; die App funktioniert in beiden Fällen gleich.',
+        },
+        {
+          label: 'Die In-App-Momente:',
+          body: 'Dass die App geöffnet wurde, dass das Onboarding abgeschlossen wurde, dass der Pro-Bildschirm angezeigt wurde (und von welchem Bildschirm aus), dass die erste Fokussitzung abgeschlossen wurde und dass eine kostenlose Testphase, ein Abonnement oder ein Lifetime-Kauf gestartet wurde (der Plan, sein Preis und seine Währung sowie die App-Store-Transaktionsnummer).',
+        },
+        {
+          label: 'Was nie gesendet wird:',
+          body: 'Ihre E-Mail-Adresse, Ihr Name, Ihre Konto-ID, Ihr Fokusverlauf, Tag-Namen, Notizen oder Ihre Focus-Protection-Auswahl. Die Personalisierung von Werbung ist immer deaktiviert.',
+        },
+        {
+          label: 'Wo die Messung deaktiviert ist:',
+          body: 'Bei Personen, die ein Alter unter 18 Jahren angeben, bei über TestFlight oder App Review installierten Builds sowie bei App-Store-Konten aus dem Europäischen Wirtschaftsraum, dem Vereinigten Königreich und der Schweiz.',
+        },
+      ],
+      learnMore: 'Mehr erfahren:',
+      googleLinkLabel: 'Wie Google Informationen aus Apps verwendet, die Google-Dienste nutzen',
+      metaLinkLabel: 'Meta-Datenschutzrichtlinie',
+      tiktokLinkLabel: 'TikTok-Datenschutzrichtlinie',
+    },
     appStoreUpdates: {
       title: 'App-Store-Updates',
       body: 'Wenn Sie in den Einstellungen „Nach Updates suchen“ nutzen, kann die App Apple kontaktieren, um zu prüfen, ob im App Store eine neuere Version verfügbar ist.',
@@ -491,7 +522,8 @@ export const deMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: 'Was wir nicht tun',
       items: [
-        'Keine Werbenetzwerke',
+        'Keine Werbung in der App',
+        'Keine Weitergabe Ihres Kontos, Ihrer E-Mail-Adresse oder Ihrer Fokusdaten an Werbeplattformen',
         'Kein Verkauf personenbezogener Daten',
         'Kein Zugriff auf Kontakte, Fotos, präzisen Standort, Kamera oder Mikrofon für Analysen',
         'Keine Erhebung oder kein Upload von Screen-Time-Nutzungsdetails über die undurchsichtigen Token hinaus, die Apple für Focus Protection auf Ihrem Gerät bereitstellt',
@@ -499,7 +531,7 @@ export const deMessages: PulseMessages = {
     },
     children: {
       title: 'Kinder',
-      body: `${PULSE_APP_NAME} erhebt wissentlich keine personenbezogenen Daten von Kindern über das hinaus, was ein Konto zur Synchronisierung braucht, wie oben beschrieben. Analysesignale sind anonym und enthalten keine persönlichen Inhalte.`,
+      body: `${PULSE_APP_NAME} erhebt wissentlich keine personenbezogenen Daten von Kindern über das hinaus, was ein Konto zur Synchronisierung braucht, wie oben beschrieben. Analysesignale sind anonym und enthalten keine persönlichen Inhalte. Personen, die über Apples Altersbereich-Abfrage ein Alter unter 18 Jahren angeben, werden nie für Werbezwecke gemessen, und die Abfrage „Tracking erlauben“ wird nur Personen angezeigt, die angeben, 18 Jahre oder älter zu sein.`,
     },
     privacyRights: {
       title: 'Ihre Datenschutzrechte (einschließlich DSGVO/GDPR und KVKK)',

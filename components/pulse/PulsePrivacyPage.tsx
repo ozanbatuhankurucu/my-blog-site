@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Link from 'next/link'
 import { LuArrowLeft } from 'react-icons/lu'
 import { PulseLocaleSwitcher } from '../PulseLocaleSwitcher'
@@ -16,6 +17,17 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
   const pulsePath = getPulseAppPath(locale)
   const localeConfig = PULSE_LOCALE_CONFIG[locale]
   const isRtl = localeConfig.dir === 'rtl'
+  const advertisingLinks = [
+    {
+      href: 'https://policies.google.com/technologies/partner-sites',
+      label: messages.advertising.googleLinkLabel,
+    },
+    { href: 'https://www.facebook.com/privacy/policy/', label: messages.advertising.metaLinkLabel },
+    {
+      href: 'https://www.tiktok.com/legal/page/global/privacy-policy/en',
+      label: messages.advertising.tiktokLinkLabel,
+    },
+  ]
 
   return (
     <article
@@ -167,6 +179,33 @@ export function PulsePrivacyPage({ locale }: PulsePrivacyPageProps) {
               {messages.analytics.faqLabel}
             </a>
             .
+          </p>
+        </section>
+
+        <section>
+          <h2 className='font-mono text-xl font-medium text-text-primary mb-4'>{messages.advertising.title}</h2>
+          <p className='mb-4'>{messages.advertising.intro}</p>
+          <ul className='list-disc list-inside space-y-2 mb-4'>
+            {messages.advertising.items.map((item) => (
+              <li key={item.label}>
+                <strong className='font-medium text-text-primary'>{item.label}</strong> {item.body}
+              </li>
+            ))}
+          </ul>
+          <p>
+            {messages.advertising.learnMore}{' '}
+            {advertisingLinks.map((link, index) => (
+              <Fragment key={link.href}>
+                {index > 0 && ' · '}
+                <a
+                  href={link.href}
+                  className='text-accent hover:text-accent-hover transition-colors'
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  {link.label}
+                </a>
+              </Fragment>
+            ))}
           </p>
         </section>
 

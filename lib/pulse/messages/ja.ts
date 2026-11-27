@@ -126,7 +126,7 @@ export const jaMessages: PulseMessages = {
         'AppleまたはGoogleでサインイン',
         '各デバイスでのオフライン優先フォーカス',
         '履歴と同期設定のクラウド同期',
-        '広告ネットワークなし',
+        'アプリ内広告なし',
         '設定からいつでもアカウントを削除',
       ],
     },
@@ -404,13 +404,13 @@ export const jaMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} プライバシーポリシー`,
-    metaDescription: `${PULSE_APP_NAME}のプライバシーポリシー。AppleおよびGoogleでのサインイン、クラウド同期、RevenueCat経由のPomodoro Pro購入、Focus Protection、分析、アカウント削除、MacとiPhoneでのプライバシー権を扱います。`,
+    metaDescription: `${PULSE_APP_NAME}のプライバシーポリシー。AppleおよびGoogleでのサインイン、クラウド同期、RevenueCat経由のPomodoro Pro購入、Focus Protection、分析、広告効果の測定、アカウント削除、MacとiPhoneでのプライバシー権を扱います。`,
     title: 'プライバシーポリシー',
     subtitle: `${PULSE_APP_NAME} — MacとiPhone向けPomodoroタイマー`,
-    lastUpdated: '最終更新日: 2026年11月9日',
+    lastUpdated: '最終更新日: 2026年11月28日',
     summary: {
       title: '概要',
-      body: `AppleまたはGoogleでサインインすると、アカウントがフォーカス履歴、日次目標、タイマー設定をMacとiPhone間で同期します。そのために必要なものだけを保存します。メールアドレス、アカウント識別子、作成したフォーカスデータです。販売せず、広告にも使わず、分析プロバイダとも共有しません。iPhoneでPomodoro Proを購入した場合 — 月額、年額、Limited Annual、Lifetime、または対象の無料トライアルを含む — 購入プロバイダのRevenueCatが購入と権利の履歴をアカウントに紐づけ、サインインしたすべてのデバイスでProが使えるようにします。Focus Protectionのアプリ選択はiPhoneから外に出ません。設定からいつでもデータを書き出したりアカウントを削除したりできます。別途、アプリは集中フロー改善のため、匿名でプライバシーに配慮した利用分析を送信する場合があります。`,
+      body: `AppleまたはGoogleでサインインすると、アカウントがフォーカス履歴、日次目標、タイマー設定をMacとiPhone間で同期します。そのために必要なものだけを保存します。メールアドレス、アカウント識別子、作成したフォーカスデータです。販売せず、広告にも使わず、分析プロバイダや広告プラットフォームとも共有しません。iPhoneでPomodoro Proを購入した場合 — 月額、年額、Limited Annual、Lifetime、または対象の無料トライアルを含む — 購入プロバイダのRevenueCatが購入と権利の履歴をアカウントに紐づけ、サインインしたすべてのデバイスでProが使えるようにします。Focus Protectionのアプリ選択はiPhoneから外に出ません。設定からいつでもデータを書き出したりアカウントを削除したりできます。別途、アプリは集中フロー改善のため、匿名でプライバシーに配慮した利用分析を送信する場合があります。また、iPhoneでは当社自身の広告がインストールにつながったかを測定します。すべてのユーザーについてはAppleを通じて匿名で行い、より詳しい測定は成人でトラッキングを許可した場合にのみ行います（下記の「広告効果の測定」を参照）。`,
     },
     localData: {
       title: 'デバイスに保存されるデータ',
@@ -476,6 +476,37 @@ export const jaMessages: PulseMessages = {
       learnMore: '詳細:',
       faqLabel: 'TelemetryDeck プライバシーFAQ',
     },
+    advertising: {
+      title: '広告効果の測定（iPhone）',
+      intro:
+        'PomodoroはGoogle、Instagram、TikTokで広告を出しています。アプリは広告を表示しません。iPhoneアプリには、Google（Google Analytics for Firebase）、Meta、TikTokの公式計測キットが含まれており、それらの広告がアプリのインストールや利用につながったかを把握できるようにしています。',
+      items: [
+        {
+          label: 'すべてのユーザー（トラッキングなし）:',
+          body: 'Google Analytics for Firebaseは、下記のアプリ内の出来事を、広告関連の同意をすべてオフにした状態で記録します。そのため、データが広告に使われたり、MetaやTikTokと共有されたりすることはありません。行うのはAppleのSKAdNetworkコンバージョン値の設定のみで、その後Appleが、広告がインストールにつながったか、新しいユーザーがどこまで進んだかを、匿名かつ遅れて広告ネットワークに伝えます。MetaとTikTokのキットは起動されません。',
+        },
+        {
+          label: 'トラッキングを許可した場合のみ:',
+          body: '最初のフォーカスセッションを完了した後、アプリはAppleの年齢層シートを表示することがあり、18歳以上であると共有した場合にのみ、Appleの「トラッキングを許可」プロンプトを表示します。トラッキングを許可すると、下記のアプリ内の出来事が、広告識別子（IDFA）、キットまたはシステムがこのアプリ用に作成するランダムな識別子（ベンダー識別子など）、基本的なデバイス情報（モデル、OSバージョン、言語、タイムゾーン、IPアドレスなど）とともにMeta、TikTok、Google Adsにも送信され、当社の広告に対する操作と照合されます。選択はiOSの設定 → プライバシーとセキュリティ → トラッキングでいつでも変更できます。どちらを選んでもアプリは同じように動作します。',
+        },
+        {
+          label: 'アプリ内の出来事:',
+          body: 'アプリが開かれたこと、オンボーディングが完了したこと、Pro画面が表示されたこと（およびどの画面から表示されたか）、最初のフォーカスセッションが完了したこと、無料トライアル、サブスクリプション、またはLifetimeの購入が開始されたこと（プラン、価格と通貨、App Storeのトランザクション番号）。',
+        },
+        {
+          label: '送信されないもの:',
+          body: 'メールアドレス、氏名、アカウントID、フォーカス履歴、タグ名、メモ、Focus Protectionの選択内容。広告のパーソナライズは常にオフです。',
+        },
+        {
+          label: '測定を行わない対象:',
+          body: '18歳未満の年齢を共有した方、TestFlightまたはApp Review経由でインストールされたビルド、欧州経済領域、英国、スイスのApp Storeアカウント。',
+        },
+      ],
+      learnMore: '詳細:',
+      googleLinkLabel: 'Googleのサービスを使用するアプリから収集した情報のGoogleによる使用',
+      metaLinkLabel: 'Metaプライバシーポリシー',
+      tiktokLinkLabel: 'TikTokプライバシーポリシー',
+    },
     appStoreUpdates: {
       title: 'App Storeのアップデート',
       body: '設定で「アップデートを確認」を使うと、App Storeに新しいバージョンがあるか確認するため、アプリがAppleに問い合わせることがあります。',
@@ -491,7 +522,8 @@ export const jaMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: '行わないこと',
       items: [
-        '広告ネットワークなし',
+        'アプリ内広告なし',
+        'アカウント、メール、フォーカスデータの広告プラットフォームとの共有なし',
         '個人情報の販売なし',
         '分析のための連絡先、写真、精密な位置情報、カメラ、マイクへのアクセスなし',
         'デバイス上のFocus Protection向けにAppleが提供する不透明トークンを超えるScreen Time利用詳細の収集やアップロードなし',
@@ -499,7 +531,7 @@ export const jaMessages: PulseMessages = {
     },
     children: {
       title: '子ども',
-      body: `${PULSE_APP_NAME}は、上記のとおりアカウントの同期に必要な範囲を超えて、子どもから故意に個人情報を収集しません。分析信号は匿名で、個人的な内容を含みません。`,
+      body: `${PULSE_APP_NAME}は、上記のとおりアカウントの同期に必要な範囲を超えて、子どもから故意に個人情報を収集しません。分析信号は匿名で、個人的な内容を含みません。Appleの年齢層シートで18歳未満であると共有した方が広告の測定対象になることはなく、「トラッキングを許可」プロンプトは18歳以上であると共有した方にのみ表示されます。`,
     },
     privacyRights: {
       title: 'プライバシーに関する権利（GDPRおよびKVKKを含む）',

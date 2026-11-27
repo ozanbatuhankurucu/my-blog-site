@@ -126,7 +126,7 @@ export const koMessages: PulseMessages = {
         'Apple 또는 Google로 로그인',
         '각 기기의 오프라인 우선 포커스',
         '기록 및 동기화 환경설정의 클라우드 동기화',
-        '광고 네트워크 없음',
+        '앱 내 광고 없음',
         '설정에서 언제든지 계정 삭제',
       ],
     },
@@ -404,13 +404,13 @@ export const koMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} 개인정보 처리방침`,
-    metaDescription: `${PULSE_APP_NAME} 개인정보 처리방침. Apple 및 Google 로그인, 클라우드 동기화, RevenueCat을 통한 Pomodoro Pro 구매, Focus Protection, 분석, 계정 삭제, Mac과 iPhone의 개인정보 권리를 다룹니다.`,
+    metaDescription: `${PULSE_APP_NAME} 개인정보 처리방침. Apple 및 Google 로그인, 클라우드 동기화, RevenueCat을 통한 Pomodoro Pro 구매, Focus Protection, 분석, 광고 성과 측정, 계정 삭제, Mac과 iPhone의 개인정보 권리를 다룹니다.`,
     title: '개인정보 처리방침',
     subtitle: `${PULSE_APP_NAME} — Mac과 iPhone용 포모도로 타이머`,
-    lastUpdated: '최종 업데이트: 2026년 11월 9일',
+    lastUpdated: '최종 업데이트: 2026년 11월 28일',
     summary: {
       title: '요약',
-      body: `Apple 또는 Google로 로그인하면 계정이 포커스 기록, 일일 목표, 타이머 설정을 Mac과 iPhone 간에 동기화합니다. 그에 필요한 것만 저장합니다. 이메일 주소, 계정 식별자, 여러분이 만든 포커스 데이터입니다. 판매하지 않고, 광고에 사용하지 않으며, 분석 제공자와도 공유하지 않습니다. iPhone에서 Pomodoro Pro를 구매하면 — 월간, 연간, Limited Annual, Lifetime 또는 자격 있는 무료 체험 포함 — 구매 제공자 RevenueCat이 구매 및 권한 기록을 계정에 연결하여 로그인한 모든 기기에서 Pro가 작동하게 합니다. Focus Protection의 앱 선택은 iPhone을 떠나지 않습니다. 설정에서 언제든지 데이터를 내보내거나 계정을 삭제할 수 있습니다. 별도로 앱은 집중 흐름 개선을 위해 익명이고 프라이버시를 보호하는 사용 분석을 보낼 수 있습니다.`,
+      body: `Apple 또는 Google로 로그인하면 계정이 포커스 기록, 일일 목표, 타이머 설정을 Mac과 iPhone 간에 동기화합니다. 그에 필요한 것만 저장합니다. 이메일 주소, 계정 식별자, 여러분이 만든 포커스 데이터입니다. 판매하지 않고, 광고에 사용하지 않으며, 분석 제공자나 광고 플랫폼과도 공유하지 않습니다. iPhone에서 Pomodoro Pro를 구매하면 — 월간, 연간, Limited Annual, Lifetime 또는 자격 있는 무료 체험 포함 — 구매 제공자 RevenueCat이 구매 및 권한 기록을 계정에 연결하여 로그인한 모든 기기에서 Pro가 작동하게 합니다. Focus Protection의 앱 선택은 iPhone을 떠나지 않습니다. 설정에서 언제든지 데이터를 내보내거나 계정을 삭제할 수 있습니다. 별도로 앱은 집중 흐름 개선을 위해 익명이고 프라이버시를 보호하는 사용 분석을 보낼 수 있으며, iPhone에서는 당사 광고가 설치로 이어지는지 측정합니다. 모든 사용자에 대해서는 Apple을 통해 익명으로 측정하고, 더 자세한 측정은 성인이며 추적을 허용한 경우에만 이루어집니다(아래 광고 성과 측정 참조).`,
     },
     localData: {
       title: '기기에 저장되는 데이터',
@@ -476,6 +476,37 @@ export const koMessages: PulseMessages = {
       learnMore: '자세히 알아보기:',
       faqLabel: 'TelemetryDeck 개인정보 FAQ',
     },
+    advertising: {
+      title: '광고 성과 측정(iPhone)',
+      intro:
+        '당사는 Google, Instagram, TikTok에서 Pomodoro를 광고합니다. 앱은 광고를 표시하지 않습니다. iPhone 앱에는 Google(Google Analytics for Firebase), Meta, TikTok의 공식 측정 키트가 포함되어 있어, 이러한 광고가 앱 설치와 사용으로 이어지는지 알 수 있습니다.',
+      items: [
+        {
+          label: '모든 사용자(추적 없음):',
+          body: 'Google Analytics for Firebase는 아래에 나열된 앱 내 이벤트를 모든 광고 동의를 끈 상태로 기록하므로, 데이터는 광고에 사용되지 않으며 Meta나 TikTok과 공유되지 않습니다. Apple의 SKAdNetwork 전환 값만 설정하며, 이후 Apple이 광고가 설치로 이어졌는지와 새 사용자가 어디까지 진행했는지를 익명으로, 시간을 두고 광고 네트워크에 알립니다. Meta와 TikTok의 키트는 시작되지 않습니다.',
+        },
+        {
+          label: '추적을 허용한 경우에만:',
+          body: '첫 포커스 세션을 완료한 후 앱은 Apple의 연령대 시트를 표시할 수 있으며, 18세 이상임을 공유한 경우에만 Apple의 “추적 허용” 요청을 표시합니다. 추적을 허용하면 아래의 앱 내 이벤트가 광고 식별자(IDFA), 키트나 시스템이 이 앱용으로 만든 임의 식별자(공급업체 식별자 등), 기본 기기 정보(모델, OS 버전, 언어, 시간대, IP 주소 등)와 함께 Meta, TikTok, Google Ads에도 전송되어, 이들이 당사 광고와의 상호작용과 연결할 수 있습니다. 선택은 언제든지 iOS 설정 → 개인정보 보호 및 보안 → 추적에서 변경할 수 있으며, 어느 쪽이든 앱은 동일하게 작동합니다.',
+        },
+        {
+          label: '앱 내 이벤트:',
+          body: '앱이 열렸다는 사실, 온보딩 완료, Pro 화면 표시(및 어느 화면에서 표시되었는지), 첫 포커스 세션 완료, 무료 체험, 구독 또는 Lifetime 구매 시작(플랜, 가격과 통화, App Store 거래 번호).',
+        },
+        {
+          label: '절대 전송되지 않는 정보:',
+          body: '이메일 주소, 이름, 계정 ID, 포커스 기록, 태그 이름, 메모, Focus Protection 선택. 광고 개인화는 항상 꺼져 있습니다.',
+        },
+        {
+          label: '측정이 꺼지는 경우:',
+          body: '18세 미만 연령을 공유한 사람, TestFlight 또는 App Review를 통해 설치된 빌드, 유럽 경제 지역, 영국, 스위스의 App Store 계정.',
+        },
+      ],
+      learnMore: '자세히 알아보기:',
+      googleLinkLabel: 'Google 서비스를 사용하는 앱의 정보를 Google이 사용하는 방법',
+      metaLinkLabel: 'Meta 개인정보 처리방침',
+      tiktokLinkLabel: 'TikTok 개인정보 처리방침',
+    },
     appStoreUpdates: {
       title: 'App Store 업데이트',
       body: '설정에서 “업데이트 확인”을 사용하면 앱이 App Store에 새 버전이 있는지 확인하기 위해 Apple에 연락할 수 있습니다.',
@@ -491,7 +522,8 @@ export const koMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: '하지 않는 것',
       items: [
-        '광고 네트워크 없음',
+        '앱 내 광고 없음',
+        '광고 플랫폼과의 계정, 이메일, 포커스 데이터 공유 없음',
         '개인정보 판매 없음',
         '분석을 위한 연락처, 사진, 정밀 위치, 카메라, 마이크 접근 없음',
         '기기의 Focus Protection을 위해 Apple이 제공하는 불투명 토큰을 넘는 Screen Time 사용 세부 정보의 수집 또는 업로드 없음',
@@ -499,7 +531,7 @@ export const koMessages: PulseMessages = {
     },
     children: {
       title: '아동',
-      body: `${PULSE_APP_NAME}는 위에 설명된 대로 계정 동기화에 필요한 범위를 넘어 아동으로부터 고의로 개인정보를 수집하지 않습니다. 분석 신호는 익명이며 개인 내용을 포함하지 않습니다.`,
+      body: `${PULSE_APP_NAME}는 위에 설명된 대로 계정 동기화에 필요한 범위를 넘어 아동으로부터 고의로 개인정보를 수집하지 않습니다. 분석 신호는 익명이며 개인 내용을 포함하지 않습니다. Apple의 연령대 시트를 통해 18세 미만 연령을 공유한 사람은 광고 측정 대상이 되지 않으며, “추적 허용” 요청은 18세 이상임을 공유한 사람에게만 표시됩니다.`,
     },
     privacyRights: {
       title: '개인정보 권리(GDPR 및 KVKK 포함)',

@@ -126,7 +126,7 @@ export const enMessages: PulseMessages = {
         'Sign in with Apple or Google',
         'Offline-first focus on each device',
         'Cloud sync for history and synced preferences',
-        'No advertising networks',
+        'No ads in the app',
         'Delete your account anytime in Settings',
       ],
     },
@@ -404,13 +404,13 @@ export const enMessages: PulseMessages = {
   },
   privacy: {
     metaTitle: `${PULSE_APP_NAME} Privacy Policy`,
-    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, Pomodoro Pro purchases via RevenueCat, Focus Protection, analytics, account deletion, and privacy rights on Mac and iPhone.`,
+    metaDescription: `Privacy policy for ${PULSE_APP_NAME}, covering Apple and Google sign-in, cloud sync, Pomodoro Pro purchases via RevenueCat, Focus Protection, analytics, advertising measurement, account deletion, and privacy rights on Mac and iPhone.`,
     title: 'Privacy Policy',
     subtitle: `${PULSE_APP_NAME} — Pomodoro timer for Mac and iPhone`,
-    lastUpdated: 'Last updated: 9 November 2026',
+    lastUpdated: 'Last updated: 28 November 2026',
     summary: {
       title: 'Summary',
-      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider. If you buy Pomodoro Pro on iPhone — including Monthly, Annual, Limited Annual, Lifetime, or an eligible free trial — our purchase provider RevenueCat keeps your purchase and entitlement history linked to your account so Pro works on every device you sign in on. Focus Protection’s app choices never leave your iPhone. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows.`,
+      body: `When you sign in with Apple or Google, your account keeps your focus history, daily goals, and timer settings in sync between your Mac and iPhone. We store only what the app needs for that: your email address, an account identifier, and the focus data you create. We never sell it, never use it for advertising, and never share it with our analytics provider or with advertising platforms. If you buy Pomodoro Pro on iPhone — including Monthly, Annual, Limited Annual, Lifetime, or an eligible free trial — our purchase provider RevenueCat keeps your purchase and entitlement history linked to your account so Pro works on every device you sign in on. Focus Protection’s app choices never leave your iPhone. You can export your data or delete your account at any time from Settings. Separately, the app may send anonymous, privacy-preserving usage analytics so we can improve focus flows, and on iPhone it measures whether our own ads lead to installs: anonymously through Apple for everyone, and in more detail only if you are an adult and allow tracking (see Advertising measurement below).`,
     },
     localData: {
       title: 'Data stored on your device',
@@ -476,6 +476,37 @@ export const enMessages: PulseMessages = {
       learnMore: 'Learn more:',
       faqLabel: 'TelemetryDeck Privacy FAQ',
     },
+    advertising: {
+      title: 'Advertising measurement (iPhone)',
+      intro:
+        'We advertise Pomodoro on Google, Instagram and TikTok. The app does not show ads. The iPhone app includes the official measurement kits of Google (Google Analytics for Firebase), Meta and TikTok so we can tell whether those ads lead to people installing and using the app.',
+      items: [
+        {
+          label: 'For everyone (no tracking):',
+          body: 'Google Analytics for Firebase records the in-app moments listed below with every advertising consent turned off, so the data is not used for ads or shared with Meta or TikTok. It only sets Apple’s SKAdNetwork conversion value; Apple then tells the ad network, anonymously and with a delay, whether an ad led to an install and how far the new user got. Meta’s and TikTok’s kits are not started.',
+        },
+        {
+          label: 'Only if you allow tracking:',
+          body: 'After your first completed focus session, the app may show Apple’s age range sheet and, only if you share that you are 18 or older, Apple’s “Allow to track” prompt. If you allow tracking, the in-app moments below are also sent to Meta, TikTok and Google Ads with the Identifier for Advertisers (IDFA), random identifiers created by the kits or the system for this app (such as the identifier for vendor) and basic device information (such as model, OS version, language, time zone and IP address), so they can match them to your interactions with our ads. You can change your choice at any time in iOS Settings → Privacy & Security → Tracking; the app works the same either way.',
+        },
+        {
+          label: 'The in-app moments:',
+          body: 'That the app was opened, that onboarding finished, that the Pro screen was shown (and from which screen), that the first focus session was completed, and that a free trial, subscription or Lifetime purchase started (the plan, its price and currency, and the App Store transaction number).',
+        },
+        {
+          label: 'What is never sent:',
+          body: 'Your email address, name, account ID, focus history, tag names, notes or Focus Protection choices. Ad personalization is always turned off.',
+        },
+        {
+          label: 'Where measurement is off:',
+          body: 'People who share an age under 18, builds installed through TestFlight or App Review, and App Store accounts from the European Economic Area, the United Kingdom and Switzerland.',
+        },
+      ],
+      learnMore: 'Learn more:',
+      googleLinkLabel: 'How Google uses information from apps that use its services',
+      metaLinkLabel: 'Meta Privacy Policy',
+      tiktokLinkLabel: 'TikTok Privacy Policy',
+    },
     appStoreUpdates: {
       title: 'App Store updates',
       body: 'If you use “Check for Updates” in Settings, the app may contact Apple to see whether a newer version is available on the App Store.',
@@ -491,7 +522,8 @@ export const enMessages: PulseMessages = {
     whatWeDoNotDo: {
       title: 'What we do not do',
       items: [
-        'No advertising networks',
+        'No ads in the app',
+        'No sharing of your account, email, or focus data with advertising platforms',
         'No sale of personal information',
         'No access to your contacts, photos, precise location, camera, or microphone for analytics',
         'No collection or upload of Screen Time usage details beyond the opaque tokens Apple provides for Focus Protection on your device',
@@ -499,7 +531,7 @@ export const enMessages: PulseMessages = {
     },
     children: {
       title: 'Children',
-      body: `${PULSE_APP_NAME} does not knowingly collect personal information from children beyond what an account needs to sync, as described above. Analytics signals are anonymous and do not include personal content.`,
+      body: `${PULSE_APP_NAME} does not knowingly collect personal information from children beyond what an account needs to sync, as described above. Analytics signals are anonymous and do not include personal content. People who share an age under 18 through Apple’s age range sheet are never measured for advertising, and the “Allow to track” prompt is only shown to people who share that they are 18 or older.`,
     },
     privacyRights: {
       title: 'Your privacy rights (including GDPR and KVKK)',
